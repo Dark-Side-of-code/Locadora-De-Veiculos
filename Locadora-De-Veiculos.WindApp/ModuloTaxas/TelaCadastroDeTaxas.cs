@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Locadora_De_Veiculos.WindApp.GrupoDeVeiculos
+namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
 {
-    public partial class UserControl1 : UserControl
+    public partial class TelaCadastroDeTaxas : UserControl
     {
-        public UserControl1()
+        public TelaCadastroDeTaxas()
         {
             InitializeComponent();
         }
