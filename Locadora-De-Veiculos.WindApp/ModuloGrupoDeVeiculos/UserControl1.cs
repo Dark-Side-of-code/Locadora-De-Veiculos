@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Locadora_De_Veiculos.WindApp
+namespace Locadora_De_Veiculos.WindApp.GrupoDeVeiculos
 {
-    public partial class Form1 : Form
+    public partial class UserControl1 : UserControl
     {
-        public Form1()
+        public UserControl1()
         {
             InitializeComponent();
         }
-
     }
 }
