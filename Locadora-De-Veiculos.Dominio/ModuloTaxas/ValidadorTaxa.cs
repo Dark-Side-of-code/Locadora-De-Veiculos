@@ -1,12 +1,35 @@
-﻿using System;
+﻿using FluentValidation;
+using FluentValidation.Results;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Dominio.ModuloTaxas
 {
-    internal class ValidadorTaxa
+    public class ValidadorTaxa : AbstractValidator<Taxa>
     {
+        public ValidadorTaxa()
+        {
+            RuleFor(x => x.Nome).NotNull().NotEmpty().MinimumLength(2);
+            RuleFor(x => x.Descricao).NotNull().NotEmpty().MinimumLength(2);
+            RuleFor(x => x.TipoDeCobraca).NotNull().NotEmpty().MinimumLength(2);
+            RuleFor(x => x.Valor).NotNull().NotEmpty();
+            // RuleFor(x => x.Nome).Custom(TaxaComValoresDuplicados);
+        }
+
+        private void TaxaComValoresDuplicados(List<Taxa> alternativas, ValidationContext<Taxa> ctx)
+        {
+            var array = alternativas.Select(a => a.Nome);
+
+            var dict = new Dictionary<string, int>();
+
+            foreach (var value in array)
+            {
+                dict.TryGetValue(value, out int count);
+                dict[value] = count + 1;
+            }
+
+            if (dict.Values.Any(x => x > 1))
+                ctx.AddFailure(new ValidationFailure("Alternativas", "Respostas iguais foram informadas nas alternativas"));
+        }
     }
 }
