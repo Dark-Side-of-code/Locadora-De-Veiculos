@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Locadora_De_Veiculos.Dominio.Compartilhado;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,42 @@ using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Dominio.ModuloCliente
 {
-    internal class Cliente
+    public class Cliente : EntidadeBase<Cliente>
     {
+        public Cliente()
+        {
+
+        }
+        public Cliente(string nome, string cpf_cnpj, string cnh, DateTime validade_CNH, string tipo_Cliente, string email, string telefone) : this()
+        {
+            Nome = nome;
+            CPF_CNPJ = cpf_cnpj;
+            CNH = cnh;
+            Validade_CNH = validade_CNH;
+            Tipo_Cliente = tipo_Cliente;
+            Email = email;
+            Telefone = telefone;
+        }
+
+        public string Nome { get; set; }
+        public string CPF_CNPJ { get; set; }
+        public string CNH { get; set; }
+        public DateTime Validade_CNH { get; set; }
+        public string Tipo_Cliente { get; set; }
+        public string Email { get; set; }
+        public string Telefone { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Cliente cliente &&
+                   Id == cliente.Id &&
+                   Nome == cliente.Nome &&
+                   CPF_CNPJ == cliente.CPF_CNPJ &&
+                   CNH == cliente.CNH &&
+                   Validade_CNH == cliente.Validade_CNH &&
+                   Tipo_Cliente == cliente.Tipo_Cliente &&
+                   Email == cliente.Email &&
+                   Telefone == cliente.Telefone;
+        }
     }
 }
