@@ -13,4 +13,9 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Locadora-De-Veiculos.Dominio\Locadora-De-Veiculos.Dominio.csproj" />
+    <ProjectReference Include="..\Locadora-De-Veiculos.Infra.Banco\Locadora-De-Veiculos.Infra.Banco.csproj" />
+  </ItemGroup>
+
 </Project>

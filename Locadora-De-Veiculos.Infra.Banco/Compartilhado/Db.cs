@@ -5,7 +5,9 @@ namespace Locadora_De_Veiculos.Infra.Banco.Compartilhado
     public static class Db
     {
         private static string enderecoBanco =
-            @"";
+            @"Data Source=(LOCALDB)\MSSQLLOCALDB;
+              Initial Catalog=Locadora-De-Veiculos;
+              Integrated Security=True";
 
         public static void ExecutarSql(string sql)
         {
