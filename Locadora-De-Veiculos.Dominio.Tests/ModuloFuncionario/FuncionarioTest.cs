@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Dominio.Tests.ModuloFuncionario
 {
-    internal class FuncionarioTest
+    [TestClass]
+    public class FuncionarioTest
     {
+       
+
     }
 }
