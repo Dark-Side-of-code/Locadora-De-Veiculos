@@ -9,12 +9,12 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
 {
     public class ConfiguracaoTollboxTaxa : ConfiguracaoToolboxBase
     {
-        public override string TipoCadastro => "Cadastro de Disciplinas";
+        public override string TipoCadastro => "Cadastro de Taxas";
 
-        public override string TooltipInserir => "Inserir nova Disciplina";
+        public override string TooltipInserir => "Inserir nova Taxa";
 
-        public override string TooltipEditar => "Editar uma Disciplina existente";
+        public override string TooltipEditar => "Editar uma Taxa existente";
 
-        public override string TooltipExcluir => "Excluir uma Disciplina existente";
+        public override string TooltipExcluir => "Excluir uma Taxa existente";
     }
 }

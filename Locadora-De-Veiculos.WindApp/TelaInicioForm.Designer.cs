@@ -89,6 +89,7 @@
             this.ClientesMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
             this.ClientesMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ClientesMenuItem.Text = "Clientes";
+            this.ClientesMenuItem.Click += new System.EventHandler(this.ClientesMenuItem_Click);
             // 
             // FuncionarioMenuItem
             // 
@@ -96,6 +97,7 @@
             this.FuncionarioMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
             this.FuncionarioMenuItem.Size = new System.Drawing.Size(180, 22);
             this.FuncionarioMenuItem.Text = "Funcionários";
+            this.FuncionarioMenuItem.Click += new System.EventHandler(this.FuncionarioMenuItem_Click);
             // 
             // CatergoriasMenuItem
             // 
@@ -103,6 +105,7 @@
             this.CatergoriasMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
             this.CatergoriasMenuItem.Size = new System.Drawing.Size(180, 22);
             this.CatergoriasMenuItem.Text = "Catergorias";
+            this.CatergoriasMenuItem.Click += new System.EventHandler(this.CatergoriasMenuItem_Click);
             // 
             // statusStrip1
             // 
