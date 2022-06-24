@@ -1,6 +1,8 @@
 ﻿using Locadora_De_Veiculos.Dominio.ModuloTaxas;
+using Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario;
 using Locadora_De_Veiculos.Infra.Banco.ModuloTaxas;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
+using Locadora_De_Veiculos.WindApp.ModuloFuncionario;
 using Locadora_De_Veiculos.WindApp.ModuloTaxas;
 using System;
 using System.Collections.Generic;
@@ -125,10 +127,11 @@ namespace Locadora_De_Veiculos.WindApp
             controladores = new Dictionary<string, ControladorBase>();
 
             controladores.Add("Taxas", new ControladorTaxa(repositorioTaxa));
-            //controladores.Add("Funcionários", new ControladorFuncionario(repositorioFuncionario));
+            //controladores.Add("Funcionários", new ControladorDeFuncionario(repositorioFuncionario));
             //controladores.Add("Clientes", new ControladorCliente(repositorioCliente));
             //controladores.Add("Categorias", new ControladorCategoria(repositorioCategoria));
         }
 
+       
     }
 }
