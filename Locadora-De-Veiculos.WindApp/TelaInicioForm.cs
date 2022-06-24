@@ -1,6 +1,8 @@
 ﻿using Locadora_De_Veiculos.Dominio.ModuloTaxas;
+using Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos;
 using Locadora_De_Veiculos.Infra.Banco.ModuloTaxas;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
+using Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos;
 using Locadora_De_Veiculos.WindApp.ModuloTaxas;
 using System;
 using System.Collections.Generic;
@@ -120,15 +122,29 @@ namespace Locadora_De_Veiculos.WindApp
             RepositorioTaxaEmBancoDados repositorioTaxa = new RepositorioTaxaEmBancoDados();
             //RepositorioFuncionarioEmBancoDados repositorioFuncionario = new RepositorioFuncionarioEmBancoDados();
             //RepositorioClienteEmBancoDados repositorioCliente = new RepositorioClienteEmBancoDados();
-            //RepositorioCategoriaEmBancoDados repositorioCategoria = new RepositorioCategoriaEmBancoDados();
+            RepositorioCategoriaDeVeiculosEmBancoDados repositorioCategoria = new RepositorioCategoriaDeVeiculosEmBancoDados();
 
             controladores = new Dictionary<string, ControladorBase>();
 
             controladores.Add("Taxas", new ControladorTaxa(repositorioTaxa));
             //controladores.Add("Funcionários", new ControladorFuncionario(repositorioFuncionario));
             //controladores.Add("Clientes", new ControladorCliente(repositorioCliente));
-            //controladores.Add("Categorias", new ControladorCategoria(repositorioCategoria));
+            controladores.Add("Catergorias", new ControladorDeCategoriaDeVeiculo(repositorioCategoria));
         }
 
+        private void ClientesMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
+        }
+
+        private void FuncionarioMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
+        }
+
+        private void CatergoriasMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Locadora_De_Veiculos.WindApp.ModuloGrupoDeVeiculos
 {
-    partial class TelaDeCadastroDeCategoriaDeVeiculo
+    partial class TelaDeCadastroDeCategoriaDeVeiculoForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -35,12 +35,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_Nome = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Indigo;
+            this.button2.BackColor = System.Drawing.Color.Teal;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -54,7 +54,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Indigo;
+            this.button1.BackColor = System.Drawing.Color.Teal;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -65,10 +65,11 @@
             this.button1.TabIndex = 40;
             this.button1.Text = "Cadastarar";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btn_Cadastrar_Click);
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Indigo;
+            this.panel2.BackColor = System.Drawing.Color.Teal;
             this.panel2.Location = new System.Drawing.Point(0, 226);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(482, 10);
@@ -86,7 +87,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Indigo;
+            this.panel1.BackColor = System.Drawing.Color.Teal;
             this.panel1.Location = new System.Drawing.Point(-4, 45);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(482, 30);
@@ -111,18 +112,19 @@
             this.label2.TabIndex = 42;
             this.label2.Text = "Nome:";
             // 
-            // textBox1
+            // txt_Nome
             // 
-            this.textBox1.Location = new System.Drawing.Point(150, 167);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(247, 23);
-            this.textBox1.TabIndex = 43;
+            this.txt_Nome.Location = new System.Drawing.Point(150, 167);
+            this.txt_Nome.Name = "txt_Nome";
+            this.txt_Nome.Size = new System.Drawing.Size(247, 23);
+            this.txt_Nome.TabIndex = 43;
             // 
-            // TelaDeCadastroDeCategoriaDeVeiculo
+            // TelaDeCadastroDeCategoriaDeVeiculoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(478, 317);
+            this.Controls.Add(this.txt_Nome);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -130,8 +132,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Name = "TelaDeCadastroDeCategoriaDeVeiculo";
-            this.Size = new System.Drawing.Size(475, 324);
+            this.Name = "TelaDeCadastroDeCategoriaDeVeiculoForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,6 +147,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_Nome;
     }
 }
