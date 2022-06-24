@@ -41,5 +41,10 @@ namespace Locadora_De_Veiculos.Dominio.ModuloFuncionario
                    DataAdmissao == funcionario.DataAdmissao &&
                    TipoFuncionario == funcionario.TipoFuncionario;
         }
+
+        public Funcionario Clone()
+        {
+            return MemberwiseClone() as Funcionario;
+        }
     }
 }
