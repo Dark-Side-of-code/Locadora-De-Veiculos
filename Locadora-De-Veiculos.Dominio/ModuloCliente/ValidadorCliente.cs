@@ -13,13 +13,16 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCliente
         {
             RuleFor(x => x.Nome)
                 .NotNull()
-                .NotEmpty();
+                .NotEmpty()
+                .MinimumLength(2);
             RuleFor(x => x.CPF_CNPJ)
                 .NotNull()
-                .NotEmpty();
+                .NotEmpty()
+                .MinimumLength(11);
             RuleFor(x => x.CNH)
                 .NotNull()
-                .NotEmpty();
+                .NotEmpty()
+                .MinimumLength(11);
             RuleFor(x => x.Validade_CNH)
                 .NotNull()
                 .NotEmpty();
@@ -28,10 +31,12 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCliente
                 .NotEmpty();
             RuleFor(x => x.Email)
                 .NotNull()
-                .NotEmpty();
+                .NotEmpty()
+                .MinimumLength(5);
             RuleFor(x => x.Telefone)
                 .NotNull()
-                .NotEmpty();
+                .NotEmpty()
+                .MinimumLength(8);
         }
     }
 }
