@@ -31,8 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rb_F = new System.Windows.Forms.RadioButton();
+            this.rb_J = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMask_Cpf_Cnpj = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -81,27 +81,27 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Tipo de Cliente:";
             // 
-            // radioButton1
+            // rb_F
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 14);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(93, 19);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Pessoa Física";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rb_F.AutoSize = true;
+            this.rb_F.Location = new System.Drawing.Point(6, 14);
+            this.rb_F.Name = "rb_F";
+            this.rb_F.Size = new System.Drawing.Size(93, 19);
+            this.rb_F.TabIndex = 3;
+            this.rb_F.TabStop = true;
+            this.rb_F.Text = "Pessoa Física";
+            this.rb_F.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rb_J
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(105, 15);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(104, 19);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Pessoa Juridica";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rb_J.AutoSize = true;
+            this.rb_J.Location = new System.Drawing.Point(105, 15);
+            this.rb_J.Name = "rb_J";
+            this.rb_J.Size = new System.Drawing.Size(104, 19);
+            this.rb_J.TabIndex = 4;
+            this.rb_J.TabStop = true;
+            this.rb_J.Text = "Pessoa Juridica";
+            this.rb_J.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -140,9 +140,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(257, 382);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 15);
+            this.label5.Size = new System.Drawing.Size(57, 15);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Validade";
+            this.label5.Text = "Validade :";
             // 
             // dateTime_Validade_Cnh
             // 
@@ -248,9 +248,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(61, 349);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(43, 15);
+            this.label10.Size = new System.Drawing.Size(46, 15);
             this.label10.TabIndex = 20;
-            this.label10.Text = "Nome ";
+            this.label10.Text = "Nome :";
             // 
             // txt_Nome
             // 
@@ -261,8 +261,8 @@
             // 
             // groupBoxTipoCliente
             // 
-            this.groupBoxTipoCliente.Controls.Add(this.radioButton2);
-            this.groupBoxTipoCliente.Controls.Add(this.radioButton1);
+            this.groupBoxTipoCliente.Controls.Add(this.rb_J);
+            this.groupBoxTipoCliente.Controls.Add(this.rb_F);
             this.groupBoxTipoCliente.Location = new System.Drawing.Point(156, 146);
             this.groupBoxTipoCliente.Name = "groupBoxTipoCliente";
             this.groupBoxTipoCliente.Size = new System.Drawing.Size(222, 40);
@@ -309,8 +309,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rb_F;
+        private System.Windows.Forms.RadioButton rb_J;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox txtMask_Cpf_Cnpj;
         private System.Windows.Forms.Label label4;
