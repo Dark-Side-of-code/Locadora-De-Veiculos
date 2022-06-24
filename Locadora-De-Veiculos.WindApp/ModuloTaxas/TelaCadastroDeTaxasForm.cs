@@ -35,7 +35,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
         private void btn_Cadastrar_Click(object sender, EventArgs e)
         {
             taxa.Nome = txt_Nome.Text;
-            taxa.Valor = Convert.ToDouble(txt_Valor);
+            taxa.Valor = Convert.ToDouble(txt_Valor.Text);
             taxa.Descricao = txt_Descricao.Text;
             if (rb_Fixo.Checked)
                 taxa.TipoDeCobraca = "Fixa";
