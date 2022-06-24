@@ -43,6 +43,8 @@
             this.txt_Nome = new System.Windows.Forms.TextBox();
             this.txt_Valor = new System.Windows.Forms.TextBox();
             this.txt_Descricao = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button2
@@ -142,7 +144,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(78, 252);
+            this.label5.Location = new System.Drawing.Point(77, 268);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 15);
             this.label5.TabIndex = 64;
@@ -151,7 +153,7 @@
             // tb_Diario
             // 
             this.tb_Diario.AutoSize = true;
-            this.tb_Diario.Location = new System.Drawing.Point(147, 250);
+            this.tb_Diario.Location = new System.Drawing.Point(6, 16);
             this.tb_Diario.Name = "tb_Diario";
             this.tb_Diario.Size = new System.Drawing.Size(56, 19);
             this.tb_Diario.TabIndex = 65;
@@ -162,7 +164,7 @@
             // rb_Fixo
             // 
             this.rb_Fixo.AutoSize = true;
-            this.rb_Fixo.Location = new System.Drawing.Point(209, 250);
+            this.rb_Fixo.Location = new System.Drawing.Point(87, 16);
             this.rb_Fixo.Name = "rb_Fixo";
             this.rb_Fixo.Size = new System.Drawing.Size(47, 19);
             this.rb_Fixo.TabIndex = 66;
@@ -191,16 +193,25 @@
             this.txt_Descricao.Size = new System.Drawing.Size(235, 23);
             this.txt_Descricao.TabIndex = 69;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rb_Fixo);
+            this.groupBox1.Controls.Add(this.tb_Diario);
+            this.groupBox1.Location = new System.Drawing.Point(143, 252);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(148, 41);
+            this.groupBox1.TabIndex = 70;
+            this.groupBox1.TabStop = false;
+            // 
             // TelaCadastroDeTaxasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 385);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txt_Descricao);
             this.Controls.Add(this.txt_Valor);
             this.Controls.Add(this.txt_Nome);
-            this.Controls.Add(this.rb_Fixo);
-            this.Controls.Add(this.tb_Diario);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -212,6 +223,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Name = "TelaCadastroDeTaxasForm";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +247,6 @@
         private System.Windows.Forms.TextBox txt_Nome;
         private System.Windows.Forms.TextBox txt_Valor;
         private System.Windows.Forms.TextBox txt_Descricao;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
