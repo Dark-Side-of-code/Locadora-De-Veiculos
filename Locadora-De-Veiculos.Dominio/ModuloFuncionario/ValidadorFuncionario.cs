@@ -28,9 +28,9 @@ namespace Locadora_De_Veiculos.Dominio.ModuloFuncionario
                 .NotNull()
                 .NotEmpty();
 
-            RuleFor(x => x.TipoFuncionario)
-                .NotNull()
-                .NotEmpty();
+            //RuleFor(x => x.TipoFuncionario)
+            //    .NotNull()
+            //    .NotEmpty();
 
         }            
     }

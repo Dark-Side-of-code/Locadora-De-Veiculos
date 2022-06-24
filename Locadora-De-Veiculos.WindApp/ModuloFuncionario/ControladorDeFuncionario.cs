@@ -12,7 +12,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
         private RepositorioFuncionarioEmBancoDados repositorioFuncionario;
         private TabelaFuncionarioControl tabelaFuncionario;
 
-        public ControladorDeFuncionario()
+        public ControladorDeFuncionario(RepositorioFuncionarioEmBancoDados repositorioFuncionario)
         {
             this.repositorioFuncionario = repositorioFuncionario;
         }

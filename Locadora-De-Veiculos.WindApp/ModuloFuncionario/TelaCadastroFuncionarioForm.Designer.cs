@@ -67,6 +67,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Teal;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
@@ -198,7 +199,8 @@
             // 
             // Data_Adimissao
             // 
-            this.Data_Adimissao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Data_Adimissao.CustomFormat = "dd/MM/yyyy";
+            this.Data_Adimissao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Data_Adimissao.Location = new System.Drawing.Point(181, 304);
             this.Data_Adimissao.Name = "Data_Adimissao";
             this.Data_Adimissao.Size = new System.Drawing.Size(200, 23);
@@ -226,7 +228,7 @@
             this.rb_Admin.Text = "Admim";
             this.rb_Admin.UseVisualStyleBackColor = true;
             // 
-            // TelaCadastroFuncionario
+            // TelaCadastroFuncionarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -251,7 +253,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Name = "TelaCadastroFuncionario";
+            this.Name = "TelaCadastroFuncionarioForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

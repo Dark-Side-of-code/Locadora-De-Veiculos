@@ -26,7 +26,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
 
         public Funcionario Funcionario
         {
-            get => Funcionario;
+            get => funcionario;
 
             set
             {
@@ -36,7 +36,13 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
                 txt_Login.Text = funcionario.Login;
                 txt_Senha.Text = funcionario.Senha;
                 txt_Salario.Text = funcionario.Salario.ToString();
-                Data_Adimissao.Text = funcionario.DataAdmissao.ToString();
+
+                if (funcionario.DataAdmissao > DateTimePicker.MinimumDateTime)
+                {
+                    Data_Adimissao.Value = funcionario.DataAdmissao;
+                }
+                else 
+                    Data_Adimissao.Value = DateTimePicker.MinimumDateTime;
 
 
             }
@@ -48,7 +54,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
             funcionario.Login = txt_Login.Text;
             funcionario.Senha = txt_Senha.Text;
             funcionario.Salario = Convert.ToDouble(txt_Salario.Text);
-            funcionario.DataAdmissao = Convert.ToDateTime(Data_Adimissao.Text);
+            funcionario.DataAdmissao = Data_Adimissao.Value;
             
             if (rb_Admin.Checked)
                 funcionario.TipoFuncionario = true;

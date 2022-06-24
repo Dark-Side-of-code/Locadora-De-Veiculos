@@ -125,7 +125,7 @@ namespace Locadora_De_Veiculos.WindApp
         {
             RepositorioTaxaEmBancoDados repositorioTaxa = new RepositorioTaxaEmBancoDados();
             RepositorioClienteEmBancoDados repositorioCliente = new RepositorioClienteEmBancoDados();
-            //RepositorioClienteEmBancoDados repositorioCliente = new RepositorioClienteEmBancoDados();
+            RepositorioFuncionarioEmBancoDados repositorioFuncionario = new RepositorioFuncionarioEmBancoDados();
             RepositorioCategoriaDeVeiculosEmBancoDados repositorioCategoria = new RepositorioCategoriaDeVeiculosEmBancoDados();
 
             controladores = new Dictionary<string, ControladorBase>();
@@ -133,6 +133,7 @@ namespace Locadora_De_Veiculos.WindApp
             controladores.Add("Taxas", new ControladorTaxa(repositorioTaxa));
             controladores.Add("Clientes", new ControladorCliente(repositorioCliente));
             controladores.Add("Catergorias", new ControladorDeCategoriaDeVeiculo(repositorioCategoria));
+            controladores.Add("Funcionários",new ControladorDeFuncionario(repositorioFuncionario));
         }
 
         private void ClientesMenuItem_Click(object sender, EventArgs e)
