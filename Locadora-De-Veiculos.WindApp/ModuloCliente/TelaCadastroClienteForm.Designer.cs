@@ -1,6 +1,6 @@
 ﻿namespace Locadora_De_Veiculos.WindApp.ModuloCliente
 {
-    partial class TelaCadastroCliente
+    partial class TelaCadastroClienteForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -34,22 +34,24 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.txtMask_Cpf_Cnpj = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.txtMask_Cnh = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTime_Validade_Cnh = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.txt_Email = new System.Windows.Forms.TextBox();
+            this.txtMask_Fone = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_Cadastrar = new System.Windows.Forms.Button();
+            this.btn_Voltar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_Nome = new System.Windows.Forms.TextBox();
+            this.groupBoxTipoCliente = new System.Windows.Forms.GroupBox();
+            this.groupBoxTipoCliente.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -64,7 +66,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Indigo;
+            this.panel1.BackColor = System.Drawing.Color.Teal;
             this.panel1.Location = new System.Drawing.Point(-3, 54);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(482, 30);
@@ -82,7 +84,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(192, 156);
+            this.radioButton1.Location = new System.Drawing.Point(6, 14);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(93, 19);
             this.radioButton1.TabIndex = 3;
@@ -93,7 +95,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(291, 158);
+            this.radioButton2.Location = new System.Drawing.Point(105, 15);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(104, 19);
             this.radioButton2.TabIndex = 4;
@@ -110,12 +112,12 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "CPF/CNPJ:";
             // 
-            // maskedTextBox1
+            // txtMask_Cpf_Cnpj
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(130, 192);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(265, 23);
-            this.maskedTextBox1.TabIndex = 6;
+            this.txtMask_Cpf_Cnpj.Location = new System.Drawing.Point(130, 192);
+            this.txtMask_Cpf_Cnpj.Name = "txtMask_Cpf_Cnpj";
+            this.txtMask_Cpf_Cnpj.Size = new System.Drawing.Size(265, 23);
+            this.txtMask_Cpf_Cnpj.TabIndex = 6;
             // 
             // label4
             // 
@@ -126,12 +128,12 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "N° Carteira:";
             // 
-            // maskedTextBox2
+            // txtMask_Cnh
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(130, 374);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(121, 23);
-            this.maskedTextBox2.TabIndex = 8;
+            this.txtMask_Cnh.Location = new System.Drawing.Point(130, 374);
+            this.txtMask_Cnh.Name = "txtMask_Cnh";
+            this.txtMask_Cnh.Size = new System.Drawing.Size(121, 23);
+            this.txtMask_Cnh.TabIndex = 8;
             // 
             // label5
             // 
@@ -142,13 +144,13 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Validade";
             // 
-            // dateTimePicker1
+            // dateTime_Validade_Cnh
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(311, 376);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(84, 23);
-            this.dateTimePicker1.TabIndex = 10;
+            this.dateTime_Validade_Cnh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTime_Validade_Cnh.Location = new System.Drawing.Point(311, 376);
+            this.dateTime_Validade_Cnh.Name = "dateTime_Validade_Cnh";
+            this.dateTime_Validade_Cnh.Size = new System.Drawing.Size(84, 23);
+            this.dateTime_Validade_Cnh.TabIndex = 10;
             // 
             // label6
             // 
@@ -159,19 +161,19 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Email:";
             // 
-            // textBox1
+            // txt_Email
             // 
-            this.textBox1.Location = new System.Drawing.Point(130, 221);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(265, 23);
-            this.textBox1.TabIndex = 12;
+            this.txt_Email.Location = new System.Drawing.Point(130, 221);
+            this.txt_Email.Name = "txt_Email";
+            this.txt_Email.Size = new System.Drawing.Size(265, 23);
+            this.txt_Email.TabIndex = 12;
             // 
-            // maskedTextBox3
+            // txtMask_Fone
             // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(130, 250);
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(265, 23);
-            this.maskedTextBox3.TabIndex = 13;
+            this.txtMask_Fone.Location = new System.Drawing.Point(130, 250);
+            this.txtMask_Fone.Name = "txtMask_Fone";
+            this.txtMask_Fone.Size = new System.Drawing.Size(265, 23);
+            this.txtMask_Fone.TabIndex = 13;
             // 
             // label7
             // 
@@ -186,7 +188,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(60, 132);
+            this.label8.Location = new System.Drawing.Point(61, 122);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(191, 21);
             this.label8.TabIndex = 15;
@@ -204,39 +206,42 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Indigo;
+            this.panel2.BackColor = System.Drawing.Color.Teal;
             this.panel2.Location = new System.Drawing.Point(-3, 437);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(482, 10);
             this.panel2.TabIndex = 17;
             // 
-            // button1
+            // btn_Cadastrar
             // 
-            this.button1.BackColor = System.Drawing.Color.Indigo;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(224, 467);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 36);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Cadastarar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_Cadastrar.BackColor = System.Drawing.Color.Teal;
+            this.btn_Cadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Cadastrar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btn_Cadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Cadastrar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Cadastrar.ForeColor = System.Drawing.Color.White;
+            this.btn_Cadastrar.Location = new System.Drawing.Point(224, 467);
+            this.btn_Cadastrar.Name = "btn_Cadastrar";
+            this.btn_Cadastrar.Size = new System.Drawing.Size(154, 36);
+            this.btn_Cadastrar.TabIndex = 18;
+            this.btn_Cadastrar.Text = "Cadastarar";
+            this.btn_Cadastrar.UseVisualStyleBackColor = false;
+            this.btn_Cadastrar.Click += new System.EventHandler(this.btn_Cadastrar_Click);
             // 
-            // button2
+            // btn_Voltar
             // 
-            this.button2.BackColor = System.Drawing.Color.Indigo;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(91, 467);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(136, 36);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Voltar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_Voltar.BackColor = System.Drawing.Color.Teal;
+            this.btn_Voltar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Voltar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_Voltar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Voltar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Voltar.ForeColor = System.Drawing.Color.White;
+            this.btn_Voltar.Location = new System.Drawing.Point(91, 467);
+            this.btn_Voltar.Name = "btn_Voltar";
+            this.btn_Voltar.Size = new System.Drawing.Size(136, 36);
+            this.btn_Voltar.TabIndex = 19;
+            this.btn_Voltar.Text = "Voltar";
+            this.btn_Voltar.UseVisualStyleBackColor = false;
             // 
             // label10
             // 
@@ -247,42 +252,53 @@
             this.label10.TabIndex = 20;
             this.label10.Text = "Nome ";
             // 
-            // textBox2
+            // txt_Nome
             // 
-            this.textBox2.Location = new System.Drawing.Point(110, 345);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(285, 23);
-            this.textBox2.TabIndex = 21;
+            this.txt_Nome.Location = new System.Drawing.Point(110, 345);
+            this.txt_Nome.Name = "txt_Nome";
+            this.txt_Nome.Size = new System.Drawing.Size(285, 23);
+            this.txt_Nome.TabIndex = 21;
             // 
-            // TelaCadastroCliente
+            // groupBoxTipoCliente
+            // 
+            this.groupBoxTipoCliente.Controls.Add(this.radioButton2);
+            this.groupBoxTipoCliente.Controls.Add(this.radioButton1);
+            this.groupBoxTipoCliente.Location = new System.Drawing.Point(156, 146);
+            this.groupBoxTipoCliente.Name = "groupBoxTipoCliente";
+            this.groupBoxTipoCliente.Size = new System.Drawing.Size(222, 40);
+            this.groupBoxTipoCliente.TabIndex = 22;
+            this.groupBoxTipoCliente.TabStop = false;
+            // 
+            // TelaCadastroClienteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(460, 524);
+            this.Controls.Add(this.groupBoxTipoCliente);
+            this.Controls.Add(this.txt_Nome);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_Voltar);
+            this.Controls.Add(this.btn_Cadastrar);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.maskedTextBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtMask_Fone);
+            this.Controls.Add(this.txt_Email);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTime_Validade_Cnh);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.maskedTextBox2);
+            this.Controls.Add(this.txtMask_Cnh);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.txtMask_Cpf_Cnpj);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Name = "TelaCadastroCliente";
-            this.Size = new System.Drawing.Size(476, 520);
+            this.Name = "TelaCadastroClienteForm";
+            this.groupBoxTipoCliente.ResumeLayout(false);
+            this.groupBoxTipoCliente.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,21 +312,22 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox txtMask_Cpf_Cnpj;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox txtMask_Cnh;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTime_Validade_Cnh;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
+        private System.Windows.Forms.TextBox txt_Email;
+        private System.Windows.Forms.MaskedTextBox txtMask_Fone;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_Cadastrar;
+        private System.Windows.Forms.Button btn_Voltar;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_Nome;
+        private System.Windows.Forms.GroupBox groupBoxTipoCliente;
     }
 }
