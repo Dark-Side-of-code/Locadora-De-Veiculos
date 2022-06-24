@@ -1,6 +1,6 @@
 ﻿namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
 {
-    partial class TelaCadastroFuncionario
+    partial class TelaCadastroFuncionarioForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -40,18 +40,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.txt_Nome = new System.Windows.Forms.TextBox();
+            this.txt_Login = new System.Windows.Forms.TextBox();
+            this.txt_Senha = new System.Windows.Forms.TextBox();
+            this.txt_Salario = new System.Windows.Forms.TextBox();
+            this.Data_Adimissao = new System.Windows.Forms.DateTimePicker();
+            this.rb_Comum = new System.Windows.Forms.RadioButton();
+            this.rb_Admin = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Indigo;
+            this.button2.BackColor = System.Drawing.Color.Teal;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -65,7 +65,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Indigo;
+            this.button1.BackColor = System.Drawing.Color.Teal;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -76,10 +76,11 @@
             this.button1.TabIndex = 40;
             this.button1.Text = "Cadastarar";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btn_Cadastrar_Click);
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Indigo;
+            this.panel2.BackColor = System.Drawing.Color.Teal;
             this.panel2.Location = new System.Drawing.Point(-4, 355);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(486, 10);
@@ -97,7 +98,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Indigo;
+            this.panel1.BackColor = System.Drawing.Color.Teal;
             this.panel1.Location = new System.Drawing.Point(0, 49);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(485, 30);
@@ -167,75 +168,77 @@
             this.label7.TabIndex = 47;
             this.label7.Text = "Tipo de Funcionário:";
             // 
-            // textBox1
+            // txt_Nome
             // 
-            this.textBox1.Location = new System.Drawing.Point(115, 193);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(266, 23);
-            this.textBox1.TabIndex = 48;
+            this.txt_Nome.Location = new System.Drawing.Point(115, 193);
+            this.txt_Nome.Name = "txt_Nome";
+            this.txt_Nome.Size = new System.Drawing.Size(266, 23);
+            this.txt_Nome.TabIndex = 48;
             // 
-            // textBox2
+            // txt_Login
             // 
-            this.textBox2.Location = new System.Drawing.Point(115, 218);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(266, 23);
-            this.textBox2.TabIndex = 49;
+            this.txt_Login.Location = new System.Drawing.Point(115, 218);
+            this.txt_Login.Name = "txt_Login";
+            this.txt_Login.Size = new System.Drawing.Size(266, 23);
+            this.txt_Login.TabIndex = 49;
             // 
-            // textBox3
+            // txt_Senha
             // 
-            this.textBox3.Location = new System.Drawing.Point(115, 246);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(266, 23);
-            this.textBox3.TabIndex = 50;
+            this.txt_Senha.Location = new System.Drawing.Point(115, 246);
+            this.txt_Senha.Name = "txt_Senha";
+            this.txt_Senha.Size = new System.Drawing.Size(266, 23);
+            this.txt_Senha.TabIndex = 50;
             // 
-            // textBox4
+            // txt_Salario
             // 
-            this.textBox4.Location = new System.Drawing.Point(115, 275);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(266, 23);
-            this.textBox4.TabIndex = 51;
+            this.txt_Salario.Location = new System.Drawing.Point(115, 275);
+            this.txt_Salario.Name = "txt_Salario";
+            this.txt_Salario.Size = new System.Drawing.Size(266, 23);
+            this.txt_Salario.TabIndex = 51;
             // 
-            // dateTimePicker1
+            // Data_Adimissao
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(181, 304);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker1.TabIndex = 52;
+            this.Data_Adimissao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Data_Adimissao.Location = new System.Drawing.Point(181, 304);
+            this.Data_Adimissao.Name = "Data_Adimissao";
+            this.Data_Adimissao.Size = new System.Drawing.Size(200, 23);
+            this.Data_Adimissao.TabIndex = 52;
             // 
-            // radioButton1
+            // rb_Comum
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(188, 168);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(69, 19);
-            this.radioButton1.TabIndex = 53;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Comum";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rb_Comum.AutoSize = true;
+            this.rb_Comum.Location = new System.Drawing.Point(188, 168);
+            this.rb_Comum.Name = "rb_Comum";
+            this.rb_Comum.Size = new System.Drawing.Size(69, 19);
+            this.rb_Comum.TabIndex = 53;
+            this.rb_Comum.TabStop = true;
+            this.rb_Comum.Text = "Comum";
+            this.rb_Comum.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rb_Admin
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(263, 166);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(65, 19);
-            this.radioButton2.TabIndex = 54;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Admim";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rb_Admin.AutoSize = true;
+            this.rb_Admin.Location = new System.Drawing.Point(263, 166);
+            this.rb_Admin.Name = "rb_Admin";
+            this.rb_Admin.Size = new System.Drawing.Size(65, 19);
+            this.rb_Admin.TabIndex = 54;
+            this.rb_Admin.TabStop = true;
+            this.rb_Admin.Text = "Admim";
+            this.rb_Admin.UseVisualStyleBackColor = true;
             // 
             // TelaCadastroFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(481, 436);
+            this.Controls.Add(this.rb_Admin);
+            this.Controls.Add(this.rb_Comum);
+            this.Controls.Add(this.Data_Adimissao);
+            this.Controls.Add(this.txt_Salario);
+            this.Controls.Add(this.txt_Senha);
+            this.Controls.Add(this.txt_Login);
+            this.Controls.Add(this.txt_Nome);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -249,7 +252,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Name = "TelaCadastroFuncionario";
-            this.Size = new System.Drawing.Size(479, 440);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,12 +271,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.TextBox txt_Nome;
+        private System.Windows.Forms.TextBox txt_Login;
+        private System.Windows.Forms.TextBox txt_Senha;
+        private System.Windows.Forms.TextBox txt_Salario;
+        private System.Windows.Forms.DateTimePicker Data_Adimissao;
+        private System.Windows.Forms.RadioButton rb_Comum;
+        private System.Windows.Forms.RadioButton rb_Admin;
     }
 }

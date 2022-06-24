@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
 {
-    internal class ControladorTaxa : ControladorBase
+    public class ControladorTaxa : ControladorBase
     {
         private RepositorioTaxaEmBancoDados repositorioTaxa;
         private TabelaTaxasControl tabelaTaxas;
