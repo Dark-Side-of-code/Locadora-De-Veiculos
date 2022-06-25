@@ -28,7 +28,13 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
             {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Numero", HeaderText = "Número", FillWeight=15F },
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome", FillWeight=85F }
+                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome", FillWeight=85F },
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "Descricao", HeaderText = "Descrição", FillWeight=85F },
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "Valor", HeaderText = "Valor", FillWeight=85F },
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "TipoDeCobraca", HeaderText = "Cobrança", FillWeight=85F }
             };
 
             return colunas;
@@ -39,13 +45,13 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
             return grid.SelecionarNumero<int>();
         }
 
-        public void AtualizarRegistros(List<Taxa> disciplinas)
+        public void AtualizarRegistros(List<Taxa> taxas)
         {
             grid.Rows.Clear();
 
-            foreach (Taxa disciplina in disciplinas)
+            foreach (Taxa taxa in taxas)
             {
-                grid.Rows.Add(disciplina.Id, disciplina.Nome);
+                grid.Rows.Add(taxa.Id, taxa.Nome, taxa.Descricao, taxa.Valor, taxa.TipoDeCobraca);
             }
         }
     }

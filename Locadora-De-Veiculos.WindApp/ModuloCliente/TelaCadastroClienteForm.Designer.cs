@@ -95,7 +95,7 @@
             // rb_J
             // 
             this.rb_J.AutoSize = true;
-            this.rb_J.Location = new System.Drawing.Point(105, 15);
+            this.rb_J.Location = new System.Drawing.Point(118, 15);
             this.rb_J.Name = "rb_J";
             this.rb_J.Size = new System.Drawing.Size(104, 19);
             this.rb_J.TabIndex = 4;
@@ -261,11 +261,12 @@
             // 
             // groupBoxTipoCliente
             // 
+            this.groupBoxTipoCliente.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxTipoCliente.Controls.Add(this.rb_J);
             this.groupBoxTipoCliente.Controls.Add(this.rb_F);
             this.groupBoxTipoCliente.Location = new System.Drawing.Point(156, 146);
             this.groupBoxTipoCliente.Name = "groupBoxTipoCliente";
-            this.groupBoxTipoCliente.Size = new System.Drawing.Size(222, 40);
+            this.groupBoxTipoCliente.Size = new System.Drawing.Size(239, 40);
             this.groupBoxTipoCliente.TabIndex = 22;
             this.groupBoxTipoCliente.TabStop = false;
             // 

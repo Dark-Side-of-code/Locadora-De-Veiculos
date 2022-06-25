@@ -51,6 +51,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
 
             var tela = new TelaCadastroClienteForm();
 
+            tela.Cliente = clienteSelecionado;
+
             tela.GravarRegistro = repositorioCliente.Editar;
 
             DialogResult resultado = tela.ShowDialog();

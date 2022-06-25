@@ -47,6 +47,8 @@
             this.Data_Adimissao = new System.Windows.Forms.DateTimePicker();
             this.rb_Comum = new System.Windows.Forms.RadioButton();
             this.rb_Admin = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button2
@@ -209,7 +211,7 @@
             // rb_Comum
             // 
             this.rb_Comum.AutoSize = true;
-            this.rb_Comum.Location = new System.Drawing.Point(188, 168);
+            this.rb_Comum.Location = new System.Drawing.Point(6, 11);
             this.rb_Comum.Name = "rb_Comum";
             this.rb_Comum.Size = new System.Drawing.Size(69, 19);
             this.rb_Comum.TabIndex = 53;
@@ -220,7 +222,7 @@
             // rb_Admin
             // 
             this.rb_Admin.AutoSize = true;
-            this.rb_Admin.Location = new System.Drawing.Point(263, 166);
+            this.rb_Admin.Location = new System.Drawing.Point(81, 11);
             this.rb_Admin.Name = "rb_Admin";
             this.rb_Admin.Size = new System.Drawing.Size(65, 19);
             this.rb_Admin.TabIndex = 54;
@@ -228,14 +230,23 @@
             this.rb_Admin.Text = "Admim";
             this.rb_Admin.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rb_Comum);
+            this.groupBox1.Controls.Add(this.rb_Admin);
+            this.groupBox1.Location = new System.Drawing.Point(190, 155);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(191, 32);
+            this.groupBox1.TabIndex = 55;
+            this.groupBox1.TabStop = false;
+            // 
             // TelaCadastroFuncionarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(481, 436);
-            this.Controls.Add(this.rb_Admin);
-            this.Controls.Add(this.rb_Comum);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Data_Adimissao);
             this.Controls.Add(this.txt_Salario);
             this.Controls.Add(this.txt_Senha);
@@ -254,6 +265,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Name = "TelaCadastroFuncionarioForm";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,5 +293,6 @@
         private System.Windows.Forms.DateTimePicker Data_Adimissao;
         private System.Windows.Forms.RadioButton rb_Comum;
         private System.Windows.Forms.RadioButton rb_Admin;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
