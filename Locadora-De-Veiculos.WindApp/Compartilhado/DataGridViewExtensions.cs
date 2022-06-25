@@ -25,7 +25,7 @@ namespace Locadora_De_Veiculos.WindApp.Compartilhado
             {
                 BackColor = Color.White,
                 Font = font,
-                SelectionBackColor = Color.LightYellow,
+                SelectionBackColor = Color.Teal,
                 SelectionForeColor = Color.Black
             };
 

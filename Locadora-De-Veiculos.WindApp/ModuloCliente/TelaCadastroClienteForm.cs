@@ -29,8 +29,6 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
             {
                 cliente = value;
 
-                rb_F.Text = cliente.Tipo_Cliente;
-                rb_J.Text = cliente.Tipo_Cliente;
                 txtMask_Cpf_Cnpj.Text = cliente.CPF_CNPJ;
                 txt_Email.Text = cliente.Email;
                 txtMask_Fone.Text = cliente.Telefone;
