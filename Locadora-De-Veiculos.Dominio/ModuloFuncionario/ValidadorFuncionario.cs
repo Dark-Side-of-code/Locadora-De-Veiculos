@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
-
+using System;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Dominio.ModuloFuncionario
@@ -9,28 +10,32 @@ namespace Locadora_De_Veiculos.Dominio.ModuloFuncionario
         public ValidadorFuncionario()
         {
             RuleFor(x => x.Nome)
-                .NotNull()
-                .NotEmpty();
+                .Matches(new Regex(@"^([^0-9]*)$"))
+                .NotEmpty()
+                .MinimumLength(3);
 
             RuleFor(x => x.Login)
-                .NotNull()
-                .NotEmpty();
+                .Matches(new Regex(@"^([^0-9]*)$"))
+                .NotEmpty()
+                .MinimumLength(3);
 
             RuleFor(x => x.Senha)
-                .NotNull()
-                .NotEmpty();
+                .Matches("")
+                .NotEmpty()
+                .MinimumLength(5);
 
             RuleFor(x => x.Salario)
-                .NotNull()
+                .GreaterThan(0)
                 .NotEmpty();
 
             RuleFor(x => x.DataAdmissao)
+                .LessThan(x => DateTime.Now)
                 .NotNull()
                 .NotEmpty();
 
-            //RuleFor(x => x.TipoFuncionario)
-            //    .NotNull()
-            //    .NotEmpty();
+            RuleFor(x => x.TipoFuncionario)
+                .NotNull();
+            
 
         }            
     }

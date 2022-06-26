@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 using FluentValidation;
 using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
 
@@ -12,7 +8,10 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCategoriaDeVeiculos
     {
         public ValidadorDeVeiculos()
         {
-            RuleFor(x => x.Nome).NotNull().NotEmpty().MinimumLength(2);
+            RuleFor(x => x.Nome)
+                .Matches(new Regex(@"^([^0-9]*)$"))
+                .NotEmpty()
+                .MinimumLength(2);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Locadora_De_Veiculos.WindApp
         /// </summary>
         [STAThread]
         static void Main()
+        
         {
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
