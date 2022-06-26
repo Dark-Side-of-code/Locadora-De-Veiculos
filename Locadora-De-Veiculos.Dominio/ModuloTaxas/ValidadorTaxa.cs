@@ -2,6 +2,7 @@
 using FluentValidation.Results;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Locadora_De_Veiculos.Dominio.ModuloTaxas
 {
@@ -9,10 +10,25 @@ namespace Locadora_De_Veiculos.Dominio.ModuloTaxas
     {
         public ValidadorTaxa()
         {
-            RuleFor(x => x.Nome).NotNull().NotEmpty().MinimumLength(2);
-            RuleFor(x => x.Descricao).NotNull().NotEmpty().MinimumLength(2);
-            RuleFor(x => x.TipoDeCobraca).NotNull().NotEmpty().MinimumLength(2);
-            RuleFor(x => x.Valor).NotNull().NotEmpty();
+            RuleFor(x => x.Nome)
+                .Matches(new Regex(@"^([^0-9]*)$"))
+                .NotEmpty()
+                .MinimumLength(2);
+
+            RuleFor(x => x.Descricao)
+                .Matches(new Regex(@"^([^0-9]*)$"))
+                .NotEmpty()
+                .MinimumLength(2);
+
+            RuleFor(x => x.TipoDeCobraca)
+                .Matches(new Regex(@"^([^0-9]*)$"))
+                .NotEmpty()
+                .MinimumLength(2);
+
+            RuleFor(x => x.Valor)
+                .GreaterThan(0)
+                .NotEmpty();
+
             //RuleFor(x => x.Nome).Custom(TaxaComValoresDuplicados);
         }
 
