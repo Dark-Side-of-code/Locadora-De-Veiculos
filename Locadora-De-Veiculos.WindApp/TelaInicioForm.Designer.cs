@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaInicioForm));
             this.menu = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taxaMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,7 +80,7 @@
             // 
             this.taxaMenuItem.Name = "taxaMenuItem";
             this.taxaMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.taxaMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.taxaMenuItem.Size = new System.Drawing.Size(161, 22);
             this.taxaMenuItem.Text = "Taxas";
             this.taxaMenuItem.Click += new System.EventHandler(this.TaxasMenuItem_Click);
             // 
@@ -87,7 +88,7 @@
             // 
             this.ClientesMenuItem.Name = "ClientesMenuItem";
             this.ClientesMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.ClientesMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ClientesMenuItem.Size = new System.Drawing.Size(161, 22);
             this.ClientesMenuItem.Text = "Clientes";
             this.ClientesMenuItem.Click += new System.EventHandler(this.ClientesMenuItem_Click);
             // 
@@ -95,7 +96,7 @@
             // 
             this.FuncionarioMenuItem.Name = "FuncionarioMenuItem";
             this.FuncionarioMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.FuncionarioMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.FuncionarioMenuItem.Size = new System.Drawing.Size(161, 22);
             this.FuncionarioMenuItem.Text = "Funcionários";
             this.FuncionarioMenuItem.Click += new System.EventHandler(this.FuncionarioMenuItem_Click);
             // 
@@ -103,7 +104,7 @@
             // 
             this.CatergoriasMenuItem.Name = "CatergoriasMenuItem";
             this.CatergoriasMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.CatergoriasMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CatergoriasMenuItem.Size = new System.Drawing.Size(161, 22);
             this.CatergoriasMenuItem.Text = "Catergorias";
             this.CatergoriasMenuItem.Click += new System.EventHandler(this.CatergoriasMenuItem_Click);
             // 
@@ -230,8 +231,10 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolbox);
             this.Controls.Add(this.menu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TelaInicioForm";
-            this.Text = "TelaInicioForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Locadora De Veículos";
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

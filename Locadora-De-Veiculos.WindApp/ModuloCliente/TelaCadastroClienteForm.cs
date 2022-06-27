@@ -1,5 +1,6 @@
 ﻿using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.ModuloCliente;
+using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
         public TelaCadastroClienteForm()
         {
             InitializeComponent();
+            this.ConfigurarTela();
         }
 
         public Func<Cliente, ValidationResult> GravarRegistro { get; set; }

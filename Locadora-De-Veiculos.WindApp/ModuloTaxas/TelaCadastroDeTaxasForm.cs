@@ -1,5 +1,6 @@
 ﻿using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.ModuloTaxas;
+using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
 using System.Windows.Forms;
 
@@ -13,6 +14,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
         public TelaCadastroDeTaxasForm()
         {
             InitializeComponent();
+            this.ConfigurarTela();
         }
 
         public Func<Taxa, ValidationResult> GravarRegistro { get; set; }
