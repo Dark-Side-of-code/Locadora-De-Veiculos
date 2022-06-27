@@ -42,7 +42,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
                     Data_Adimissao.Value = funcionario.DataAdmissao;
                 }
                 else 
-                    Data_Adimissao.Value = DateTimePicker.MinimumDateTime;
+                    Data_Adimissao.Value = DateTime.Now;
 
 
             }

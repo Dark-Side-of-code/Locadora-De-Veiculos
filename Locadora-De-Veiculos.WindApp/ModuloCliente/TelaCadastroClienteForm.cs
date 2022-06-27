@@ -34,12 +34,21 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
                 txtMask_Fone.Text = cliente.Telefone;
                 txt_Nome.Text = cliente.Nome;
                 txtMask_Cnh.Text = cliente.CNH;
-                if(Cliente.Validade_CNH > DateTimePicker.MinimumDateTime)
+                //dateTime_Validade_Cnh.Value = cliente.Validade_CNH;
+
+                if (Cliente.Validade_CNH > DateTimePicker.MinimumDateTime)
+                {
+                    dateTime_Validade_Cnh.Value = cliente.Validade_CNH;
+                }
+                else
+                    dateTime_Validade_Cnh.Value = DateTime.Now;
+
+                /*if(Cliente.Validade_CNH > DateTimePicker.MinimumDateTime)
                 {
                     dateTime_Validade_Cnh.Value = cliente.Validade_CNH;
                 }else
-                    dateTime_Validade_Cnh.Value = DateTimePicker.MinimumDateTime;
-                 
+                    dateTime_Validade_Cnh.Value = DateTimePicker.MinimumDateTime;*/
+
             }
         }
 

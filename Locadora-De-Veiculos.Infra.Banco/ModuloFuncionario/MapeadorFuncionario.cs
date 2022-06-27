@@ -8,15 +8,15 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario
 {
     public class MapeadorFuncionario : MapeadorBase<Funcionario>
     {
-        public override void ConfigurarParametros(Funcionario funcionario, SqlCommand comando)
+        public override void ConfigurarParametros(Funcionario registro, SqlCommand comando)
         {
-            comando.Parameters.AddWithValue("ID", funcionario.Id);
-            comando.Parameters.AddWithValue("NOME", funcionario.Nome);
-            comando.Parameters.AddWithValue("LOGIN", funcionario.Login);
-            comando.Parameters.AddWithValue("SENHA", funcionario.Senha);
-            comando.Parameters.AddWithValue("SALARIO", funcionario.Salario);
-            comando.Parameters.AddWithValue("DATA_ADMISSAO", funcionario.DataAdmissao);
-            comando.Parameters.AddWithValue("TIPOFUNCIONARIO", funcionario.TipoFuncionario);
+            comando.Parameters.AddWithValue("ID", registro.Id);
+            comando.Parameters.AddWithValue("NOME", registro.Nome);
+            comando.Parameters.AddWithValue("LOGIN", registro.Login);
+            comando.Parameters.AddWithValue("SENHA", registro.Senha);
+            comando.Parameters.AddWithValue("SALARIO", registro.Salario);
+            comando.Parameters.AddWithValue("DATA_ADMISSAO", registro.DataAdmissao);
+            comando.Parameters.AddWithValue("TIPOFUNCIONARIO", registro.TipoFuncionario);
         }
 
         public override Funcionario ConverterRegistro(SqlDataReader leitorFuncionario)
