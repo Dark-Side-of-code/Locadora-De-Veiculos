@@ -2,6 +2,7 @@
 using FluentValidation.Results;
 using System;
 using System.Windows.Forms;
+using Locadora_De_Veiculos.WindApp.Compartilhado;
 
 namespace Locadora_De_Veiculos.WindApp.ModuloGrupoDeVeiculos
 {
@@ -12,6 +13,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloGrupoDeVeiculos
         public TelaDeCadastroDeCategoriaDeVeiculoForm()
         {
             InitializeComponent();
+            this.ConfigurarTela();
         }
 
         public Func<CategoriaDeVeiculos, ValidationResult> GravarRegistro { get; set; }
