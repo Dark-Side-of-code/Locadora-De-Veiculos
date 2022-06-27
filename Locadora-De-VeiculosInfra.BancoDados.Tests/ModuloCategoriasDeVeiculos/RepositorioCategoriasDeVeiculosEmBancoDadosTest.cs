@@ -44,7 +44,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCategoriasDeVeiculos
             repositorio.Inserir(categoriaDeVeiculos);
 
             //action
-            categoriaDeVeiculos.Nome = "Teste1";
+            categoriaDeVeiculos.Nome = "Teste";
             repositorio.Editar(categoriaDeVeiculos);
 
             //assert
