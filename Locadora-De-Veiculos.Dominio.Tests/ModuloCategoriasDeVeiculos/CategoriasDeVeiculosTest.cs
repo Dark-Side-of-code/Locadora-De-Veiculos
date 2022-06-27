@@ -14,7 +14,7 @@ namespace Locadora_De_Veiculos.Dominio.Tests.ModuloCategoriasDeVeiculos
     public class CategoriasDeVeiculosTest
     {
         private readonly CategoriaDeVeiculos categoriaDeVeiculos;
-        private readonly ValidadorDeVeiculos validador;
+        private readonly ValidadorCategoriaDeVeiculos validador;
 
         public CategoriasDeVeiculosTest()
         {
@@ -22,7 +22,7 @@ namespace Locadora_De_Veiculos.Dominio.Tests.ModuloCategoriasDeVeiculos
             {
                 Nome = "SUV"
             };
-            validador = new ValidadorDeVeiculos();
+            validador = new ValidadorCategoriaDeVeiculos();
         }
 
         [TestMethod]
