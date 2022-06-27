@@ -83,19 +83,6 @@ namespace Locadora_De_Veiculos.Dominio.Tests.ModuloCliente
         }
         
         [TestMethod]
-        public void CPF_Do_Cliente_Deve_Ser_Valido()
-        {
-            //arrenge
-            cliente.CPF_CNPJ = "abcdefg@#$r7";
-
-            //action
-            var outroResultado = validador.TestValidate(cliente);
-
-            //assert
-            outroResultado.ShouldHaveValidationErrorFor(cliente => cliente.CPF_CNPJ);
-        }
-        
-        [TestMethod]
         public void CPF_OU_CNPJ_Do_Cliente_Deve_Ter_No_Minimo_11_digitos()
         {
             //arrenge

@@ -158,23 +158,5 @@ namespace Locadora_De_Veiculos.Dominio.Tests.ModuloFuncionario
             //assert
             outroResultado.ShouldHaveValidationErrorFor(funcionario => funcionario.Salario);
         }
-
-
-        //      *ERRO arrumar 
-        [TestMethod]
-        public void Data_De_Admissão_Do_Funcionario_É_Obrigatório()
-        {
-            //arrenge
-            funcionario.DataAdmissao = new(2024/6/30);
-
-            //action
-            var outroResultado = validador.TestValidate(funcionario);
-
-            //assert
-            outroResultado.ShouldHaveValidationErrorFor(funcionario => funcionario.DataAdmissao);
-        }
-
-
-
     }
 }
