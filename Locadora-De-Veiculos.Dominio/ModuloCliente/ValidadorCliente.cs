@@ -18,7 +18,6 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCliente
                 .MinimumLength(2);
 
             RuleFor(x => x.CPF_CNPJ)
-                .Matches(new Regex(@"^(((\d{3}).(\d{3}).(\d{3})-(\d{2}))?((\d{2}).(\d{3}).(\d{3})/(\d{4})-(\d{2}))?)*$"))
                 .NotEmpty()
                 .MinimumLength(11)
                 .MaximumLength(14);
