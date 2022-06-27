@@ -4,9 +4,9 @@ using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
 
 namespace Locadora_De_Veiculos.Dominio.ModuloCategoriaDeVeiculos
 {
-    public class ValidadorDeVeiculos : AbstractValidator<CategoriaDeVeiculos>
+    public class ValidadorCategoriaDeVeiculos : AbstractValidator<CategoriaDeVeiculos>
     {
-        public ValidadorDeVeiculos()
+        public ValidadorCategoriaDeVeiculos()
         {
             RuleFor(x => x.Nome)
                 .Matches(new Regex(@"^([^0-9]*)$"))
