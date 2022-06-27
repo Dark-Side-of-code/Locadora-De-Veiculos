@@ -44,7 +44,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloTaxas
             repositorio.Inserir(taxa);
 
             //action
-            taxa.Nome = "Teste1";
+            taxa.Nome = "Teste";
             repositorio.Editar(taxa);
 
             //assert
