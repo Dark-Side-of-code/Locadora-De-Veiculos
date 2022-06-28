@@ -49,7 +49,7 @@
             this.button2.Location = new System.Drawing.Point(96, 262);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 36);
-            this.button2.TabIndex = 41;
+            this.button2.TabIndex = 1;
             this.button2.Text = "Voltar";
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -64,7 +64,7 @@
             this.button1.Location = new System.Drawing.Point(229, 262);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(154, 36);
-            this.button1.TabIndex = 40;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Cadastarar";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.btn_Cadastrar_Click);
@@ -117,9 +117,10 @@
             // txt_Nome
             // 
             this.txt_Nome.Location = new System.Drawing.Point(150, 167);
+            this.txt_Nome.MaxLength = 200;
             this.txt_Nome.Name = "txt_Nome";
             this.txt_Nome.Size = new System.Drawing.Size(247, 23);
-            this.txt_Nome.TabIndex = 43;
+            this.txt_Nome.TabIndex = 0;
             // 
             // TelaDeCadastroDeCategoriaDeVeiculoForm
             // 

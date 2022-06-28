@@ -87,7 +87,7 @@
             this.rb_F.Location = new System.Drawing.Point(6, 14);
             this.rb_F.Name = "rb_F";
             this.rb_F.Size = new System.Drawing.Size(93, 19);
-            this.rb_F.TabIndex = 3;
+            this.rb_F.TabIndex = 0;
             this.rb_F.TabStop = true;
             this.rb_F.Text = "Pessoa Física";
             this.rb_F.UseVisualStyleBackColor = true;
@@ -98,7 +98,7 @@
             this.rb_J.Location = new System.Drawing.Point(118, 15);
             this.rb_J.Name = "rb_J";
             this.rb_J.Size = new System.Drawing.Size(104, 19);
-            this.rb_J.TabIndex = 4;
+            this.rb_J.TabIndex = 1;
             this.rb_J.TabStop = true;
             this.rb_J.Text = "Pessoa Juridica";
             this.rb_J.UseVisualStyleBackColor = true;
@@ -117,7 +117,7 @@
             this.txtMask_Cpf_Cnpj.Location = new System.Drawing.Point(130, 192);
             this.txtMask_Cpf_Cnpj.Name = "txtMask_Cpf_Cnpj";
             this.txtMask_Cpf_Cnpj.Size = new System.Drawing.Size(265, 23);
-            this.txtMask_Cpf_Cnpj.TabIndex = 6;
+            this.txtMask_Cpf_Cnpj.TabIndex = 2;
             // 
             // label4
             // 
@@ -131,9 +131,10 @@
             // txtMask_Cnh
             // 
             this.txtMask_Cnh.Location = new System.Drawing.Point(130, 374);
+            this.txtMask_Cnh.Mask = "00000000000";
             this.txtMask_Cnh.Name = "txtMask_Cnh";
             this.txtMask_Cnh.Size = new System.Drawing.Size(121, 23);
-            this.txtMask_Cnh.TabIndex = 8;
+            this.txtMask_Cnh.TabIndex = 6;
             // 
             // label5
             // 
@@ -150,7 +151,7 @@
             this.dateTime_Validade_Cnh.Location = new System.Drawing.Point(311, 376);
             this.dateTime_Validade_Cnh.Name = "dateTime_Validade_Cnh";
             this.dateTime_Validade_Cnh.Size = new System.Drawing.Size(84, 23);
-            this.dateTime_Validade_Cnh.TabIndex = 10;
+            this.dateTime_Validade_Cnh.TabIndex = 7;
             // 
             // label6
             // 
@@ -164,16 +165,18 @@
             // txt_Email
             // 
             this.txt_Email.Location = new System.Drawing.Point(130, 221);
+            this.txt_Email.MaxLength = 200;
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.Size = new System.Drawing.Size(265, 23);
-            this.txt_Email.TabIndex = 12;
+            this.txt_Email.TabIndex = 3;
             // 
             // txtMask_Fone
             // 
             this.txtMask_Fone.Location = new System.Drawing.Point(130, 250);
+            this.txtMask_Fone.Mask = "(00) 00000-0000";
             this.txtMask_Fone.Name = "txtMask_Fone";
             this.txtMask_Fone.Size = new System.Drawing.Size(265, 23);
-            this.txtMask_Fone.TabIndex = 13;
+            this.txtMask_Fone.TabIndex = 4;
             // 
             // label7
             // 
@@ -223,7 +226,7 @@
             this.btn_Cadastrar.Location = new System.Drawing.Point(224, 467);
             this.btn_Cadastrar.Name = "btn_Cadastrar";
             this.btn_Cadastrar.Size = new System.Drawing.Size(154, 36);
-            this.btn_Cadastrar.TabIndex = 18;
+            this.btn_Cadastrar.TabIndex = 9;
             this.btn_Cadastrar.Text = "Cadastarar";
             this.btn_Cadastrar.UseVisualStyleBackColor = false;
             this.btn_Cadastrar.Click += new System.EventHandler(this.btn_Cadastrar_Click);
@@ -239,7 +242,7 @@
             this.btn_Voltar.Location = new System.Drawing.Point(91, 467);
             this.btn_Voltar.Name = "btn_Voltar";
             this.btn_Voltar.Size = new System.Drawing.Size(136, 36);
-            this.btn_Voltar.TabIndex = 19;
+            this.btn_Voltar.TabIndex = 8;
             this.btn_Voltar.Text = "Voltar";
             this.btn_Voltar.UseVisualStyleBackColor = false;
             // 
@@ -255,9 +258,10 @@
             // txt_Nome
             // 
             this.txt_Nome.Location = new System.Drawing.Point(110, 345);
+            this.txt_Nome.MaxLength = 300;
             this.txt_Nome.Name = "txt_Nome";
             this.txt_Nome.Size = new System.Drawing.Size(285, 23);
-            this.txt_Nome.TabIndex = 21;
+            this.txt_Nome.TabIndex = 5;
             // 
             // groupBoxTipoCliente
             // 
@@ -267,7 +271,7 @@
             this.groupBoxTipoCliente.Location = new System.Drawing.Point(156, 146);
             this.groupBoxTipoCliente.Name = "groupBoxTipoCliente";
             this.groupBoxTipoCliente.Size = new System.Drawing.Size(239, 40);
-            this.groupBoxTipoCliente.TabIndex = 22;
+            this.groupBoxTipoCliente.TabIndex = 1;
             this.groupBoxTipoCliente.TabStop = false;
             // 
             // TelaCadastroClienteForm
