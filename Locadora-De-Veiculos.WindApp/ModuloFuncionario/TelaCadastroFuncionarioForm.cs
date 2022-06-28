@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
         {
             InitializeComponent();
             this.ConfigurarTela();
+            ClassMaskMoeda.AplicaMascaraMoeda2(txt_Salario);
         }
 
         public Func<Funcionario, ValidationResult> GravarRegistro { get; set; }
@@ -55,14 +57,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
             funcionario.Nome = txt_Nome.Text;
             funcionario.Login = txt_Login.Text;
             funcionario.Senha = txt_Senha.Text;
-            try
-            {
-                funcionario.Salario = Convert.ToDouble(txt_Salario.Text);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            funcionario.Salario = Convert.ToDouble(txt_Salario.Text.Replace("R$", string.Empty).Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
             funcionario.DataAdmissao = Data_Adimissao.Value;
             
             if (rb_Admin.Checked)
