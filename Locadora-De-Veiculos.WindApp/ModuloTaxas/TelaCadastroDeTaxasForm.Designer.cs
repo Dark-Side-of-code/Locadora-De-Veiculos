@@ -58,7 +58,7 @@
             this.button2.Location = new System.Drawing.Point(97, 332);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 36);
-            this.button2.TabIndex = 60;
+            this.button2.TabIndex = 4;
             this.button2.Text = "Voltar";
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -73,7 +73,7 @@
             this.btn_Cadastrar.Location = new System.Drawing.Point(230, 332);
             this.btn_Cadastrar.Name = "btn_Cadastrar";
             this.btn_Cadastrar.Size = new System.Drawing.Size(154, 36);
-            this.btn_Cadastrar.TabIndex = 59;
+            this.btn_Cadastrar.TabIndex = 5;
             this.btn_Cadastrar.Text = "Cadastarar";
             this.btn_Cadastrar.UseVisualStyleBackColor = false;
             this.btn_Cadastrar.Click += new System.EventHandler(this.btn_Cadastrar_Click);
@@ -156,7 +156,7 @@
             this.tb_Diario.Location = new System.Drawing.Point(6, 16);
             this.tb_Diario.Name = "tb_Diario";
             this.tb_Diario.Size = new System.Drawing.Size(56, 19);
-            this.tb_Diario.TabIndex = 65;
+            this.tb_Diario.TabIndex = 0;
             this.tb_Diario.TabStop = true;
             this.tb_Diario.Text = "Diário";
             this.tb_Diario.UseVisualStyleBackColor = true;
@@ -167,7 +167,7 @@
             this.rb_Fixo.Location = new System.Drawing.Point(87, 16);
             this.rb_Fixo.Name = "rb_Fixo";
             this.rb_Fixo.Size = new System.Drawing.Size(47, 19);
-            this.rb_Fixo.TabIndex = 66;
+            this.rb_Fixo.TabIndex = 1;
             this.rb_Fixo.TabStop = true;
             this.rb_Fixo.Text = "Fixo";
             this.rb_Fixo.UseVisualStyleBackColor = true;
@@ -175,23 +175,26 @@
             // txt_Nome
             // 
             this.txt_Nome.Location = new System.Drawing.Point(125, 168);
+            this.txt_Nome.MaxLength = 200;
             this.txt_Nome.Name = "txt_Nome";
             this.txt_Nome.Size = new System.Drawing.Size(252, 23);
-            this.txt_Nome.TabIndex = 67;
+            this.txt_Nome.TabIndex = 0;
             // 
             // txt_Valor
             // 
             this.txt_Valor.Location = new System.Drawing.Point(125, 197);
+            this.txt_Valor.MaxLength = 20;
             this.txt_Valor.Name = "txt_Valor";
             this.txt_Valor.Size = new System.Drawing.Size(252, 23);
-            this.txt_Valor.TabIndex = 68;
+            this.txt_Valor.TabIndex = 1;
             // 
             // txt_Descricao
             // 
             this.txt_Descricao.Location = new System.Drawing.Point(142, 226);
+            this.txt_Descricao.MaxLength = 500;
             this.txt_Descricao.Name = "txt_Descricao";
             this.txt_Descricao.Size = new System.Drawing.Size(235, 23);
-            this.txt_Descricao.TabIndex = 69;
+            this.txt_Descricao.TabIndex = 2;
             // 
             // groupBox1
             // 
@@ -200,7 +203,7 @@
             this.groupBox1.Location = new System.Drawing.Point(143, 252);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(148, 41);
-            this.groupBox1.TabIndex = 70;
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
             // TelaCadastroDeTaxasForm

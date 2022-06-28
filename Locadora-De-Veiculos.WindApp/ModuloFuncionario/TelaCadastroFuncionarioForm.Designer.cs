@@ -61,7 +61,7 @@
             this.button2.Location = new System.Drawing.Point(94, 385);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 36);
-            this.button2.TabIndex = 41;
+            this.button2.TabIndex = 7;
             this.button2.Text = "Voltar";
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -76,7 +76,7 @@
             this.button1.Location = new System.Drawing.Point(227, 385);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(154, 36);
-            this.button1.TabIndex = 40;
+            this.button1.TabIndex = 8;
             this.button1.Text = "Cadastarar";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.btn_Cadastrar_Click);
@@ -174,30 +174,34 @@
             // txt_Nome
             // 
             this.txt_Nome.Location = new System.Drawing.Point(115, 193);
+            this.txt_Nome.MaxLength = 200;
             this.txt_Nome.Name = "txt_Nome";
             this.txt_Nome.Size = new System.Drawing.Size(266, 23);
-            this.txt_Nome.TabIndex = 48;
+            this.txt_Nome.TabIndex = 2;
             // 
             // txt_Login
             // 
             this.txt_Login.Location = new System.Drawing.Point(115, 218);
+            this.txt_Login.MaxLength = 50;
             this.txt_Login.Name = "txt_Login";
             this.txt_Login.Size = new System.Drawing.Size(266, 23);
-            this.txt_Login.TabIndex = 49;
+            this.txt_Login.TabIndex = 3;
             // 
             // txt_Senha
             // 
             this.txt_Senha.Location = new System.Drawing.Point(115, 246);
+            this.txt_Senha.MaxLength = 50;
             this.txt_Senha.Name = "txt_Senha";
             this.txt_Senha.Size = new System.Drawing.Size(266, 23);
-            this.txt_Senha.TabIndex = 50;
+            this.txt_Senha.TabIndex = 4;
             // 
             // txt_Salario
             // 
             this.txt_Salario.Location = new System.Drawing.Point(115, 275);
+            this.txt_Salario.MaxLength = 20;
             this.txt_Salario.Name = "txt_Salario";
             this.txt_Salario.Size = new System.Drawing.Size(266, 23);
-            this.txt_Salario.TabIndex = 51;
+            this.txt_Salario.TabIndex = 5;
             // 
             // Data_Adimissao
             // 
@@ -206,7 +210,7 @@
             this.Data_Adimissao.Location = new System.Drawing.Point(181, 304);
             this.Data_Adimissao.Name = "Data_Adimissao";
             this.Data_Adimissao.Size = new System.Drawing.Size(200, 23);
-            this.Data_Adimissao.TabIndex = 52;
+            this.Data_Adimissao.TabIndex = 6;
             // 
             // rb_Comum
             // 
@@ -214,7 +218,7 @@
             this.rb_Comum.Location = new System.Drawing.Point(6, 11);
             this.rb_Comum.Name = "rb_Comum";
             this.rb_Comum.Size = new System.Drawing.Size(69, 19);
-            this.rb_Comum.TabIndex = 53;
+            this.rb_Comum.TabIndex = 0;
             this.rb_Comum.TabStop = true;
             this.rb_Comum.Text = "Comum";
             this.rb_Comum.UseVisualStyleBackColor = true;
@@ -225,7 +229,7 @@
             this.rb_Admin.Location = new System.Drawing.Point(81, 11);
             this.rb_Admin.Name = "rb_Admin";
             this.rb_Admin.Size = new System.Drawing.Size(65, 19);
-            this.rb_Admin.TabIndex = 54;
+            this.rb_Admin.TabIndex = 1;
             this.rb_Admin.TabStop = true;
             this.rb_Admin.Text = "Admim";
             this.rb_Admin.UseVisualStyleBackColor = true;
