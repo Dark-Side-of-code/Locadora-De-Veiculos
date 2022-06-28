@@ -55,7 +55,14 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
             funcionario.Nome = txt_Nome.Text;
             funcionario.Login = txt_Login.Text;
             funcionario.Senha = txt_Senha.Text;
-            funcionario.Salario = Convert.ToDouble(txt_Salario.Text);
+            try
+            {
+                funcionario.Salario = Convert.ToDouble(txt_Salario.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             funcionario.DataAdmissao = Data_Adimissao.Value;
             
             if (rb_Admin.Checked)
