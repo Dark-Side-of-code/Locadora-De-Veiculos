@@ -42,7 +42,6 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCliente
                 .MinimumLength(5);
 
             RuleFor(x => x.Telefone)
-                .Matches(new Regex(@"^\d{2}\d{4,5}\d{4}$"))
                 .NotEmpty()
                 .MinimumLength(10);
         }
