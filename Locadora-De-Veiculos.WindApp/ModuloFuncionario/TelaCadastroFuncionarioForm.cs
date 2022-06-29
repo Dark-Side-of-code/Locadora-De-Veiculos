@@ -36,6 +36,14 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
             {
                 funcionario = value;
 
+                if(funcionario.TipoFuncionario != true)
+                {
+                    rb_Comum.Checked = true;
+                }
+                else
+                {
+                    rb_Admin.Checked = true;
+                }
                 txt_Nome.Text = funcionario.Nome;
                 txt_Login.Text = funcionario.Login;
                 txt_Senha.Text = funcionario.Senha;
@@ -62,7 +70,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
             
             if (rb_Admin.Checked)
                 funcionario.TipoFuncionario = true;
-            else
+            else if (rb_Admin.Checked)
                 funcionario.TipoFuncionario = false;
 
             var resultadoValidacao = GravarRegistro(Funcionario);
