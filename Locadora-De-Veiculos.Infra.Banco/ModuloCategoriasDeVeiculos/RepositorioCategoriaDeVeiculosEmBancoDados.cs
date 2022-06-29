@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos
 {
-    public class RepositorioCategoriaDeVeiculosEmBancoDados : RepositorioBase<CategoriaDeVeiculos, ValidadorCategoriaDeVeiculos, MapeadorCategoriaVeiculo>
+    public class RepositorioCategoriaDeVeiculosEmBancoDados : RepositorioBase<CategoriaDeVeiculos, MapeadorCategoriaVeiculo>
     {
         protected override string sqlInserir =>
         @"INSERT INTO [TBCATEGORIAVEICULO]
@@ -48,62 +48,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos
             [NOME]  
         FROM
             [TBCATEGORIAVEICULO]";
-
-        public override ValidationResult Inserir(CategoriaDeVeiculos registro)
-        {
-            var validador = new ValidadorCategoriaDeVeiculos();
-
-            var resultadoValidacao = validador.Validate(registro);
-
-            if (ExisteCategoriaComEsteNome(registro.Nome))
-                resultadoValidacao.Errors.Add(new ValidationFailure("Nome", "Nome Duplicado"));
-
-            if (resultadoValidacao.IsValid == false)
-                return resultadoValidacao;
-
-            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
-
-            SqlCommand comandoInsercao = new SqlCommand(sqlInserir, conexaoComBanco);
-
-            var mapeador = new MapeadorCategoriaVeiculo();
-
-            mapeador.ConfigurarParametros(registro, comandoInsercao);
-
-            conexaoComBanco.Open();
-            var id = comandoInsercao.ExecuteScalar();
-            registro.Id = Convert.ToInt32(id);
-
-            conexaoComBanco.Close();
-
-            return resultadoValidacao;
-        }
-
-        public override ValidationResult Editar(CategoriaDeVeiculos registro)
-        {
-            var validador = new ValidadorCategoriaDeVeiculos();
-
-            var resultadoValidacao = validador.Validate(registro);
-
-            if (ExisteCategoriaComEsteNome(registro.Nome))
-                resultadoValidacao.Errors.Add(new ValidationFailure("Nome", "Nome Duplicado"));
-
-            if (resultadoValidacao.IsValid == false)
-                return resultadoValidacao;
-
-            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
-
-            SqlCommand comandoEdicao = new SqlCommand(sqlEditar, conexaoComBanco);
-
-            var mapeador = new MapeadorCategoriaVeiculo();
-
-            mapeador.ConfigurarParametros(registro, comandoEdicao);
-
-            conexaoComBanco.Open();
-            comandoEdicao.ExecuteNonQuery();
-            conexaoComBanco.Close();
-
-            return resultadoValidacao;
-        }
 
         public bool ExisteCategoriaComEsteNome(string nome)
         {

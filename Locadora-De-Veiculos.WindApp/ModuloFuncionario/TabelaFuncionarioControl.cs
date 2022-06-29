@@ -44,7 +44,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
             return colunas;
         }
 
-        public int ObtemNumeroSelecionado()
+        public int ObtemIdFuncionarioSelecionado()
         {
             return grid.SelecionarNumero<int>();
         }

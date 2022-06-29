@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Infra.Banco.ModuloTaxas
 {
-    public class RepositorioTaxaEmBancoDados : RepositorioBase<Taxa, ValidadorTaxa, MapeadorTaxa>
+    public class RepositorioTaxaEmBancoDados : RepositorioBase<Taxa, MapeadorTaxa>
     {
         protected override string sqlInserir =>
         @"INSERT INTO [TbTaxas]
@@ -62,62 +62,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloTaxas
             [TBTAXAS]
         WHERE 
             [ID] = @ID";
-
-        public override ValidationResult Inserir(Taxa registro)
-        {
-            var validador = new ValidadorTaxa();
-
-            var resultadoValidacao = validador.Validate(registro);
-
-            if (ExisteCategoriaComEsteNome(registro.Nome))
-                resultadoValidacao.Errors.Add(new ValidationFailure("Nome", "Nome Duplicado"));
-
-            if (resultadoValidacao.IsValid == false)
-                return resultadoValidacao;
-
-            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
-
-            SqlCommand comandoInsercao = new SqlCommand(sqlInserir, conexaoComBanco);
-
-            var mapeador = new MapeadorTaxa();
-
-            mapeador.ConfigurarParametros(registro, comandoInsercao);
-
-            conexaoComBanco.Open();
-            var id = comandoInsercao.ExecuteScalar();
-            registro.Id = Convert.ToInt32(id);
-
-            conexaoComBanco.Close();
-
-            return resultadoValidacao;
-        }
-
-        public override ValidationResult Editar(Taxa registro)
-        {
-            var validador = new ValidadorTaxa();
-
-            var resultadoValidacao = validador.Validate(registro);
-
-            if (ExisteCategoriaComEsteNome(registro.Nome))
-                resultadoValidacao.Errors.Add(new ValidationFailure("Nome", "Nome Duplicado"));
-
-            if (resultadoValidacao.IsValid == false)
-                return resultadoValidacao;
-
-            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
-
-            SqlCommand comandoEdicao = new SqlCommand(sqlEditar, conexaoComBanco);
-
-            var mapeador = new MapeadorTaxa();
-
-            mapeador.ConfigurarParametros(registro, comandoEdicao);
-
-            conexaoComBanco.Open();
-            comandoEdicao.ExecuteNonQuery();
-            conexaoComBanco.Close();
-
-            return resultadoValidacao;
-        }
 
         public bool ExisteCategoriaComEsteNome(string nome)
         {

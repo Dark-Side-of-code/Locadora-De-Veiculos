@@ -38,7 +38,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
 
         public override void Editar()
         {
-            var numero = tabelaCliente.ObtemNumeroSelecionado();
+            var numero = tabelaCliente.ObtemIdClienteSelecionado();
 
             Cliente clienteSelecionado = repositorioCliente.SelecionarPorId(numero);
 
@@ -66,7 +66,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
 
         public override void Excluir()
         {
-            var numero = tabelaCliente.ObtemNumeroSelecionado();
+            var numero = tabelaCliente.ObtemIdClienteSelecionado();
 
             Cliente clienteSelecionado = repositorioCliente.SelecionarPorId(numero);
 

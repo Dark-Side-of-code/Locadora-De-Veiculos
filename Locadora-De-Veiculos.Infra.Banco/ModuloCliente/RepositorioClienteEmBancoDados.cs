@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
 {
-    public class RepositorioClienteEmBancoDados : RepositorioBase<Cliente, ValidadorCliente, MapeadorCliente>
+    public class RepositorioClienteEmBancoDados : RepositorioBase<Cliente, MapeadorCliente>
     {
         protected override string sqlInserir =>
             @"INSERT INTO [TBCLIENTE] 
@@ -82,7 +82,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
 	            FROM 
 		            [TBCLIENTE]";
 
-        public override ValidationResult Inserir(Cliente registro)
+        public override void Inserir(Cliente registro)
         {
             var validador = new ValidadorCliente();
 
@@ -93,9 +93,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
 
             if (ExisteClienteComEstaCNH(registro.CNH))
                 resultadoValidacao.Errors.Add(new ValidationFailure("CNH", "CNH Duplicado"));
-
-            if (resultadoValidacao.IsValid == false)
-                return resultadoValidacao;
 
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
 
@@ -110,8 +107,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
             registro.Id = Convert.ToInt32(id);
 
             conexaoComBanco.Close();
-
-            return resultadoValidacao;
         }
 
         public bool ExisteClienteComEsteCPF_CNPJ(string cpf_Cnpj)

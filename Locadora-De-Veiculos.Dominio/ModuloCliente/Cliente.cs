@@ -44,5 +44,10 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCliente
                    Email == cliente.Email &&
                    Telefone == cliente.Telefone;
         }
+
+        public Cliente Clone()
+        {
+            return MemberwiseClone() as Cliente;
+        }
     }
 }
