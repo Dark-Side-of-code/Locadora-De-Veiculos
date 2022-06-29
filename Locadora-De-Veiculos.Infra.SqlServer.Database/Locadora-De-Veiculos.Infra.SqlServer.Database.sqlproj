@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Locadora_De_Veiculos.Infra.SqlServer.Database</Name>
+    <Name>Locadora-De-Veiculos.Infra.SqlServer.Database</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{0e1d522f-9b87-46c5-8db2-942865dd958a}</ProjectGuid>
