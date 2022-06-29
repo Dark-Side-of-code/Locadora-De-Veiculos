@@ -34,6 +34,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloFuncionario
                 .NotEmpty();
 
             RuleFor(x => x.TipoFuncionario)
+                .NotEmpty()
                 .NotNull();
             
 

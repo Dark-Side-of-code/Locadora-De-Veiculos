@@ -14,7 +14,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloFuncionario
 
         }
 
-        public Funcionario(string nome, string login, string senha, double salario, DateTime dataAdmissao, bool tipoFuncionario )
+        public Funcionario(string nome, string login, string senha, double salario, DateTime dataAdmissao, string tipoFuncionario )
         {
             Nome = nome;
             Login = login;
@@ -28,7 +28,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloFuncionario
        public string Senha { get; set; }
        public double Salario { get; set; }
        public DateTime DataAdmissao { get; set; }
-        public bool TipoFuncionario { get; set; }
+        public string TipoFuncionario { get; set; }
 
         public override bool Equals(object obj)
         {
