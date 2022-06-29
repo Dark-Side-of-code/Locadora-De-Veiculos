@@ -88,9 +88,9 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloTaxas
         public void Deve_selecionar_todos_um_taxas()
         {
             //arrange
-            var p01 = new Taxa("nome", "descricao", "tipoDeCobranca", 1);
-            var p02 = new Taxa("nome", "descricao", "tipoDeCobranca", 2);
-            var p03 = new Taxa("nome", "descricao", "tipoDeCobranca", 3);
+            var p01 = new Taxa("nomeA", "descricao", "tipoDeCobranca", 1);
+            var p02 = new Taxa("nomeB", "descricao", "tipoDeCobranca", 2);
+            var p03 = new Taxa("nomeC", "descricao", "tipoDeCobranca", 3);
 
             repositorio.Inserir(p01);
             repositorio.Inserir(p02);

@@ -24,7 +24,7 @@ namespace Locadora_De_Veiculos.Dominio.Tests.ModuloFuncionario
                 Senha = "12345",
                 Salario = 2.300,
                 DataAdmissao = new(2022/2/2),
-                TipoFuncionario = true,
+                TipoFuncionario = "funcionario admin",
             };
             validador = new ValidadorFuncionario();
         }
