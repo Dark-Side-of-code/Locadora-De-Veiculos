@@ -41,9 +41,9 @@
             this.tb_Diario = new System.Windows.Forms.RadioButton();
             this.rb_Fixo = new System.Windows.Forms.RadioButton();
             this.txt_Nome = new System.Windows.Forms.TextBox();
-            this.txt_Valor = new System.Windows.Forms.TextBox();
             this.txt_Descricao = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_Valor = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -180,14 +180,6 @@
             this.txt_Nome.Size = new System.Drawing.Size(252, 23);
             this.txt_Nome.TabIndex = 0;
             // 
-            // txt_Valor
-            // 
-            this.txt_Valor.Location = new System.Drawing.Point(125, 197);
-            this.txt_Valor.MaxLength = 20;
-            this.txt_Valor.Name = "txt_Valor";
-            this.txt_Valor.Size = new System.Drawing.Size(252, 23);
-            this.txt_Valor.TabIndex = 1;
-            // 
             // txt_Descricao
             // 
             this.txt_Descricao.Location = new System.Drawing.Point(142, 226);
@@ -206,14 +198,21 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
+            // txt_Valor
+            // 
+            this.txt_Valor.Location = new System.Drawing.Point(125, 196);
+            this.txt_Valor.Name = "txt_Valor";
+            this.txt_Valor.Size = new System.Drawing.Size(252, 23);
+            this.txt_Valor.TabIndex = 65;
+            // 
             // TelaCadastroDeTaxasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 385);
+            this.Controls.Add(this.txt_Valor);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txt_Descricao);
-            this.Controls.Add(this.txt_Valor);
             this.Controls.Add(this.txt_Nome);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -248,8 +247,8 @@
         private System.Windows.Forms.RadioButton tb_Diario;
         private System.Windows.Forms.RadioButton rb_Fixo;
         private System.Windows.Forms.TextBox txt_Nome;
-        private System.Windows.Forms.TextBox txt_Valor;
         private System.Windows.Forms.TextBox txt_Descricao;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.MaskedTextBox txt_Valor;
     }
 }

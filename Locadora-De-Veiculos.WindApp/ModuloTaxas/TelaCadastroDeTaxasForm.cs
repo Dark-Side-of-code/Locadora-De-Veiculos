@@ -2,6 +2,7 @@
 using Locadora_De_Veiculos.Dominio.ModuloTaxas;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
@@ -15,6 +16,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
         {
             InitializeComponent();
             this.ConfigurarTela();
+            ClassMaskMoeda.AplicaMascaraMoeda2(txt_Valor);
         }
 
         public Func<Taxa, ValidationResult> GravarRegistro { get; set; }
@@ -37,14 +39,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
         private void btn_Cadastrar_Click(object sender, EventArgs e)
         {
             taxa.Nome = txt_Nome.Text;
-            try
-            {
-                taxa.Valor = Convert.ToDouble(txt_Valor.Text);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            taxa.Valor = Convert.ToDouble(txt_Valor.Text.Replace("R$", string.Empty).Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
             taxa.Descricao = txt_Descricao.Text;
             if (rb_Fixo.Checked)
                 taxa.TipoDeCobraca = "Fixa";
