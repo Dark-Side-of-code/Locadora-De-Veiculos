@@ -78,33 +78,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos
             return resultadoValidacao;
         }
 
-        public override ValidationResult Editar(CategoriaDeVeiculos registro)
-        {
-            var validador = new ValidadorCategoriaDeVeiculos();
-
-            var resultadoValidacao = validador.Validate(registro);
-
-            if (ExisteCategoriaComEsteNome(registro.Nome))
-                resultadoValidacao.Errors.Add(new ValidationFailure("Nome", "Nome Duplicado"));
-
-            if (resultadoValidacao.IsValid == false)
-                return resultadoValidacao;
-
-            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
-
-            SqlCommand comandoEdicao = new SqlCommand(sqlEditar, conexaoComBanco);
-
-            var mapeador = new MapeadorCategoriaVeiculo();
-
-            mapeador.ConfigurarParametros(registro, comandoEdicao);
-
-            conexaoComBanco.Open();
-            comandoEdicao.ExecuteNonQuery();
-            conexaoComBanco.Close();
-
-            return resultadoValidacao;
-        }
-
         public bool ExisteCategoriaComEsteNome(string nome)
         {
             List<CategoriaDeVeiculos> categorias = SelecionarTodos();
