@@ -35,7 +35,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
 
         public override void Editar()
         {
-            var numero = tabela.ObtemNumeroSelecionado();
+            var numero = tabela.ObtemIdCategoriaVeiculoSelecionado();
 
             CategoriaDeVeiculos categoriaSelecionada = repositorio.SelecionarPorId(numero);
 
@@ -63,7 +63,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
 
         public override void Excluir()
         {
-            var numero = tabela.ObtemNumeroSelecionado();
+            var numero = tabela.ObtemIdCategoriaVeiculoSelecionado();
 
             CategoriaDeVeiculos categoriaSelecionada = repositorio.SelecionarPorId(numero);
 

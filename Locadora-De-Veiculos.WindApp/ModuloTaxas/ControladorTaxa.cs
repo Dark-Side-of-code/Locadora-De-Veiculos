@@ -34,7 +34,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
         
         public override void Editar()
         {
-            var numero = tabelaTaxas.ObtemNumeroSelecionado();
+            var numero = tabelaTaxas.ObtemIdTaxaSelecionada();
         
             Taxa disciplinaSelecionada = repositorioTaxa.SelecionarPorId(numero);
         
@@ -62,7 +62,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
         
         public override void Excluir()
         {
-            var numero = tabelaTaxas.ObtemNumeroSelecionado();
+            var numero = tabelaTaxas.ObtemIdTaxaSelecionada();
         
             Taxa disciplinaSelecionada = repositorioTaxa.SelecionarPorId(numero);
         

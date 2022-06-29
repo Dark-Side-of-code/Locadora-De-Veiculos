@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario
 {
-    public class RepositorioFuncionarioEmBancoDados : RepositorioBase<Funcionario, ValidadorFuncionario, MapeadorFuncionario>
+    public class RepositorioFuncionarioEmBancoDados :
+        RepositorioBase<Funcionario, MapeadorFuncionario>,
+        IRepositorioFuncionario
     {
         protected override string sqlInserir =>
             @"INSERT INTO [TBFUNCIONARIO]
@@ -76,63 +78,42 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario
             FROM
                 [TBFUNCIONARIO]";
 
-        public override ValidationResult Inserir(Funcionario registro)
+        private string sqlSelecionarPorNome =>
+                @"SELECT 
+                    [ID],
+                    [NOME],
+                    [LOGIN],
+                    [SENHA],
+                    [SALARIO],
+                    [DATA_ADMISSAO],
+                    [TIPOFUNCIONARIO]
+                  FROM
+                      [TBFUNCIONARIO]
+                  WHERE 
+                      [NOME] = @NOME";
+
+        private string sqlSelecionarPorUsuario =>
+            @"SELECT 
+                [ID],
+                [NOME],
+                [LOGIN],
+                [SENHA],
+                [SALARIO],
+                [DATA_ADMISSAO],
+                [TIPOFUNCIONARIO]
+            FROM
+                [TBFUNCIONARIO]
+            WHERE 
+                [TIPOFUNCIONARIO] = @TIPOFUNCIONARIO";
+
+        public Funcionario SelecionarFuncionarioPorNome(string nome)
         {
-            var validador = new ValidadorFuncionario();
-
-            var resultadoValidacao = validador.Validate(registro);
-
-            if (ExisteFuncionarioComEsteNome(registro.Nome))
-                resultadoValidacao.Errors.Add(new ValidationFailure("Nome", "Nome Duplicado"));
-
-            if (ExisteFuncionarioComEsteLogin(registro.Login))
-                resultadoValidacao.Errors.Add(new ValidationFailure("Login", "Login Duplicado"));
-
-            if (resultadoValidacao.IsValid == false)
-                return resultadoValidacao;
-
-            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
-
-            SqlCommand comandoInsercao = new SqlCommand(sqlInserir, conexaoComBanco);
-
-            var mapeador = new MapeadorFuncionario();
-
-            mapeador.ConfigurarParametros(registro, comandoInsercao);
-
-            conexaoComBanco.Open();
-            var id = comandoInsercao.ExecuteScalar();
-            registro.Id = Convert.ToInt32(id);
-
-            conexaoComBanco.Close();
-
-            return resultadoValidacao;
+            return SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("NOME", nome));
         }
 
-        
-        public bool ExisteFuncionarioComEsteNome(string nome)
+        public Funcionario SelecionarFuncionarioPorUsuario(string usuario)
         {
-            List<Funcionario> funcionarios = SelecionarTodos();
-
-            foreach(Funcionario f  in funcionarios)
-            {
-                if (f.Nome == nome)
-                    return true;
-            }
-
-            return false;
-        }
-
-        public bool ExisteFuncionarioComEsteLogin(string login)
-        {
-            List<Funcionario> funcionarios = SelecionarTodos();
-
-            foreach (Funcionario f in funcionarios)
-            {
-                if (f.Login == login)
-                    return true;
-            }
-
-            return false;
+            return SelecionarPorParametro(sqlSelecionarPorUsuario, new SqlParameter("TIPOFUNCIONARIO", usuario));
         }
     }
 

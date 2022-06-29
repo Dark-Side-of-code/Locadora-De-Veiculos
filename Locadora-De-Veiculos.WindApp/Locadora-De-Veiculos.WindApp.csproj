@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Locadora-De-Veiculos.Aplicacao\Locadora-De-Veiculos.Aplicacao.csproj" />
     <ProjectReference Include="..\Locadora-De-Veiculos.Dominio\Locadora-De-Veiculos.Dominio.csproj" />
     <ProjectReference Include="..\Locadora-De-Veiculos.Infra.Banco\Locadora-De-Veiculos.Infra.Banco.csproj" />
   </ItemGroup>
