@@ -119,7 +119,7 @@
             this.txt_Nome.Location = new System.Drawing.Point(150, 167);
             this.txt_Nome.MaxLength = 200;
             this.txt_Nome.Name = "txt_Nome";
-            this.txt_Nome.Size = new System.Drawing.Size(247, 23);
+            this.txt_Nome.Size = new System.Drawing.Size(233, 23);
             this.txt_Nome.TabIndex = 0;
             // 
             // TelaDeCadastroDeCategoriaDeVeiculoForm
