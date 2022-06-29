@@ -40,7 +40,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
             return colunas;
         }
 
-        public int ObtemNumeroSelecionado()
+        public int ObtemIdTaxaSelecionada()
         {
             return grid.SelecionarNumero<int>();
         }
