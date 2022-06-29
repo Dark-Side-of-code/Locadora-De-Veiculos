@@ -89,8 +89,8 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCategoriasDeVeiculos
         {
             //arrange
             var p01 = new CategoriaDeVeiculos("nome");
-            var p02 = new CategoriaDeVeiculos("nome");
-            var p03 = new CategoriaDeVeiculos("nome");
+            var p02 = new CategoriaDeVeiculos("nomeA");
+            var p03 = new CategoriaDeVeiculos("nomeB");
 
             repositorio.Inserir(p01);
             repositorio.Inserir(p02);

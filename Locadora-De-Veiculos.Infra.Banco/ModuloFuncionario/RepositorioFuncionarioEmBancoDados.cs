@@ -108,36 +108,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario
             return resultadoValidacao;
         }
 
-        public override ValidationResult Editar(Funcionario registro)
-        {
-            var validador = new ValidadorFuncionario();
-
-            var resultadoValidacao = validador.Validate(registro);
-
-            if (ExisteFuncionarioComEsteNome(registro.Nome))
-                resultadoValidacao.Errors.Add(new ValidationFailure("Nome", "Nome Duplicado"));
-           
-            if (ExisteFuncionarioComEsteLogin(registro.Login))
-                resultadoValidacao.Errors.Add(new ValidationFailure("Login", "Login Duplicado"));
-
-
-            if (resultadoValidacao.IsValid == false)
-                return resultadoValidacao;
-
-            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
-
-            SqlCommand comandoEdicao = new SqlCommand(sqlEditar, conexaoComBanco);
-
-            var mapeador = new MapeadorFuncionario();
-
-            mapeador.ConfigurarParametros(registro, comandoEdicao);
-
-            conexaoComBanco.Open();
-            comandoEdicao.ExecuteNonQuery();
-            conexaoComBanco.Close();
-
-            return resultadoValidacao;
-        }
+        
         public bool ExisteFuncionarioComEsteNome(string nome)
         {
             List<Funcionario> funcionarios = SelecionarTodos();
