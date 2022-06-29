@@ -27,7 +27,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario
             var senha = Convert.ToString(leitorFuncionario["SENHA"]);
             var salario = Convert.ToDouble(leitorFuncionario["SALARIO"]);
             var dataAdimissao = Convert.ToDateTime(leitorFuncionario["DATA_ADMISSAO"]);
-            var tipoFuncionario = Convert.ToBoolean(leitorFuncionario["TIPOFUNCIONARIO"]);
+            var tipoFuncionario = Convert.ToString(leitorFuncionario["TIPOFUNCIONARIO"]);
 
             Funcionario funcionario = new Funcionario();
             funcionario.Id = id;

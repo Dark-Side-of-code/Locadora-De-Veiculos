@@ -36,7 +36,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
             {
                 funcionario = value;
 
-                if(funcionario.TipoFuncionario != true)
+                if (funcionario.TipoFuncionario != "Funcionario Admin")
                 {
                     rb_Comum.Checked = true;
                 }
@@ -44,6 +44,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
                 {
                     rb_Admin.Checked = true;
                 }
+
                 txt_Nome.Text = funcionario.Nome;
                 txt_Login.Text = funcionario.Login;
                 txt_Senha.Text = funcionario.Senha;
@@ -62,16 +63,21 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
 
         private void btn_Cadastrar_Click(object sender, EventArgs e)
         {
-            funcionario.Nome = txt_Nome.Text;
-            funcionario.Login = txt_Login.Text;
-            funcionario.Senha = txt_Senha.Text;
-            funcionario.Salario = Convert.ToDouble(txt_Salario.Text.Replace("R$", string.Empty).Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
-            funcionario.DataAdmissao = Data_Adimissao.Value;
+
+           
+                funcionario.Nome = txt_Nome.Text;
+                funcionario.Login = txt_Login.Text;
+                funcionario.Senha = txt_Senha.Text;
+                funcionario.Salario = Convert.ToDouble(txt_Salario.Text.Replace("R$", string.Empty).Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+                funcionario.DataAdmissao = Data_Adimissao.Value;
+
+                if (rb_Admin.Checked)
+                    funcionario.TipoFuncionario = "Funcionario Admin";
+
+                else if(rb_Comum.Checked)
+                    funcionario.TipoFuncionario = "Funcionario Comum";
             
-            if (rb_Admin.Checked)
-                funcionario.TipoFuncionario = true;
-            else if (rb_Admin.Checked)
-                funcionario.TipoFuncionario = false;
+
 
             var resultadoValidacao = GravarRegistro(Funcionario);
 
@@ -83,6 +89,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
 
                 DialogResult = DialogResult.None;
             }
+            
         }
     }
 }
