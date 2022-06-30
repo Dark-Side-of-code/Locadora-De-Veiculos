@@ -15,96 +15,96 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario
         IRepositorioFuncionario
     {
         protected override string sqlInserir =>
-            @"INSERT INTO [TBFUNCIONARIO]
-            (
-		        [NOME],
-                [LOGIN],
-                [SENHA],
-                [SALARIO],
-                [DATA_ADMISSAO],
-                [TIPOFUNCIONARIO]
-		    )
+        @"INSERT INTO [TBFUNCIONARIO]
+        (
+		    [NOME],
+            [LOGIN],
+            [SENHA],
+            [SALARIO],
+            [DATA_ADMISSAO],
+            [TIPOFUNCIONARIO]
+		)
 
-            VALUES
-            (
-		        @NOME,
-			    @LOGIN,
-			    @SENHA,
-			    @SALARIO,
-			    @DATA_ADMISSAO,
-			    @TIPOFUNCIONARIO
-		    );SELECT SCOPE_IDENTITY();";
+        VALUES
+        (
+		    @NOME,
+			@LOGIN,
+			@SENHA,
+			@SALARIO,
+			@DATA_ADMISSAO,
+			@TIPOFUNCIONARIO
+		);SELECT SCOPE_IDENTITY();";
 
         protected override string sqlEditar =>
-            @"UPDATE [TBFUNCIONARIO]
-            SET
-	            [NOME] = @NOME,
-                [LOGIN] = @LOGIN,
-                [SENHA] = @SENHA,
-                [SALARIO] = @SALARIO,
-                [DATA_ADMISSAO] = @DATA_ADMISSAO,
-                [TIPOFUNCIONARIO] = @TIPOFUNCIONARIO
-	        WHERE
-	            ID = @ID;";
+        @"UPDATE [TBFUNCIONARIO]
+        SET
+	        [NOME] = @NOME,
+            [LOGIN] = @LOGIN,
+            [SENHA] = @SENHA,
+            [SALARIO] = @SALARIO,
+            [DATA_ADMISSAO] = @DATA_ADMISSAO,
+            [TIPOFUNCIONARIO] = @TIPOFUNCIONARIO
+	    WHERE
+	        ID = @ID;";
 
         protected override string sqlExcluir =>
-            @"DELETE FROM [TBFUNCIONARIO]
-            WHERE
-	             ID = @ID;";
+        @"DELETE FROM [TBFUNCIONARIO]
+        WHERE
+	            ID = @ID;";
 
         protected override string sqlSelecionarPorId =>
-            @"SELECT 
-                [ID],
-                [NOME],
-                [LOGIN],
-                [SENHA],
-                [SALARIO],
-                [DATA_ADMISSAO],
-                [TIPOFUNCIONARIO]
-            FROM
-                [TBFUNCIONARIO]
-            WHERE
-                 ID = @ID";
+        @"SELECT 
+            [ID],
+            [NOME],
+            [LOGIN],
+            [SENHA],
+            [SALARIO],
+            [DATA_ADMISSAO],
+            [TIPOFUNCIONARIO]
+        FROM
+            [TBFUNCIONARIO]
+        WHERE
+                ID = @ID";
 
         protected override string sqlSelecionarTodos =>
-            @"SELECT 
-                [ID],
-                [NOME],
-                [LOGIN],
-                [SENHA],
-                [SALARIO],
-                [DATA_ADMISSAO],
-                [TIPOFUNCIONARIO]
-            FROM
-                [TBFUNCIONARIO]";
+        @"SELECT 
+            [ID],
+            [NOME],
+            [LOGIN],
+            [SENHA],
+            [SALARIO],
+            [DATA_ADMISSAO],
+            [TIPOFUNCIONARIO]
+        FROM
+            [TBFUNCIONARIO]";
 
         private string sqlSelecionarPorNome =>
-                @"SELECT 
-                    [ID],
-                    [NOME],
-                    [LOGIN],
-                    [SENHA],
-                    [SALARIO],
-                    [DATA_ADMISSAO],
-                    [TIPOFUNCIONARIO]
-                  FROM
-                      [TBFUNCIONARIO]
-                  WHERE 
-                      [NOME] = @NOME";
-
-        private string sqlSelecionarPorUsuario =>
-            @"SELECT 
-                [ID],
-                [NOME],
-                [LOGIN],
-                [SENHA],
-                [SALARIO],
-                [DATA_ADMISSAO],
-                [TIPOFUNCIONARIO]
+        @"SELECT 
+            [ID],
+            [NOME],
+            [LOGIN],
+            [SENHA],
+            [SALARIO],
+            [DATA_ADMISSAO],
+            [TIPOFUNCIONARIO]
             FROM
                 [TBFUNCIONARIO]
             WHERE 
-                [TIPOFUNCIONARIO] = @TIPOFUNCIONARIO";
+                [NOME] = @NOME";
+
+        private string sqlSelecionarPorUsuario =>
+        @"SELECT 
+            [ID],
+            [NOME],
+            [LOGIN],
+            [SENHA],
+            [SALARIO],
+            [DATA_ADMISSAO],
+            [TIPOFUNCIONARIO]
+        FROM
+            [TBFUNCIONARIO]
+        WHERE 
+            [TIPOFUNCIONARIO] = @TIPOFUNCIONARIO";
 
         public Funcionario SelecionarFuncionarioPorNome(string nome)
         {
