@@ -1,6 +1,6 @@
-﻿namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
+﻿namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
 {
-    partial class TelaCadastroVeiculo
+    partial class TelaCadastroCondutor
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_Cadastrar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -38,21 +37,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.dateTime_Validade_Cnh = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtMask_Cnh = new System.Windows.Forms.MaskedTextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button2
@@ -63,10 +61,10 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(98, 387);
+            this.button2.Location = new System.Drawing.Point(97, 416);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 36);
-            this.button2.TabIndex = 69;
+            this.button2.TabIndex = 97;
             this.button2.Text = "Voltar";
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -78,213 +76,209 @@
             this.btn_Cadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Cadastrar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Cadastrar.ForeColor = System.Drawing.Color.White;
-            this.btn_Cadastrar.Location = new System.Drawing.Point(231, 387);
+            this.btn_Cadastrar.Location = new System.Drawing.Point(230, 416);
             this.btn_Cadastrar.Name = "btn_Cadastrar";
             this.btn_Cadastrar.Size = new System.Drawing.Size(154, 36);
-            this.btn_Cadastrar.TabIndex = 70;
+            this.btn_Cadastrar.TabIndex = 98;
             this.btn_Cadastrar.Text = "Cadastarar";
             this.btn_Cadastrar.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Teal;
-            this.panel2.Location = new System.Drawing.Point(1, 357);
+            this.panel2.Location = new System.Drawing.Point(0, 386);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(486, 10);
-            this.panel2.TabIndex = 74;
+            this.panel2.TabIndex = 102;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(58, 122);
+            this.label8.Location = new System.Drawing.Point(71, 129);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(184, 21);
-            this.label8.TabIndex = 73;
+            this.label8.TabIndex = 101;
             this.label8.Text = "Informações do Veíclo:";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Teal;
-            this.panel1.Location = new System.Drawing.Point(1, 57);
+            this.panel1.Location = new System.Drawing.Point(0, 62);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(485, 30);
-            this.panel1.TabIndex = 72;
+            this.panel1.TabIndex = 100;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(117, 8);
+            this.label1.Location = new System.Drawing.Point(116, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(243, 32);
-            this.label1.TabIndex = 71;
+            this.label1.TabIndex = 99;
             this.label1.Text = "Cadastro De Veículo";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(231, 175);
+            this.label2.Location = new System.Drawing.Point(65, 169);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 15);
-            this.label2.TabIndex = 75;
-            this.label2.Text = "Marca:";
+            this.label2.Size = new System.Drawing.Size(47, 15);
+            this.label2.TabIndex = 103;
+            this.label2.Text = "Cliente:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(64, 175);
+            this.label3.Location = new System.Drawing.Point(69, 200);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 15);
-            this.label3.TabIndex = 76;
-            this.label3.Text = "Modelo:";
+            this.label3.Size = new System.Drawing.Size(43, 15);
+            this.label3.TabIndex = 104;
+            this.label3.Text = "Nome:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(236, 204);
+            this.label4.Location = new System.Drawing.Point(81, 226);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 15);
-            this.label4.TabIndex = 77;
-            this.label4.Text = "Placa:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(245, 233);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 15);
-            this.label5.TabIndex = 78;
-            this.label5.Text = "Cor:";
+            this.label4.Size = new System.Drawing.Size(31, 15);
+            this.label4.TabIndex = 105;
+            this.label4.Text = "CPF:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(87, 233);
+            this.label6.Location = new System.Drawing.Point(73, 284);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(28, 15);
-            this.label6.TabIndex = 79;
-            this.label6.Text = "Km:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(58, 313);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 15);
-            this.label9.TabIndex = 81;
-            this.label9.Text = "Capacidade";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(241, 313);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(33, 15);
-            this.label10.TabIndex = 82;
-            this.label10.Text = "Tipo:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(83, 204);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(32, 15);
-            this.label11.TabIndex = 83;
-            this.label11.Text = "Ano:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(117, 172);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(108, 23);
-            this.textBox1.TabIndex = 85;
+            this.label6.Size = new System.Drawing.Size(39, 15);
+            this.label6.TabIndex = 107;
+            this.label6.Text = "Email:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(58, 276);
+            this.label7.Location = new System.Drawing.Point(76, 313);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(228, 21);
-            this.label7.TabIndex = 80;
-            this.label7.Text = "Informações de Combustível";
+            this.label7.Size = new System.Drawing.Size(36, 15);
+            this.label7.TabIndex = 108;
+            this.label7.Text = "Fone:";
             // 
-            // textBox3
+            // label9
             // 
-            this.textBox3.Location = new System.Drawing.Point(117, 201);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(108, 23);
-            this.textBox3.TabIndex = 87;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(117, 230);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(108, 23);
-            this.textBox4.TabIndex = 88;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(129, 305);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(108, 23);
-            this.textBox8.TabIndex = 92;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(280, 230);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(143, 23);
-            this.textBox5.TabIndex = 95;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(280, 201);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(143, 23);
-            this.textBox6.TabIndex = 94;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(280, 172);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(143, 23);
-            this.textBox7.TabIndex = 93;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(53, 342);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 15);
+            this.label9.TabIndex = 109;
+            this.label9.Text = "Endereço:";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(280, 307);
+            this.comboBox1.Location = new System.Drawing.Point(115, 167);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(143, 23);
-            this.comboBox1.TabIndex = 96;
+            this.comboBox1.Size = new System.Drawing.Size(121, 23);
+            this.comboBox1.TabIndex = 110;
             // 
-            // imageList1
+            // checkBox1
             // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(252, 169);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(124, 19);
+            this.checkBox1.TabIndex = 111;
+            this.checkBox1.Text = "Cliente é condutor";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // TelaCadastroVeiculo
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(115, 194);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(261, 23);
+            this.textBox1.TabIndex = 112;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(115, 223);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(261, 23);
+            this.textBox2.TabIndex = 113;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(115, 281);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(261, 23);
+            this.textBox4.TabIndex = 115;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(115, 310);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(261, 23);
+            this.textBox5.TabIndex = 116;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(115, 339);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(261, 23);
+            this.textBox6.TabIndex = 117;
+            // 
+            // dateTime_Validade_Cnh
+            // 
+            this.dateTime_Validade_Cnh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTime_Validade_Cnh.Location = new System.Drawing.Point(259, 254);
+            this.dateTime_Validade_Cnh.Name = "dateTime_Validade_Cnh";
+            this.dateTime_Validade_Cnh.Size = new System.Drawing.Size(117, 23);
+            this.dateTime_Validade_Cnh.TabIndex = 119;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(198, 260);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 15);
+            this.label5.TabIndex = 121;
+            this.label5.Text = "Validade :";
+            // 
+            // txtMask_Cnh
+            // 
+            this.txtMask_Cnh.Location = new System.Drawing.Point(116, 252);
+            this.txtMask_Cnh.Mask = "00000000000";
+            this.txtMask_Cnh.Name = "txtMask_Cnh";
+            this.txtMask_Cnh.Size = new System.Drawing.Size(76, 23);
+            this.txtMask_Cnh.TabIndex = 118;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(44, 260);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 15);
+            this.label10.TabIndex = 120;
+            this.label10.Text = "N° Carteira:";
+            // 
+            // TelaCadastroCondutor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 441);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label11);
+            this.ClientSize = new System.Drawing.Size(483, 475);
+            this.Controls.Add(this.dateTime_Validade_Cnh);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtMask_Cnh);
             this.Controls.Add(this.label10);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -294,8 +288,8 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Name = "TelaCadastroVeiculo";
-            this.Text = " ";
+            this.Name = "TelaCadastroCondutor";
+            this.Text = "TelaCadastroCondutor";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,20 +306,19 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.DateTimePicker dateTime_Validade_Cnh;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.MaskedTextBox txtMask_Cnh;
+        private System.Windows.Forms.Label label10;
     }
 }
