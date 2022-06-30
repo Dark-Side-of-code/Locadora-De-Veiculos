@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Locadora-De-Veiculos.Infra.SqlServer.Database</Name>
+    <Name>Locadora_De_Veiculos.Infra.SqlServer.Database</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{0e1d522f-9b87-46c5-8db2-942865dd958a}</ProjectGuid>
+    <ProjectGuid>{7ff643f0-712f-40bd-87ea-ae89e7261946}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
@@ -63,8 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\TbCliente.sql" />
-    <Build Include="dbo\Tables\TbFuncionario.sql" />
     <Build Include="dbo\Tables\TbTaxas.sql" />
     <Build Include="dbo\Tables\TbCategoriaVeiculo.sql" />
+    <Build Include="dbo\Tables\TbFuncionario.sql" />
+    <Build Include="dbo\Tables\TbVeiculo.sql" />
+    <Build Include="dbo\Tables\TbCondutor.sql" />
+    <Build Include="dbo\Tables\TbPlanoCobranca.sql" />
   </ItemGroup>
 </Project>
