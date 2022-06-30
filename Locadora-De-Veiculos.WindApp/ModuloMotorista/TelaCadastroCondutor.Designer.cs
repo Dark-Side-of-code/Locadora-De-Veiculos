@@ -97,9 +97,10 @@
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.Location = new System.Drawing.Point(71, 129);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(184, 21);
+            this.label8.Size = new System.Drawing.Size(210, 21);
             this.label8.TabIndex = 101;
-            this.label8.Text = "Informações do Veíclo:";
+            this.label8.Text = "Informações do Condutor:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // panel1
             // 
@@ -115,9 +116,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(116, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(243, 32);
+            this.label1.Size = new System.Drawing.Size(269, 32);
             this.label1.TabIndex = 99;
-            this.label1.Text = "Cadastro De Veículo";
+            this.label1.Text = "Cadastro De Condutor";
             // 
             // label2
             // 

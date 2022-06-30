@@ -16,5 +16,10 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
         {
             InitializeComponent();
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
