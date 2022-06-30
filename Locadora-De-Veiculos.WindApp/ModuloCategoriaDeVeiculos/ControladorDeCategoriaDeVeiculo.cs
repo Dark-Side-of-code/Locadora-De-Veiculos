@@ -1,7 +1,10 @@
-﻿using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
+﻿using Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos;
+using Locadora_De_Veiculos.Dominio.ModuloCategoriaDeVeiculos;
+using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
 using Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using Locadora_De_Veiculos.WindApp.ModuloGrupoDeVeiculos;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -9,12 +12,14 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
 {
     internal class ControladorDeCategoriaDeVeiculo : ControladorBase
     {
-        private RepositorioCategoriaDeVeiculosEmBancoDados repositorio;
-        private TabelaCategoriasDeVeiculosControl tabela;
+        private readonly IRepositorioCategoriaDeVeiculos repositorioCategoriaDeVeiculos;
+        private TabelaCategoriasDeVeiculosControl? listagemCategoriaDeVeiculos;
+        private readonly ServicoCategoriasDeVeiculos servicoCategoriaDeVeiculos;
 
-        public ControladorDeCategoriaDeVeiculo(RepositorioCategoriaDeVeiculosEmBancoDados repositorioTaxa)
+        public ControladorDeCategoriaDeVeiculo(IRepositorioCategoriaDeVeiculos repositorioCategoriaDeVeiculos, ServicoCategoriasDeVeiculos servicoCategoriaDeVeiculos)
         {
-            this.repositorio = repositorioTaxa;
+            this.repositorioCategoriaDeVeiculos = repositorioCategoriaDeVeiculos;
+            this.servicoCategoriaDeVeiculos = servicoCategoriaDeVeiculos;
         }
 
         public override void Inserir()
@@ -23,7 +28,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
 
             tela.CategoriaDeVeiculos = new CategoriaDeVeiculos();
 
-            tela.GravarRegistro = repositorio.Inserir;
+            tela.GravarRegistro = servicoCategoriaDeVeiculos.Inserir;
 
             DialogResult resultado = tela.ShowDialog();
 
@@ -35,14 +40,12 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
 
         public override void Editar()
         {
-            var numero = tabela.ObtemIdCategoriaVeiculoSelecionado();
-
-            CategoriaDeVeiculos categoriaSelecionada = repositorio.SelecionarPorId(numero);
+            CategoriaDeVeiculos categoriaSelecionada = ObtemCategoriaDeVeiculoSelecionado();
 
             if (categoriaSelecionada == null)
             {
-                MessageBox.Show("Selecione uma disciplina primeiro",
-                "Edição de Compromissos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione uma taxa primeiro",
+                "Edição de Taxas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -50,7 +53,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
 
             tela.CategoriaDeVeiculos = (CategoriaDeVeiculos)categoriaSelecionada.Clone();
 
-            tela.GravarRegistro = repositorio.Editar;
+            tela.GravarRegistro = servicoCategoriaDeVeiculos.Editar;
 
             DialogResult resultado = tela.ShowDialog();
 
@@ -63,27 +66,30 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
 
         public override void Excluir()
         {
-            var numero = tabela.ObtemIdCategoriaVeiculoSelecionado();
-
-            CategoriaDeVeiculos categoriaSelecionada = repositorio.SelecionarPorId(numero);
+            CategoriaDeVeiculos categoriaSelecionada = ObtemCategoriaDeVeiculoSelecionado();
 
             if (categoriaSelecionada == null)
             {
-                MessageBox.Show("Selecione uma disciplina primeiro",
+                MessageBox.Show("Selecione uma taxa primeiro",
                 "Exclusão de Taxas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            DialogResult resultado = MessageBox.Show("Deseja realmente excluir a disciplina?",
+            DialogResult resultado = MessageBox.Show("Deseja realmente excluir a taxa?",
                "Exclusão de Taxas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (resultado == DialogResult.OK)
             {
-                repositorio.Excluir(categoriaSelecionada);
+                repositorioCategoriaDeVeiculos.Excluir(categoriaSelecionada);
                 CarregarTaxas();
             }
         }
 
+        private CategoriaDeVeiculos ObtemCategoriaDeVeiculoSelecionado()
+        {
+            var id = listagemCategoriaDeVeiculos.ObtemIdCategoriaVeiculoSelecionado();
+            return repositorioCategoriaDeVeiculos.SelecionarPorNumero(id);
+        }
 
         public override ConfiguracaoToolboxBase ObtemConfiguracaoToolbox()
         {
@@ -92,19 +98,19 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
 
         public override UserControl ObtemListagem()
         {
-            if (tabela == null)
-                tabela = new TabelaCategoriasDeVeiculosControl();
+            if (listagemCategoriaDeVeiculos == null)
+                listagemCategoriaDeVeiculos = new TabelaCategoriasDeVeiculosControl();
 
             CarregarTaxas();
 
-            return tabela;
+            return listagemCategoriaDeVeiculos;
         }
 
         private void CarregarTaxas()
         {
-            List<CategoriaDeVeiculos> categorias = repositorio.SelecionarTodos();
+            List<CategoriaDeVeiculos> categorias = repositorioCategoriaDeVeiculos.SelecionarTodos();
 
-            tabela.AtualizarRegistros(categorias);
+            listagemCategoriaDeVeiculos?.AtualizarRegistros(categorias);
 
             TelaInicioForm.Instancia.AtualizarRodape($"Visualizando {categorias.Count} disciplina(s)");
         }

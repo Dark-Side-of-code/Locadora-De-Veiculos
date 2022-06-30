@@ -1,4 +1,5 @@
-﻿using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
+﻿using Locadora_De_Veiculos.Dominio.ModuloCategoriaDeVeiculos;
+using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
 using Locadora_De_Veiculos.Infra.Banco.Compartilhado;
 using Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -14,7 +15,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCategoriasDeVeiculos
     public class RepositorioCategoriasDeVeiculosEmBancoDadosTest
     {
         private CategoriaDeVeiculos categoriaDeVeiculos;
-        private RepositorioCategoriaDeVeiculosEmBancoDados repositorio;
+        private IRepositorioCategoriaDeVeiculos repositorio;
 
         public RepositorioCategoriasDeVeiculosEmBancoDadosTest()
         {
@@ -30,7 +31,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCategoriasDeVeiculos
             repositorio.Inserir(categoriaDeVeiculos);
 
             //assert
-            var categoriaDeVeiculosEncontrado = repositorio.SelecionarPorId(categoriaDeVeiculos.Id);
+            var categoriaDeVeiculosEncontrado = repositorio.SelecionarPorNumero(categoriaDeVeiculos.Id);
 
             Assert.IsNotNull(categoriaDeVeiculosEncontrado);
             Assert.AreEqual(categoriaDeVeiculos, categoriaDeVeiculosEncontrado);
@@ -48,7 +49,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCategoriasDeVeiculos
             repositorio.Editar(categoriaDeVeiculos);
 
             //assert
-            var categoriaDeVeiculosEncontrado = repositorio.SelecionarPorId(categoriaDeVeiculos.Id);
+            var categoriaDeVeiculosEncontrado = repositorio.SelecionarPorNumero(categoriaDeVeiculos.Id);
 
             Assert.IsNotNull(categoriaDeVeiculosEncontrado);
             Assert.AreEqual(categoriaDeVeiculos, categoriaDeVeiculosEncontrado);
@@ -65,7 +66,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCategoriasDeVeiculos
             repositorio.Excluir(categoriaDeVeiculos);
 
             //assert
-            var categoriaDeVeiculosEncontrado = repositorio.SelecionarPorId(categoriaDeVeiculos.Id);
+            var categoriaDeVeiculosEncontrado = repositorio.SelecionarPorNumero(categoriaDeVeiculos.Id);
             Assert.IsNull(categoriaDeVeiculosEncontrado);
         }
 
@@ -77,7 +78,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCategoriasDeVeiculos
             repositorio.Inserir(categoriaDeVeiculos);
 
             //action
-            var categoriaDeVeiculosEncontrado = repositorio.SelecionarPorId(categoriaDeVeiculos.Id);
+            var categoriaDeVeiculosEncontrado = repositorio.SelecionarPorNumero(categoriaDeVeiculos.Id);
 
             //assert
             Assert.IsNotNull(categoriaDeVeiculosEncontrado);

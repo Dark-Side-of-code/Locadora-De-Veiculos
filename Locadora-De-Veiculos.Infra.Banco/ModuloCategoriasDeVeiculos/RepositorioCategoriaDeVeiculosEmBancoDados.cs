@@ -11,7 +11,8 @@ using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos
 {
-    public class RepositorioCategoriaDeVeiculosEmBancoDados : RepositorioBase<CategoriaDeVeiculos, MapeadorCategoriaVeiculo>
+    public class RepositorioCategoriaDeVeiculosEmBancoDados : RepositorioBase<CategoriaDeVeiculos, MapeadorCategoriaVeiculo>,
+        IRepositorioCategoriaDeVeiculos
     {
         protected override string sqlInserir =>
         @"INSERT INTO [TBCATEGORIAVEICULO]
@@ -49,16 +50,18 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos
         FROM
             [TBCATEGORIAVEICULO]";
 
-        public bool ExisteCategoriaComEsteNome(string nome)
+        protected string sqlSelecionarPorNome =>
+        @"SELECT 
+            [ID],       
+            [NOME]  
+        FROM
+            [TBCATEGORIAVEICULO]
+        WHERE
+            [NOME] = @NOME";
+
+        public CategoriaDeVeiculos SelecionarClientePorNome(string nome)
         {
-            List<CategoriaDeVeiculos> categorias = SelecionarTodos();
-
-            foreach(CategoriaDeVeiculos c in categorias){
-                if (c.Nome == nome)
-                    return true;
-            }
-
-            return false;
+            return SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("NOME", nome));
         }
     }
 }
