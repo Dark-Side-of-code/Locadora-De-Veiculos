@@ -14,7 +14,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloTaxas
     public class RepositorioTaxaEmBancoDadosTest
     {
         private Taxa taxa;
-        private RepositorioTaxaEmBancoDados repositorio;
+        private IRepositorioTaxa repositorio;
 
         public RepositorioTaxaEmBancoDadosTest()
         {
@@ -30,7 +30,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloTaxas
             repositorio.Inserir(taxa);
 
             //assert
-            var taxaEncontrado = repositorio.SelecionarPorId(taxa.Id);
+            var taxaEncontrado = repositorio.SelecionarPorNumero(taxa.Id);
 
             Assert.IsNotNull(taxaEncontrado);
             Assert.AreEqual(taxa, taxaEncontrado);
@@ -48,7 +48,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloTaxas
             repositorio.Editar(taxa);
 
             //assert
-            var taxaEncontrado = repositorio.SelecionarPorId(taxa.Id);
+            var taxaEncontrado = repositorio.SelecionarPorNumero(taxa.Id);
 
             Assert.IsNotNull(taxaEncontrado);
             Assert.AreEqual(taxa, taxaEncontrado);
@@ -65,7 +65,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloTaxas
             repositorio.Excluir(taxa);
 
             //assert
-            var taxaEncontrado = repositorio.SelecionarPorId(taxa.Id);
+            var taxaEncontrado = repositorio.SelecionarPorNumero(taxa.Id);
             Assert.IsNull(taxaEncontrado);
         }
 
@@ -77,7 +77,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloTaxas
             repositorio.Inserir(taxa);
 
             //action
-            var taxaEncontrado = repositorio.SelecionarPorId(taxa.Id);
+            var taxaEncontrado = repositorio.SelecionarPorNumero(taxa.Id);
 
             //assert
             Assert.IsNotNull(taxaEncontrado);

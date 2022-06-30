@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Infra.Banco.ModuloTaxas
 {
-    public class RepositorioTaxaEmBancoDados : RepositorioBase<Taxa, MapeadorTaxa>
+    public class RepositorioTaxaEmBancoDados : RepositorioBase<Taxa, MapeadorTaxa>,
+        IRepositorioTaxa
     {
         protected override string sqlInserir =>
         @"INSERT INTO [TbTaxas]
@@ -63,17 +64,21 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloTaxas
         WHERE 
             [ID] = @ID";
 
-        public bool ExisteCategoriaComEsteNome(string nome)
+        protected string sqlSelecionarPorNome =>
+        @"SELECT 
+            [ID],       
+            [NOME],       
+            [DESCRICAO], 
+            [VALOR],
+            [DIARIO_FIXO] 
+        FROM
+            [TBTAXAS]
+        WHERE 
+            [NOME] = @NOME";
+
+        public Taxa SelecionarTaxaPorNome(string nome)
         {
-            List<Taxa> categorias = SelecionarTodos();
-
-            foreach (Taxa c in categorias)
-            {
-                if (c.Nome == nome)
-                    return true;
-            }
-
-            return false;
+            return SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("NOME", nome));
         }
     }
 }

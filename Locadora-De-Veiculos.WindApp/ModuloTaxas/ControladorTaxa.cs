@@ -1,6 +1,8 @@
-﻿using Locadora_De_Veiculos.Dominio.ModuloTaxas;
+﻿using Locadora_De_Veiculos.Aplicacao.ModuloTaxas;
+using Locadora_De_Veiculos.Dominio.ModuloTaxas;
 using Locadora_De_Veiculos.Infra.Banco.ModuloTaxas;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -8,12 +10,14 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
 {
     public class ControladorTaxa : ControladorBase
     {
-        private RepositorioTaxaEmBancoDados repositorioTaxa;
-        private TabelaTaxasControl tabelaTaxas;
+        private readonly IRepositorioTaxa repositorioTaxa;
+        private TabelaTaxasControl? listagemTaxas;
+        private readonly ServicoTaxa servicoTaxa;
 
-        public ControladorTaxa(RepositorioTaxaEmBancoDados repositorioTaxa)
+        public ControladorTaxa(IRepositorioTaxa repositorioTaxa, ServicoTaxa servicoTaxa)
         {
             this.repositorioTaxa = repositorioTaxa;
+            this.servicoTaxa = servicoTaxa;
         }
 
         public override void Inserir()
@@ -22,7 +26,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
         
             tela.Taxa = new Taxa();
         
-            tela.GravarRegistro = repositorioTaxa.Inserir;
+            tela.GravarRegistro = servicoTaxa.Inserir;
 
             DialogResult resultado = tela.ShowDialog();
 
@@ -34,9 +38,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
         
         public override void Editar()
         {
-            var numero = tabelaTaxas.ObtemIdTaxaSelecionada();
-        
-            Taxa disciplinaSelecionada = repositorioTaxa.SelecionarPorId(numero);
+            Taxa disciplinaSelecionada = ObtemTaxaSelecionada();
         
             if (disciplinaSelecionada == null)
             {
@@ -49,7 +51,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
         
             tela.Taxa = (Taxa)disciplinaSelecionada.Clone();
         
-            tela.GravarRegistro = repositorioTaxa.Editar;
+            tela.GravarRegistro = servicoTaxa.Editar;
         
             DialogResult resultado = tela.ShowDialog();
         
@@ -59,12 +61,17 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
             }
         
         }
-        
+
+        private Taxa ObtemTaxaSelecionada()
+        {
+            var id = listagemTaxas.ObtemIdTaxaSelecionada();
+
+            return repositorioTaxa.SelecionarPorNumero(id);
+        }
+
         public override void Excluir()
         {
-            var numero = tabelaTaxas.ObtemIdTaxaSelecionada();
-        
-            Taxa disciplinaSelecionada = repositorioTaxa.SelecionarPorId(numero);
+            Taxa disciplinaSelecionada = ObtemTaxaSelecionada();
         
             if (disciplinaSelecionada == null)
             {
@@ -91,19 +98,19 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
         
         public override UserControl ObtemListagem()
         {
-            if (tabelaTaxas == null)
-                tabelaTaxas = new TabelaTaxasControl();
+            if (listagemTaxas == null)
+                listagemTaxas = new TabelaTaxasControl();
         
             CarregarTaxas();
         
-            return tabelaTaxas;
+            return listagemTaxas;
         }
         
         private void CarregarTaxas()
         {
             List<Taxa> taxas = repositorioTaxa.SelecionarTodos();
         
-            tabelaTaxas.AtualizarRegistros(taxas);
+            listagemTaxas?.AtualizarRegistros(taxas);
         
             TelaInicioForm.Instancia.AtualizarRodape($"Visualizando {taxas.Count} disciplina(s)");
         }
