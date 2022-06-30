@@ -19,7 +19,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloFuncionario
 
         public ValidationResult Inserir(Funcionario funcionario)
         {
-            ValidationResult resultadoValidacao = Validar(funcionario);
+            ValidationResult resultadoValidacao = ValidarFuncionario(funcionario);
 
             if (resultadoValidacao.IsValid)
                 repositorioFuncionario.Inserir(funcionario);
@@ -29,7 +29,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloFuncionario
 
         public ValidationResult Editar(Funcionario funcionario)
         {
-            ValidationResult resultadoValidacao = Validar(funcionario);
+            ValidationResult resultadoValidacao = ValidarFuncionario(funcionario);
 
             if (resultadoValidacao.IsValid)
                 repositorioFuncionario.Editar(funcionario);
@@ -37,7 +37,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloFuncionario
             return resultadoValidacao;
         }
 
-        private ValidationResult Validar(Funcionario funcionario)
+        private ValidationResult ValidarFuncionario(Funcionario funcionario)
         {
             var validador = new ValidadorFuncionario();
 

@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
 {
-    public class RepositorioClienteEmBancoDados : RepositorioBase<Cliente, MapeadorCliente>
+    public class RepositorioClienteEmBancoDados : RepositorioBase<Cliente, MapeadorCliente>,
+        IRepositorioCliente
     {
         protected override string sqlInserir =>
             @"INSERT INTO [TBCLIENTE] 
@@ -82,57 +83,64 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
 	            FROM 
 		            [TBCLIENTE]";
 
-        public override void Inserir(Cliente registro)
+        protected string sqlSelecionarPorCNH =>
+            @"SELECT
+                    [ID],
+		            [NOME],
+                    [CPF_CNPJ],
+                    [CNH],
+                    [VALIDADE_CNH],
+                    [TIPO_CLIENTE],
+                    [EMAIL],
+                    [TELEFONE]
+	            FROM 
+		            [TBCLIENTE]
+		        WHERE
+                    [CNH] = @CNH";
+
+        protected string sqlSelecionarPorCPF_CNPJ =>
+            @"SELECT
+                    [ID],
+		            [NOME],
+                    [CPF_CNPJ],
+                    [CNH],
+                    [VALIDADE_CNH],
+                    [TIPO_CLIENTE],
+                    [EMAIL],
+                    [TELEFONE]
+	            FROM 
+		            [TBCLIENTE]
+		        WHERE
+                    [CNH] = @CNH";
+
+        protected string sqlSelecionarPorNome =>
+            @"SELECT
+                    [ID],
+		            [NOME],
+                    [CPF_CNPJ],
+                    [CNH],
+                    [VALIDADE_CNH],
+                    [TIPO_CLIENTE],
+                    [EMAIL],
+                    [TELEFONE]
+	            FROM 
+		            [TBCLIENTE]
+		        WHERE
+                    [NOME] = @NOME";
+
+        public Cliente SelecionarClientePorCNH(string cnh)
         {
-            var validador = new ValidadorCliente();
-
-            var resultadoValidacao = validador.Validate(registro);
-
-            if (ExisteClienteComEsteCPF_CNPJ(registro.CPF_CNPJ))
-                resultadoValidacao.Errors.Add(new ValidationFailure("CPF_CNPJ", "CPF_CNPJ Duplicado"));
-
-            if (ExisteClienteComEstaCNH(registro.CNH))
-                resultadoValidacao.Errors.Add(new ValidationFailure("CNH", "CNH Duplicado"));
-
-            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
-
-            SqlCommand comandoInsercao = new SqlCommand(sqlInserir, conexaoComBanco);
-
-            var mapeador = new MapeadorCliente();
-
-            mapeador.ConfigurarParametros(registro, comandoInsercao);
-
-            conexaoComBanco.Open();
-            var id = comandoInsercao.ExecuteScalar();
-            registro.Id = Convert.ToInt32(id);
-
-            conexaoComBanco.Close();
+            return SelecionarPorParametro(sqlSelecionarPorCNH, new SqlParameter("CNH", cnh));
         }
 
-        public bool ExisteClienteComEsteCPF_CNPJ(string cpf_Cnpj)
+        public Cliente SelecionarClientePorCPF_CNPJ(string cpf_cnpj)
         {
-            List<Cliente> clientes = SelecionarTodos();
-
-            foreach (Cliente f in clientes)
-            {
-                if (f.CPF_CNPJ == cpf_Cnpj)
-                    return true;
-            }
-
-            return false;
-        }
-        public bool ExisteClienteComEstaCNH(string cnh)
-        {
-            List<Cliente> clientes = SelecionarTodos();
-
-            foreach (Cliente f in clientes)
-            {
-                if (f.CNH == cnh)
-                    return true;
-            }
-
-            return false;
+            return SelecionarPorParametro(sqlSelecionarPorCPF_CNPJ, new SqlParameter("CPF_CNPJ", cpf_cnpj));
         }
 
+        public Cliente SelecionarClientePorNome(string nome)
+        {
+            return SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("NOME", nome));
+        }
     }
 }

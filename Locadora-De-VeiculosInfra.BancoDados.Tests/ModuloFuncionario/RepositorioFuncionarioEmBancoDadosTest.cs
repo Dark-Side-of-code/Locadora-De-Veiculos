@@ -10,7 +10,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloFuncionario
     public class RepositorioFuncionarioEmBancoDadosTest
     {
         private Funcionario funcionario;
-        public RepositorioFuncionarioEmBancoDados repositorio;
+        public IRepositorioFuncionario repositorio;
 
         public RepositorioFuncionarioEmBancoDadosTest()
         {
@@ -27,7 +27,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloFuncionario
             repositorio.Inserir(funcionario);
 
             //assert
-            var funcionarioEncontrado = repositorio.SelecionarPorId(funcionario.Id);
+            var funcionarioEncontrado = repositorio.SelecionarPorNumero(funcionario.Id);
 
 
             Assert.IsNotNull(funcionarioEncontrado);
@@ -53,7 +53,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloFuncionario
             repositorio.Editar(funcionario);
 
             //assert
-            var funcionarioEncontrado = repositorio.SelecionarPorId(funcionario.Id);
+            var funcionarioEncontrado = repositorio.SelecionarPorNumero(funcionario.Id);
             Assert.IsNotNull(funcionarioEncontrado);
             Assert.AreEqual(funcionario, funcionarioEncontrado);
         }
@@ -69,7 +69,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloFuncionario
             repositorio.Excluir(funcionario);
 
             //Assert
-            var funcionarioEncontrado = repositorio.SelecionarPorId(funcionario.Id);
+            var funcionarioEncontrado = repositorio.SelecionarPorNumero(funcionario.Id);
             Assert.IsNull(funcionarioEncontrado);
         }
 
@@ -81,7 +81,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloFuncionario
             repositorio.Inserir(funcionario);
 
             //action           
-            var funcionarioEncontrado = repositorio.SelecionarPorId(funcionario.Id);
+            var funcionarioEncontrado = repositorio.SelecionarPorNumero(funcionario.Id);
 
             //Assert
            

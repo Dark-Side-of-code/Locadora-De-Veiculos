@@ -1,4 +1,5 @@
-﻿using Locadora_De_Veiculos.Dominio.ModuloCliente;
+﻿using Locadora_De_Veiculos.Aplicacao.ModuloCliente;
+using Locadora_De_Veiculos.Dominio.ModuloCliente;
 using Locadora_De_Veiculos.Infra.Banco.ModuloCliente;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
@@ -12,12 +13,14 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
 {
     internal class ControladorCliente : ControladorBase
     {
-        private RepositorioClienteEmBancoDados repositorioCliente;
-        private TabelaClientesControl tabelaCliente;
+        private readonly IRepositorioCliente repositorioCliente;
+        private TabelaClientesControl? listagemClientes;
+        private readonly ServicoCliente servicoCliente;
 
-        public ControladorCliente(RepositorioClienteEmBancoDados repositorioCliente)
+        public ControladorCliente(IRepositorioCliente repositorioCliente, ServicoCliente servicoCliente)
         {
             this.repositorioCliente = repositorioCliente;
+            this.servicoCliente = servicoCliente;
         }
 
         public override void Inserir()
@@ -26,7 +29,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
 
             tela.Cliente = new Cliente();
 
-            tela.GravarRegistro = repositorioCliente.Inserir;
+            tela.GravarRegistro = servicoCliente.Inserir;
 
             DialogResult resultado = tela.ShowDialog();
 
@@ -38,9 +41,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
 
         public override void Editar()
         {
-            var numero = tabelaCliente.ObtemIdClienteSelecionado();
-
-            Cliente clienteSelecionado = repositorioCliente.SelecionarPorId(numero);
+            Cliente clienteSelecionado = ObtemClienteSelecionado();
 
             if (clienteSelecionado == null)
             {
@@ -53,7 +54,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
 
             tela.Cliente = clienteSelecionado;
 
-            tela.GravarRegistro = repositorioCliente.Editar;
+            tela.GravarRegistro = servicoCliente.Editar;
 
             DialogResult resultado = tela.ShowDialog();
 
@@ -66,9 +67,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
 
         public override void Excluir()
         {
-            var numero = tabelaCliente.ObtemIdClienteSelecionado();
-
-            Cliente clienteSelecionado = repositorioCliente.SelecionarPorId(numero);
+            Cliente clienteSelecionado = ObtemClienteSelecionado();
 
             if (clienteSelecionado == null)
             {
@@ -95,21 +94,26 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
 
         public override UserControl ObtemListagem()
         {
-            if (tabelaCliente == null)
-                tabelaCliente = new TabelaClientesControl();
+            if (listagemClientes == null)
+                listagemClientes = new TabelaClientesControl();
 
             CarregarClientes();
 
-            return tabelaCliente;
+            return listagemClientes;
         }
 
         private void CarregarClientes()
         {
             List<Cliente> clientes = repositorioCliente.SelecionarTodos();
-
-            tabelaCliente.AtualizarRegistros(clientes);
-
+            listagemClientes?.AtualizarRegistros(clientes);
             TelaInicioForm.Instancia.AtualizarRodape($"Visualizando {clientes.Count} cliente(s)");
+        }
+
+        private Cliente ObtemClienteSelecionado()
+        {
+            var id = listagemClientes.ObtemIdClienteSelecionado();
+
+            return repositorioCliente.SelecionarPorNumero(id);
         }
     }
 }

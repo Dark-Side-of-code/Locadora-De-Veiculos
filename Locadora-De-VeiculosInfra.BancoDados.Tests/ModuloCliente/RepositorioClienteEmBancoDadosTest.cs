@@ -14,7 +14,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCliente
     public class RepositorioClienteEmBancoDadosTest
     {
         private Cliente cliente;
-        private RepositorioClienteEmBancoDados repositorio;
+        private IRepositorioCliente repositorio;
 
         public RepositorioClienteEmBancoDadosTest()
         {
@@ -30,7 +30,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCliente
             repositorio.Inserir(cliente);
 
             //assert
-            var clienteEncontrado = repositorio.SelecionarPorId(cliente.Id);
+            var clienteEncontrado = repositorio.SelecionarPorNumero(cliente.Id);
 
             Assert.IsNotNull(clienteEncontrado);
             Assert.AreEqual(cliente, clienteEncontrado);
@@ -55,7 +55,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCliente
             repositorio.Editar(cliente);
 
             //assert
-            var clienteEncontrado = repositorio.SelecionarPorId(cliente.Id);
+            var clienteEncontrado = repositorio.SelecionarPorNumero(cliente.Id);
 
             Assert.IsNotNull(clienteEncontrado);
             Assert.AreEqual(cliente, clienteEncontrado);
@@ -72,7 +72,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCliente
             repositorio.Excluir(cliente);
 
             //assert
-            var clienteEncontrado = repositorio.SelecionarPorId(cliente.Id);
+            var clienteEncontrado = repositorio.SelecionarPorNumero(cliente.Id);
             Assert.IsNull(clienteEncontrado);
         }
 
@@ -84,7 +84,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCliente
             repositorio.Inserir(cliente);
 
             //action
-            var clienteEncontrado = repositorio.SelecionarPorId(cliente.Id);
+            var clienteEncontrado = repositorio.SelecionarPorNumero(cliente.Id);
 
             //assert
             Assert.IsNotNull(clienteEncontrado);
