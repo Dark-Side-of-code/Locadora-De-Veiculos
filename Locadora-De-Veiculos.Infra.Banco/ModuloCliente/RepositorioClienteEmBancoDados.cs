@@ -14,119 +14,119 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
         IRepositorioCliente
     {
         protected override string sqlInserir =>
-            @"INSERT INTO [TBCLIENTE] 
-                (
-                    [NOME],
-                    [CPF_CNPJ],
-                    [CNH],
-                    [VALIDADE_CNH],
-                    [TIPO_CLIENTE],
-                    [EMAIL],
-                    [TELEFONE]
-	            )
-	            VALUES
-                (
-                    @NOME,
-                    @CPF_CNPJ,
-                    @CNH,
-                    @VALIDADE_CNH,
-                    @TIPO_CLIENTE,
-                    @EMAIL,
-                    @TELEFONE
+        @"INSERT INTO [TBCLIENTE] 
+            (
+                [NOME],
+                [CPF_CNPJ],
+                [CNH],
+                [VALIDADE_CNH],
+                [TIPO_CLIENTE],
+                [EMAIL],
+                [TELEFONE]
+	        )
+	        VALUES
+            (
+                @NOME,
+                @CPF_CNPJ,
+                @CNH,
+                @VALIDADE_CNH,
+                @TIPO_CLIENTE,
+                @EMAIL,
+                @TELEFONE
 
-                );SELECT SCOPE_IDENTITY();";
+            );SELECT SCOPE_IDENTITY();";
 
         protected override string sqlEditar =>
-            @"UPDATE [TBCLIENTE]	
-		        SET
-			        [NOME] = @NOME,
-                    [CPF_CNPJ] = @CPF_CNPJ,
-                    [CNH] = @CNH, 
-                    [VALIDADE_CNH] = @VALIDADE_CNH,
-                    [TIPO_CLIENTE] = @TIPO_CLIENTE,
-                    [EMAIL] = @EMAIL,
-                    [TELEFONE] = @TELEFONE
+        @"UPDATE [TBCLIENTE]	
+		    SET
+			    [NOME] = @NOME,
+                [CPF_CNPJ] = @CPF_CNPJ,
+                [CNH] = @CNH, 
+                [VALIDADE_CNH] = @VALIDADE_CNH,
+                [TIPO_CLIENTE] = @TIPO_CLIENTE,
+                [EMAIL] = @EMAIL,
+                [TELEFONE] = @TELEFONE
 
-		        WHERE
-			        [ID] = @ID";
+		    WHERE
+			    [ID] = @ID";
 
         protected override string sqlExcluir =>
-            @"DELETE FROM [TBCLIENTE]			        
-		        WHERE
-			        [ID] = @ID";
+        @"DELETE FROM [TBCLIENTE]			        
+		    WHERE
+			    [ID] = @ID";
 
         protected override string sqlSelecionarPorId =>
-            @"SELECT
-                    [ID],
-		            [NOME],
-                    [CPF_CNPJ],
-                    [CNH],
-                    [VALIDADE_CNH],
-                    [TIPO_CLIENTE],
-                    [EMAIL],
-                    [TELEFONE]
-	            FROM 
-		            [TBCLIENTE]
-		        WHERE
-                    [ID] = @ID";
+        @"SELECT
+                [ID],
+		        [NOME],
+                [CPF_CNPJ],
+                [CNH],
+                [VALIDADE_CNH],
+                [TIPO_CLIENTE],
+                [EMAIL],
+                [TELEFONE]
+	        FROM 
+		        [TBCLIENTE]
+		    WHERE
+                [ID] = @ID";
 
         protected override string sqlSelecionarTodos =>
-            @"SELECT
-                    [ID],
-		            [NOME],
-                    [CPF_CNPJ],
-                    [CNH],
-                    [VALIDADE_CNH],
-                    [TIPO_CLIENTE],
-                    [EMAIL],
-                    [TELEFONE]
-	            FROM 
-		            [TBCLIENTE]";
+        @"SELECT
+                [ID],
+		        [NOME],
+                [CPF_CNPJ],
+                [CNH],
+                [VALIDADE_CNH],
+                [TIPO_CLIENTE],
+                [EMAIL],
+                [TELEFONE]
+	        FROM 
+		        [TBCLIENTE]";
 
         protected string sqlSelecionarPorCNH =>
-            @"SELECT
-                    [ID],
-		            [NOME],
-                    [CPF_CNPJ],
-                    [CNH],
-                    [VALIDADE_CNH],
-                    [TIPO_CLIENTE],
-                    [EMAIL],
-                    [TELEFONE]
-	            FROM 
-		            [TBCLIENTE]
-		        WHERE
-                    [CNH] = @CNH";
+        @"SELECT
+                [ID],
+		        [NOME],
+                [CPF_CNPJ],
+                [CNH],
+                [VALIDADE_CNH],
+                [TIPO_CLIENTE],
+                [EMAIL],
+                [TELEFONE]
+	        FROM 
+		        [TBCLIENTE]
+		    WHERE
+                [CNH] = @CNH";
 
         protected string sqlSelecionarPorCPF_CNPJ =>
-            @"SELECT
-                    [ID],
-		            [NOME],
-                    [CPF_CNPJ],
-                    [CNH],
-                    [VALIDADE_CNH],
-                    [TIPO_CLIENTE],
-                    [EMAIL],
-                    [TELEFONE]
-	            FROM 
-		            [TBCLIENTE]
-		        WHERE
-                    [CNH] = @CNH";
+        @"SELECT
+                [ID],
+		        [NOME],
+                [CPF_CNPJ],
+                [CNH],
+                [VALIDADE_CNH],
+                [TIPO_CLIENTE],
+                [EMAIL],
+                [TELEFONE]
+	        FROM 
+		        [TBCLIENTE]
+		    WHERE
+                [CPF_CNPJ] = @CPF_CNPJ";
 
         protected string sqlSelecionarPorNome =>
-            @"SELECT
-                    [ID],
-		            [NOME],
-                    [CPF_CNPJ],
-                    [CNH],
-                    [VALIDADE_CNH],
-                    [TIPO_CLIENTE],
-                    [EMAIL],
-                    [TELEFONE]
-	            FROM 
-		            [TBCLIENTE]
-		        WHERE
-                    [NOME] = @NOME";
+        @"SELECT
+                [ID],
+		        [NOME],
+                [CPF_CNPJ],
+                [CNH],
+                [VALIDADE_CNH],
+                [TIPO_CLIENTE],
+                [EMAIL],
+                [TELEFONE]
+	        FROM 
+		        [TBCLIENTE]
+		    WHERE
+                [NOME] = @NOME";
 
         public Cliente SelecionarClientePorCNH(string cnh)
         {

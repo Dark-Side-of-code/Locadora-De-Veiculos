@@ -47,9 +47,6 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCliente
             if (CPF_CNPJ_Duplicado(arg))
                 resultadoValidacao.Errors.Add(new ValidationFailure("CPF", "CPF duplicado"));
 
-            if (CNH_Duplicado(arg))
-                resultadoValidacao.Errors.Add(new ValidationFailure("CNH", "CNH duplicado"));
-
             return resultadoValidacao;
         }
 
@@ -59,15 +56,6 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCliente
 
             return clienteEncontrado != null &&
                    clienteEncontrado.CPF_CNPJ == cliente.CPF_CNPJ &&
-                   clienteEncontrado.Id != cliente.Id;
-        }
-
-        private bool CNH_Duplicado(Cliente cliente)
-        {
-            var clienteEncontrado = repositorioCliente.SelecionarClientePorCNH(cliente.CNH);
-
-            return clienteEncontrado != null &&
-                   clienteEncontrado.CNH == cliente.CNH &&
                    clienteEncontrado.Id != cliente.Id;
         }
     }
