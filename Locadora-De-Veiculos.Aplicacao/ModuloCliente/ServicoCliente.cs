@@ -44,16 +44,13 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCliente
 
             var resultadoValidacao = validador.Validate(arg);
 
+            if (CPF_CNPJ_Duplicado(arg))
+                resultadoValidacao.Errors.Add(new ValidationFailure("CPF", "CPF duplicado"));
+
+            if (CNH_Duplicado(arg))
+                resultadoValidacao.Errors.Add(new ValidationFailure("CNH", "CNH duplicado"));
+
             return resultadoValidacao;
-        }
-
-        private bool NomeDuplicado(Cliente cliente)
-        {
-            var clienteEncontrado = repositorioCliente.SelecionarClientePorNome(cliente.Nome);
-
-            return clienteEncontrado != null &&
-                   clienteEncontrado.Nome == cliente.Nome &&
-                   clienteEncontrado.Id != cliente.Id;
         }
 
         private bool CPF_CNPJ_Duplicado(Cliente cliente)

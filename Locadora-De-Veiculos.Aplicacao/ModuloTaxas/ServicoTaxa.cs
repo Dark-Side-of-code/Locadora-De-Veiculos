@@ -43,6 +43,9 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloTaxas
 
             var resultadoValidacao = validador.Validate(arg);
 
+            if (NomeDuplicado(arg))
+                resultadoValidacao.Errors.Add(new ValidationFailure("Nome", "Nome duplicado"));
+
             return resultadoValidacao;
         }
 
