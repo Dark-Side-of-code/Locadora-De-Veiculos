@@ -11,9 +11,9 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCliente
 {
     public class ServicoCliente
     {
-        private RepositorioClienteEmBancoDados repositorioCliente;
+        private IRepositorioCliente repositorioCliente;
 
-        public ServicoCliente(RepositorioClienteEmBancoDados repositorioCliente)
+        public ServicoCliente(IRepositorioCliente repositorioCliente)
         {
             this.repositorioCliente = repositorioCliente;
         }
@@ -45,6 +45,33 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCliente
             var resultadoValidacao = validador.Validate(arg);
 
             return resultadoValidacao;
+        }
+
+        private bool NomeDuplicado(Cliente cliente)
+        {
+            var clienteEncontrado = repositorioCliente.SelecionarClientePorNome(cliente.Nome);
+
+            return clienteEncontrado != null &&
+                   clienteEncontrado.Nome == cliente.Nome &&
+                   clienteEncontrado.Id != cliente.Id;
+        }
+
+        private bool CPF_CNPJ_Duplicado(Cliente cliente)
+        {
+            var clienteEncontrado = repositorioCliente.SelecionarClientePorCPF_CNPJ(cliente.CPF_CNPJ);
+
+            return clienteEncontrado != null &&
+                   clienteEncontrado.CPF_CNPJ == cliente.CPF_CNPJ &&
+                   clienteEncontrado.Id != cliente.Id;
+        }
+
+        private bool CNH_Duplicado(Cliente cliente)
+        {
+            var clienteEncontrado = repositorioCliente.SelecionarClientePorCNH(cliente.CNH);
+
+            return clienteEncontrado != null &&
+                   clienteEncontrado.CNH == cliente.CNH &&
+                   clienteEncontrado.Id != cliente.Id;
         }
     }
 }
