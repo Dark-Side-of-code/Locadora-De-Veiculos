@@ -96,9 +96,9 @@
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(419, 206);
+            this.tabPage3.Size = new System.Drawing.Size(419, 165);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Km Controlado";
+            this.tabPage3.Text = "Plano Km Controlado";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // textBox6
@@ -156,9 +156,9 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(419, 206);
+            this.tabPage2.Size = new System.Drawing.Size(419, 165);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Km Livre";
+            this.tabPage2.Text = "Plano Km Livre";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // textBox4
@@ -186,7 +186,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(419, 206);
+            this.tabPage1.Size = new System.Drawing.Size(419, 165);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Plano Diario";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -231,13 +231,13 @@
             this.tabControl1.Location = new System.Drawing.Point(40, 188);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(427, 234);
+            this.tabControl1.Size = new System.Drawing.Size(427, 193);
             this.tabControl1.TabIndex = 103;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Teal;
-            this.panel2.Location = new System.Drawing.Point(0, 462);
+            this.panel2.Location = new System.Drawing.Point(0, 400);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(521, 10);
             this.panel2.TabIndex = 106;
@@ -250,7 +250,7 @@
             this.btn_Cadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Cadastrar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Cadastrar.ForeColor = System.Drawing.Color.White;
-            this.btn_Cadastrar.Location = new System.Drawing.Point(249, 492);
+            this.btn_Cadastrar.Location = new System.Drawing.Point(249, 430);
             this.btn_Cadastrar.Name = "btn_Cadastrar";
             this.btn_Cadastrar.Size = new System.Drawing.Size(154, 36);
             this.btn_Cadastrar.TabIndex = 105;
@@ -265,7 +265,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(116, 492);
+            this.button2.Location = new System.Drawing.Point(116, 430);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 36);
             this.button2.TabIndex = 104;
@@ -295,7 +295,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(517, 542);
+            this.ClientSize = new System.Drawing.Size(517, 483);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
