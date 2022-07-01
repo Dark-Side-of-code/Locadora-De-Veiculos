@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Dominio.ModuloCondutor
 {
-    internal class ValidadorCondutor : AbstractValidator<Condutor>
+    public class ValidadorCondutor : AbstractValidator<Condutor>
     {
         public ValidadorCondutor()
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Dominio.ModuloCondutor
 {
-    internal interface IRepositorioCondutor : IRepositorio<Condutor>
+    public interface IRepositorioCondutor : IRepositorio<Condutor>
     {
         Condutor SelecionarClientePorCPF_CNPJ(string cpf_cnpj);
 
