@@ -1,4 +1,5 @@
 ﻿using Locadora_De_Veiculos.Dominio.Compartilhado;
+using Locadora_De_Veiculos.Dominio.ModuloCliente;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Dominio.ModuloCondutor
 {
-    internal class Condutor : EntidadeBase<Condutor>
+    public class Condutor : EntidadeBase<Condutor>
     {
         public Condutor()
         {
 
         }
-        public Condutor(string nome, string cpf, string cnh, DateTime validade_CNH, string email, string telefone, string edereco) : this()
+        public Condutor(string nome, string cpf, string cnh, DateTime validade_CNH, string email, string telefone, string edereco, Cliente cliente) : this()
         {
             Nome = nome;
             CPF = cpf;
@@ -22,6 +23,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCondutor
             Email = email;
             Telefone = telefone;
             Edereco = edereco;
+            Cliente = cliente;
         }
 
         public string Nome { get; set; }
@@ -31,23 +33,45 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCondutor
         public string Email { get; set; }
         public string Telefone { get; set; }
         public string Edereco { get; set; }
-
-        public override bool Equals(object obj)
-        {
-            return obj is Condutor Condutor &&
-                   Id == Condutor.Id &&
-                   Nome == Condutor.Nome &&
-                   CPF == Condutor.CPF &&
-                   CNH == Condutor.CNH &&
-                   Validade_CNH == Condutor.Validade_CNH &&
-                   Email == Condutor.Email &&
-                   Telefone == Condutor.Telefone &&
-                   Edereco == Condutor.Edereco;
-        }
+        public Cliente Cliente { get; set; }
 
         public Condutor Clone()
         {
             return MemberwiseClone() as Condutor;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Condutor condutor &&
+                   Id == condutor.Id &&
+                   Nome == condutor.Nome &&
+                   CPF == condutor.CPF &&
+                   CNH == condutor.CNH &&
+                   Validade_CNH == condutor.Validade_CNH &&
+                   Email == condutor.Email &&
+                   Telefone == condutor.Telefone &&
+                   Edereco == condutor.Edereco &&
+                   EqualityComparer<Cliente>.Default.Equals(Cliente, condutor.Cliente);
+        }
+
+        public override int GetHashCode()
+        {
+            HashCode hash = new HashCode();
+            hash.Add(Id);
+            hash.Add(Nome);
+            hash.Add(CPF);
+            hash.Add(CNH);
+            hash.Add(Validade_CNH);
+            hash.Add(Email);
+            hash.Add(Telefone);
+            hash.Add(Edereco);
+            hash.Add(Cliente);
+            return hash.ToHashCode();
+        }
+
+        public void ConfigurarCondutor(Cliente cliente)
+        {
+            throw new NotImplementedException();
         }
     }
 }
