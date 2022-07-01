@@ -14,7 +14,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloFuncionario
 
         }
 
-        public Funcionario(string nome, string login, string senha, double salario, DateTime dataAdmissao, string tipoFuncionario )
+        public Funcionario(string nome, string login, string senha, double salario, DateTime dataAdmissao, string tipoFuncionario) : this()
         {
             Nome = nome;
             Login = login;
