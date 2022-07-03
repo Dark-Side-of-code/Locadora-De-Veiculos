@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[TbVeiculo] (
-    [Id]                INT             NOT NULL,
+    [Id]                INT             IDENTITY (1, 1) NOT NULL,
     [Modelo]            VARCHAR (300)   NOT NULL,
     [Placa]             VARCHAR (7)     NOT NULL,
     [Marca]             VARCHAR (50)    NOT NULL,
@@ -13,4 +13,6 @@
     CONSTRAINT [PK_TbVeiculo] PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_TbVeiculo_TbCategoriaVeiculo] FOREIGN KEY ([Categoria_Id]) REFERENCES [dbo].[TbCategoriaVeiculo] ([Id])
 );
+
+
 
