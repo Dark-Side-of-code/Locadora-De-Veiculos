@@ -77,5 +77,13 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
         {
             return MemberwiseClone() as Veiculo;
         }
+
+        public void ConfigurarCategoria(CategoriaDeVeiculos categoria)
+        {
+            if (categoria == null)
+                return;
+
+            CategoriaDeVeiculos = categoria;
+        }
     }
 }
