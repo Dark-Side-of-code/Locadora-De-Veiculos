@@ -15,6 +15,19 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
 
         }
 
+        public Veiculo(string modelo, string placa, string marca, string cor, string tipo_combustivel, double capacidade_tanque, DateTime ano, double km_total, CategoriaDeVeiculos categoriaDeVeiculos)
+        {
+            Modelo = modelo;
+            Placa = placa;
+            Marca = marca;
+            Cor = cor;
+            Tipo_combustivel = tipo_combustivel;
+            Capacidade_tanque = capacidade_tanque;
+            Ano = ano;
+            Km_total = km_total;
+            CategoriaDeVeiculos = categoriaDeVeiculos;
+        }
+
         public Veiculo(string modelo, string placa, string marca, string cor, string tipo_combustivel, double capacidade_tanque, DateTime ano, double km_total, byte[] foto, CategoriaDeVeiculos categoriaDeVeiculos)
         {
             Modelo = modelo;
@@ -52,7 +65,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
                    Capacidade_tanque == veiculo.Capacidade_tanque &&
                    Ano == veiculo.Ano &&
                    Km_total == veiculo.Km_total &&
-                   EqualityComparer<byte[]>.Default.Equals(Foto, veiculo.Foto) &&
+                   //EqualityComparer<byte[]>.Default.Equals(Foto, veiculo.Foto) &&
                    EqualityComparer<CategoriaDeVeiculos>.Default.Equals(CategoriaDeVeiculos, veiculo.CategoriaDeVeiculos);
         }
 
@@ -68,7 +81,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
             hash.Add(Capacidade_tanque);
             hash.Add(Ano);
             hash.Add(Km_total);
-            hash.Add(Foto);
+            //hash.Add(Foto);
             hash.Add(CategoriaDeVeiculos);
             return hash.ToHashCode();
         }

@@ -9,6 +9,6 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
 {
     public interface IRepositorioVeiculo : IRepositorio<Veiculo>
     {
-        Veiculo SelecionarTaxaPorPlaca(string placa);
+        Veiculo SelecionarVeiculoPorPlaca(string placa);
     }
 }
