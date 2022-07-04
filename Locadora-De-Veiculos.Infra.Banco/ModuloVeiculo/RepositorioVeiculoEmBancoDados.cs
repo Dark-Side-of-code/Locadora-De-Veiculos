@@ -23,7 +23,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
            ,[CAPACIDADE_TANQUE]
            ,[ANO]
            ,[KM_TOTAL]
-		   ,[FOTO]
            ,[CATEGORIA_ID]
 		   )
      VALUES
@@ -36,7 +35,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
             @CAPACIDADE_TANQUE,
             @ANO,
 			@KM_TOTAL,
-            @FOTO,
             @CATEGORIA_ID
 		   );SELECT SCOPE_IDENTITY();";
 
@@ -51,7 +49,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
                 [CAPACIDADE_TANQUE] = @CAPACIDADE_TANQUE,
                 [ANO] = @ANO,
                 [KM_TOTAL] = @KM_TOTAL,
-		        [FOTO] = @FOTO,
                 [CATEGORIA_ID] = @CATEGORIA_ID
             WHERE [ID] = @ID";
 
@@ -61,7 +58,8 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
 
         protected override string sqlSelecionarPorId =>
         @"SELECT
-             VEICULO.MODELO
+             VEICULO.ID
+            ,VEICULO.MODELO
 			,VEICULO.PLACA
 			,VEICULO.MARCA
 			,VEICULO.COR
@@ -69,7 +67,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
 			,VEICULO.CAPACIDADE_TANQUE
 			,VEICULO.ANO
 			,VEICULO.KM_TOTAL
-			,VEICULO.FOTO
 
 			,CATEGORIAVEICULO.ID CATEGORIA_ID
 			,CATEGORIAVEICULO.NOME CATEGORIA_NOME
@@ -82,7 +79,8 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
 
         protected override string sqlSelecionarTodos =>
         @"SELECT
-             VEICULO.MODELO
+             VEICULO.ID
+            ,VEICULO.MODELO
 			,VEICULO.PLACA
 			,VEICULO.MARCA
 			,VEICULO.COR
@@ -90,7 +88,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
 			,VEICULO.CAPACIDADE_TANQUE
 			,VEICULO.ANO
 			,VEICULO.KM_TOTAL
-			,VEICULO.FOTO
 
 			,CATEGORIAVEICULO.ID CATEGORIA_ID
 			,CATEGORIAVEICULO.NOME CATEGORIA_NOME
@@ -101,7 +98,8 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
 
         protected string sqlSelecionarPorPlaca =>
         @"SELECT
-             VEICULO.MODELO
+             VEICULO.ID
+            ,VEICULO.MODELO
 			,VEICULO.PLACA
 			,VEICULO.MARCA
 			,VEICULO.COR
@@ -109,7 +107,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
 			,VEICULO.CAPACIDADE_TANQUE
 			,VEICULO.ANO
 			,VEICULO.KM_TOTAL
-			,VEICULO.FOTO
 
 			,CATEGORIAVEICULO.ID CATEGORIA_ID
 			,CATEGORIAVEICULO.NOME CATEGORIA_NOME
@@ -119,7 +116,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
             VEICULO.CATEGORIA_ID = CATEGORIAVEICULO.ID
         WHERE
             VEICULO.PLACA = @PLACA";
-        public Veiculo SelecionarTaxaPorPlaca(string placa)
+        public Veiculo SelecionarVeiculoPorPlaca(string placa)
         {
             return SelecionarPorParametro(sqlSelecionarPorPlaca, new SqlParameter("PLACA", placa));
         }
