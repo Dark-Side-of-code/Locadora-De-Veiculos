@@ -31,13 +31,13 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCondutor
             string nome = Convert.ToString(leitorRegistro["NOME"]);
             string cpf_cnpj = Convert.ToString(leitorRegistro["CPF"]);
             string cnh = Convert.ToString(leitorRegistro["CNH"]);
-            DateTime validade_cnh = Convert.ToDateTime(leitorRegistro["VALIDADE_CNH"]);
+            DateTime validade_cnh = Convert.ToDateTime(leitorRegistro["VALIDADE"]);
             string email = Convert.ToString(leitorRegistro["EMAIL"]);
             string telefone = Convert.ToString(leitorRegistro["TELEFONE"]);
             string endereco = Convert.ToString(leitorRegistro["ENDEREÇO"]);
 
-            int numeroCliente = Convert.ToInt32(leitorRegistro["FORNECEDOR_ID"]);
-            string nomeCliente = Convert.ToString(leitorRegistro["FORNECEDOR_NOME"]);
+            int numeroCliente = Convert.ToInt32(leitorRegistro["CLIENTE_ID"]);
+            string nomeCliente = Convert.ToString(leitorRegistro["CLIENTE_NOME"]);
 
             var cliente = new Cliente()
             {

@@ -22,16 +22,6 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCliente
                 .MinimumLength(11)
                 .MaximumLength(14);
 
-            RuleFor(x => x.CNH)
-                .Matches(new Regex(@"^-?[0-9][0-9,\.]+$"))
-                .NotEmpty()
-                .Length(11);
-
-            RuleFor(x => x.Validade_CNH)
-                .GreaterThan(x => DateTime.Now)
-                .NotNull()
-                .NotEmpty();
-
             RuleFor(x => x.Tipo_Cliente)
                 .Matches(new Regex(@"^([^0-9]*)$"))
                 .NotEmpty();

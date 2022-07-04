@@ -71,7 +71,10 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCondutor
 
         public void ConfigurarCondutor(Cliente cliente)
         {
-            throw new NotImplementedException();
+            if (cliente == null)
+                return;
+
+            Cliente = cliente;
         }
     }
 }

@@ -13,12 +13,10 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCliente
         {
 
         }
-        public Cliente(string nome, string cpf_cnpj, string cnh, DateTime validade_CNH, string tipo_Cliente, string email, string telefone) : this()
+        public Cliente(string nome, string cpf_cnpj, string tipo_Cliente, string email, string telefone) : this()
         {
             Nome = nome;
             CPF_CNPJ = cpf_cnpj;
-            CNH = cnh;
-            Validade_CNH = validade_CNH;
             Tipo_Cliente = tipo_Cliente;
             Email = email;
             Telefone = telefone;
@@ -26,8 +24,6 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCliente
 
         public string Nome { get; set; }
         public string CPF_CNPJ { get; set; }
-        public string CNH { get; set; }
-        public DateTime Validade_CNH { get; set; }
         public string Tipo_Cliente { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
@@ -38,8 +34,6 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCliente
                    Id == cliente.Id &&
                    Nome == cliente.Nome &&
                    CPF_CNPJ == cliente.CPF_CNPJ &&
-                   CNH == cliente.CNH &&
-                   Validade_CNH == cliente.Validade_CNH &&
                    Tipo_Cliente == cliente.Tipo_Cliente &&
                    Email == cliente.Email &&
                    Telefone == cliente.Telefone;

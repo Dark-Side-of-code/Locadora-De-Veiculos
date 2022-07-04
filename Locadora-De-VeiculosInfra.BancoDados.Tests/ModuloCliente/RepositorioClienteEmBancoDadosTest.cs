@@ -26,7 +26,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCliente
         public void Deve_inserir_novo_cliente()
         {
             //action
-            cliente = new Cliente("Tales O Lider", "08811833340", "34453242234", new(2022, 08, 23), "tipoTest", "taleslider@gmail.com", "23432434344");
+            cliente = new Cliente("Tales O Lider", "08811833340", "tipoTest", "taleslider@gmail.com", "23432434344");
             repositorio.Inserir(cliente);
 
             //assert
@@ -40,14 +40,12 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCliente
         public void Deve_editar_informacoes_clientes()
         {
             //arrange
-            cliente = new Cliente("Tales O Lider", "08811833342", "34453242236", new(2022, 08, 23), "tipoTest", "taleslider@gmail.com", "23432434344");
+            cliente = new Cliente("Tales O Lider", "08811833342", "tipoTest", "taleslider@gmail.com", "23432434344");
             repositorio.Inserir(cliente);
 
             //action
             cliente.Nome = "Pedro Xerife";
             cliente.CPF_CNPJ = "08811833340";
-            cliente.CNH = "34453242234";
-            cliente.Validade_CNH = new(2022, 07, 25);
             cliente.Tipo_Cliente = "tipoTest";
             cliente.Email = "dsfsdfdsf@gmail.com";
             cliente.Telefone = "23432434344";
@@ -65,7 +63,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCliente
         public void Deve_excluir_clientes()
         {
             //arrange
-            cliente = new Cliente("Tales O Lider", "08811833340", "34453242234", new(2022, 08, 23), "tipoTest", "taleslider@gmail.com", "23432434344");
+            cliente = new Cliente("Tales O Lider", "08811833340", "tipoTest", "taleslider@gmail.com", "23432434344");
             repositorio.Inserir(cliente);
 
             //action           
@@ -80,7 +78,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCliente
         public void Deve_selecionar_apenas_um_clientes()
         {
             //arrange
-            cliente = new Cliente("Tales O Lider", "08811833340", "34453242234", new(2022, 08, 23), "tipoTest", "taleslider@gmail.com", "23432434344");
+            cliente = new Cliente("Tales O Lider", "08811833340", "tipoTest", "taleslider@gmail.com", "23432434344");
             repositorio.Inserir(cliente);
 
             //action
@@ -96,9 +94,9 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCliente
         {
             //arrange
             //string nome, string cpf_cnpj, string cnh, DateTime validade_CNH, string tipo_Cliente, string email, string telefone
-            var cliente1 = new Cliente("Tales O LiderA", "08811833341", "34453242231", new(2022, 08, 23), "tipoTest", "taleslider@gmail.com", "23432434344");
-            var cliente2 = new Cliente("Tales O LiderE", "08811833342", "34453242232", new(2022, 08, 23), "tipoTest", "taleslider@gmail.com", "23432434344");
-            var cliente3 = new Cliente("Tales O LiderOU", "08811833343", "34453242233", new(2022, 08, 23), "tipoTest", "taleslider@gmail.com", "23432434344");
+            var cliente1 = new Cliente("Tales O LiderA", "08811833341", "tipoTest", "taleslider@gmail.com", "23432434344");
+            var cliente2 = new Cliente("Tales O LiderE", "08811833342", "tipoTest", "taleslider@gmail.com", "23432434344");
+            var cliente3 = new Cliente("Tales O LiderOU", "08811833343", "tipoTest", "taleslider@gmail.com", "23432434344");
 
             var repositorio = new RepositorioClienteEmBancoDados();
             repositorio.Inserir(cliente1);
