@@ -63,5 +63,13 @@ namespace Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca
         {
             return HashCode.Combine(Id, PlanoDiario_ValorDiario, PlanoDiario_ValorPorKM, PlanoKM_Livre_ValorDiario, PlanoKM_controlado_LimiteDeQuilometragem, PlanoKM_controlado_ValorDiario, PlanoKM_controlado_ValorPorKM, CategoriaDeVeiculos);
         }
+
+        public void ConfigurarCategoria(CategoriaDeVeiculos categoria)
+        {
+            if (categoria == null)
+                return;
+
+            CategoriaDeVeiculos = categoria;
+        }
     }
 }

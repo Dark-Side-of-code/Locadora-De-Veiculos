@@ -44,30 +44,30 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloPlanosDeCobranca
             var idCategoria = Convert.ToInt32(leitorRegistro["ID_CATEGORIA"]);
             var nomeCategoria = Convert.ToString(leitorRegistro["NOME_CATEGORIA"]);
 
-            var categoria = new CategoriaDeVeiculos()
+            var categoria = new CategoriaDeVeiculos
             {
                 Id = idCategoria,
                 Nome = nomeCategoria,
             };
 
 
-            PlanoDeCobranca planoDeCobranca = new PlanoDeCobranca();
+            var planoDeCobranca = new PlanoDeCobranca
             {
-                planoDeCobranca.Id = id;
+                Id = id,
 
-                planoDeCobranca.PlanoDiario_ValorPorKM = plano_Diario_ValorDiario;
-                planoDeCobranca.PlanoDiario_ValorPorKM = plano_Diario_ValorPorKM;
+                PlanoDiario_ValorDiario = plano_Diario_ValorDiario,
+                PlanoDiario_ValorPorKM = plano_Diario_ValorPorKM,
 
-                planoDeCobranca.PlanoKM_Livre_ValorDiario = plano_Livre_ValorDiario;
+                PlanoKM_Livre_ValorDiario = plano_Livre_ValorDiario,
 
-                planoDeCobranca.PlanoKM_controlado_LimiteDeQuilometragem = planoKM_Controlado_LimiteDeQuilometragem;
-                planoDeCobranca.PlanoKM_controlado_ValorDiario = planoKM_Controlado_ValorDiario;
-                planoDeCobranca.PlanoDiario_ValorPorKM = planoKM_Controlado_ValorPorKm;
+                PlanoKM_controlado_LimiteDeQuilometragem = planoKM_Controlado_LimiteDeQuilometragem,
+                PlanoKM_controlado_ValorDiario = planoKM_Controlado_ValorDiario,
+                PlanoKM_controlado_ValorPorKM = planoKM_Controlado_ValorPorKm,
+            };
 
-                planoDeCobranca.CategoriaDeVeiculos = categoria;
+            planoDeCobranca.ConfigurarCategoria(categoria);
+            return planoDeCobranca;
 
-                return planoDeCobranca;
-            }
         }
     }
 }
