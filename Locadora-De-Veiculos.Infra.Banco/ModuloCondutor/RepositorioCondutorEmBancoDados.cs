@@ -29,7 +29,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCondutor
            @NOME,
            @CPF,
            @CNH,
-           @VALIDADE,
+           @VALIDADE_CNH,
            @EMAIL,
            @TELEFONE,
            @ENDEREÇO,
@@ -39,12 +39,11 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCondutor
         protected override string sqlEditar =>
         @"UPDATE [TBCONDUTOR]
         SET
-	        [ID] =  @ID,
             [NOME] = @NOME,
             [CPF] = @CPF,
             [CNH] = @CNH,
-            [VALIDADE] = @EMAIL,
-            [EMAIL] = <EMAIL, VARCHAR(200),>
+            [VALIDADE] = @VALIDADE_CNH,
+            [EMAIL] =  @EMAIL,
             [TELEFONE] = @TELEFONE,
             [ENDEREÇO] = @ENDEREÇO,
             [CLIENTE_ID] = @CLIENTE_ID
@@ -67,14 +66,14 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCondutor
            TBCO.[TELEFONE],
            TBCO.[ENDEREÇO],
 
-           TBCL.[CLIENTE_ID],
-           TBCL.[CLIENTE_NOME]
+           TBCO.[CLIENTE_ID],
+           TBCL.[NOME] AS CLIENTE_NOME
         FROM
             TBCONDUTOR TBCO INNER JOIN TBCLIENTE TBCL
         ON
             TBCO.CLIENTE_ID = TBCL.ID
         WHERE
-                ID = @ID";
+                TBCO.ID = @ID";
 
         protected override string sqlSelecionarTodos =>
         @"SELECT 
@@ -87,8 +86,8 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCondutor
            TBCO.[TELEFONE],
            TBCO.[ENDEREÇO],
 
-           TBCL.[CLIENTE_ID],
-           TBCL.[CLIENTE_NOME]
+           TBCO.[CLIENTE_ID],
+           TBCL.[NOME] AS CLIENTE_NOME
         FROM
             TBCONDUTOR TBCO INNER JOIN TBCLIENTE TBCL
         ON

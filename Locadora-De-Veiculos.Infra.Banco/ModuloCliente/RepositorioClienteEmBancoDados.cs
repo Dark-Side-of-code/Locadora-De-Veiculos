@@ -18,8 +18,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
             (
                 [NOME],
                 [CPF_CNPJ],
-                [CNH],
-                [VALIDADE_CNH],
                 [TIPO_CLIENTE],
                 [EMAIL],
                 [TELEFONE]
@@ -28,8 +26,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
             (
                 @NOME,
                 @CPF_CNPJ,
-                @CNH,
-                @VALIDADE_CNH,
                 @TIPO_CLIENTE,
                 @EMAIL,
                 @TELEFONE
@@ -41,8 +37,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
 		    SET
 			    [NOME] = @NOME,
                 [CPF_CNPJ] = @CPF_CNPJ,
-                [CNH] = @CNH, 
-                [VALIDADE_CNH] = @VALIDADE_CNH,
                 [TIPO_CLIENTE] = @TIPO_CLIENTE,
                 [EMAIL] = @EMAIL,
                 [TELEFONE] = @TELEFONE
@@ -60,8 +54,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
                 [ID],
 		        [NOME],
                 [CPF_CNPJ],
-                [CNH],
-                [VALIDADE_CNH],
                 [TIPO_CLIENTE],
                 [EMAIL],
                 [TELEFONE]
@@ -75,8 +67,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
                 [ID],
 		        [NOME],
                 [CPF_CNPJ],
-                [CNH],
-                [VALIDADE_CNH],
                 [TIPO_CLIENTE],
                 [EMAIL],
                 [TELEFONE]
@@ -88,8 +78,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
                 [ID],
 		        [NOME],
                 [CPF_CNPJ],
-                [CNH],
-                [VALIDADE_CNH],
                 [TIPO_CLIENTE],
                 [EMAIL],
                 [TELEFONE]
@@ -103,8 +91,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
                 [ID],
 		        [NOME],
                 [CPF_CNPJ],
-                [CNH],
-                [VALIDADE_CNH],
                 [TIPO_CLIENTE],
                 [EMAIL],
                 [TELEFONE]
@@ -118,8 +104,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
                 [ID],
 		        [NOME],
                 [CPF_CNPJ],
-                [CNH],
-                [VALIDADE_CNH],
                 [TIPO_CLIENTE],
                 [EMAIL],
                 [TELEFONE]
