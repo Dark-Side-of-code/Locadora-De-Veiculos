@@ -86,7 +86,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
             return hash.ToHashCode();
         }
 
-        public object Clone()
+        public Veiculo Clone()
         {
             return MemberwiseClone() as Veiculo;
         }
