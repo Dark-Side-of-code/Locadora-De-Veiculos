@@ -35,16 +35,11 @@
             this.rb_J = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMask_Cpf_Cnpj = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtMask_Cnh = new System.Windows.Forms.MaskedTextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dateTime_Validade_Cnh = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.txt_Email = new System.Windows.Forms.TextBox();
             this.txtMask_Fone = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Cadastrar = new System.Windows.Forms.Button();
             this.btn_Voltar = new System.Windows.Forms.Button();
@@ -119,44 +114,10 @@
             this.txtMask_Cpf_Cnpj.Size = new System.Drawing.Size(227, 23);
             this.txtMask_Cpf_Cnpj.TabIndex = 2;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(77, 354);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 15);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "N° Carteira:";
-            // 
-            // txtMask_Cnh
-            // 
-            this.txtMask_Cnh.Location = new System.Drawing.Point(151, 346);
-            this.txtMask_Cnh.Mask = "00000000000";
-            this.txtMask_Cnh.Name = "txtMask_Cnh";
-            this.txtMask_Cnh.Size = new System.Drawing.Size(76, 23);
-            this.txtMask_Cnh.TabIndex = 6;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(233, 354);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 15);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Validade :";
-            // 
-            // dateTime_Validade_Cnh
-            // 
-            this.dateTime_Validade_Cnh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTime_Validade_Cnh.Location = new System.Drawing.Point(294, 348);
-            this.dateTime_Validade_Cnh.Name = "dateTime_Validade_Cnh";
-            this.dateTime_Validade_Cnh.Size = new System.Drawing.Size(84, 23);
-            this.dateTime_Validade_Cnh.TabIndex = 7;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(106, 223);
+            this.label6.Location = new System.Drawing.Point(106, 252);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 15);
             this.label6.TabIndex = 11;
@@ -164,7 +125,7 @@
             // 
             // txt_Email
             // 
-            this.txt_Email.Location = new System.Drawing.Point(151, 220);
+            this.txt_Email.Location = new System.Drawing.Point(151, 249);
             this.txt_Email.MaxLength = 200;
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.Size = new System.Drawing.Size(227, 23);
@@ -172,7 +133,7 @@
             // 
             // txtMask_Fone
             // 
-            this.txtMask_Fone.Location = new System.Drawing.Point(151, 249);
+            this.txtMask_Fone.Location = new System.Drawing.Point(151, 278);
             this.txtMask_Fone.Mask = "(00) 00000-0000";
             this.txtMask_Fone.Name = "txtMask_Fone";
             this.txtMask_Fone.Size = new System.Drawing.Size(227, 23);
@@ -181,7 +142,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(109, 254);
+            this.label7.Location = new System.Drawing.Point(109, 283);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(36, 15);
             this.label7.TabIndex = 14;
@@ -197,20 +158,10 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "Informações do Cliente:";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(55, 305);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(207, 21);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Informações do Motorista";
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Teal;
-            this.panel2.Location = new System.Drawing.Point(-3, 437);
+            this.panel2.Location = new System.Drawing.Point(-3, 331);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(482, 10);
             this.panel2.TabIndex = 17;
@@ -223,7 +174,7 @@
             this.btn_Cadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Cadastrar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Cadastrar.ForeColor = System.Drawing.Color.White;
-            this.btn_Cadastrar.Location = new System.Drawing.Point(224, 467);
+            this.btn_Cadastrar.Location = new System.Drawing.Point(224, 359);
             this.btn_Cadastrar.Name = "btn_Cadastrar";
             this.btn_Cadastrar.Size = new System.Drawing.Size(154, 36);
             this.btn_Cadastrar.TabIndex = 9;
@@ -239,7 +190,7 @@
             this.btn_Voltar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Voltar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Voltar.ForeColor = System.Drawing.Color.White;
-            this.btn_Voltar.Location = new System.Drawing.Point(91, 467);
+            this.btn_Voltar.Location = new System.Drawing.Point(91, 359);
             this.btn_Voltar.Name = "btn_Voltar";
             this.btn_Voltar.Size = new System.Drawing.Size(136, 36);
             this.btn_Voltar.TabIndex = 8;
@@ -249,7 +200,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(99, 381);
+            this.label10.Location = new System.Drawing.Point(99, 224);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 15);
             this.label10.TabIndex = 20;
@@ -257,7 +208,7 @@
             // 
             // txt_Nome
             // 
-            this.txt_Nome.Location = new System.Drawing.Point(151, 377);
+            this.txt_Nome.Location = new System.Drawing.Point(151, 220);
             this.txt_Nome.MaxLength = 300;
             this.txt_Nome.Name = "txt_Nome";
             this.txt_Nome.Size = new System.Drawing.Size(227, 23);
@@ -279,23 +230,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(460, 524);
+            this.ClientSize = new System.Drawing.Size(460, 416);
             this.Controls.Add(this.groupBoxTipoCliente);
             this.Controls.Add(this.txt_Nome);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btn_Voltar);
             this.Controls.Add(this.btn_Cadastrar);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtMask_Fone);
             this.Controls.Add(this.txt_Email);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dateTime_Validade_Cnh);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtMask_Cnh);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtMask_Cpf_Cnpj);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -318,16 +264,11 @@
         private System.Windows.Forms.RadioButton rb_J;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox txtMask_Cpf_Cnpj;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox txtMask_Cnh;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTime_Validade_Cnh;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_Email;
         private System.Windows.Forms.MaskedTextBox txtMask_Fone;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_Cadastrar;
         private System.Windows.Forms.Button btn_Voltar;
