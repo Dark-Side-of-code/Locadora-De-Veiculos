@@ -9,8 +9,8 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCondutor
 {
     public interface IRepositorioCondutor : IRepositorio<Condutor>
     {
-        Condutor SelecionarClientePorCPF_CNPJ(string cpf_cnpj);
+        Condutor SelecionarCondutorPorCPF(string cpf_cnpj);
 
-        Condutor SelecionarClientePorCNH(string cnh);
+        Condutor SelecionarCondutorPorCNH(string cnh);
     }
 }

@@ -35,14 +35,6 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
                 txt_Email.Text = cliente.Email;
                 txtMask_Fone.Text = cliente.Telefone;
                 txt_Nome.Text = cliente.Nome;
-                txtMask_Cnh.Text = cliente.CNH;
-
-                if (Cliente.Validade_CNH > DateTimePicker.MinimumDateTime)
-                {
-                    dateTime_Validade_Cnh.Value = cliente.Validade_CNH;
-                }
-                else
-                    dateTime_Validade_Cnh.Value = DateTime.Now;
             }
         }
 
@@ -61,8 +53,6 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
             cliente.Email = txt_Email.Text;
             cliente.Telefone = txtMask_Fone.Text;
             cliente.Nome = txt_Nome.Text;
-            cliente.CNH = txtMask_Cnh.Text;
-            cliente.Validade_CNH = DateTime.Parse(dateTime_Validade_Cnh.Text);
 
             var resultadoValidacao = GravarRegistro(Cliente);
 

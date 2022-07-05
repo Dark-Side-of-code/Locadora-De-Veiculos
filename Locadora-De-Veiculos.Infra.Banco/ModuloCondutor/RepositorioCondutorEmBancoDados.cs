@@ -2,6 +2,7 @@
 using Locadora_De_Veiculos.Infra.Banco.Compartilhado;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -93,14 +94,54 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCondutor
         ON
             TBCO.CLIENTE_ID = TBCL.ID";
 
-        public Condutor SelecionarClientePorCNH(string cnh)
+        protected string sqlSelecionarPorCPF =>
+        @"SELECT 
+		   TBCO.[ID],
+           TBCO.[NOME],
+           TBCO.[CPF],
+           TBCO.[CNH],
+           TBCO.[VALIDADE],
+           TBCO.[EMAIL],
+           TBCO.[TELEFONE],
+           TBCO.[ENDEREÇO],
+
+           TBCO.[CLIENTE_ID],
+           TBCL.[NOME] AS CLIENTE_NOME
+        FROM
+            TBCONDUTOR TBCO INNER JOIN TBCLIENTE TBCL
+        ON
+            TBCO.CLIENTE_ID = TBCL.ID
+        WHERE
+                TBCO.CPF = @CPF";
+
+        protected string sqlSelecionarPorCNH =>
+        @"SELECT 
+		   TBCO.[ID],
+           TBCO.[NOME],
+           TBCO.[CPF],
+           TBCO.[CNH],
+           TBCO.[VALIDADE],
+           TBCO.[EMAIL],
+           TBCO.[TELEFONE],
+           TBCO.[ENDEREÇO],
+
+           TBCO.[CLIENTE_ID],
+           TBCL.[NOME] AS CLIENTE_NOME
+        FROM
+            TBCONDUTOR TBCO INNER JOIN TBCLIENTE TBCL
+        ON
+            TBCO.CLIENTE_ID = TBCL.ID
+        WHERE
+                TBCO.CNH = @CNH";
+
+        public Condutor SelecionarCondutorPorCNH(string cnh)
         {
-            throw new NotImplementedException();
+            return SelecionarPorParametro(sqlSelecionarPorCNH, new SqlParameter("CNH", cnh));
         }
 
-        public Condutor SelecionarClientePorCPF_CNPJ(string cpf_cnpj)
+        public Condutor SelecionarCondutorPorCPF(string cpf)
         {
-            throw new NotImplementedException();
+            return SelecionarPorParametro(sqlSelecionarPorCPF, new SqlParameter("CPF", cpf));
         }
     }
 }
