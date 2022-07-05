@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaCadastroVeiculo));
             this.button2 = new System.Windows.Forms.Button();
             this.btn_Cadastrar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -43,18 +44,18 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_Modelo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txt_Km = new System.Windows.Forms.TextBox();
+            this.txt_Capacidade = new System.Windows.Forms.TextBox();
+            this.txt_Cor = new System.Windows.Forms.TextBox();
+            this.txt_Placa = new System.Windows.Forms.TextBox();
+            this.txt_Marca = new System.Windows.Forms.TextBox();
+            this.comboBox_Tipo = new System.Windows.Forms.ComboBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label12 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox_Categoria = new System.Windows.Forms.ComboBox();
+            this.datePicker_Ano = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // button2
@@ -86,6 +87,7 @@
             this.btn_Cadastrar.TabIndex = 70;
             this.btn_Cadastrar.Text = "Cadastarar";
             this.btn_Cadastrar.UseVisualStyleBackColor = false;
+            this.btn_Cadastrar.Click += new System.EventHandler(this.btn_Cadastrar_Click);
             // 
             // panel2
             // 
@@ -173,9 +175,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(58, 329);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 15);
+            this.label9.Size = new System.Drawing.Size(72, 15);
             this.label9.TabIndex = 81;
-            this.label9.Text = "Capacidade";
+            this.label9.Text = "Capacidade:";
             // 
             // label10
             // 
@@ -195,12 +197,13 @@
             this.label11.TabIndex = 83;
             this.label11.Text = "Ano:";
             // 
-            // textBox1
+            // txt_Modelo
             // 
-            this.textBox1.Location = new System.Drawing.Point(117, 163);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(108, 23);
-            this.textBox1.TabIndex = 85;
+            this.txt_Modelo.Location = new System.Drawing.Point(117, 163);
+            this.txt_Modelo.MaxLength = 300;
+            this.txt_Modelo.Name = "txt_Modelo";
+            this.txt_Modelo.Size = new System.Drawing.Size(108, 23);
+            this.txt_Modelo.TabIndex = 85;
             // 
             // label7
             // 
@@ -212,55 +215,66 @@
             this.label7.TabIndex = 80;
             this.label7.Text = "Informações de Combustível";
             // 
-            // textBox3
+            // txt_Km
             // 
-            this.textBox3.Location = new System.Drawing.Point(117, 192);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(108, 23);
-            this.textBox3.TabIndex = 87;
+            this.txt_Km.Location = new System.Drawing.Point(117, 221);
+            this.txt_Km.MaxLength = 20;
+            this.txt_Km.Name = "txt_Km";
+            this.txt_Km.Size = new System.Drawing.Size(108, 23);
+            this.txt_Km.TabIndex = 88;
             // 
-            // textBox4
+            // txt_Capacidade
             // 
-            this.textBox4.Location = new System.Drawing.Point(117, 221);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(108, 23);
-            this.textBox4.TabIndex = 88;
+            this.txt_Capacidade.Location = new System.Drawing.Point(129, 321);
+            this.txt_Capacidade.MaxLength = 20;
+            this.txt_Capacidade.Name = "txt_Capacidade";
+            this.txt_Capacidade.Size = new System.Drawing.Size(108, 23);
+            this.txt_Capacidade.TabIndex = 92;
             // 
-            // textBox8
+            // txt_Cor
             // 
-            this.textBox8.Location = new System.Drawing.Point(129, 321);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(108, 23);
-            this.textBox8.TabIndex = 92;
+            this.txt_Cor.Location = new System.Drawing.Point(292, 221);
+            this.txt_Cor.MaxLength = 100;
+            this.txt_Cor.Name = "txt_Cor";
+            this.txt_Cor.Size = new System.Drawing.Size(143, 23);
+            this.txt_Cor.TabIndex = 95;
             // 
-            // textBox5
+            // txt_Placa
             // 
-            this.textBox5.Location = new System.Drawing.Point(292, 221);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(143, 23);
-            this.textBox5.TabIndex = 95;
+            this.txt_Placa.Location = new System.Drawing.Point(292, 192);
+            this.txt_Placa.MaxLength = 7;
+            this.txt_Placa.Name = "txt_Placa";
+            this.txt_Placa.Size = new System.Drawing.Size(143, 23);
+            this.txt_Placa.TabIndex = 94;
             // 
-            // textBox6
+            // txt_Marca
             // 
-            this.textBox6.Location = new System.Drawing.Point(292, 192);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(143, 23);
-            this.textBox6.TabIndex = 94;
+            this.txt_Marca.Location = new System.Drawing.Point(292, 163);
+            this.txt_Marca.MaxLength = 50;
+            this.txt_Marca.Name = "txt_Marca";
+            this.txt_Marca.Size = new System.Drawing.Size(143, 23);
+            this.txt_Marca.TabIndex = 93;
             // 
-            // textBox7
+            // comboBox_Tipo
             // 
-            this.textBox7.Location = new System.Drawing.Point(292, 163);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(143, 23);
-            this.textBox7.TabIndex = 93;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(280, 323);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(143, 23);
-            this.comboBox1.TabIndex = 96;
+            this.comboBox_Tipo.FormattingEnabled = true;
+            this.comboBox_Tipo.Items.AddRange(new object[] {
+            "Gasolina comun",
+            "Gasolina aditivada",
+            "Gasolina premium",
+            "Etanol",
+            "Etanol aditivado",
+            "Diesel comum",
+            "Diesel S-10",
+            "Diesel aditivado",
+            "Diesel premium",
+            "GNV",
+            "Elétrico",
+            resources.GetString("comboBox_Tipo.Items")});
+            this.comboBox_Tipo.Location = new System.Drawing.Point(280, 323);
+            this.comboBox_Tipo.Name = "comboBox_Tipo";
+            this.comboBox_Tipo.Size = new System.Drawing.Size(143, 23);
+            this.comboBox_Tipo.TabIndex = 96;
             // 
             // imageList1
             // 
@@ -277,29 +291,38 @@
             this.label12.TabIndex = 97;
             this.label12.Text = "Categoria:";
             // 
-            // comboBox2
+            // comboBox_Categoria
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(117, 251);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(108, 23);
-            this.comboBox2.TabIndex = 98;
+            this.comboBox_Categoria.FormattingEnabled = true;
+            this.comboBox_Categoria.Location = new System.Drawing.Point(117, 251);
+            this.comboBox_Categoria.Name = "comboBox_Categoria";
+            this.comboBox_Categoria.Size = new System.Drawing.Size(108, 23);
+            this.comboBox_Categoria.TabIndex = 98;
+            // 
+            // datePicker_Ano
+            // 
+            this.datePicker_Ano.CustomFormat = "yyyy";
+            this.datePicker_Ano.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datePicker_Ano.Location = new System.Drawing.Point(117, 192);
+            this.datePicker_Ano.Name = "datePicker_Ano";
+            this.datePicker_Ano.Size = new System.Drawing.Size(108, 23);
+            this.datePicker_Ano.TabIndex = 99;
             // 
             // TelaCadastroVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 451);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.datePicker_Ano);
+            this.Controls.Add(this.comboBox_Categoria);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.comboBox_Tipo);
+            this.Controls.Add(this.txt_Cor);
+            this.Controls.Add(this.txt_Placa);
+            this.Controls.Add(this.txt_Marca);
+            this.Controls.Add(this.txt_Capacidade);
+            this.Controls.Add(this.txt_Km);
+            this.Controls.Add(this.txt_Modelo);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -316,7 +339,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Name = "TelaCadastroVeiculo";
-            this.Text = " ";
+            this.Text = resources.GetString("$this.Text");
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,17 +361,17 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_Modelo;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txt_Km;
+        private System.Windows.Forms.TextBox txt_Capacidade;
+        private System.Windows.Forms.TextBox txt_Cor;
+        private System.Windows.Forms.TextBox txt_Placa;
+        private System.Windows.Forms.TextBox txt_Marca;
+        private System.Windows.Forms.ComboBox comboBox_Tipo;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox_Categoria;
+        private System.Windows.Forms.DateTimePicker datePicker_Ano;
     }
 }
