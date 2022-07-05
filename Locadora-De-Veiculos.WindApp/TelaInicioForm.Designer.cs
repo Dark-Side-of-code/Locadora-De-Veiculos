@@ -35,6 +35,7 @@
             this.ClientesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FuncionarioMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CatergoriasMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CondutoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelRegistros = new System.Windows.Forms.Panel();
@@ -70,7 +71,8 @@
             this.taxaMenuItem,
             this.ClientesMenuItem,
             this.FuncionarioMenuItem,
-            this.CatergoriasMenuItem});
+            this.CatergoriasMenuItem,
+            this.CondutoresToolStripMenuItem});
             this.cadastrosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
@@ -80,7 +82,7 @@
             // 
             this.taxaMenuItem.Name = "taxaMenuItem";
             this.taxaMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.taxaMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.taxaMenuItem.Size = new System.Drawing.Size(180, 22);
             this.taxaMenuItem.Text = "Taxas";
             this.taxaMenuItem.Click += new System.EventHandler(this.TaxasMenuItem_Click);
             // 
@@ -88,7 +90,7 @@
             // 
             this.ClientesMenuItem.Name = "ClientesMenuItem";
             this.ClientesMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.ClientesMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.ClientesMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ClientesMenuItem.Text = "Clientes";
             this.ClientesMenuItem.Click += new System.EventHandler(this.ClientesMenuItem_Click);
             // 
@@ -96,7 +98,7 @@
             // 
             this.FuncionarioMenuItem.Name = "FuncionarioMenuItem";
             this.FuncionarioMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.FuncionarioMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.FuncionarioMenuItem.Size = new System.Drawing.Size(180, 22);
             this.FuncionarioMenuItem.Text = "Funcionários";
             this.FuncionarioMenuItem.Click += new System.EventHandler(this.FuncionarioMenuItem_Click);
             // 
@@ -104,9 +106,17 @@
             // 
             this.CatergoriasMenuItem.Name = "CatergoriasMenuItem";
             this.CatergoriasMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.CatergoriasMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.CatergoriasMenuItem.Size = new System.Drawing.Size(180, 22);
             this.CatergoriasMenuItem.Text = "Catergorias";
             this.CatergoriasMenuItem.Click += new System.EventHandler(this.CatergoriasMenuItem_Click);
+            // 
+            // CondutoresToolStripMenuItem
+            // 
+            this.CondutoresToolStripMenuItem.Name = "CondutoresToolStripMenuItem";
+            this.CondutoresToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.CondutoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CondutoresToolStripMenuItem.Text = "Condutores";
+            this.CondutoresToolStripMenuItem.Click += new System.EventHandler(this.CondutoresToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -266,5 +276,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton btnExcluir;
         private System.Windows.Forms.ToolStripLabel labelTipoCadastro;
+        private System.Windows.Forms.ToolStripMenuItem CondutoresToolStripMenuItem;
     }
 }

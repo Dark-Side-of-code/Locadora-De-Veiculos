@@ -21,6 +21,9 @@ using Locadora_De_Veiculos.Aplicacao.ModuloFuncionario;
 using Locadora_De_Veiculos.Aplicacao.ModuloCliente;
 using Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos;
 using Locadora_De_Veiculos.Aplicacao.ModuloTaxas;
+using Locadora_De_Veiculos.Infra.Banco.ModuloCondutor;
+using Locadora_De_Veiculos.Aplicacao.ModuloCondutor;
+using Locadora_De_Veiculos.WindApp.ModuloMotorista;
 
 namespace Locadora_De_Veiculos.WindApp
 {
@@ -131,11 +134,13 @@ namespace Locadora_De_Veiculos.WindApp
             var repositorioGrupoVeiculos = new RepositorioCategoriaDeVeiculosEmBancoDados();
             var repositorioTaxa = new RepositorioTaxaEmBancoDados();
             var repositorioFuncionario = new RepositorioFuncionarioEmBancoDados();
+            var repositorioCondutor = new RepositorioCondutorEmBancoDados();
 
             var servicoFuncionario = new ServicoFuncionario(repositorioFuncionario);
             var servicoCliente = new ServicoCliente(repositorioCliente);
             var servicoCategoriaDeVeiculos = new ServicoCategoriasDeVeiculos(repositorioGrupoVeiculos);
             var servicoTaxa = new ServicoTaxa(repositorioTaxa);
+            var servicoCondutor = new ServicoCondutor(repositorioCondutor);
 
             controladores = new Dictionary<string, ControladorBase>();
 
@@ -143,6 +148,7 @@ namespace Locadora_De_Veiculos.WindApp
             controladores.Add("Clientes", new ControladorCliente(repositorioCliente, servicoCliente));
             controladores.Add("Catergorias", new ControladorDeCategoriaDeVeiculo(repositorioGrupoVeiculos, servicoCategoriaDeVeiculos));
             controladores.Add("Funcionários",new ControladorDeFuncionario(repositorioFuncionario, servicoFuncionario));
+            controladores.Add("Condutores", new ControladorCondutor(repositorioCondutor, servicoCondutor));
         }
 
         private void ClientesMenuItem_Click(object sender, EventArgs e)
@@ -156,6 +162,16 @@ namespace Locadora_De_Veiculos.WindApp
         }
 
         private void CatergoriasMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
+        }
+
+        private void condutoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
+        }
+
+        private void CondutoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }

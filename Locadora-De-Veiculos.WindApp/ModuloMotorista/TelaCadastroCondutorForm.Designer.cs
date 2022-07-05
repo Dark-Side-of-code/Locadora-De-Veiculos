@@ -1,6 +1,6 @@
 ﻿namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
 {
-    partial class TelaCadastroCondutor
+    partial class TelaCadastroCondutorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -40,17 +40,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbx_cliente = new System.Windows.Forms.ComboBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txt_nome = new System.Windows.Forms.TextBox();
+            this.txt_CPF = new System.Windows.Forms.TextBox();
+            this.txt_Email = new System.Windows.Forms.TextBox();
+            this.txt_endereco = new System.Windows.Forms.TextBox();
             this.dateTime_Validade_Cnh = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.txtMask_Cnh = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.txtMask_Fone = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // button2
@@ -100,7 +100,6 @@
             this.label8.Size = new System.Drawing.Size(210, 21);
             this.label8.TabIndex = 101;
             this.label8.Text = "Informações do Condutor:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // panel1
             // 
@@ -174,13 +173,13 @@
             this.label9.TabIndex = 109;
             this.label9.Text = "Endereço:";
             // 
-            // comboBox1
+            // cbx_cliente
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(115, 167);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 110;
+            this.cbx_cliente.FormattingEnabled = true;
+            this.cbx_cliente.Location = new System.Drawing.Point(115, 167);
+            this.cbx_cliente.Name = "cbx_cliente";
+            this.cbx_cliente.Size = new System.Drawing.Size(121, 23);
+            this.cbx_cliente.TabIndex = 110;
             // 
             // checkBox1
             // 
@@ -192,40 +191,33 @@
             this.checkBox1.Text = "Cliente é condutor";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txt_nome
             // 
-            this.textBox1.Location = new System.Drawing.Point(115, 194);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(261, 23);
-            this.textBox1.TabIndex = 112;
+            this.txt_nome.Location = new System.Drawing.Point(115, 194);
+            this.txt_nome.Name = "txt_nome";
+            this.txt_nome.Size = new System.Drawing.Size(261, 23);
+            this.txt_nome.TabIndex = 112;
             // 
-            // textBox2
+            // txt_CPF
             // 
-            this.textBox2.Location = new System.Drawing.Point(115, 223);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(261, 23);
-            this.textBox2.TabIndex = 113;
+            this.txt_CPF.Location = new System.Drawing.Point(115, 223);
+            this.txt_CPF.Name = "txt_CPF";
+            this.txt_CPF.Size = new System.Drawing.Size(261, 23);
+            this.txt_CPF.TabIndex = 113;
             // 
-            // textBox4
+            // txt_Email
             // 
-            this.textBox4.Location = new System.Drawing.Point(115, 281);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(261, 23);
-            this.textBox4.TabIndex = 115;
+            this.txt_Email.Location = new System.Drawing.Point(115, 281);
+            this.txt_Email.Name = "txt_Email";
+            this.txt_Email.Size = new System.Drawing.Size(261, 23);
+            this.txt_Email.TabIndex = 115;
             // 
-            // textBox5
+            // txt_endereco
             // 
-            this.textBox5.Location = new System.Drawing.Point(115, 310);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(261, 23);
-            this.textBox5.TabIndex = 116;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(115, 339);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(261, 23);
-            this.textBox6.TabIndex = 117;
+            this.txt_endereco.Location = new System.Drawing.Point(115, 339);
+            this.txt_endereco.Name = "txt_endereco";
+            this.txt_endereco.Size = new System.Drawing.Size(261, 23);
+            this.txt_endereco.TabIndex = 117;
             // 
             // dateTime_Validade_Cnh
             // 
@@ -261,22 +253,30 @@
             this.label10.TabIndex = 120;
             this.label10.Text = "N° Carteira:";
             // 
-            // TelaCadastroCondutor
+            // txtMask_Fone
+            // 
+            this.txtMask_Fone.Location = new System.Drawing.Point(115, 310);
+            this.txtMask_Fone.Mask = "(00) 00000-0000";
+            this.txtMask_Fone.Name = "txtMask_Fone";
+            this.txtMask_Fone.Size = new System.Drawing.Size(261, 23);
+            this.txtMask_Fone.TabIndex = 122;
+            // 
+            // TelaCadastroCondutorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 475);
+            this.Controls.Add(this.txtMask_Fone);
             this.Controls.Add(this.dateTime_Validade_Cnh);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtMask_Cnh);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_endereco);
+            this.Controls.Add(this.txt_Email);
+            this.Controls.Add(this.txt_CPF);
+            this.Controls.Add(this.txt_nome);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbx_cliente);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -289,7 +289,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Name = "TelaCadastroCondutor";
+            this.Name = "TelaCadastroCondutorForm";
             this.Text = "TelaCadastroCondutor";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -310,16 +310,16 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbx_cliente;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txt_nome;
+        private System.Windows.Forms.TextBox txt_CPF;
+        private System.Windows.Forms.TextBox txt_Email;
+        private System.Windows.Forms.TextBox txt_endereco;
         private System.Windows.Forms.DateTimePicker dateTime_Validade_Cnh;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MaskedTextBox txtMask_Cnh;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.MaskedTextBox txtMask_Fone;
     }
 }
