@@ -114,8 +114,8 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCondutor
 
             cliente = new Cliente("nome", "11111111111", "Pessoa Física", "email@gmail.com", "49999999999");
             condutor = new Condutor("nomeA", "11111111111", "11111111111", new(2023, 8, 9), "email@gmail.com", "49999999999", "Rua anápolis n°600", cliente);
-            var condutor1 = new Condutor("nomeB", "11111111111", "11111111111", new(2023, 8, 9), "email@gmail.com", "49999999999", "Rua anápolis n°600", cliente);
-            var condutor2 = new Condutor("nomeC", "11111111111", "11111111111", new(2023, 8, 9), "email@gmail.com", "49999999999", "Rua anápolis n°600", cliente);
+            var condutor1 = new Condutor("nomeB", "11111111112", "11111111111", new(2023, 8, 9), "email@gmail.com", "49999999999", "Rua anápolis n°600", cliente);
+            var condutor2 = new Condutor("nomeC", "11111111113", "11111111111", new(2023, 8, 9), "email@gmail.com", "49999999999", "Rua anápolis n°600", cliente);
             
             var repositorio = new RepositorioCondutorEmBancoDados();
             

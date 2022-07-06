@@ -1,4 +1,4 @@
-﻿using Locadora_De_Veiculos.Dominio.ModuloCliente;
+﻿using Locadora_De_Veiculos.Dominio.ModuloCondutor;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
 using System.Collections.Generic;
@@ -10,11 +10,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Locadora_De_Veiculos.WindApp.ModuloCliente
+namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
 {
-    public partial class TabelaClientesControl : UserControl
+    public partial class TabelaCondutorControl : UserControl
     {
-        public TabelaClientesControl()
+        public TabelaCondutorControl()
         {
             InitializeComponent();
             grid.ConfigurarGridZebrado();
@@ -40,24 +40,24 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Validade_CNH", HeaderText = "Validade da CNH", FillWeight=85F },
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Tipo_Cliente", HeaderText = "Tipo do cliente", FillWeight=85F }
+                new DataGridViewTextBoxColumn { DataPropertyName = "Tipo_Condutor", HeaderText = "Tipo do condutor", FillWeight=85F }
             };
 
             return colunas;
         }
 
-        public int ObtemIdClienteSelecionado()
+        public int ObtemIdCondutorSelecionado()
         {
             return grid.SelecionarNumero<int>();
         }
 
-        public void AtualizarRegistros(List<Cliente> clientes)
+        public void AtualizarRegistros(List<Condutor> condutors)
         {
             grid.Rows.Clear();
 
-            foreach (Cliente cliente in clientes)
+            foreach (Condutor condutor in condutors)
             {
-                grid.Rows.Add(cliente.Id, cliente.Nome, cliente.CPF_CNPJ, cliente.Telefone, cliente.Email, cliente.Tipo_Cliente);
+                grid.Rows.Add(condutor.Id, condutor.Nome, condutor.CPF, condutor.Telefone, condutor.Email, condutor.CNH, condutor.Validade_CNH);
             }
         }
     }

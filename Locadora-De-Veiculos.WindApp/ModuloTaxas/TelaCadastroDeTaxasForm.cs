@@ -16,7 +16,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
         {
             InitializeComponent();
             this.ConfigurarTela();
-            ClassMaskMoeda.AplicaMascaraMoeda2(txt_Valor);
+            ClassMaskValor.AplicaMascaraMoeda(txt_Valor);
         }
 
         public Func<Taxa, ValidationResult> GravarRegistro { get; set; }
