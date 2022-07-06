@@ -36,6 +36,7 @@
             this.FuncionarioMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CatergoriasMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CondutoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.veiculosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelRegistros = new System.Windows.Forms.Panel();
@@ -72,7 +73,8 @@
             this.ClientesMenuItem,
             this.FuncionarioMenuItem,
             this.CatergoriasMenuItem,
-            this.CondutoresToolStripMenuItem});
+            this.CondutoresToolStripMenuItem,
+            this.veiculosToolStripMenuItem});
             this.cadastrosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
@@ -117,6 +119,13 @@
             this.CondutoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.CondutoresToolStripMenuItem.Text = "Condutores";
             this.CondutoresToolStripMenuItem.Click += new System.EventHandler(this.CondutoresToolStripMenuItem_Click);
+            // 
+            // veiculosToolStripMenuItem
+            // 
+            this.veiculosToolStripMenuItem.Name = "veiculosToolStripMenuItem";
+            this.veiculosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.veiculosToolStripMenuItem.Text = "Veiculos";
+            this.veiculosToolStripMenuItem.Click += new System.EventHandler(this.veiculosToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -277,5 +286,6 @@
         private System.Windows.Forms.ToolStripButton btnExcluir;
         private System.Windows.Forms.ToolStripLabel labelTipoCadastro;
         private System.Windows.Forms.ToolStripMenuItem CondutoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem veiculosToolStripMenuItem;
     }
 }
