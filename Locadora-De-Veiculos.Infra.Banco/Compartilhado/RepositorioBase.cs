@@ -99,14 +99,14 @@ namespace Locadora_De_Veiculos.Infra.Banco.Compartilhado
             SqlCommand comandoSelecao = new SqlCommand(sqlSelecionarTodos, conexaoComBanco);
             conexaoComBanco.Open();
 
-            SqlDataReader leitorPaciente = comandoSelecao.ExecuteReader();
+            SqlDataReader leitorRegistro = comandoSelecao.ExecuteReader();
 
             var mapeador = new TMapeador();
 
             List<T> registros = new List<T>();
 
-            while (leitorPaciente.Read())
-                registros.Add(mapeador.ConverterRegistro(leitorPaciente));
+            while (leitorRegistro.Read())
+                registros.Add(mapeador.ConverterRegistro(leitorRegistro));
 
             conexaoComBanco.Close();
 
