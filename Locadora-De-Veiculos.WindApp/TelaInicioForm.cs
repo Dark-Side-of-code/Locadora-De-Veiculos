@@ -148,7 +148,7 @@ namespace Locadora_De_Veiculos.WindApp
             controladores.Add("Clientes", new ControladorCliente(repositorioCliente, servicoCliente));
             controladores.Add("Catergorias", new ControladorDeCategoriaDeVeiculo(repositorioGrupoVeiculos, servicoCategoriaDeVeiculos));
             controladores.Add("Funcionários",new ControladorDeFuncionario(repositorioFuncionario, servicoFuncionario));
-            controladores.Add("Condutores", new ControladorCondutor(repositorioCondutor, servicoCondutor));
+            controladores.Add("Condutores", new ControladorCondutor(repositorioCondutor, repositorioCliente, servicoCondutor));
         }
 
         private void ClientesMenuItem_Click(object sender, EventArgs e)
