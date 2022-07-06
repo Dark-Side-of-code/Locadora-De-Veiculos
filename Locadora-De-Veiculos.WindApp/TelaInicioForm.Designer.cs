@@ -123,6 +123,7 @@
             // veiculosToolStripMenuItem
             // 
             this.veiculosToolStripMenuItem.Name = "veiculosToolStripMenuItem";
+            this.veiculosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
             this.veiculosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.veiculosToolStripMenuItem.Text = "Veiculos";
             this.veiculosToolStripMenuItem.Click += new System.EventHandler(this.veiculosToolStripMenuItem_Click);
