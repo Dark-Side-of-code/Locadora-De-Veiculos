@@ -61,8 +61,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
             cliente.Email = txt_Email.Text;
             cliente.Telefone = txtMask_Fone.Text;
             cliente.Nome = txt_Nome.Text;
-            cliente.CNH = txtMask_Cnh.Text;
-            cliente.Validade_CNH = DateTime.Parse(dateTime_Validade_Cnh.Text);
+           /* cliente.CNH = txtMask_Cnh.Text;
+            cliente.Validade_CNH = DateTime.Parse(dateTime_Validade_Cnh.Text);*/
 
             var resultadoValidacao = GravarRegistro(Cliente);
 
