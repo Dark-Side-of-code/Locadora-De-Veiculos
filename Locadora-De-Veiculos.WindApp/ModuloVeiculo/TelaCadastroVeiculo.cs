@@ -18,12 +18,12 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
     public partial class TelaCadastroVeiculo : Form
     {
         private Veiculo veiculo;
-        public TelaCadastroVeiculo()
+        private List<CategoriaDeVeiculos> categoria;
+        public TelaCadastroVeiculo(List<CategoriaDeVeiculos> categoria)
         {
             InitializeComponent();
             this.ConfigurarTela();
-            ClassMaskValor.AplicaMascaraKm(txt_Km);
-            ClassMaskValor.AplicaMascaraLitros(txt_Capacidade);
+            CarregarCategoriaDeVeiculos(categoria);
         }
 
         public Func<Veiculo, ValidationResult> GravarRegistro { get; set; }
@@ -54,18 +54,27 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
             }
         }
 
+        private void CarregarCategoriaDeVeiculos(List<CategoriaDeVeiculos> categoria)
+        {
+            comboBox_Categoria.Items.Clear();
+
+            foreach (var item in categoria)
+            {
+                comboBox_Categoria.Items.Add(item);
+            }
+        }
+
         private void btn_Cadastrar_Click(object sender, EventArgs e)
         {
             veiculo.Modelo = txt_Modelo.Text;
             veiculo.Marca = txt_Marca.Text;
             veiculo.Placa = txt_Placa.Text;
-            veiculo.Km_total = Convert.ToDouble(txt_Km.Text.Replace("Km", string.Empty).Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+            veiculo.Km_total = Convert.ToDouble(txt_Km.Text);
             veiculo.Cor = txt_Cor.Text;
             veiculo.CategoriaDeVeiculos = (CategoriaDeVeiculos)comboBox_Categoria.SelectedItem;
-            veiculo.Capacidade_tanque = Convert.ToDouble(txt_Capacidade.Text.Replace("L", string.Empty).Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)); ;
+            veiculo.Capacidade_tanque = Convert.ToDouble(txt_Capacidade.Text); ;
             veiculo.Tipo_combustivel = comboBox_Categoria.SelectedItem.ToString();
             veiculo.Ano = datePicker_Ano.Value;
-
 
             var resultadoValidacao = GravarRegistro(Veiculo);
 

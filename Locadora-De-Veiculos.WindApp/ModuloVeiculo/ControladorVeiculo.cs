@@ -1,4 +1,6 @@
 ﻿using Locadora_De_Veiculos.Aplicacao.ModuloVeiculo;
+using Locadora_De_Veiculos.Dominio.ModuloCategoriaDeVeiculos;
+using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
 using Locadora_De_Veiculos.Dominio.ModuloVeiculo;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
@@ -13,18 +15,21 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
     public class ControladorVeiculo : ControladorBase
     {
         private readonly IRepositorioVeiculo repositorioVeiculo;
+        private readonly IRepositorioCategoriaDeVeiculos repositorioCategoria;
         private TabelaVeiculoControl? listagemVeiculos;
         private readonly ServicoVeiculo servicoVeiculo;
 
-        public ControladorVeiculo(IRepositorioVeiculo repositorioVeiculo, ServicoVeiculo servicoVeiculo)
+        public ControladorVeiculo(IRepositorioVeiculo repositorioVeiculo, IRepositorioCategoriaDeVeiculos repositorioCategoria, ServicoVeiculo servicoVeiculo)
         {
             this.repositorioVeiculo = repositorioVeiculo;
+            this.repositorioCategoria = repositorioCategoria;
             this.servicoVeiculo = servicoVeiculo;
         }
 
         public override void Inserir()
         {
-            var tela = new TelaCadastroVeiculo();
+            var categorias = repositorioCategoria.SelecionarTodos();
+            var tela = new TelaCadastroVeiculo(categorias);
             tela.Veiculo = new Veiculo();
             tela.GravarRegistro = servicoVeiculo.Inserir;
             DialogResult resultado = tela.ShowDialog();
@@ -52,7 +57,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
                 return;
             }
 
-            TelaCadastroVeiculo tela = new TelaCadastroVeiculo();
+            var categorias = repositorioCategoria.SelecionarTodos();
+            TelaCadastroVeiculo tela = new TelaCadastroVeiculo(categorias);
 
             tela.Veiculo = veiculoSelecionado.Clone();
 

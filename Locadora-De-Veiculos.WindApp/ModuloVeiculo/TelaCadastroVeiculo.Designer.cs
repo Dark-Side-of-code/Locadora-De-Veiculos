@@ -69,7 +69,7 @@
             this.button2.Location = new System.Drawing.Point(98, 398);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 36);
-            this.button2.TabIndex = 69;
+            this.button2.TabIndex = 9;
             this.button2.Text = "Voltar";
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -84,7 +84,7 @@
             this.btn_Cadastrar.Location = new System.Drawing.Point(231, 398);
             this.btn_Cadastrar.Name = "btn_Cadastrar";
             this.btn_Cadastrar.Size = new System.Drawing.Size(154, 36);
-            this.btn_Cadastrar.TabIndex = 70;
+            this.btn_Cadastrar.TabIndex = 10;
             this.btn_Cadastrar.Text = "Cadastarar";
             this.btn_Cadastrar.UseVisualStyleBackColor = false;
             this.btn_Cadastrar.Click += new System.EventHandler(this.btn_Cadastrar_Click);
@@ -113,7 +113,7 @@
             this.panel1.Location = new System.Drawing.Point(1, 57);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(485, 30);
-            this.panel1.TabIndex = 72;
+            this.panel1.TabIndex = 6;
             // 
             // label1
             // 
@@ -173,7 +173,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(58, 329);
+            this.label9.Location = new System.Drawing.Point(43, 329);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 15);
             this.label9.TabIndex = 81;
@@ -182,7 +182,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(241, 329);
+            this.label10.Location = new System.Drawing.Point(245, 329);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(33, 15);
             this.label10.TabIndex = 82;
@@ -203,7 +203,7 @@
             this.txt_Modelo.MaxLength = 300;
             this.txt_Modelo.Name = "txt_Modelo";
             this.txt_Modelo.Size = new System.Drawing.Size(108, 23);
-            this.txt_Modelo.TabIndex = 85;
+            this.txt_Modelo.TabIndex = 0;
             // 
             // label7
             // 
@@ -221,15 +221,15 @@
             this.txt_Km.MaxLength = 20;
             this.txt_Km.Name = "txt_Km";
             this.txt_Km.Size = new System.Drawing.Size(108, 23);
-            this.txt_Km.TabIndex = 88;
+            this.txt_Km.TabIndex = 4;
             // 
             // txt_Capacidade
             // 
-            this.txt_Capacidade.Location = new System.Drawing.Point(129, 321);
+            this.txt_Capacidade.Location = new System.Drawing.Point(117, 321);
             this.txt_Capacidade.MaxLength = 20;
             this.txt_Capacidade.Name = "txt_Capacidade";
             this.txt_Capacidade.Size = new System.Drawing.Size(108, 23);
-            this.txt_Capacidade.TabIndex = 92;
+            this.txt_Capacidade.TabIndex = 7;
             // 
             // txt_Cor
             // 
@@ -237,7 +237,7 @@
             this.txt_Cor.MaxLength = 100;
             this.txt_Cor.Name = "txt_Cor";
             this.txt_Cor.Size = new System.Drawing.Size(143, 23);
-            this.txt_Cor.TabIndex = 95;
+            this.txt_Cor.TabIndex = 5;
             // 
             // txt_Placa
             // 
@@ -245,7 +245,7 @@
             this.txt_Placa.MaxLength = 7;
             this.txt_Placa.Name = "txt_Placa";
             this.txt_Placa.Size = new System.Drawing.Size(143, 23);
-            this.txt_Placa.TabIndex = 94;
+            this.txt_Placa.TabIndex = 3;
             // 
             // txt_Marca
             // 
@@ -253,7 +253,7 @@
             this.txt_Marca.MaxLength = 50;
             this.txt_Marca.Name = "txt_Marca";
             this.txt_Marca.Size = new System.Drawing.Size(143, 23);
-            this.txt_Marca.TabIndex = 93;
+            this.txt_Marca.TabIndex = 1;
             // 
             // comboBox_Tipo
             // 
@@ -271,10 +271,10 @@
             "GNV",
             "Elétrico",
             resources.GetString("comboBox_Tipo.Items")});
-            this.comboBox_Tipo.Location = new System.Drawing.Point(280, 323);
+            this.comboBox_Tipo.Location = new System.Drawing.Point(292, 321);
             this.comboBox_Tipo.Name = "comboBox_Tipo";
             this.comboBox_Tipo.Size = new System.Drawing.Size(143, 23);
-            this.comboBox_Tipo.TabIndex = 96;
+            this.comboBox_Tipo.TabIndex = 8;
             // 
             // imageList1
             // 
@@ -297,7 +297,7 @@
             this.comboBox_Categoria.Location = new System.Drawing.Point(117, 251);
             this.comboBox_Categoria.Name = "comboBox_Categoria";
             this.comboBox_Categoria.Size = new System.Drawing.Size(108, 23);
-            this.comboBox_Categoria.TabIndex = 98;
+            this.comboBox_Categoria.TabIndex = 6;
             // 
             // datePicker_Ano
             // 
@@ -306,7 +306,7 @@
             this.datePicker_Ano.Location = new System.Drawing.Point(117, 192);
             this.datePicker_Ano.Name = "datePicker_Ano";
             this.datePicker_Ano.Size = new System.Drawing.Size(108, 23);
-            this.datePicker_Ano.TabIndex = 99;
+            this.datePicker_Ano.TabIndex = 2;
             // 
             // TelaCadastroVeiculo
             // 
