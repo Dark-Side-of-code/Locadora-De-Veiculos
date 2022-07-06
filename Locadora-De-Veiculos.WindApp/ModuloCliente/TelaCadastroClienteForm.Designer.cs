@@ -161,7 +161,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Teal;
-            this.panel2.Location = new System.Drawing.Point(-3, 339);
+            this.panel2.Location = new System.Drawing.Point(-3, 331);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(482, 10);
             this.panel2.TabIndex = 17;
@@ -174,7 +174,7 @@
             this.btn_Cadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Cadastrar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Cadastrar.ForeColor = System.Drawing.Color.White;
-            this.btn_Cadastrar.Location = new System.Drawing.Point(224, 369);
+            this.btn_Cadastrar.Location = new System.Drawing.Point(224, 359);
             this.btn_Cadastrar.Name = "btn_Cadastrar";
             this.btn_Cadastrar.Size = new System.Drawing.Size(154, 36);
             this.btn_Cadastrar.TabIndex = 9;
@@ -190,7 +190,7 @@
             this.btn_Voltar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Voltar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Voltar.ForeColor = System.Drawing.Color.White;
-            this.btn_Voltar.Location = new System.Drawing.Point(91, 369);
+            this.btn_Voltar.Location = new System.Drawing.Point(91, 359);
             this.btn_Voltar.Name = "btn_Voltar";
             this.btn_Voltar.Size = new System.Drawing.Size(136, 36);
             this.btn_Voltar.TabIndex = 8;
@@ -230,7 +230,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(460, 429);
+            this.ClientSize = new System.Drawing.Size(460, 416);
             this.Controls.Add(this.groupBoxTipoCliente);
             this.Controls.Add(this.txt_Nome);
             this.Controls.Add(this.label10);
