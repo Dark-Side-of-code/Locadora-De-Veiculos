@@ -22,6 +22,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
         {
             InitializeComponent();
             this.ConfigurarTela();
+            ClassMaskValor.AplicaMascaraKm(txt_Km);
+            ClassMaskValor.AplicaMascaraLitros(txt_Capacidade);
         }
 
         public Func<Veiculo, ValidationResult> GravarRegistro { get; set; }
