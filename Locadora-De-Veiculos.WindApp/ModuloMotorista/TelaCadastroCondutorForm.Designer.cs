@@ -122,11 +122,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(65, 169);
+            this.label2.Location = new System.Drawing.Point(41, 170);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 15);
+            this.label2.Size = new System.Drawing.Size(71, 15);
             this.label2.TabIndex = 103;
-            this.label2.Text = "Cliente:";
+            this.label2.Text = "CPF Cliente:";
             // 
             // label3
             // 
@@ -190,6 +190,7 @@
             this.checkBox1.TabIndex = 111;
             this.checkBox1.Text = "Cliente é condutor";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
             // 
             // txt_nome
             // 

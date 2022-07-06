@@ -1,4 +1,5 @@
 ﻿using FluentValidation.Results;
+using Locadora_De_Veiculos.Dominio.ModuloCliente;
 using Locadora_De_Veiculos.Dominio.ModuloCondutor;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
@@ -16,11 +17,14 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
     public partial class TelaCadastroCondutorForm : Form
     {
         private Condutor condutor;
-        
-        public TelaCadastroCondutorForm()
+        public List<Cliente> clientes;
+
+        public TelaCadastroCondutorForm(List<Cliente> clientes)
         {
+            this.clientes = clientes;
             InitializeComponent();
             this.ConfigurarTela();
+            PreencherComboBox();
         }
 
         public Func<Condutor, ValidationResult> GravarRegistro { get; set; }
@@ -31,6 +35,12 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
             set
             {
                 condutor = value;
+
+                if(condutor.Cliente != null)
+                {
+                    cbx_cliente.SelectedItem = condutor.Cliente;
+                    cbx_cliente.SelectedIndex = 0;
+                }
 
                 txt_CPF.Text = condutor.CPF;
                 txt_Email.Text = condutor.Email;
@@ -68,5 +78,33 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
             }
         }
         
+        public void PreencherComboBox()
+        {
+            cbx_cliente.Items.Clear();
+
+            foreach(Cliente c in clientes)
+            {
+                cbx_cliente.Items.Add(c);
+            }
+        }
+
+        private void checkBox1_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                txt_CPF.Text = condutor.CPF;
+                txt_Email.Text = condutor.Email;
+                txtMask_Fone.Text = condutor.Telefone;
+                txt_nome.Text = condutor.Nome;
+                txtMask_Cnh.Text = condutor.CNH;
+
+                if (Condutor.Validade_CNH > DateTimePicker.MinimumDateTime)
+                {
+                    dateTime_Validade_Cnh.Value = condutor.Validade_CNH;
+                }
+                else
+                    dateTime_Validade_Cnh.Value = DateTime.Now;
+            }
+        }
     }
 }

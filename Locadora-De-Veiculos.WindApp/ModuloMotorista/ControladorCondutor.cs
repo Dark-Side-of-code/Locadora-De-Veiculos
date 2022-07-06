@@ -1,4 +1,5 @@
 ﻿using Locadora_De_Veiculos.Aplicacao.ModuloCondutor;
+using Locadora_De_Veiculos.Dominio.ModuloCliente;
 using Locadora_De_Veiculos.Dominio.ModuloCondutor;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
@@ -13,18 +14,20 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
     public class ControladorCondutor : ControladorBase
     {
         private readonly IRepositorioCondutor repositorioCondutor;
+        private readonly IRepositorioCliente repositorioCliente;
         private TabelaCondutorControl? listagemCondutor;
         private readonly ServicoCondutor servicoCondutor;
 
-        public ControladorCondutor(IRepositorioCondutor repositorioCondutor, ServicoCondutor servicoCondutor)
+        public ControladorCondutor(IRepositorioCondutor repositorioCondutor, IRepositorioCliente repositorioCliente, ServicoCondutor servicoCondutor)
         {
+            this.repositorioCliente = repositorioCliente;
             this.repositorioCondutor = repositorioCondutor;
             this.servicoCondutor = servicoCondutor;
         }
 
         public override void Inserir()
         {
-            var tela = new TelaCadastroCondutorForm();
+            var tela = new TelaCadastroCondutorForm(this.repositorioCliente.SelecionarTodos());
 
             tela.Condutor = new Condutor();
 
@@ -49,7 +52,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
                 return;
             }
 
-            var tela = new TelaCadastroCondutorForm();
+            var tela = new TelaCadastroCondutorForm(this.repositorioCliente.SelecionarTodos());
 
             tela.Condutor = condutorSelecionado;
 
