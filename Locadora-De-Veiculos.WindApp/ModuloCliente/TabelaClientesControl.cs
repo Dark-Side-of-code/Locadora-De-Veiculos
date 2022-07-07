@@ -36,10 +36,6 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Email", HeaderText = "Email", FillWeight=85F },
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "CNH", HeaderText = "CNH", FillWeight=85F },
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "Validade_CNH", HeaderText = "Validade da CNH", FillWeight=85F },
-
                 new DataGridViewTextBoxColumn { DataPropertyName = "Tipo_Cliente", HeaderText = "Tipo do cliente", FillWeight=85F }
             };
 
