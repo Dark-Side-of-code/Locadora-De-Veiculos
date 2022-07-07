@@ -21,7 +21,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCondutor
             comando.Parameters.AddWithValue("VALIDADE_CNH", registro.Validade_CNH);
             comando.Parameters.AddWithValue("EMAIL", registro.Email);
             comando.Parameters.AddWithValue("TELEFONE", registro.Telefone);
-            comando.Parameters.AddWithValue("ENDEREÇO", registro.Edereco);
+            comando.Parameters.AddWithValue("ENDERECO", registro.Edereco);
             comando.Parameters.AddWithValue("CLIENTE_ID", registro.Cliente.Id);
         }
 
@@ -34,7 +34,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCondutor
             DateTime validade_cnh = Convert.ToDateTime(leitorRegistro["VALIDADE"]);
             string email = Convert.ToString(leitorRegistro["EMAIL"]);
             string telefone = Convert.ToString(leitorRegistro["TELEFONE"]);
-            string endereco = Convert.ToString(leitorRegistro["ENDEREÇO"]);
+            string endereco = Convert.ToString(leitorRegistro["ENDERECO"]);
 
             int numeroCliente = Convert.ToInt32(leitorRegistro["CLIENTE_ID"]);
             string nomeCliente = Convert.ToString(leitorRegistro["CLIENTE_NOME"]);

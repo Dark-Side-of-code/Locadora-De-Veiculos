@@ -22,7 +22,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCondutor
            [VALIDADE],
            [EMAIL],
            [TELEFONE],
-           [ENDEREÇO],
+           [ENDERECO],
            [CLIENTE_ID]
         )
         VALUES
@@ -33,7 +33,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCondutor
            @VALIDADE_CNH,
            @EMAIL,
            @TELEFONE,
-           @ENDEREÇO,
+           @ENDERECO,
            @CLIENTE_ID
 		);SELECT SCOPE_IDENTITY();";
 
@@ -46,7 +46,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCondutor
             [VALIDADE] = @VALIDADE_CNH,
             [EMAIL] =  @EMAIL,
             [TELEFONE] = @TELEFONE,
-            [ENDEREÇO] = @ENDEREÇO,
+            [ENDERECO] = @ENDERECO,
             [CLIENTE_ID] = @CLIENTE_ID
 	    WHERE
 	        ID = @ID;";
@@ -65,7 +65,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCondutor
            TBCO.[VALIDADE],
            TBCO.[EMAIL],
            TBCO.[TELEFONE],
-           TBCO.[ENDEREÇO],
+           TBCO.[ENDERECO],
 
            TBCO.[CLIENTE_ID],
            TBCL.[NOME] AS CLIENTE_NOME
@@ -85,7 +85,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCondutor
            TBCO.[VALIDADE],
            TBCO.[EMAIL],
            TBCO.[TELEFONE],
-           TBCO.[ENDEREÇO],
+           TBCO.[ENDERECO],
 
            TBCO.[CLIENTE_ID],
            TBCL.[NOME] AS CLIENTE_NOME
@@ -103,7 +103,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCondutor
            TBCO.[VALIDADE],
            TBCO.[EMAIL],
            TBCO.[TELEFONE],
-           TBCO.[ENDEREÇO],
+           TBCO.[ENDERECO],
 
            TBCO.[CLIENTE_ID],
            TBCL.[NOME] AS CLIENTE_NOME
@@ -123,7 +123,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCondutor
            TBCO.[VALIDADE],
            TBCO.[EMAIL],
            TBCO.[TELEFONE],
-           TBCO.[ENDEREÇO],
+           TBCO.[ENDERECO],
 
            TBCO.[CLIENTE_ID],
            TBCL.[NOME] AS CLIENTE_NOME
