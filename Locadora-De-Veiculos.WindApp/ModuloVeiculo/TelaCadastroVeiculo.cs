@@ -21,9 +21,12 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
         private List<CategoriaDeVeiculos> categoria;
         public TelaCadastroVeiculo(List<CategoriaDeVeiculos> categoria)
         {
+            this.categoria = categoria;
             InitializeComponent();
             this.ConfigurarTela();
             CarregarCategoriaDeVeiculos(categoria);
+            ClassMaskValorNumerico.AplicaMascaraValorNumerico(txt_Capacidade);
+            ClassMaskValorNumerico.AplicaMascaraValorNumerico(txt_Km);
         }
 
         public Func<Veiculo, ValidationResult> GravarRegistro { get; set; }
@@ -58,7 +61,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
         {
             comboBox_Categoria.Items.Clear();
 
-            foreach (var item in categoria)
+            foreach (CategoriaDeVeiculos item in categoria)
             {
                 comboBox_Categoria.Items.Add(item);
             }
@@ -72,8 +75,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
             veiculo.Km_total = Convert.ToDouble(txt_Km.Text);
             veiculo.Cor = txt_Cor.Text;
             veiculo.CategoriaDeVeiculos = (CategoriaDeVeiculos)comboBox_Categoria.SelectedItem;
-            veiculo.Capacidade_tanque = Convert.ToDouble(txt_Capacidade.Text); ;
-            veiculo.Tipo_combustivel = comboBox_Categoria.SelectedItem.ToString();
+            veiculo.Capacidade_tanque = Convert.ToDouble(txt_Capacidade.Text);
+            veiculo.Tipo_combustivel = comboBox_Tipo.SelectedItem.ToString();
             veiculo.Ano = datePicker_Ano.Value;
 
             var resultadoValidacao = GravarRegistro(Veiculo);

@@ -98,10 +98,5 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
 
             CategoriaDeVeiculos = categoria;
         }
-
-        public override string ToString()
-        {
-            return CategoriaDeVeiculos.Nome;
-        }
     }
 }

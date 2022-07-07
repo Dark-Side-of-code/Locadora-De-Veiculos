@@ -303,8 +303,10 @@
             // 
             this.datePicker_Ano.CustomFormat = "yyyy";
             this.datePicker_Ano.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datePicker_Ano.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.datePicker_Ano.Location = new System.Drawing.Point(117, 192);
             this.datePicker_Ano.Name = "datePicker_Ano";
+            this.datePicker_Ano.ShowUpDown = true;
             this.datePicker_Ano.Size = new System.Drawing.Size(108, 23);
             this.datePicker_Ano.TabIndex = 2;
             // 
