@@ -1,5 +1,6 @@
 ﻿using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.ModuloVeiculo;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloVeiculo
     public class ServicoVeiculo
     {
         private IRepositorioVeiculo repositorioVeiculo;
+        private ILogger logger = Log.Logger;
 
         public ServicoVeiculo(IRepositorioVeiculo repositorioVeiculo)
         {
