@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Locadora_De_Veiculos.Infra.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace Locadora_De_Veiculos.WindApp
         static void Main()
         
         {
+            ConfiguracaoLogsLocadora.ConfigurarEscritaLog();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
