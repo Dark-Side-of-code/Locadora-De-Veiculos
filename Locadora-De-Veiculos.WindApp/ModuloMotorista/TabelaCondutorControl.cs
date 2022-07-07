@@ -30,7 +30,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome", FillWeight=85F },
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "CPF_CNPJ", HeaderText = "CPF/CNPJ", FillWeight=85F },
+                new DataGridViewTextBoxColumn { DataPropertyName = "CPF_CNPJ", HeaderText = "CPF/", FillWeight=85F },
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Telefone", HeaderText = "Telefone", FillWeight=85F },
 
@@ -40,7 +40,9 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Validade_CNH", HeaderText = "Validade da CNH", FillWeight=85F },
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Tipo_Condutor", HeaderText = "Tipo do condutor", FillWeight=85F }
+                new DataGridViewTextBoxColumn { DataPropertyName = "Edereco", HeaderText = "Edereço", FillWeight=85F },
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "Cliente.CPF_CNPJ", HeaderText = "CPF Do Cliente", FillWeight=85F }
             };
 
             return colunas;
@@ -57,7 +59,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
 
             foreach (Condutor condutor in condutors)
             {
-                grid.Rows.Add(condutor.Id, condutor.Nome, condutor.CPF, condutor.Telefone, condutor.Email, condutor.CNH, condutor.Validade_CNH);
+                grid.Rows.Add(condutor.Id, condutor.Nome, condutor.CPF, condutor.Telefone, condutor.Email, condutor.CNH, condutor.Validade_CNH, condutor.Edereco, condutor.Cliente.CPF_CNPJ);
             }
         }
     }
