@@ -23,7 +23,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
         {
             InitializeComponent();
             this.ConfigurarTela();
-            ClassMaskMoeda.AplicaMascaraMoeda(txt_Salario);
+            ClassMaskValorNumerico.AplicaMascaraMoeda(txt_Salario);
         }
 
         public Func<Funcionario, ValidationResult> GravarRegistro { get; set; }

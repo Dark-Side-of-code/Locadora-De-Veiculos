@@ -44,8 +44,6 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Km_total", HeaderText = "Km_total", FillWeight=85F },
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "CategoriaDeVeiculos", HeaderText = "Categoria do veículo", FillWeight=85F },
-
                 new DataGridViewTextBoxColumn { DataPropertyName = "TipoVeiculo", HeaderText = "Tipo de Veiculo", FillWeight=85F },
             };
 

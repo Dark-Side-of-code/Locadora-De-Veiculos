@@ -7,9 +7,10 @@ using System.Windows.Forms;
 
 namespace Locadora_De_Veiculos.WindApp.Compartilhado
 {
-    public class ClassMaskMoeda
+    public class ClassMaskValorNumerico
     {
         static string valor = "";
+        
         private static void Aplica_KeyPress_Mascara(object sender, KeyPressEventArgs e)
         {
             TextBoxBase txt = (TextBoxBase)sender;
@@ -73,6 +74,11 @@ namespace Locadora_De_Veiculos.WindApp.Compartilhado
             txt.KeyPress += Aplica_KeyPress_Mascara;
             txt.Leave += Aplica_Leave_MascaraMoeda;
             txt.KeyUp += Aplica_KeyUp_MascaraMoeda;
+        }
+
+        public static void AplicaMascaraValorNumerico(TextBoxBase txt)
+        {
+            txt.KeyPress += Aplica_KeyPress_Mascara;
         }
     }
 }
