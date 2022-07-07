@@ -53,6 +53,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCondutor
                 CNH = cnh,
                 Validade_CNH = validade_cnh,
                 Email = email,
+                Edereco = endereco,
                 Telefone = telefone
             };
 

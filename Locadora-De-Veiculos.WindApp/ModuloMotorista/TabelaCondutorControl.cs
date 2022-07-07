@@ -40,9 +40,9 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Validade_CNH", HeaderText = "Validade da CNH", FillWeight=85F },
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Edereco", HeaderText = "Edereço", FillWeight=85F },
+                new DataGridViewTextBoxColumn { DataPropertyName = "Edereco", HeaderText = "Endereço", FillWeight=85F },
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Cliente.CPF_CNPJ", HeaderText = "CPF Do Cliente", FillWeight=85F }
+                new DataGridViewTextBoxColumn { DataPropertyName = "Cliente.Nome", HeaderText = "Nome Do Cliente", FillWeight=85F }
             };
 
             return colunas;
@@ -59,7 +59,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
 
             foreach (Condutor condutor in condutors)
             {
-                grid.Rows.Add(condutor.Id, condutor.Nome, condutor.CPF, condutor.Telefone, condutor.Email, condutor.CNH, condutor.Validade_CNH, condutor.Edereco, condutor.Cliente.CPF_CNPJ);
+                grid.Rows.Add(condutor.Id, condutor.Nome, condutor.CPF, condutor.Telefone, condutor.Email, condutor.CNH, condutor.Validade_CNH, condutor.Edereco, condutor.Cliente.Nome);
             }
         }
     }

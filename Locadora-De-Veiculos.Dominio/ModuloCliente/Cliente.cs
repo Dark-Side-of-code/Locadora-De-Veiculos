@@ -46,7 +46,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCliente
 
         public override string ToString()
         {
-            return this.CPF_CNPJ;
+            return this.Nome;
         }
     }
 }
