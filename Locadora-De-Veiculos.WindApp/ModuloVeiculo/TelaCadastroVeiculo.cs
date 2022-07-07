@@ -89,7 +89,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
             veiculo.Ano = datePicker_Ano.Value;
 
             var resultadoValidacao = GravarRegistro(Veiculo);
-
+            
             if (resultadoValidacao.IsValid == false)
             {
                 string erro = resultadoValidacao.Errors[0].ErrorMessage;
