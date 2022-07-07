@@ -1,4 +1,4 @@
-﻿using FluentValidation.Results;
+﻿ using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
 using Locadora_De_Veiculos.Dominio.ModuloVeiculo;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
