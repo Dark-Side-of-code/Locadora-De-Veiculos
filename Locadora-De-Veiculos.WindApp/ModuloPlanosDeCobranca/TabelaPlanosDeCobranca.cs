@@ -29,13 +29,15 @@ namespace Locadora_De_Veiculos.WindApp.ModuloPlanosDeCobranca
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Numero", HeaderText = "Número", FillWeight = 15F },
 
+                new DataGridViewTextBoxColumn { DataPropertyName = "CategoriaDeVeiculos.Nome", HeaderText = "Nome da Categoria", FillWeight = 85F },
+
                 new DataGridViewTextBoxColumn { DataPropertyName = "PlanoDiario_ValorDiario", HeaderText = "Plano Diario Valor Por KM", FillWeight = 85F },
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "PlanoDiario_ValorPorKM", HeaderText = "Plano Diario Valor Por KM", FillWeight = 85F },
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "PlanoKM_Livre_ValorDiario", HeaderText = "Plano KM Livre Valor Diario", FillWeight = 85F },
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "PlanoKM_controlado_LimiteDeQuilometragem", HeaderText = "Plano KM Controlado Limite De Quilometragem", FillWeight = 85F },
+                new DataGridViewTextBoxColumn { DataPropertyName = "CategoriaDeVeiculos.Nome", HeaderText = "Plano KM Controlado Limite De Quilometragem", FillWeight = 85F },
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "PlanoKM_controlado_ValorDiario", HeaderText = "Plano KM Controlado Valor Diario", FillWeight = 85F },
 
@@ -56,8 +58,9 @@ namespace Locadora_De_Veiculos.WindApp.ModuloPlanosDeCobranca
 
             foreach(PlanoDeCobranca plano in planoDeCobrancas)
             {
-                grid.Rows.Add(plano.Id, plano.PlanoDiario_ValorDiario, plano.PlanoDiario_ValorPorKM, plano.PlanoKM_Livre_ValorDiario, plano.PlanoKM_controlado_LimiteDeQuilometragem, plano.PlanoKM_controlado_ValorDiario, plano.PlanoKM_controlado_ValorPorKM);
+                grid.Rows.Add(plano.Id, plano.CategoriaDeVeiculos.Nome,plano.PlanoDiario_ValorDiario, plano.PlanoDiario_ValorPorKM, plano.PlanoKM_Livre_ValorDiario, plano.PlanoKM_controlado_LimiteDeQuilometragem, plano.PlanoKM_controlado_ValorDiario, plano.PlanoKM_controlado_ValorPorKM);
             }
         }
+
     }
 }

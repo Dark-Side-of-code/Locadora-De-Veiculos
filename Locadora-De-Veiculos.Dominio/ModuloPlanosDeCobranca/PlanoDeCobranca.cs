@@ -1,4 +1,5 @@
-﻿using Locadora_De_Veiculos.Dominio.Compartilhado;
+﻿using FluentValidation.Results;
+using Locadora_De_Veiculos.Dominio.Compartilhado;
 using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
 using System;
 using System.Collections.Generic;
@@ -44,7 +45,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca
         public double PlanoKM_controlado_ValorPorKM { get; set; }
        
         public CategoriaDeVeiculos CategoriaDeVeiculos{ get; set; }
-
+       
 
         public override bool Equals(object obj)
         {
@@ -62,6 +63,11 @@ namespace Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca
         public override int GetHashCode()
         {
             return HashCode.Combine(Id, PlanoDiario_ValorDiario, PlanoDiario_ValorPorKM, PlanoKM_Livre_ValorDiario, PlanoKM_controlado_LimiteDeQuilometragem, PlanoKM_controlado_ValorDiario, PlanoKM_controlado_ValorPorKM, CategoriaDeVeiculos);
+        }
+
+        public PlanoDeCobranca Clone()
+        {
+            return MemberwiseClone() as PlanoDeCobranca;
         }
 
         public void ConfigurarCategoria(CategoriaDeVeiculos categoria)
