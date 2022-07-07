@@ -59,11 +59,13 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
 
         private void btn_Cadastrar_Click(object sender, EventArgs e)
         {
+            condutor.Cliente = (Cliente)cbx_cliente.SelectedItem;
             condutor.CPF = txt_CPF.Text;
             condutor.Email = txt_Email.Text;
             condutor.Telefone = txtMask_Fone.Text;
             condutor.Nome = txt_nome.Text;
             condutor.CNH = txtMask_Cnh.Text;
+            condutor.Edereco = txt_endereco.Text;
             condutor.Validade_CNH = DateTime.Parse(dateTime_Validade_Cnh.Text);
 
             var resultadoValidacao = GravarRegistro(Condutor);
@@ -92,18 +94,19 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
         {
             if (checkBox1.Checked == true)
             {
-                txt_CPF.Text = condutor.CPF;
-                txt_Email.Text = condutor.Email;
-                txtMask_Fone.Text = condutor.Telefone;
-                txt_nome.Text = condutor.Nome;
-                txtMask_Cnh.Text = condutor.CNH;
-
-                if (Condutor.Validade_CNH > DateTimePicker.MinimumDateTime)
-                {
-                    dateTime_Validade_Cnh.Value = condutor.Validade_CNH;
-                }
-                else
-                    dateTime_Validade_Cnh.Value = DateTime.Now;
+                condutor.Cliente = (Cliente)cbx_cliente.SelectedItem;
+                txt_CPF.Text = condutor.Cliente.CPF_CNPJ;
+                txt_Email.Text = condutor.Cliente.Email;
+                txtMask_Fone.Text = condutor.Cliente.Telefone;
+                txt_nome.Text = condutor.Cliente.Nome;
+            }
+            else
+            {
+                condutor.Cliente = (Cliente)cbx_cliente.SelectedItem;
+                txt_CPF.Text = "";
+                txt_Email.Text = "";
+                txtMask_Fone.Text = "";
+                txt_nome.Text = "";
             }
         }
     }

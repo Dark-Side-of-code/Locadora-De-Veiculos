@@ -40,6 +40,10 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCondutor
             RuleFor(x => x.Telefone)
                 .NotEmpty()
                 .MinimumLength(10);
+
+            RuleFor(x => x.Edereco)
+                .NotEmpty()
+                .MinimumLength(5);
         }
     }
 }

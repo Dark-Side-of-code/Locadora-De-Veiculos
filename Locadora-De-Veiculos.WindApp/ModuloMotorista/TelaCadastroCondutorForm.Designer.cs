@@ -82,6 +82,7 @@
             this.btn_Cadastrar.TabIndex = 98;
             this.btn_Cadastrar.Text = "Cadastarar";
             this.btn_Cadastrar.UseVisualStyleBackColor = false;
+            this.btn_Cadastrar.Click += new System.EventHandler(this.btn_Cadastrar_Click);
             // 
             // panel2
             // 
