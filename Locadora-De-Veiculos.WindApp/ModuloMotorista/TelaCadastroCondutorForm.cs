@@ -41,6 +41,10 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
                     cbx_cliente.SelectedItem = condutor.Cliente;
                     cbx_cliente.SelectedIndex = 0;
                 }
+                else
+                {
+                    cbx_cliente.SelectedIndex = 0;
+                }
 
                 txt_CPF.Text = condutor.CPF;
                 txt_Email.Text = condutor.Email;
@@ -92,21 +96,24 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
 
         private void checkBox1_CheckStateChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if(condutor.Cliente != null)
             {
-                condutor.Cliente = (Cliente)cbx_cliente.SelectedItem;
-                txt_CPF.Text = condutor.Cliente.CPF_CNPJ;
-                txt_Email.Text = condutor.Cliente.Email;
-                txtMask_Fone.Text = condutor.Cliente.Telefone;
-                txt_nome.Text = condutor.Cliente.Nome;
-            }
-            else
-            {
-                condutor.Cliente = (Cliente)cbx_cliente.SelectedItem;
-                txt_CPF.Text = "";
-                txt_Email.Text = "";
-                txtMask_Fone.Text = "";
-                txt_nome.Text = "";
+                if (checkBox1.Checked == true)
+                {
+                    condutor.Cliente = (Cliente)cbx_cliente.SelectedItem;
+                    txt_CPF.Text = condutor.Cliente.CPF_CNPJ;
+                    txt_Email.Text = condutor.Cliente.Email;
+                    txtMask_Fone.Text = condutor.Cliente.Telefone;
+                    txt_nome.Text = condutor.Cliente.Nome;
+                }
+                else
+                {
+                    condutor.Cliente = (Cliente)cbx_cliente.SelectedItem;
+                    txt_CPF.Text = "";
+                    txt_Email.Text = "";
+                    txtMask_Fone.Text = "";
+                    txt_nome.Text = "";
+                }
             }
         }
     }
