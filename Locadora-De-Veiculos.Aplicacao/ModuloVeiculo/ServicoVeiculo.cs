@@ -19,58 +19,58 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloVeiculo
             this.repositorioVeiculo = repositorioVeiculo;
         }
 
-        public ValidationResult Inserir(Veiculo veiculo)
+        public ValidationResult Inserir(Veiculo arg)
         {
-            logger.Information("Tentando inserir Veiculo... {@veiculo}", veiculo);
+            logger.Information("Tentando inserir Veiculo... {@veiculo}", arg);
 
-            ValidationResult resultadoValidacao = ValidarVeiculo(veiculo);
+            ValidationResult resultadoValidacao = ValidarVeiculo(arg);
 
             if (resultadoValidacao.IsValid)
             {
-                repositorioVeiculo.Inserir(veiculo);
-                logger.Information("Veiculo {@veiculo} inserido com sucesso.", veiculo.Id);
+                repositorioVeiculo.Inserir(arg);
+                logger.Information("Veiculo {@veiculo} inserido com sucesso.", arg.Id);
             }
             else
                 foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar inserir Veiculo {VeiculoNome} com a placa {Placa} -> Motivo: {erro}", veiculo.Modelo, veiculo.Placa, erro.ErrorMessage);
+                    logger.Warning("Falha ao tentar inserir Veiculo {VeiculoNome} com a placa {Placa} -> Motivo: {erro}", arg.Modelo, arg.Placa, erro.ErrorMessage);
             return resultadoValidacao;
         }
 
-        public ValidationResult Editar(Veiculo veiculo)
+        public ValidationResult Editar(Veiculo arg)
         {
-            logger.Information("Tentando editar Veiculo... {@veiculo}", veiculo);
-            ValidationResult resultadoValidacao = ValidarVeiculo(veiculo);
+            logger.Information("Tentando editar Veiculo... {@veiculo}", arg);
+            ValidationResult resultadoValidacao = ValidarVeiculo(arg);
 
             if (resultadoValidacao.IsValid)
             {
-                repositorioVeiculo.Editar(veiculo);
-                logger.Information("Veiculo {@veiculo} editado com sucesso.", veiculo.Id);
+                repositorioVeiculo.Editar(arg);
+                logger.Information("Veiculo {@veiculo} editado com sucesso.", arg.Id);
             }
             else
                 foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar editar Veiculo {VeiculoNome} com a placa {Placa} -> Motivo: {erro}", veiculo.Modelo, veiculo.Placa, erro.ErrorMessage);
+                    logger.Warning("Falha ao tentar editar Veiculo {VeiculoNome} com a placa {Placa} -> Motivo: {erro}", arg.Modelo, arg.Placa, erro.ErrorMessage);
             return resultadoValidacao;
         }
 
-        private ValidationResult ValidarVeiculo(Veiculo veiculo)
+        private ValidationResult ValidarVeiculo(Veiculo arg)
         {
             var validador = new ValidadorVeiculo();
 
-            var resultadoValidacao = validador.Validate(veiculo);
+            var resultadoValidacao = validador.Validate(arg);
 
-            if (PlacaDuplicado(veiculo))
+            if (PlacaDuplicado(arg))
                 resultadoValidacao.Errors.Add(new ValidationFailure("Placa", "Placa duplicado"));
 
             return resultadoValidacao;
         }
 
-        private bool PlacaDuplicado(Veiculo veiculo)
+        private bool PlacaDuplicado(Veiculo arg)
         {
-            var veiculoEncontrado = repositorioVeiculo.SelecionarVeiculoPorPlaca(veiculo.Placa);
+            var veiculoEncontrado = repositorioVeiculo.SelecionarVeiculoPorPlaca(arg.Placa);
 
             return veiculoEncontrado != null &&
-                   veiculoEncontrado.Placa == veiculo.Placa &&
-                   veiculoEncontrado.Id != veiculo.Id;
+                   veiculoEncontrado.Placa == arg.Placa &&
+                   veiculoEncontrado.Id != arg.Id;
         }
     }
 }

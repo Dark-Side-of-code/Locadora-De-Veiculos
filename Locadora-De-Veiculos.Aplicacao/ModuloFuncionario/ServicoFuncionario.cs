@@ -1,5 +1,6 @@
 ﻿using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.ModuloFuncionario;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,63 +12,79 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloFuncionario
     public class ServicoFuncionario
     {
         private IRepositorioFuncionario repositorioFuncionario;
+        private ILogger logger = Log.Logger;
 
         public ServicoFuncionario(IRepositorioFuncionario repositorioFuncionario)
         {
             this.repositorioFuncionario = repositorioFuncionario;
         }
 
-        public ValidationResult Inserir(Funcionario funcionario)
+        public ValidationResult Inserir(Funcionario arg)
         {
-            ValidationResult resultadoValidacao = ValidarFuncionario(funcionario);
+            logger.Information("Tentando inserir Funcionario... {@Funcionario}", arg);
+            ValidationResult resultadoValidacao = ValidarFuncionario(arg);
 
             if (resultadoValidacao.IsValid)
-                repositorioFuncionario.Inserir(funcionario);
+            {
+                repositorioFuncionario.Inserir(arg);
+                logger.Information("Funcionario {@Funcionario} inserido com sucesso.", arg.Id);
+            }
+            else
+                foreach (var erro in resultadoValidacao.Errors)
+                    logger.Warning("Falha ao tentar inserir Funcionario {FuncionarioNome} -> Motivo: {erro}", arg.Nome, erro.ErrorMessage);
+
 
             return resultadoValidacao;
         }
 
-        public ValidationResult Editar(Funcionario funcionario)
+        public ValidationResult Editar(Funcionario arg)
         {
-            ValidationResult resultadoValidacao = ValidarFuncionario(funcionario);
+            logger.Information("Tentando editar Funcionario... {@Funcionario}", arg);
+            ValidationResult resultadoValidacao = ValidarFuncionario(arg);
 
             if (resultadoValidacao.IsValid)
-                repositorioFuncionario.Editar(funcionario);
+            {
+                repositorioFuncionario.Editar(arg);
+                logger.Information("Funcionario {@Funcionario} editado com sucesso.", arg.Id);
+            }
+            else
+                foreach (var erro in resultadoValidacao.Errors)
+                    logger.Warning("Falha ao tentar editar Funcionario {FuncionarioNome} -> Motivo: {erro}", arg.Nome, erro.ErrorMessage);
 
             return resultadoValidacao;
         }
 
-        private ValidationResult ValidarFuncionario(Funcionario funcionario)
+        private ValidationResult ValidarFuncionario(Funcionario arg)
         {
             var validador = new ValidadorFuncionario();
 
-            var resultadoValidacao = validador.Validate(funcionario);
+            var resultadoValidacao = validador.Validate(arg);
 
-            if (NomeDuplicado(funcionario))
+            if (NomeDuplicado(arg))
                 resultadoValidacao.Errors.Add(new ValidationFailure("Nome", "Nome duplicado"));
 
-            if (UsuarioDuplicado(funcionario))
+            if (UsuarioDuplicado(arg))
                 resultadoValidacao.Errors.Add(new ValidationFailure("Login", "Login duplicado"));
 
             return resultadoValidacao;
         }
 
-        private bool NomeDuplicado(Funcionario funcionario)
+        private bool NomeDuplicado(Funcionario arg)
         {
-            var funcionarioEncontrado = repositorioFuncionario.SelecionarFuncionarioPorNome(funcionario.Nome);
+            var funcionarioEncontrado = repositorioFuncionario.SelecionarFuncionarioPorNome(arg.Nome);
 
             return funcionarioEncontrado != null &&
-                   funcionarioEncontrado.Nome == funcionario.Nome &&
-                   funcionarioEncontrado.Id != funcionario.Id;
+                   funcionarioEncontrado.Nome == arg.Nome &&
+                   funcionarioEncontrado.Id != arg.Id;
         }
 
-        private bool UsuarioDuplicado(Funcionario funcionario)
+        private bool UsuarioDuplicado(Funcionario arg)
         {
-            var funcionarioEncontrado = repositorioFuncionario.SelecionarFuncionarioPorUsuario(funcionario.TipoFuncionario);
+            var funcionarioEncontrado = repositorioFuncionario.SelecionarFuncionarioPorUsuario(arg.TipoFuncionario);
 
             return funcionarioEncontrado != null &&
-                   funcionarioEncontrado.TipoFuncionario == funcionario.TipoFuncionario &&
-                   funcionarioEncontrado.Id != funcionario.Id;
+                   funcionarioEncontrado.TipoFuncionario == arg.TipoFuncionario &&
+                   funcionarioEncontrado.Id != arg.Id;
         }
     }
 }
