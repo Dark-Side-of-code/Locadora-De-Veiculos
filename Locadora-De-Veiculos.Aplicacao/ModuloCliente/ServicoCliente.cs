@@ -1,6 +1,7 @@
 ﻿using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.ModuloCliente;
 using Locadora_De_Veiculos.Infra.Banco.ModuloCliente;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCliente
     public class ServicoCliente
     {
         private IRepositorioCliente repositorioCliente;
-
+        private ILogger logger = Log.Logger;
         public ServicoCliente(IRepositorioCliente repositorioCliente)
         {
             this.repositorioCliente = repositorioCliente;
@@ -20,20 +21,34 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCliente
 
         public ValidationResult Inserir(Cliente arg)
         {
+            logger.Information("Tentando inserir Cliente... {@Cliente}", arg);
             var resultadoValidacao = ValidarCliente(arg);
 
             if (resultadoValidacao.IsValid)
+            {
                 repositorioCliente.Inserir(arg);
+                logger.Information("Cliente {@Cliente} inserido com sucesso.", arg.Id);
+            }
+            else
+                foreach (var erro in resultadoValidacao.Errors)
+                    logger.Warning("Falha ao tentar inserir Cliente {ClienteNome} -> Motivo: {erro}", arg.Nome, erro.ErrorMessage);
 
             return resultadoValidacao;
         }
 
         public ValidationResult Editar(Cliente arg)
         {
+            logger.Information("Tentando editar Cliente... {@Cliente}", arg);
             var resultadoValidacao = ValidarCliente(arg);
 
             if (resultadoValidacao.IsValid)
+            {
                 repositorioCliente.Editar(arg);
+                logger.Information("Cliente {@Cliente} editado com sucesso.", arg.Id);
+            }
+            else
+                foreach (var erro in resultadoValidacao.Errors)
+                    logger.Warning("Falha ao tentar editar Cliente {ClienteNome} -> Motivo: {erro}", arg.Nome, erro.ErrorMessage);
 
             return resultadoValidacao;
         }
@@ -50,13 +65,13 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCliente
             return resultadoValidacao;
         }
 
-        private bool CPF_CNPJ_Duplicado(Cliente cliente)
+        private bool CPF_CNPJ_Duplicado(Cliente arg)
         {
-            var clienteEncontrado = repositorioCliente.SelecionarClientePorCPF_CNPJ(cliente.CPF_CNPJ);
+            var clienteEncontrado = repositorioCliente.SelecionarClientePorCPF_CNPJ(arg.CPF_CNPJ);
 
             return clienteEncontrado != null &&
-                   clienteEncontrado.CPF_CNPJ == cliente.CPF_CNPJ &&
-                   clienteEncontrado.Id != cliente.Id;
+                   clienteEncontrado.CPF_CNPJ == arg.CPF_CNPJ &&
+                   clienteEncontrado.Id != arg.Id;
         }
     }
 }

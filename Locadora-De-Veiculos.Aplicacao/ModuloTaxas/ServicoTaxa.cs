@@ -1,5 +1,6 @@
 ﻿using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.ModuloTaxas;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloTaxas
     public class ServicoTaxa
     {
         private IRepositorioTaxa repositorioTaxa;
+        private ILogger logger = Log.Logger;
 
         public ServicoTaxa(IRepositorioTaxa repositorioTaxa)
         {
@@ -19,21 +21,34 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloTaxas
 
         public ValidationResult Inserir(Taxa arg)
         {
+            logger.Information("Tentando inserir Taxa... {@taxa}", arg);
             var resultadoValidacao = ValidarTaxa(arg);
 
             if (resultadoValidacao.IsValid)
+            {
                 repositorioTaxa.Inserir(arg);
+                logger.Information("Taxa {@taxa} inserido com sucesso.", arg.Id);
+            }
+            else
+                foreach (var erro in resultadoValidacao.Errors)
+                    logger.Warning("Falha ao tentar inserir Taxa {TaxaNome} -> Motivo: {erro}", arg.Nome, erro.ErrorMessage);
 
             return resultadoValidacao;
         }
 
         public ValidationResult Editar(Taxa arg)
         {
+            logger.Information("Tentando editar Taxa... {@taxa}", arg);
             var resultadoValidacao = ValidarTaxa(arg);
 
             if (resultadoValidacao.IsValid)
+            {
                 repositorioTaxa.Editar(arg);
-
+                logger.Information("Taxa {@taxa} editado com sucesso.", arg.Id);
+            }   
+            else
+                foreach (var erro in resultadoValidacao.Errors)
+                    logger.Warning("Falha ao tentar editar Taxa {TaxaNome} -> Motivo: {erro}", arg.Nome, erro.ErrorMessage);
             return resultadoValidacao;
         }
 
@@ -49,13 +64,13 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloTaxas
             return resultadoValidacao;
         }
 
-        private bool NomeDuplicado(Taxa taxa)
+        private bool NomeDuplicado(Taxa arg)
         {
-            var taxaEncontrada = repositorioTaxa.SelecionarTaxaPorNome(taxa.Nome);
+            var taxaEncontrada = repositorioTaxa.SelecionarTaxaPorNome(arg.Nome);
 
             return taxaEncontrada != null &&
-                   taxaEncontrada.Nome == taxa.Nome &&
-                   taxaEncontrada.Id != taxa.Id;
+                   taxaEncontrada.Nome == arg.Nome &&
+                   taxaEncontrada.Id != arg.Id;
         }
     }
 }
