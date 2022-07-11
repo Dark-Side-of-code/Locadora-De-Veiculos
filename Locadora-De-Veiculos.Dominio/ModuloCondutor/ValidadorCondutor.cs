@@ -23,7 +23,6 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCondutor
                 .MaximumLength(14);
 
             RuleFor(x => x.CNH)
-                .Matches(new Regex(@"^-?[0-9][0-9,\.]+$"))
                 .NotEmpty()
                 .Length(11);
 
