@@ -60,20 +60,19 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloPlanoDeCobranca
 
             var resultadoValidacao = validador.Validate(arg);
 
-            if (IdCategoriaDuplicado(arg))
-                resultadoValidacao.Errors.Add(new ValidationFailure("Categoria", "Categoria duplicada"));
-
+            if (NomeCategoriaDuplicado(arg))
+                resultadoValidacao.Errors.Add(new ValidationFailure("Nome da Categoria", "Nome da Categoria duplicado"));
             
             return resultadoValidacao;
         }
 
-        private bool IdCategoriaDuplicado(PlanoDeCobranca arg)
-        {
-            var planoEncontrado = repositorioPlanoDeCobranca.SelecionarIdCategoria(arg.CategoriaDeVeiculos.Id);
+        private bool NomeCategoriaDuplicado(PlanoDeCobranca arg)
+        { 
+            var planoEncontrado = repositorioPlanoDeCobranca.SelecionarNomeCategoria(arg.CategoriaDeVeiculos.Nome);
 
-            return planoEncontrado != null && 
-                   planoEncontrado.CategoriaDeVeiculos.Id == arg.CategoriaDeVeiculos.Id &&
-                   arg.Id != arg.Id;
+            return planoEncontrado != null &&
+                   planoEncontrado.CategoriaDeVeiculos.Nome == arg.CategoriaDeVeiculos.Nome &&
+                   planoEncontrado.Id != arg.CategoriaDeVeiculos.Id;
         }
     }
 }
