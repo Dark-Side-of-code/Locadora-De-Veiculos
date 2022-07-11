@@ -4,12 +4,7 @@ using Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace Locadora_De_Veiculos.WindApp.ModuloPlanosDeCobranca
@@ -25,6 +20,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloPlanosDeCobranca
             InitializeComponent();
             this.ConfigurarTela();
             CarregarCategoriaDeVeiculos(categoria);
+            Inicializar_MascaraDeMoeda_TextBox();
         }
 
         public Func<PlanoDeCobranca, ValidationResult> GravarRegistro { get;  set; }
@@ -35,11 +31,17 @@ namespace Locadora_De_Veiculos.WindApp.ModuloPlanosDeCobranca
 
             set
             {
-
-               
                 plano = value;
 
-                cbx_CategoriaVeiculo.SelectedItem = plano.CategoriaDeVeiculos;
+                if (plano.CategoriaDeVeiculos != null)
+                {
+                    cbx_CategoriaVeiculo.SelectedItem = plano.CategoriaDeVeiculos.Nome;
+                    cbx_CategoriaVeiculo.SelectedIndex = 0;
+                }
+                else
+                {
+                    cbx_CategoriaVeiculo.SelectedIndex = 0;
+                }
 
                 //PD = PLANO DIARIO | PC = PLANO CONTROLADO | PL = PLANO LIVRE
 
@@ -56,7 +58,15 @@ namespace Locadora_De_Veiculos.WindApp.ModuloPlanosDeCobranca
                 txt_PlanoPorKm_PC.Text = plano.PlanoKM_controlado_ValorPorKM.ToString();
             }
         }
-
+        private void Inicializar_MascaraDeMoeda_TextBox()
+        {
+            ClassMaskValorNumerico.AplicaMascaraMoeda(txt_ValorPorKm_PD);
+            ClassMaskValorNumerico.AplicaMascaraMoeda(txt_ValorDiario_PD);
+            ClassMaskValorNumerico.AplicaMascaraMoeda(txt_PlanoPorKm_PC);
+            ClassMaskValorNumerico.AplicaMascaraMoeda(txt_PlanoDiario_PC);
+            ClassMaskValorNumerico.AplicaMascaraMoeda(txt_LimiteQuilometragem_PC);
+            ClassMaskValorNumerico.AplicaMascaraMoeda(txt_ValorDiario_PL);
+        }
         private void CarregarCategoriaDeVeiculos(List<CategoriaDeVeiculos> categoria)
         {
             cbx_CategoriaVeiculo.Items.Clear();
@@ -71,12 +81,17 @@ namespace Locadora_De_Veiculos.WindApp.ModuloPlanosDeCobranca
         {
             plano.CategoriaDeVeiculos = (CategoriaDeVeiculos)cbx_CategoriaVeiculo.SelectedItem;
 
-            plano.PlanoDiario_ValorDiario = Convert.ToDouble(txt_ValorDiario_PD.Text);
-            plano.PlanoDiario_ValorPorKM = Convert.ToDouble(txt_ValorPorKm_PD.Text);
-            plano.PlanoKM_Livre_ValorDiario = Convert.ToDouble(txt_ValorDiario_PL.Text);
-            plano.PlanoKM_controlado_LimiteDeQuilometragem = Convert.ToDouble(txt_LimiteQuilometragem_PC.Text);
-            plano.PlanoKM_controlado_ValorDiario = Convert.ToDouble(txt_PlanoDiario_PC.Text);
-            plano.PlanoKM_controlado_ValorPorKM = Convert.ToDouble(txt_PlanoPorKm_PC.Text);
+            plano.PlanoDiario_ValorDiario = Convert.ToDouble(txt_ValorDiario_PD.Text.Replace("R$", string.Empty).Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+
+            plano.PlanoDiario_ValorPorKM = Convert.ToDouble(txt_ValorPorKm_PD.Text.Replace("R$", string.Empty).Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+
+            plano.PlanoKM_Livre_ValorDiario = Convert.ToDouble(txt_ValorDiario_PL.Text.Replace("R$", string.Empty).Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+
+            plano.PlanoKM_controlado_LimiteDeQuilometragem = Convert.ToDouble(txt_LimiteQuilometragem_PC.Text.Replace("R$", string.Empty).Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+
+            plano.PlanoKM_controlado_ValorDiario = Convert.ToDouble(txt_PlanoDiario_PC.Text.Replace("R$", string.Empty).Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+
+            plano.PlanoKM_controlado_ValorPorKM = Convert.ToDouble(txt_PlanoPorKm_PC.Text.Replace("R$", string.Empty).Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
 
             var resultadoValidacao = GravarRegistro(Plano);
 

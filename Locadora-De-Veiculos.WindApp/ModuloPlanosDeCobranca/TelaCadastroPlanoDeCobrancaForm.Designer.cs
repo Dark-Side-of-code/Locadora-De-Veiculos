@@ -285,6 +285,7 @@
             // 
             // cbx_CategoriaVeiculo
             // 
+            this.cbx_CategoriaVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_CategoriaVeiculo.FormattingEnabled = true;
             this.cbx_CategoriaVeiculo.Location = new System.Drawing.Point(219, 120);
             this.cbx_CategoriaVeiculo.Name = "cbx_CategoriaVeiculo";

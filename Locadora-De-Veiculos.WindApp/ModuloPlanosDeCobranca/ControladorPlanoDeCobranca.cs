@@ -15,7 +15,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloPlanosDeCobranca
     {
         private readonly IRepositorioPlanoDeCobranca repositorioPlanoDeCobranca;
         private readonly IRepositorioCategoriaDeVeiculos repositorioCategoria;
-        private TabelaPlanosDeCobranca listagemPlanosDeCobranca;
+        private TabelaPlanosDeCobranca? listagemPlanosDeCobranca;
         private readonly ServicoPlanoDeCobranca servicoPlanoDeCobranca;
 
         public ControladorPlanoDeCobranca(IRepositorioPlanoDeCobranca repositorioPlanoDeCobranca, IRepositorioCategoriaDeVeiculos repositorioCategoria, ServicoPlanoDeCobranca servicoPlanoDeCobranca)

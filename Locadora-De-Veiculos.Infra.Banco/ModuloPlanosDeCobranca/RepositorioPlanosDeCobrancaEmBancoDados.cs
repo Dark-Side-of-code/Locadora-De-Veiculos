@@ -51,7 +51,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloPlanosDeCobranca
         protected override string sqlExcluir =>
             @"DELETE FROM[TBPLANOCOBRANCA]
              WHERE
-	              ID = ID;";
+	              ID = @ID;";
 
         protected override string sqlSelecionarPorId =>
             @"SELECT 
@@ -69,8 +69,9 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloPlanosDeCobranca
                  TBPLANOCOBRANCA AS PLANO INNER JOIN TBCATEGORIAVEICULO AS CATEGORIA 
             ON 
                  PLANO.CATEGORIA_ID = CATEGORIA.ID
+            
             WHERE
-	                    PLANO.ID = PLANO.ID;";
+                PLANO.ID = PLANO.ID;";
 
         protected override string sqlSelecionarTodos =>
             @"SELECT 
@@ -108,10 +109,29 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloPlanosDeCobranca
             WHERE
 	                   CATEGORIA.ID = CATEGORIA.ID;";
 
+        protected string sqlSelecionarPorNomeCategoria =>
+           @"SELECT 
+                PLANO.ID,
+                PLANO.PLANODIARIO_VALORDIARIO,
+                PLANO.PLANODIARIO_VALORPORKM,
+                PLANO.PLANOKM_LIVRE_VALORDIARIO,
+                PLANO.PLANOKM_CONTROLADO_LIMITEDEQUILOMETRAGEM,
+                PLANO.PLANOKM_CONTROLADO_VALORDIARIO,
+                PLANO.PLANOKM_CONTROLADO_VALORPORKM,
 
-        public PlanoDeCobranca SelecionarIdCategoria(int idCategoria)
+                CATEGORIA.ID AS ID_CATEGORIA,
+		        CATEGORIA.NOME AS NOME_CATEGORIA
+            FROM
+                 TBPLANOCOBRANCA AS PLANO INNER JOIN TBCATEGORIAVEICULO AS CATEGORIA 
+            ON 
+                 PLANO.CATEGORIA_ID = CATEGORIA.ID
+            WHERE
+	                   CATEGORIA.NOME = CATEGORIA.NOME;";
+
+
+        public PlanoDeCobranca SelecionarNomeCategoria(string nomeCategoria)
         {
-            return SelecionarPorParametro(sqlSelecionarPorIdCategoria, new SqlParameter("ID_CATEGORIA", idCategoria));
+            return SelecionarPorParametro(sqlSelecionarPorNomeCategoria, new SqlParameter("NOME_CATEGORIA", nomeCategoria));
         }
     }
 }
