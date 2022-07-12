@@ -3,6 +3,7 @@ using Locadora_De_Veiculos.Dominio.ModuloCondutor;
 using Locadora_De_Veiculos.Infra.Banco.Compartilhado;
 using Locadora_De_Veiculos.Infra.Banco.ModuloCliente;
 using Locadora_De_Veiculos.Infra.Banco.ModuloCondutor;
+using Locadora_De_VeiculosInfra.BancoDados.Tests.Compartilhado;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCondutor
 {
     [TestClass]
-    public class RepositorioCondutorEmBancoDadosTest
+    public class RepositorioCondutorEmBancoDadosTest : BaseIntegrationTest
     {
         private Condutor condutor;
         private Cliente cliente;

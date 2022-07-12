@@ -8,7 +8,7 @@
     [PlanoKM_controlado_ValorPorKM]            DECIMAL (18, 2)  NOT NULL,
     [Categoria_id]                             UNIQUEIDENTIFIER NOT NULL,
     CONSTRAINT [PK_TbPlanoCobranca_1] PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_TbPlanoCobranca_TbCategoriaDeVeiculos] FOREIGN KEY ([Categoria_id]) REFERENCES [dbo].[TbCategoriaVeiculo] ([Id])
+    CONSTRAINT [FK_TbPlanoCobranca_TbCategoriaDeVeiculo] FOREIGN KEY ([Categoria_id]) REFERENCES [dbo].[TbCategoriaVeiculo] ([Id])
 );
 
 

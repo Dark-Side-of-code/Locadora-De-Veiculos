@@ -30,7 +30,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome", FillWeight=85F },
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "CPF_CNPJ", HeaderText = "CPF/", FillWeight=85F },
+                new DataGridViewTextBoxColumn { DataPropertyName = "CPF_CNPJ", HeaderText = "CPF", FillWeight=85F },
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Telefone", HeaderText = "Telefone", FillWeight=85F },
 

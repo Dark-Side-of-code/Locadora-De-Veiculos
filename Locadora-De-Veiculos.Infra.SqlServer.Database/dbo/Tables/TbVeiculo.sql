@@ -9,9 +9,9 @@
     [Ano]               DATETIME         NOT NULL,
     [Km_total]          DECIMAL (18, 2)  NOT NULL,
     [Foto]              VARBINARY (MAX)  NULL,
-    [Categoria_Id]      UNIQUEIDENTIFIER NOT NULL,
+    [Categoria_id]      UNIQUEIDENTIFIER NOT NULL,
     CONSTRAINT [PK_TbVeiculo_1] PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_TbVeiculo_TbCategoriaDeVeiculo] FOREIGN KEY ([Categoria_Id]) REFERENCES [dbo].[TbCategoriaVeiculo] ([Id])
+    CONSTRAINT [FK_TbVeiculo_TbCategoriaDeVeiculo] FOREIGN KEY ([Categoria_id]) REFERENCES [dbo].[TbCategoriaVeiculo] ([Id])
 );
 
 

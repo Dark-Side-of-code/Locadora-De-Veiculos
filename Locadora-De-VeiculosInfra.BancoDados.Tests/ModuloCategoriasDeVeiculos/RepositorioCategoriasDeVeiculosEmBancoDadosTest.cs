@@ -2,6 +2,7 @@
 using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
 using Locadora_De_Veiculos.Infra.Banco.Compartilhado;
 using Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos;
+using Locadora_De_VeiculosInfra.BancoDados.Tests.Compartilhado;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCategoriasDeVeiculos
 {
     [TestClass]
-    public class RepositorioCategoriasDeVeiculosEmBancoDadosTest
+    public class RepositorioCategoriasDeVeiculosEmBancoDadosTest : BaseIntegrationTest
     {
         private CategoriaDeVeiculos categoriaDeVeiculos;
         private IRepositorioCategoriaDeVeiculos repositorio;
@@ -105,6 +106,44 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCategoriasDeVeiculos
             Assert.AreEqual(p01.Nome, categoriaDeVeiculoss[0].Nome);
             Assert.AreEqual(p02.Nome, categoriaDeVeiculoss[1].Nome);
             Assert.AreEqual(p03.Nome, categoriaDeVeiculoss[2].Nome);
+        }
+
+        [TestMethod]
+        public void Deve_selecionar_todos_os_registros()
+        {
+            //arrange
+            var grupos = NovosGruposVeiculos();
+            foreach (var g in grupos)
+            {
+                repositorio.Inserir(g);
+            }
+
+            //action
+            var registrosEncontrados = repositorio.SelecionarTodos();
+
+            //assert
+            Assert.AreEqual(3, registrosEncontrados.Count);
+
+            int posicao = 0;
+            foreach (var g in grupos)
+            {
+                Assert.AreEqual(registrosEncontrados[posicao],g);
+                posicao++;
+            }
+        }
+
+        private List<CategoriaDeVeiculos> NovosGruposVeiculos()
+        {
+            var g1 = new CategoriaDeVeiculos("SUV");
+            var g2 = new CategoriaDeVeiculos("Esportivo");
+            var g3 = new CategoriaDeVeiculos("PCD");
+
+            var lista = new List<CategoriaDeVeiculos>();
+            lista.Add(g1);
+            lista.Add(g2);
+            lista.Add(g3);
+
+            return lista;
         }
     }
 }
