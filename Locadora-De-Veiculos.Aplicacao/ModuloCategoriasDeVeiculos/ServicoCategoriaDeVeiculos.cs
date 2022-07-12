@@ -32,7 +32,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
             }
             else
                 foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar inserir Categoria de veiculos {CategoriaDeVeiculosNome} -> Motivo: {erro}", arg.Nome, erro.ErrorMessage);
+                    logger.Warning("Falha ao tentar inserir Categoria de veiculos {@CategoriaDeVeiculos} -> Motivo: {erro}", arg.Id, erro.ErrorMessage);
 
             return resultadoValidacao;
         }
@@ -49,7 +49,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
             }
             else
                 foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar editar Categoria de veiculos {CategoriaDeVeiculosNome} -> Motivo: {erro}", arg.Nome, erro.ErrorMessage);
+                    logger.Warning("Falha ao tentar editar Categoria de veiculos {@CategoriaDeVeiculos} -> Motivo: {erro}", arg.Id, erro.ErrorMessage);
 
             return resultadoValidacao;
         }

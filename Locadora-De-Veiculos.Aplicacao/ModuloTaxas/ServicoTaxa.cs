@@ -31,7 +31,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloTaxas
             }
             else
                 foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar inserir Taxa {TaxaNome} -> Motivo: {erro}", arg.Nome, erro.ErrorMessage);
+                    logger.Warning("Falha ao tentar inserir Taxa {@Taxa} -> Motivo: {erro}", arg.Id, erro.ErrorMessage);
 
             return resultadoValidacao;
         }
@@ -48,7 +48,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloTaxas
             }   
             else
                 foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar editar Taxa {TaxaNome} -> Motivo: {erro}", arg.Nome, erro.ErrorMessage);
+                    logger.Warning("Falha ao tentar editar Taxa {@Taxa} -> Motivo: {erro}", arg.Id, erro.ErrorMessage);
             return resultadoValidacao;
         }
 
