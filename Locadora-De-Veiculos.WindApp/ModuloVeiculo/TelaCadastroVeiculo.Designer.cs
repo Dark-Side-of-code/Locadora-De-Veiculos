@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaCadastroVeiculo));
             this.button2 = new System.Windows.Forms.Button();
             this.btn_Cadastrar = new System.Windows.Forms.Button();
@@ -52,10 +51,14 @@
             this.txt_Placa = new System.Windows.Forms.TextBox();
             this.txt_Marca = new System.Windows.Forms.TextBox();
             this.comboBox_Tipo = new System.Windows.Forms.ComboBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label12 = new System.Windows.Forms.Label();
             this.comboBox_Categoria = new System.Windows.Forms.ComboBox();
             this.datePicker_Ano = new System.Windows.Forms.DateTimePicker();
+            this.pictureBoxFoto = new System.Windows.Forms.PictureBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.labelFoto = new System.Windows.Forms.Label();
+            this.openFileDialogImage = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -66,7 +69,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(98, 398);
+            this.button2.Location = new System.Drawing.Point(98, 449);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 36);
             this.button2.TabIndex = 9;
@@ -81,7 +84,7 @@
             this.btn_Cadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Cadastrar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Cadastrar.ForeColor = System.Drawing.Color.White;
-            this.btn_Cadastrar.Location = new System.Drawing.Point(231, 398);
+            this.btn_Cadastrar.Location = new System.Drawing.Point(231, 449);
             this.btn_Cadastrar.Name = "btn_Cadastrar";
             this.btn_Cadastrar.Size = new System.Drawing.Size(154, 36);
             this.btn_Cadastrar.TabIndex = 10;
@@ -92,7 +95,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Teal;
-            this.panel2.Location = new System.Drawing.Point(1, 368);
+            this.panel2.Location = new System.Drawing.Point(1, 424);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(486, 10);
             this.panel2.TabIndex = 74;
@@ -173,7 +176,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(43, 329);
+            this.label9.Location = new System.Drawing.Point(42, 390);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 15);
             this.label9.TabIndex = 81;
@@ -182,7 +185,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(245, 329);
+            this.label10.Location = new System.Drawing.Point(244, 390);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(33, 15);
             this.label10.TabIndex = 82;
@@ -209,7 +212,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(58, 292);
+            this.label7.Location = new System.Drawing.Point(57, 353);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(228, 21);
             this.label7.TabIndex = 80;
@@ -225,7 +228,7 @@
             // 
             // txt_Capacidade
             // 
-            this.txt_Capacidade.Location = new System.Drawing.Point(117, 321);
+            this.txt_Capacidade.Location = new System.Drawing.Point(116, 382);
             this.txt_Capacidade.MaxLength = 20;
             this.txt_Capacidade.Name = "txt_Capacidade";
             this.txt_Capacidade.Size = new System.Drawing.Size(108, 23);
@@ -271,16 +274,10 @@
             "GNV",
             "Elétrico",
             resources.GetString("comboBox_Tipo.Items")});
-            this.comboBox_Tipo.Location = new System.Drawing.Point(292, 321);
+            this.comboBox_Tipo.Location = new System.Drawing.Point(291, 382);
             this.comboBox_Tipo.Name = "comboBox_Tipo";
             this.comboBox_Tipo.Size = new System.Drawing.Size(143, 23);
             this.comboBox_Tipo.TabIndex = 8;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // label12
             // 
@@ -310,11 +307,47 @@
             this.datePicker_Ano.Size = new System.Drawing.Size(108, 23);
             this.datePicker_Ano.TabIndex = 2;
             // 
+            // pictureBoxFoto
+            // 
+            this.pictureBoxFoto.BackColor = System.Drawing.Color.White;
+            this.pictureBoxFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxFoto.Location = new System.Drawing.Point(292, 254);
+            this.pictureBoxFoto.Name = "pictureBoxFoto";
+            this.pictureBoxFoto.Size = new System.Drawing.Size(142, 91);
+            this.pictureBoxFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFoto.TabIndex = 98;
+            this.pictureBoxFoto.TabStop = false;
+            this.pictureBoxFoto.Click += new System.EventHandler(this.pictureBoxFoto_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(244, 224);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(29, 15);
+            this.label13.TabIndex = 78;
+            this.label13.Text = "Cor:";
+            // 
+            // labelFoto
+            // 
+            this.labelFoto.AutoSize = true;
+            this.labelFoto.Location = new System.Drawing.Point(245, 259);
+            this.labelFoto.Name = "labelFoto";
+            this.labelFoto.Size = new System.Drawing.Size(34, 15);
+            this.labelFoto.TabIndex = 99;
+            this.labelFoto.Text = "Foto:";
+            // 
+            // openFileDialogImage
+            // 
+            this.openFileDialogImage.FileName = "openFileDialogImage";
+            // 
             // TelaCadastroVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 451);
+            this.ClientSize = new System.Drawing.Size(484, 497);
+            this.Controls.Add(this.labelFoto);
+            this.Controls.Add(this.pictureBoxFoto);
             this.Controls.Add(this.datePicker_Ano);
             this.Controls.Add(this.comboBox_Categoria);
             this.Controls.Add(this.label12);
@@ -330,6 +363,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -342,6 +376,7 @@
             this.Controls.Add(this.label1);
             this.Name = "TelaCadastroVeiculo";
             this.Text = resources.GetString("$this.Text");
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,9 +406,12 @@
         private System.Windows.Forms.TextBox txt_Placa;
         private System.Windows.Forms.TextBox txt_Marca;
         private System.Windows.Forms.ComboBox comboBox_Tipo;
-        private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboBox_Categoria;
         private System.Windows.Forms.DateTimePicker datePicker_Ano;
+        private System.Windows.Forms.PictureBox pictureBoxFoto;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label labelFoto;
+        private System.Windows.Forms.OpenFileDialog openFileDialogImage;
     }
 }
