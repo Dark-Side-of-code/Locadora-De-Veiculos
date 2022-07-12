@@ -1,4 +1,5 @@
 ﻿using Locadora_De_Veiculos.Dominio.ModuloVeiculo;
+using Locadora_De_Veiculos.Infra.Banco.Compartilhado;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
 using System.Collections.Generic;
@@ -45,6 +46,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
                 new DataGridViewTextBoxColumn { DataPropertyName = "Km_total", HeaderText = "Km_total", FillWeight=85F },
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "TipoVeiculo", HeaderText = "Tipo de Veiculo", FillWeight=85F },
+
+                new DataGridViewImageColumn { DataPropertyName = "Foto", HeaderText = "Foto", FillWeight=85F },
             };
 
             return colunas;
@@ -61,7 +64,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
 
             foreach (Veiculo veiculo in veiculos)
             {
-                grid.Rows.Add(veiculo.Id, veiculo.Modelo, veiculo.Placa, veiculo.Marca, veiculo.Cor, veiculo.Tipo_combustivel, veiculo.Capacidade_tanque, veiculo.Ano, veiculo.Km_total, veiculo.CategoriaDeVeiculos);
+                grid.Rows.Add(veiculo.Id, veiculo.Modelo, veiculo.Placa, veiculo.Marca, veiculo.Cor, veiculo.Tipo_combustivel, veiculo.Capacidade_tanque, veiculo.Ano, veiculo.Km_total, veiculo.CategoriaDeVeiculos, ConversorDeImagemParaByteParaImagem.ConverteByteArrayParaImagem(veiculo.Foto));
             }
         }
     }

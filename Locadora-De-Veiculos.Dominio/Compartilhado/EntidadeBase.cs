@@ -1,4 +1,5 @@
 ﻿using System;
+using Taikandi;
 
 namespace Locadora_De_Veiculos.Dominio.Compartilhado
 {
@@ -8,7 +9,7 @@ namespace Locadora_De_Veiculos.Dominio.Compartilhado
 
         public EntidadeBase()
         {
-            Id = Guid.NewGuid();   
+            Id = SequentialGuid.NewGuid();   
         }
     }
 }

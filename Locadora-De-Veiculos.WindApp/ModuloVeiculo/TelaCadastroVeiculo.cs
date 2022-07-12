@@ -1,6 +1,7 @@
 ﻿ using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
 using Locadora_De_Veiculos.Dominio.ModuloVeiculo;
+using Locadora_De_Veiculos.Infra.Banco.Compartilhado;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
 using System.Collections.Generic;
@@ -87,6 +88,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
             veiculo.Capacidade_tanque = Convert.ToDouble(txt_Capacidade.Text);
             veiculo.Tipo_combustivel = comboBox_Tipo.SelectedItem.ToString();
             veiculo.Ano = datePicker_Ano.Value;
+            veiculo.Foto = ConversorDeImagemParaByteParaImagem.ConverteImagemParaByteArray(pictureBoxFoto.Image);
 
             var resultadoValidacao = GravarRegistro(Veiculo);
             
@@ -99,6 +101,18 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
                 DialogResult = DialogResult.None;
             }
 
+        }
+
+        private void pictureBoxFoto_Click(object sender, EventArgs e)
+        {
+            openFileDialogImage.Title = "Imagem do produto";
+            openFileDialogImage.Filter = "Images (*.JPEG; *.BMP; *.JPG; *.GIF; *.PNG; *.)| *.JPEG; *.BMP; *.JPG; *.GIF; *.PNG; *.icon; *.JFIF";
+            if (openFileDialogImage.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxFoto.Image = Image.FromFile(openFileDialogImage.FileName);
+                pictureBoxFoto.Image = new Bitmap(pictureBoxFoto.Image, new Size(130, 98));
+                pictureBoxFoto.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
         }
     }
 }
