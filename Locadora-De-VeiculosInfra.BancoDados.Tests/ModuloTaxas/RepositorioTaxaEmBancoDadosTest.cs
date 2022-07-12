@@ -18,7 +18,6 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloTaxas
 
         public RepositorioTaxaEmBancoDadosTest()
         {
-            Db.ExecutarSql("DELETE FROM TbTaxas; DBCC CHECKIDENT (TbTaxas, RESEED, 0)");
             repositorio = new RepositorioTaxaEmBancoDados();
         }
 

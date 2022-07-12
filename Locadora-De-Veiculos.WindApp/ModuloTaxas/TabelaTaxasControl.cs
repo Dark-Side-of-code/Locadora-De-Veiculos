@@ -40,9 +40,9 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
             return colunas;
         }
 
-        public int ObtemIdTaxaSelecionada()
+        public Guid ObtemIdTaxaSelecionada()
         {
-            return grid.SelecionarNumero<int>();
+            return grid.SelecionarNumero<Guid>();
         }
 
         public void AtualizarRegistros(List<Taxa> taxas)

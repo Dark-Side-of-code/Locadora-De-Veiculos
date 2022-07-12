@@ -22,10 +22,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloVeiculo
         public IRepositorioCategoriaDeVeiculos repositorioCategoria;
 
         public RepositorioVeiculoEmBancoDadosTest()
-        {
-            Db.ExecutarSql("DELETE FROM TBVEICULO; DBCC CHECKIDENT (TBVEICULO, RESEED, 0)");
-           // Db.ExecutarSql("DELETE FROM TBCATEGORIAVEICULO; DBCC CHECKIDENT (TBCATEGORIAVEICULO, RESEED, 0)");
-            
+        {            
             repositorio = new RepositorioVeiculoEmBancoDados();
             repositorioCategoria = new RepositorioCategoriaDeVeiculosEmBancoDados();
         }

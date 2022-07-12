@@ -18,8 +18,6 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloCliente
 
         public RepositorioClienteEmBancoDadosTest()
         {
-            Db.ExecutarSql("DELETE FROM TBCONDUTOR; DBCC CHECKIDENT (TBCONDUTOR, RESEED, 0)");
-            Db.ExecutarSql("DELETE FROM TBCLIENTE; DBCC CHECKIDENT (TBCLIENTE, RESEED, 0)");
             repositorio = new RepositorioClienteEmBancoDados();
         }
 

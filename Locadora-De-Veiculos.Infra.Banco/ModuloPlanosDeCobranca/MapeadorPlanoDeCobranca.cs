@@ -31,7 +31,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloPlanosDeCobranca
 
         public override PlanoDeCobranca ConverterRegistro(SqlDataReader leitorRegistro)
         {
-            var id = Convert.ToInt32(leitorRegistro["ID"]);
+            var id = Guid.Parse(leitorRegistro["ID"].ToString());
             var plano_Diario_ValorDiario = Convert.ToDouble(leitorRegistro["PLANODIARIO_VALORDIARIO"]);
             var plano_Diario_ValorPorKM = Convert.ToDouble(leitorRegistro["PLANODIARIO_VALORPORKM"]);
 
@@ -41,7 +41,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloPlanosDeCobranca
             var planoKM_Controlado_ValorDiario = Convert.ToDouble(leitorRegistro["PLANOKM_CONTROLADO_VALORDIARIO"]);
             var planoKM_Controlado_ValorPorKm = Convert.ToDouble(leitorRegistro["PLANOKM_CONTROLADO_VALORPORKM"]);
 
-            var idCategoria = Convert.ToInt32(leitorRegistro["ID_CATEGORIA"]);
+            var idCategoria = Guid.Parse(leitorRegistro["ID_CATEGORIA"].ToString());
             var nomeCategoria = Convert.ToString(leitorRegistro["NOME_CATEGORIA"]);
 
             var categoria = new CategoriaDeVeiculos

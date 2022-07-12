@@ -42,9 +42,9 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
             return colunas;
         }
 
-        public int ObtemIdClienteSelecionado()
+        public Guid ObtemIdClienteSelecionado()
         {
-            return grid.SelecionarNumero<int>();
+            return grid.SelecionarNumero<Guid>();
         }
 
         public void AtualizarRegistros(List<Cliente> clientes)

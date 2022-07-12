@@ -44,9 +44,9 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
             return colunas;
         }
 
-        public int ObtemIdFuncionarioSelecionado()
+        public Guid ObtemIdFuncionarioSelecionado()
         {
-            return grid.SelecionarNumero<int>();
+            return grid.SelecionarNumero<Guid>();
         }
 
         public void AtualizarRegistros(List<Funcionario> disciplinas)
