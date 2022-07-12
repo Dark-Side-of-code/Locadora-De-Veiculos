@@ -1,13 +1,14 @@
 ﻿using Locadora_De_Veiculos.Dominio.ModuloFuncionario;
 using Locadora_De_Veiculos.Infra.Banco.Compartilhado;
 using Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario;
+using Locadora_De_VeiculosInfra.BancoDados.Tests.Compartilhado;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
 namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloFuncionario
 {
     [TestClass]
-    public class RepositorioFuncionarioEmBancoDadosTest
+    public class RepositorioFuncionarioEmBancoDadosTest : BaseIntegrationTest
     {
         private Funcionario funcionario;
         public IRepositorioFuncionario repositorio;

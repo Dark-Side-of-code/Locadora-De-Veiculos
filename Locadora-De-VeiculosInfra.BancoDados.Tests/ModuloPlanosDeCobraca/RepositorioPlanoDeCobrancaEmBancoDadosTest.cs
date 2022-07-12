@@ -4,13 +4,14 @@ using Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca;
 using Locadora_De_Veiculos.Infra.Banco.Compartilhado;
 using Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos;
 using Locadora_De_Veiculos.Infra.Banco.ModuloPlanosDeCobranca;
+using Locadora_De_VeiculosInfra.BancoDados.Tests.Compartilhado;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
 namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloPlanosDeCobraca
 {
     [TestClass]
-    public class RepositorioPlanoDeCobrancaEmBancoDadosTest
+    public class RepositorioPlanoDeCobrancaEmBancoDadosTest : BaseIntegrationTest
     {
         private PlanoDeCobranca planoDeCobranca;
         private CategoriaDeVeiculos categoriaDeVeiculos;

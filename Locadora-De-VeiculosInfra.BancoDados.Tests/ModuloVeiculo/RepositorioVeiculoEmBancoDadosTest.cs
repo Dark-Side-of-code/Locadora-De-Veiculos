@@ -4,6 +4,7 @@ using Locadora_De_Veiculos.Dominio.ModuloVeiculo;
 using Locadora_De_Veiculos.Infra.Banco.Compartilhado;
 using Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos;
 using Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo;
+using Locadora_De_VeiculosInfra.BancoDados.Tests.Compartilhado;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ using System.Threading.Tasks;
 namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloVeiculo
 {
     [TestClass]
-    public class RepositorioVeiculoEmBancoDadosTest
+    public class RepositorioVeiculoEmBancoDadosTest : BaseIntegrationTest
     {
         private Veiculo veiculo;
         private CategoriaDeVeiculos categoriaDeVeiculos;
