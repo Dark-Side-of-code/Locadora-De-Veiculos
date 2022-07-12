@@ -77,9 +77,17 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
                 "Exclusão de Funcionário", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (resultado == DialogResult.OK)
-                repositorioFuncionario.Excluir(funcionarioSelecionado);
+            {
+                try
+                {
+                    repositorioFuncionario.Excluir(funcionarioSelecionado);
+                    CarregarFuncionarios();
+                }
+                catch (Exception e)
+                {
 
-            CarregarFuncionarios();
+                }
+            }
         }
 
 
