@@ -31,7 +31,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCliente
             }
             else
                 foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar inserir Cliente {ClienteNome} -> Motivo: {erro}", arg.Nome, erro.ErrorMessage);
+                    logger.Warning("Falha ao tentar inserir Cliente {@Cliente} -> Motivo: {erro}", arg.Id, erro.ErrorMessage);
 
             return resultadoValidacao;
         }
@@ -48,7 +48,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCliente
             }
             else
                 foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar editar Cliente {ClienteNome} -> Motivo: {erro}", arg.Nome, erro.ErrorMessage);
+                    logger.Warning("Falha ao tentar editar Cliente {@Cliente} -> Motivo: {erro}", arg.Id, erro.ErrorMessage);
 
             return resultadoValidacao;
         }

@@ -31,7 +31,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloFuncionario
             }
             else
                 foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar inserir Funcionario {FuncionarioNome} -> Motivo: {erro}", arg.Nome, erro.ErrorMessage);
+                    logger.Warning("Falha ao tentar inserir Funcionario {@Funcionario} -> Motivo: {erro}", arg.Id, erro.ErrorMessage);
 
 
             return resultadoValidacao;
@@ -49,7 +49,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloFuncionario
             }
             else
                 foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar editar Funcionario {FuncionarioNome} -> Motivo: {erro}", arg.Nome, erro.ErrorMessage);
+                    logger.Warning("Falha ao tentar editar Funcionario {@Funcionario} -> Motivo: {erro}", arg.Id, erro.ErrorMessage);
 
             return resultadoValidacao;
         }

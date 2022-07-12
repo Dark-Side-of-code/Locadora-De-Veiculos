@@ -31,7 +31,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCondutor
             }
             else
                 foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar inserir Condutor {CondutorNome} -> Motivo: {erro}", arg.Nome, erro.ErrorMessage);
+                    logger.Warning("Falha ao tentar inserir Condutor {@Condutor} -> Motivo: {erro}", arg.Id, erro.ErrorMessage);
 
             return resultadoValidacao;
         }
@@ -48,7 +48,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCondutor
             }
             else
                 foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar editar Condutor {CondutorNome} -> Motivo: {erro}", arg.Nome, erro.ErrorMessage);
+                    logger.Warning("Falha ao tentar editar Condutor {@Condutor} -> Motivo: {erro}", arg.Id, erro.ErrorMessage);
 
             return resultadoValidacao;
         }

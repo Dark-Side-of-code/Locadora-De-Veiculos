@@ -32,7 +32,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloVeiculo
             }
             else
                 foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar inserir Veiculo {VeiculoNome} com a placa {Placa} -> Motivo: {erro}", arg.Modelo, arg.Placa, erro.ErrorMessage);
+                    logger.Warning("Falha ao tentar inserir Veiculo {@Veiculo} -> Motivo: {erro}", arg.Id, erro.ErrorMessage);
             return resultadoValidacao;
         }
 
@@ -48,7 +48,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloVeiculo
             }
             else
                 foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar editar Veiculo {VeiculoNome} com a placa {Placa} -> Motivo: {erro}", arg.Modelo, arg.Placa, erro.ErrorMessage);
+                    logger.Warning("Falha ao tentar editar Veiculo {@Veiculo} -> Motivo: {erro}", arg.Id, erro.ErrorMessage);
             return resultadoValidacao;
         }
 
