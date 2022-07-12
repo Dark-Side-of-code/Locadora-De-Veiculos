@@ -1,9 +1,11 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.Compartilhado;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Locadora_De_Veiculos.Infra.Banco.Compartilhado
 {
@@ -11,10 +13,17 @@ namespace Locadora_De_Veiculos.Infra.Banco.Compartilhado
         where T : EntidadeBase<T>
         where TMapeador : MapeadorBase<T>, new()
     {
-        protected string enderecoBanco =
-            @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Locadora-De-Veiculos;
-           Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;
-           ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        protected readonly string enderecoBanco;
+
+        protected RepositorioBase()
+        {
+            var configuracao = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("ConfiguracaoAplicacao.json")
+                .Build();
+
+            enderecoBanco = configuracao.GetConnectionString("SqlServer");
+        }
 
         protected abstract string sqlInserir { get; }
 
