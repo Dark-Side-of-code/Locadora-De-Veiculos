@@ -19,9 +19,6 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloPlanosDeCobraca
 
         public RepositorioPlanoDeCobrancaEmBancoDadosTest()
         {
-            Db.ExecutarSql("DELETE FROM TBPLANOCOBRANCA; DBCC CHECKIDENT (TBPLANOCOBRANCA, RESEED, 0)");
-            Db.ExecutarSql("DELETE FROM TBCATEGORIAVEICULO; DBCC CHECKIDENT (TBCATEGORIAVEICULO, RESEED, 0)");
-
             repositorio = new RepositorioPlanosDeCobrancaEmBancoDados();
             repositorioCategoria = new RepositorioCategoriaDeVeiculosEmBancoDados();
         }

@@ -17,6 +17,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario
         protected override string sqlInserir =>
         @"INSERT INTO [TBFUNCIONARIO]
         (
+            [ID],
 		    [NOME],
             [LOGIN],
             [SENHA],
@@ -27,13 +28,14 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario
 
         VALUES
         (
+            @ID,
 		    @NOME,
 			@LOGIN,
 			@SENHA,
 			@SALARIO,
 			@DATA_ADMISSAO,
 			@TIPOFUNCIONARIO
-		);SELECT SCOPE_IDENTITY();";
+		);";
 
         protected override string sqlEditar =>
         @"UPDATE [TBFUNCIONARIO]

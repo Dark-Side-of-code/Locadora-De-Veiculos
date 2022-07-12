@@ -19,15 +19,15 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario
             comando.Parameters.AddWithValue("TIPOFUNCIONARIO", registro.TipoFuncionario);
         }
 
-        public override Funcionario ConverterRegistro(SqlDataReader leitorFuncionario)
+        public override Funcionario ConverterRegistro(SqlDataReader leitorRegistro)
         {
-            var id = Convert.ToInt32(leitorFuncionario["ID"]);
-            var nome = Convert.ToString(leitorFuncionario["NOME"]);
-            var login = Convert.ToString(leitorFuncionario["LOGIN"]);
-            var senha = Convert.ToString(leitorFuncionario["SENHA"]);
-            var salario = Convert.ToDouble(leitorFuncionario["SALARIO"]);
-            var dataAdimissao = Convert.ToDateTime(leitorFuncionario["DATA_ADMISSAO"]);
-            var tipoFuncionario = Convert.ToString(leitorFuncionario["TIPOFUNCIONARIO"]);
+            var id = Guid.Parse(leitorRegistro["ID"].ToString());
+            var nome = Convert.ToString(leitorRegistro["NOME"]);
+            var login = Convert.ToString(leitorRegistro["LOGIN"]);
+            var senha = Convert.ToString(leitorRegistro["SENHA"]);
+            var salario = Convert.ToDouble(leitorRegistro["SALARIO"]);
+            var dataAdimissao = Convert.ToDateTime(leitorRegistro["DATA_ADMISSAO"]);
+            var tipoFuncionario = Convert.ToString(leitorRegistro["TIPOFUNCIONARIO"]);
 
             Funcionario funcionario = new Funcionario();
             funcionario.Id = id;

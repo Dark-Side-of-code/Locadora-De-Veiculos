@@ -19,7 +19,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos
 
         public override CategoriaDeVeiculos ConverterRegistro(SqlDataReader leitorRegistro)
         {
-            var id = Convert.ToInt32(leitorRegistro["ID"]);
+            var id = Guid.Parse(leitorRegistro["ID"].ToString());
             var nome = Convert.ToString(leitorRegistro["NOME"]);
 
             CategoriaDeVeiculos categoriaDeVeiculos = new CategoriaDeVeiculos();

@@ -37,9 +37,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.Compartilhado
             mapeador.ConfigurarParametros(registro, comandoInsercao);
 
             conexaoComBanco.Open();
-            var id = comandoInsercao.ExecuteScalar();
-            registro.Id = Convert.ToInt32(id);
-
+            var id = comandoInsercao.ExecuteNonQuery();
             conexaoComBanco.Close();
         }
 
@@ -71,7 +69,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.Compartilhado
             conexaoComBanco.Close();
         }
 
-        public T SelecionarPorNumero(int id)
+        public  T SelecionarPorNumero(Guid id)
         {
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
 

@@ -16,18 +16,20 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloTaxas
         protected override string sqlInserir =>
         @"INSERT INTO [TbTaxas]
            (
-		   [Nome]
-           ,[Descricao]
-           ,[Valor]
-           ,[Diario_Fixo]
+            [ID],
+   		    [NOME],
+            [DESCRICAO],
+            [VALOR],
+            [DIARIO_FIXO]
 		   )
      VALUES
            (
+            @ID,
             @NOME,
             @DESCRICAO,
             @VALOR,
             @DIARIO_FIXO
-		   );SELECT SCOPE_IDENTITY();";
+		   );";
 
         protected override string sqlEditar =>
         @"UPDATE [TBTAXAS]

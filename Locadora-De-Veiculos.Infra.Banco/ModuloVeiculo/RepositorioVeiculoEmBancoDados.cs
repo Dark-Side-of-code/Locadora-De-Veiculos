@@ -15,18 +15,20 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
         protected override string sqlInserir =>
         @"INSERT INTO [TBVEICULO]
            (
-		   [MODELO]
-           ,[PLACA]
-           ,[MARCA]
-           ,[COR]
-		   ,[TIPO_COMBUSTIVEL]
-           ,[CAPACIDADE_TANQUE]
-           ,[ANO]
-           ,[KM_TOTAL]
-           ,[CATEGORIA_ID]
+            [ID],
+		    [MODELO],
+            [PLACA],
+            [MARCA],
+            [COR],
+		    [TIPO_COMBUSTIVEL],
+            [CAPACIDADE_TANQUE],
+            [ANO],
+            [KM_TOTAL],
+            [CATEGORIA_ID]
 		   )
      VALUES
            (
+            @ID,
             @MODELO,
             @PLACA,
             @MARCA,
@@ -36,7 +38,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
             @ANO,
 			@KM_TOTAL,
             @CATEGORIA_ID
-		   );SELECT SCOPE_IDENTITY();";
+		   );";
 
         protected override string sqlEditar =>
         @"UPDATE [TBVEICULO]

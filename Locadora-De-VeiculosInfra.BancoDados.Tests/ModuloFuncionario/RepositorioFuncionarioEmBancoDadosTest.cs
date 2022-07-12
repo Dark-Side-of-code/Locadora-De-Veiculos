@@ -13,9 +13,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloFuncionario
         public IRepositorioFuncionario repositorio;
 
         public RepositorioFuncionarioEmBancoDadosTest()
-        {
-            Db.ExecutarSql("DELETE FROM TBFUNCIONARIO; DBCC CHECKIDENT (TBFUNCIONARIO, RESEED, 0)");
-           
+        {           
             repositorio = new RepositorioFuncionarioEmBancoDados();
         }
 

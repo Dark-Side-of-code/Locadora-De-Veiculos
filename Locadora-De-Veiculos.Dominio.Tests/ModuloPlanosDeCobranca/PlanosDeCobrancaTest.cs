@@ -143,7 +143,7 @@ namespace Locadora_De_Veiculos.Dominio.Tests.ModuloPlanosDeCobranca
         public void PlanoKM_controlado_LimiteDeQuilometragem_Deve_Ser_Maior_Que_Zero()
         {
             //arrenge
-            planoDeCobranca.PlanoKM_Livre_ValorDiario = -1.00;
+            planoDeCobranca.PlanoKM_controlado_LimiteDeQuilometragem = -1.00;
 
             //action
             var outroResultado = validador.TestValidate(planoDeCobranca);

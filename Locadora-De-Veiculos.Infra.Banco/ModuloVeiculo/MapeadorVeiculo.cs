@@ -29,7 +29,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
 
         public override Veiculo ConverterRegistro(SqlDataReader leitorRegistro)
         {
-            var id = Convert.ToInt32(leitorRegistro["ID"]);
+            var id = Guid.Parse(leitorRegistro["ID"].ToString());
             var modelo = Convert.ToString(leitorRegistro["MODELO"]);
             var placa = Convert.ToString(leitorRegistro["PLACA"]);
             var marca = Convert.ToString(leitorRegistro["MARCA"]);
@@ -40,7 +40,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
             var km_total = Convert.ToDouble(leitorRegistro["KM_TOTAL"]);
             //var foto = Convert.ToByte(leitorRegistro["FOTO"]);
 
-            var categoria_id = Convert.ToInt32(leitorRegistro["CATEGORIA_ID"]);
+            var categoria_id = Guid.Parse(leitorRegistro["CATEGORIA_ID"].ToString());
             var categoria_nome = Convert.ToString(leitorRegistro["CATEGORIA_NOME"]);
 
             var veiculo = new Veiculo

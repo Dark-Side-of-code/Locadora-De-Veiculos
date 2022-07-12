@@ -34,9 +34,9 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
             return colunas;
         }
 
-        public int ObtemIdCategoriaVeiculoSelecionado()
+        public Guid ObtemIdCategoriaVeiculoSelecionado()
         {
-            return grid.SelecionarNumero<int>();
+            return grid.SelecionarNumero<Guid>();
         }
 
         public void AtualizarRegistros(List<CategoriaDeVeiculos> disciplinas)
