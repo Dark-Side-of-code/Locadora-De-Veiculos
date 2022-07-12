@@ -81,8 +81,18 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
 
             if (resultado == DialogResult.OK)
             {
-                repositorioCliente.Excluir(clienteSelecionado);
-                CarregarClientes();
+                try
+                {
+                    repositorioCliente.Excluir(clienteSelecionado);
+                    CarregarClientes();
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show("Cliente contém dependencia",
+                    "Exclusão de Clientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
             }
         }
 
