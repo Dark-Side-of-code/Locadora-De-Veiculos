@@ -84,16 +84,9 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
                "Exclusão de Taxas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
         
             if (resultado == DialogResult.OK)
-            {
-                try
-                {
                     repositorioTaxa.Excluir(disciplinaSelecionada);
-                    CarregarTaxas();
-                }catch(Exception e)
-                {
-
-                };
-            }
+                    
+            CarregarTaxas();
         }
         
         
