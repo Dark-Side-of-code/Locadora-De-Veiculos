@@ -38,7 +38,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
             var capacidade = Convert.ToDouble(leitorRegistro["CAPACIDADE_TANQUE"]);
             var ano = Convert.ToDateTime(leitorRegistro["ANO"]);
             var km_total = Convert.ToDouble(leitorRegistro["KM_TOTAL"]);
-            var foto = Convert.ToByte(leitorRegistro["FOTO"]);
+            var foto = (byte[])(leitorRegistro["FOTO"]);
 
             var categoria_id = Guid.Parse(leitorRegistro["CATEGORIA_ID"].ToString());
             var categoria_nome = Convert.ToString(leitorRegistro["CATEGORIA_NOME"]);
@@ -54,7 +54,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
                 Capacidade_tanque = capacidade,
                 Ano = ano,
                 Km_total = km_total,
-                //Foto = foto
+                Foto = foto
             };
 
             var categoriaVeiculo = new CategoriaDeVeiculos
