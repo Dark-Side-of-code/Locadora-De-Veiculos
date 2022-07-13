@@ -105,7 +105,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
 
         private void pictureBoxFoto_Click(object sender, EventArgs e)
         {
-            openFileDialogImage.Title = "Imagem do produto";
+            openFileDialogImage.Title = "Imagem do Veiculo";
             openFileDialogImage.Filter = "Images (*.JPEG; *.BMP; *.JPG; *.GIF; *.PNG; *.)| *.JPEG; *.BMP; *.JPG; *.GIF; *.PNG; *.icon; *.JFIF";
             if (openFileDialogImage.ShowDialog() == DialogResult.OK)
             {
