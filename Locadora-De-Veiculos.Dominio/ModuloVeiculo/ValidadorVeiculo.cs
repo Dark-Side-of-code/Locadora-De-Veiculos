@@ -40,6 +40,10 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
             RuleFor(x => x.Km_total)
                 .GreaterThan(0)
                 .NotEmpty();
+
+            RuleFor(x => x.CategoriaDeVeiculos)
+                .NotEmpty()
+                .NotNull();
         }
     }
 }

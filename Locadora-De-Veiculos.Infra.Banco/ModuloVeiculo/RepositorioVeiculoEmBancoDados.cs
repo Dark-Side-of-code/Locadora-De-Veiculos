@@ -24,7 +24,8 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
             [CAPACIDADE_TANQUE],
             [ANO],
             [KM_TOTAL],
-            [CATEGORIA_ID]
+            [CATEGORIA_ID],
+            [FOTO]
 		   )
      VALUES
            (
@@ -37,7 +38,8 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
             @CAPACIDADE_TANQUE,
             @ANO,
 			@KM_TOTAL,
-            @CATEGORIA_ID
+            @CATEGORIA_ID,
+            @FOTO
 		   );";
 
         protected override string sqlEditar =>
@@ -51,7 +53,8 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
                 [CAPACIDADE_TANQUE] = @CAPACIDADE_TANQUE,
                 [ANO] = @ANO,
                 [KM_TOTAL] = @KM_TOTAL,
-                [CATEGORIA_ID] = @CATEGORIA_ID
+                [CATEGORIA_ID] = @CATEGORIA_ID,
+                [FOTO] = @FOTO
             WHERE [ID] = @ID";
 
         protected override string sqlExcluir =>
@@ -69,6 +72,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
 			,VEICULO.CAPACIDADE_TANQUE
 			,VEICULO.ANO
 			,VEICULO.KM_TOTAL
+            ,VEICULO.FOTO
 
 			,CATEGORIAVEICULO.ID CATEGORIA_ID
 			,CATEGORIAVEICULO.NOME CATEGORIA_NOME
@@ -90,6 +94,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
 			,VEICULO.CAPACIDADE_TANQUE
 			,VEICULO.ANO
 			,VEICULO.KM_TOTAL
+            ,VEICULO.FOTO
 
 			,CATEGORIAVEICULO.ID CATEGORIA_ID
 			,CATEGORIAVEICULO.NOME CATEGORIA_NOME
@@ -109,6 +114,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
 			,VEICULO.CAPACIDADE_TANQUE
 			,VEICULO.ANO
 			,VEICULO.KM_TOTAL
+            ,VEICULO.FOTO
 
 			,CATEGORIAVEICULO.ID CATEGORIA_ID
 			,CATEGORIAVEICULO.NOME CATEGORIA_NOME
@@ -118,6 +124,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
             VEICULO.CATEGORIA_ID = CATEGORIAVEICULO.ID
         WHERE
             VEICULO.PLACA = @PLACA";
+
         public Veiculo SelecionarVeiculoPorPlaca(string placa)
         {
             return SelecionarPorParametro(sqlSelecionarPorPlaca, new SqlParameter("PLACA", placa));

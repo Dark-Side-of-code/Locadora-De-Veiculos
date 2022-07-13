@@ -15,8 +15,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.Compartilhado
         public static byte[] ConverteImagemParaByteArray(Image img)
         {
             MemoryStream ms = new MemoryStream();
-            if(img != null)
-                img.Save(ms, ImageFormat.Jpeg);
+            img.Save(ms, ImageFormat.Jpeg);
             return ms.ToArray();
         }
 
