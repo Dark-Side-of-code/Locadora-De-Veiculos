@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using FluentResults;
+using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.ModuloTaxas;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
@@ -19,7 +20,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
             ClassMaskValorNumerico.AplicaMascaraMoeda(txt_Valor);
         }
 
-        public Func<Taxa, ValidationResult> GravarRegistro { get; set; }
+        public Func<Taxa, Result<Taxa>> GravarRegistro { get; set; }
         
         public Taxa Taxa
         {
@@ -48,9 +49,9 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
         
             var resultadoValidacao = GravarRegistro(Taxa);
         
-            if (resultadoValidacao.IsValid == false)
+            if (resultadoValidacao.IsFailed == false)
             {
-                string erro = resultadoValidacao.Errors[0].ErrorMessage;
+                string erro = resultadoValidacao.Errors[0].Message;
         
                 TelaInicioForm.Instancia.AtualizarRodape(erro);
 
