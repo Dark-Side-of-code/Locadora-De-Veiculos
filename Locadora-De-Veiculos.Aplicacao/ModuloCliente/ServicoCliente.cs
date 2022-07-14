@@ -1,6 +1,6 @@
-﻿using FluentValidation.Results;
+﻿using FluentResults;
+using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.ModuloCliente;
-using Locadora_De_Veiculos.Infra.Banco.ModuloCliente;
 using Serilog;
 using System;
 using System.Collections.Generic;
