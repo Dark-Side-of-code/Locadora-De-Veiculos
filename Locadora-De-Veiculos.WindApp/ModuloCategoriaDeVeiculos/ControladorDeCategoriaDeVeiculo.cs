@@ -12,13 +12,11 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
 {
     internal class ControladorDeCategoriaDeVeiculo : ControladorBase
     {
-        private readonly IRepositorioCategoriaDeVeiculos repositorioCategoriaDeVeiculos;
         private TabelaCategoriasDeVeiculosControl? listagemCategoriaDeVeiculos;
         private readonly ServicoCategoriasDeVeiculos servicoCategoriaDeVeiculos;
 
-        public ControladorDeCategoriaDeVeiculo(IRepositorioCategoriaDeVeiculos repositorioCategoriaDeVeiculos, ServicoCategoriasDeVeiculos servicoCategoriaDeVeiculos)
+        public ControladorDeCategoriaDeVeiculo(ServicoCategoriasDeVeiculos servicoCategoriaDeVeiculos)
         {
-            this.repositorioCategoriaDeVeiculos = repositorioCategoriaDeVeiculos;
             this.servicoCategoriaDeVeiculos = servicoCategoriaDeVeiculos;
         }
 
@@ -103,12 +101,6 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
                     MessageBox.Show(resultadoExclusao.Errors[0].Message,
                         "Exclusão de Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private CategoriaDeVeiculos ObtemCategoriaDeVeiculoSelecionado()
-        {
-            var id = listagemCategoriaDeVeiculos.ObtemIdCategoriaVeiculoSelecionado();
-            return repositorioCategoriaDeVeiculos.SelecionarPorNumero(id);
         }
 
         public override ConfiguracaoToolboxBase ObtemConfiguracaoToolbox()
