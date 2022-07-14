@@ -106,7 +106,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario
         FROM
             [TBFUNCIONARIO]
         WHERE 
-            [TIPOFUNCIONARIO] = @TIPOFUNCIONARIO";
+            [LOGIN] = @LOGIN";
 
         public Funcionario SelecionarFuncionarioPorNome(string nome)
         {
