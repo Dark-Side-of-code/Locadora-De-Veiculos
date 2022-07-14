@@ -10,79 +10,98 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
 {
     public class ControladorDeFuncionario : ControladorBase
     {
-        private readonly IRepositorioFuncionario repositorioFuncionario;
         private TabelaFuncionarioControl? listagemFuncionarios;
         private readonly ServicoFuncionario servicoFuncionario;
 
-        public ControladorDeFuncionario(IRepositorioFuncionario repositorioFuncionario, ServicoFuncionario servicoFuncionario)
+        public ControladorDeFuncionario(ServicoFuncionario servicoFuncionario)
         {
-            this.repositorioFuncionario = repositorioFuncionario;
             this.servicoFuncionario = servicoFuncionario;
         }
 
         public override void Inserir()
         {
             var tela = new TelaCadastroFuncionarioForm();
+
             tela.Funcionario = new Funcionario();
+
             tela.GravarRegistro = servicoFuncionario.Inserir;
+
             DialogResult resultado = tela.ShowDialog();
+
             if (resultado == DialogResult.OK)
             {
                 CarregarFuncionarios();
             }
         }
 
-        private void CarregarFuncionarios()
-        {
-            List<Funcionario> funcionarios = repositorioFuncionario.SelecionarTodos();
-            listagemFuncionarios?.AtualizarRegistros(funcionarios);
-            TelaInicioForm.Instancia.AtualizarRodape($"Visualizando {funcionarios.Count} funcionário(s)");
-        }
-
         public override void Editar()
         {
-            Funcionario funcionarioSelecionado = ObtemFuncionarioSelecionado();
+            var id = listagemFuncionarios.ObtemIdFuncionarioSelecionado();
 
-            if (funcionarioSelecionado == null)
+            if (id == Guid.Empty)
             {
                 MessageBox.Show("Selecione um funcionário primeiro",
                 "Edição de Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            TelaCadastroFuncionarioForm tela = new TelaCadastroFuncionarioForm();
+            var resultado = servicoFuncionario.SelecionarPorId(id);
+
+            if(resultado.IsFailed)
+            {
+                MessageBox.Show(resultado.Errors[0].Message,
+                "Edição de Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var funcionarioSelecionado = resultado.Value;
+
+            var tela = new TelaCadastroFuncionarioForm();
 
             tela.Funcionario = funcionarioSelecionado.Clone();
 
             tela.GravarRegistro = servicoFuncionario.Editar;
 
-            DialogResult resultado = tela.ShowDialog();
-
-            if (resultado == DialogResult.OK)
+            if (tela.ShowDialog() == DialogResult.OK)
                 CarregarFuncionarios();
         }
 
         public override void Excluir()
         {
-            Funcionario funcionarioSelecionado = ObtemFuncionarioSelecionado();
+            var id = listagemFuncionarios.ObtemIdFuncionarioSelecionado();
 
-            if (funcionarioSelecionado == null)
+            if(id == Guid.Empty)
             {
                 MessageBox.Show("Selecione um funcionário primeiro",
                 "Exclusão de Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            DialogResult resultado = MessageBox.Show("Deseja realmente excluir o funcionário?",
-                "Exclusão de Funcionário", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-            if (resultado == DialogResult.OK)
-                    repositorioFuncionario.Excluir(funcionarioSelecionado);
-                    
-            CarregarFuncionarios();
+            var resultadoSelecao = servicoFuncionario.SelecionarPorId(id);
+
+
+            if (resultadoSelecao.IsFailed)
+            {
+                MessageBox.Show(resultadoSelecao.Errors[0].Message,
+                    "Exclusão de Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var funcionarioSelecionado = resultadoSelecao.Value;
+
+            if(MessageBox.Show("Deseja realmente excluir o funcionário?","Exclusão de Funcionário",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                var resultadoExclusao = servicoFuncionario.Excluir(funcionarioSelecionado);
+
+                if (resultadoExclusao.IsSuccess)
+                    CarregarFuncionarios();
+                else
+                    MessageBox.Show(resultadoExclusao.Errors[0].Message,
+                        "Exclusão de Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
-
 
         public override ConfiguracaoToolboxBase ObtemConfiguracaoToolbox()
         {
@@ -99,11 +118,25 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
             return listagemFuncionarios;
         }
 
-        private Funcionario ObtemFuncionarioSelecionado()
+        
+        private void CarregarFuncionarios()
         {
-            var id = listagemFuncionarios.ObtemIdFuncionarioSelecionado();
+            var resultado = servicoFuncionario.SelecionarTodos();
 
-            return repositorioFuncionario.SelecionarPorNumero(id);
+            if (resultado.IsSuccess)
+            {
+                List<Funcionario> funcionarios = resultado.Value;
+
+                listagemFuncionarios?.AtualizarRegistros(funcionarios);
+
+                TelaInicioForm.Instancia.AtualizarRodape($"Visualizando {funcionarios.Count} funcionário(s)");
+            }
+            else
+            {
+                MessageBox.Show(resultado.Errors[0].Message, "Exclusão de funcionário",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using FluentResults;
+using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.ModuloFuncionario;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
@@ -26,7 +27,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
             ClassMaskValorNumerico.AplicaMascaraMoeda(txt_Salario);
         }
 
-        public Func<Funcionario, ValidationResult> GravarRegistro { get; set; }
+        public Func<Funcionario, Result<Funcionario>> GravarRegistro { get; set; }
 
         public Funcionario Funcionario
         {
@@ -81,9 +82,9 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
 
             var resultadoValidacao = GravarRegistro(Funcionario);
 
-            if (resultadoValidacao.IsValid == false)
+            if (resultadoValidacao.IsFailed)
             {
-                string erro = resultadoValidacao.Errors[0].ErrorMessage;
+                string erro = resultadoValidacao.Errors[0].Message;
 
                 TelaInicioForm.Instancia.AtualizarRodape(erro);
 
