@@ -1,33 +1,32 @@
-﻿using Locadora_De_Veiculos.Aplicacao.ModuloVeiculo;
-using Locadora_De_Veiculos.Dominio.ModuloCategoriaDeVeiculos;
+﻿using Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos;
+using Locadora_De_Veiculos.Aplicacao.ModuloVeiculo;
 using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
 using Locadora_De_Veiculos.Dominio.ModuloVeiculo;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
 {
     public class ControladorVeiculo : ControladorBase
     {
-        private readonly IRepositorioCategoriaDeVeiculos repositorioCategoria;
+        private readonly ServicoCategoriasDeVeiculos servicoCategoria;
         private TabelaVeiculoControl listagemVeiculos;
         private readonly ServicoVeiculo servicoVeiculo;
 
-        public ControladorVeiculo(IRepositorioCategoriaDeVeiculos repositorioCategoria, ServicoVeiculo servicoVeiculo)
+        public ControladorVeiculo(ServicoCategoriasDeVeiculos servicoCategoria, ServicoVeiculo servicoVeiculo)
         {
-            this.repositorioCategoria = repositorioCategoria;
+            this.servicoCategoria = servicoCategoria;
             this.servicoVeiculo = servicoVeiculo;
         }
 
         public override void Inserir()
         {
-            var categorias = repositorioCategoria.SelecionarTodos();
-
+            List<CategoriaDeVeiculos> categorias = new List<CategoriaDeVeiculos>();
+            var resultadoCategoria = servicoCategoria.SelecionarTodos();
+            if (resultadoCategoria.IsSuccess)
+                categorias = resultadoCategoria.Value;
             var tela = new TelaCadastroVeiculo(categorias);
 
             tela.Veiculo = new Veiculo();
@@ -63,7 +62,11 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
             }
 
             var veiculoSelecionado = resultado.Value;
-            var categorias = repositorioCategoria.SelecionarTodos();
+
+            List<CategoriaDeVeiculos> categorias = new List<CategoriaDeVeiculos>();
+            var resultadoCategoria = servicoCategoria.SelecionarTodos();
+            if (resultadoCategoria.IsSuccess)
+                categorias = resultadoCategoria.Value;
 
             var tela = new TelaCadastroVeiculo(categorias);
 
