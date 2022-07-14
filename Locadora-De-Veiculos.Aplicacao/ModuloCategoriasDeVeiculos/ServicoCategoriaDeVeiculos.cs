@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using FluentResults;
+using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.ModuloCategoriaDeVeiculos;
 using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
 using Serilog;
@@ -13,57 +14,161 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
     public class ServicoCategoriasDeVeiculos
     {
         private IRepositorioCategoriaDeVeiculos repositorioCategoriaDeVeiculos;
-        private ILogger logger = Log.Logger;
 
         public ServicoCategoriasDeVeiculos(IRepositorioCategoriaDeVeiculos repositorioCategoriaDeVeiculos)
         {
             this.repositorioCategoriaDeVeiculos = repositorioCategoriaDeVeiculos;
         }
 
-        public ValidationResult Inserir(CategoriaDeVeiculos arg)
+        public Result<CategoriaDeVeiculos> Inserir(CategoriaDeVeiculos arg)
         {
-            logger.Information("Tentando inserir Categoria de veiculos... {@CategoriaDeVeiculos}", arg);
-            var resultadoValidacao = ValidarCategoriaDeVeiculos(arg);
+            Log.Logger.Debug("Tentando inserir funcionário... {@f}", arg);
 
-            if (resultadoValidacao.IsValid) 
+            Result resultadoValidacao = ValidarCategoriaDeVeiculos(arg);
+
+            if (resultadoValidacao.IsFailed)
+            {
+                foreach (var erro in resultadoValidacao.Errors)
+                {
+                    Log.Logger.Warning("Falha ao tentar inserir o Funcionário {CategoriaDeVeiculosId} - {Motivo}",
+                       arg.Id, erro.Message);
+                }
+
+                return Result.Fail(resultadoValidacao.Errors);
+            }
+
+            try
             {
                 repositorioCategoriaDeVeiculos.Inserir(arg);
-                logger.Information("Categoria de veiculos {@CategoriaDeVeiculos} inserido com sucesso.", arg.Id);
-            }
-            else
-                foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar inserir Categoria de veiculos {@CategoriaDeVeiculos} -> Motivo: {erro}", arg.Id, erro.ErrorMessage);
 
-            return resultadoValidacao;
+                Log.Logger.Information("Funcionário {CategoriaDeVeiculosId} inserido com sucesso", arg.Id);
+
+                return Result.Ok(arg);
+            }
+            catch (Exception ex)
+            {
+                string msgErro = "Falha no sistema ao tentar inserir o funcionário";
+
+                Log.Logger.Error(ex, msgErro + "{CategoriaDeVeiculosId}", arg.Id);
+
+                return Result.Fail(msgErro);
+            }
         }
 
-        public ValidationResult Editar(CategoriaDeVeiculos arg)
+        public Result<CategoriaDeVeiculos> Editar(CategoriaDeVeiculos arg)
         {
-            logger.Information("Tentando editar Categoria de veiculos... {@CategoriaDeVeiculos}", arg);
-            var resultadoValidacao = ValidarCategoriaDeVeiculos(arg);
+            Log.Logger.Debug("Tentando editar funcionário... {@f}", arg);
 
-            if (resultadoValidacao.IsValid) 
-            { 
-                repositorioCategoriaDeVeiculos.Editar(arg);
-                logger.Information("Categoria de veiculos {@CategoriaDeVeiculos} editado com sucesso.", arg.Id);
-            }
-            else
+            Result resultadoValidacao = ValidarCategoriaDeVeiculos(arg);
+
+            if (resultadoValidacao.IsFailed)
+            {
                 foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar editar Categoria de veiculos {@CategoriaDeVeiculos} -> Motivo: {erro}", arg.Id, erro.ErrorMessage);
+                {
+                    Log.Logger.Warning("Falha ao tentar editar o Funcionário {CategoriaDeVeiculosId} - {Motivo}",
+                       arg.Id, erro.Message);
+                }
 
-            return resultadoValidacao;
+                return Result.Fail(resultadoValidacao.Errors);
+            }
+
+            try
+            {
+                repositorioCategoriaDeVeiculos.Editar(arg);
+
+                Log.Logger.Information("Funcionário {CategoriaDeVeiculosId} editado com sucesso", arg.Id);
+
+                return Result.Ok(arg);
+            }
+            catch (Exception ex)
+            {
+                string msgErro = "Falha no sistema ao tentar editar o funcionário";
+
+                Log.Logger.Error(ex, msgErro + "{CategoriaDeVeiculosId}", arg.Id);
+
+                return Result.Fail(msgErro);
+            }
         }
 
-        private ValidationResult ValidarCategoriaDeVeiculos(CategoriaDeVeiculos arg)
+        public Result Excluir(CategoriaDeVeiculos arg)
+        {
+            Log.Logger.Debug("Tentando excluir funcionário... {@f}", arg);
+
+            try
+            {
+                repositorioCategoriaDeVeiculos.Excluir(arg);
+
+                Log.Logger.Information("Funcionário {CategoriaDeVeiculosId} excluído com sucesso", arg.Id);
+
+                return Result.Ok();
+            }
+            catch (Exception ex)
+            {
+                string msgErro = "Falha no sistema ao tentar excluir o funcionário";
+
+                Log.Logger.Error(ex, msgErro + "{CategoriaDeVeiculosId}", arg.Id);
+
+                return Result.Fail(msgErro);
+            }
+        }
+
+        public Result<List<CategoriaDeVeiculos>> SelecionarTodos()
+        {
+            try
+            {
+                return Result.Ok(repositorioCategoriaDeVeiculos.SelecionarTodos());
+            }
+            catch (Exception ex)
+            {
+                string msgErro = "Falha no sistema ao tentar selecionar todos os funcionários";
+
+                Log.Logger.Error(ex, msgErro);
+
+                return Result.Fail(msgErro);
+            }
+        }
+
+        public Result<CategoriaDeVeiculos> SelecionarPorId(Guid id)
+        {
+            try
+            {
+                return Result.Ok(repositorioCategoriaDeVeiculos.SelecionarPorNumero(id));
+            }
+            catch (Exception ex)
+            {
+                string msgErro = "Falha no sistema ao tentar selecionar o funcionário";
+
+                Log.Logger.Error(ex, msgErro + "{CategoriaDeVeiculosId}", id);
+
+                return Result.Fail(msgErro);
+            }
+        }
+
+
+
+
+
+
+
+
+        private Result ValidarCategoriaDeVeiculos(CategoriaDeVeiculos arg)
         {
             ValidadorCategoriaDeVeiculos validador = new ValidadorCategoriaDeVeiculos();
 
             var resultadoValidacao = validador.Validate(arg);
 
-            if (NomeDuplicado(arg))
-                resultadoValidacao.Errors.Add(new ValidationFailure("Nome", "Nome duplicado"));
+            List<Error> erros = new List<Error>(); //FluentResult
 
-            return resultadoValidacao;
+            foreach (ValidationFailure item in resultadoValidacao.Errors) //FluentValidation            
+                erros.Add(new Error(item.ErrorMessage));
+
+            if (NomeDuplicado(arg))
+                erros.Add(new Error("Nome duplicado"));
+
+            if (erros.Any())
+                return Result.Fail(erros);
+
+            return Result.Ok();
         }
 
         private bool NomeDuplicado(CategoriaDeVeiculos arg)
