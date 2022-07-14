@@ -3,6 +3,7 @@ using FluentValidation.Results;
 using System;
 using System.Windows.Forms;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
+using FluentResults;
 
 namespace Locadora_De_Veiculos.WindApp.ModuloGrupoDeVeiculos
 {
@@ -16,7 +17,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloGrupoDeVeiculos
             this.ConfigurarTela();
         }
 
-        public Func<CategoriaDeVeiculos, ValidationResult> GravarRegistro { get; set; }
+        public Func<CategoriaDeVeiculos, Result<CategoriaDeVeiculos>> GravarRegistro { get; set; }
 
         public CategoriaDeVeiculos CategoriaDeVeiculos
         {
@@ -37,9 +38,9 @@ namespace Locadora_De_Veiculos.WindApp.ModuloGrupoDeVeiculos
 
             var resultadoValidacao = GravarRegistro(CategoriaDeVeiculos);
 
-            if (resultadoValidacao.IsValid == false)
+            if (resultadoValidacao.IsFailed)
             {
-                string erro = resultadoValidacao.Errors[0].ErrorMessage;
+                string erro = resultadoValidacao.Errors[0].Message;
 
                 TelaInicioForm.Instancia.AtualizarRodape(erro);
 
