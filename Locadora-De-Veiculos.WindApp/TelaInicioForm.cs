@@ -155,13 +155,13 @@ namespace Locadora_De_Veiculos.WindApp
 
             controladores = new Dictionary<string, ControladorBase>();
 
-            controladores.Add("Taxas", new ControladorTaxa(repositorioTaxa, servicoTaxa));
-            controladores.Add("Clientes", new ControladorCliente(repositorioCliente, servicoCliente));
+            controladores.Add("Taxas", new ControladorTaxa(servicoTaxa));
+            controladores.Add("Clientes", new ControladorCliente(servicoCliente));
             controladores.Add("Catergorias", new ControladorDeCategoriaDeVeiculo(servicoCategoriaDeVeiculos));
-            controladores.Add("Funcionários",new ControladorDeFuncionario(repositorioFuncionario, servicoFuncionario));
-            controladores.Add("Condutores", new ControladorCondutor(repositorioCondutor, repositorioCliente, servicoCondutor));
-            controladores.Add("Veiculos", new ControladorVeiculo(repositorioVeiculo, repositorioGrupoVeiculos, servicoVeiculo));
-            controladores.Add("Planos de Cobrança", new ControladorPlanoDeCobranca(repositorioPlanoDeCobranca, repositorioGrupoVeiculos,servicoPlanoDeCobranca));
+            controladores.Add("Funcionários",new ControladorDeFuncionario(servicoFuncionario));
+            controladores.Add("Condutores", new ControladorCondutor(servicoCondutor));
+            controladores.Add("Veiculos", new ControladorVeiculo( servicoVeiculo));
+            controladores.Add("Planos de Cobrança", new ControladorPlanoDeCobranca(servicoPlanoDeCobranca));
         }
 
         private void ClientesMenuItem_Click(object sender, EventArgs e)

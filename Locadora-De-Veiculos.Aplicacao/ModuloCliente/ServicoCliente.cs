@@ -13,56 +13,150 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCliente
     public class ServicoCliente
     {
         private IRepositorioCliente repositorioCliente;
-        private ILogger logger = Log.Logger;
+
         public ServicoCliente(IRepositorioCliente repositorioCliente)
         {
             this.repositorioCliente = repositorioCliente;
         }
 
-        public ValidationResult Inserir(Cliente arg)
+        public Result<Cliente> Inserir(Cliente arg)
         {
-            logger.Information("Tentando inserir Cliente... {@Cliente}", arg);
-            var resultadoValidacao = ValidarCliente(arg);
+            Log.Logger.Debug("Tentando inserir cliente... {@Cliente}", arg);
 
-            if (resultadoValidacao.IsValid)
+            Result resultadoValidacao = ValidarCliente(arg);
+
+            if (resultadoValidacao.IsFailed)
+            {
+                foreach (var erro in resultadoValidacao.Errors)
+                {
+                    Log.Logger.Warning("Falha ao tentar inserir o Cliente {ClienteId} - {Motivo}",
+                       arg.Id, erro.Message);
+                }
+
+                return Result.Fail(resultadoValidacao.Errors);
+            }
+
+            try
             {
                 repositorioCliente.Inserir(arg);
-                logger.Information("Cliente {@Cliente} inserido com sucesso.", arg.Id);
-            }
-            else
-                foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar inserir Cliente {@Cliente} -> Motivo: {erro}", arg.Id, erro.ErrorMessage);
 
-            return resultadoValidacao;
+                Log.Logger.Information("Cliente {ClienteId} inserido com sucesso", arg.Id);
+
+                return Result.Ok(arg);
+            }
+            catch (Exception ex)
+            {
+                string msgErro = "Falha no sistema ao tentar inserir o cliente";
+
+                Log.Logger.Error(ex, msgErro + "{ClienteId}", arg.Id);
+
+                return Result.Fail(msgErro);
+            }
         }
 
-        public ValidationResult Editar(Cliente arg)
+        public Result<Cliente> Editar(Cliente arg)
         {
-            logger.Information("Tentando editar Cliente... {@Cliente}", arg);
-            var resultadoValidacao = ValidarCliente(arg);
+            Log.Logger.Debug("Tentando editar cliente... {@Cliente}", arg);
 
-            if (resultadoValidacao.IsValid)
+            Result resultadoValidacao = ValidarCliente(arg);
+
+            if (resultadoValidacao.IsFailed)
+            {
+                foreach (var erro in resultadoValidacao.Errors)
+                {
+                    Log.Logger.Warning("Falha ao tentar editar o Cliente {ClienteId} - {Motivo}",
+                       arg.Id, erro.Message);
+                }
+
+                return Result.Fail(resultadoValidacao.Errors);
+            }
+
+            try
             {
                 repositorioCliente.Editar(arg);
-                logger.Information("Cliente {@Cliente} editado com sucesso.", arg.Id);
-            }
-            else
-                foreach (var erro in resultadoValidacao.Errors)
-                    logger.Warning("Falha ao tentar editar Cliente {@Cliente} -> Motivo: {erro}", arg.Id, erro.ErrorMessage);
 
-            return resultadoValidacao;
+                Log.Logger.Information("Cliente {ClienteId} editado com sucesso", arg.Id);
+
+                return Result.Ok(arg);
+            }
+            catch (Exception ex)
+            {
+                string msgErro = "Falha no sistema ao tentar editar o cliente";
+
+                Log.Logger.Error(ex, msgErro + "{ClienteId}", arg.Id);
+
+                return Result.Fail(msgErro);
+            }
+        }
+        public Result Excluir(Cliente arg)
+        {
+            Log.Logger.Debug("Tentando excluir cliente... {@Cliente}", arg);
+
+            try
+            {
+                repositorioCliente.Excluir(arg);
+
+                Log.Logger.Information("Cliente {ClienteId} excluído com sucesso", arg.Id);
+
+                return Result.Ok();
+            }
+            catch (Exception ex)
+            {
+                string msgErro = "Falha no sistema ao tentar excluir o cliente";
+
+                Log.Logger.Error(ex, msgErro + "{ClienteId}", arg.Id);
+
+                return Result.Fail(msgErro);
+            }
         }
 
-        private ValidationResult ValidarCliente(Cliente arg)
+        public Result<List<Cliente>> SelecionarTodos()
+        {
+            try
+            {
+                return Result.Ok(repositorioCliente.SelecionarTodos());
+            }
+            catch (Exception ex)
+            {
+                string msgErro = "Falha no sistema ao tentar selecionar todos os clientes";
+
+                Log.Logger.Error(ex, msgErro);
+
+                return Result.Fail(msgErro);
+            }
+        }
+
+        public Result<Cliente> SelecionarPorId(Guid id)
+        {
+            try
+            {
+                return Result.Ok(repositorioCliente.SelecionarPorNumero(id));
+            }
+            catch (Exception ex)
+            {
+                string msgErro = "Falha no sistema ao tentar selecionar o cliente";
+
+                Log.Logger.Error(ex, msgErro + "{ClienteId}", id);
+
+                return Result.Fail(msgErro);
+            }
+        }
+
+        private Result ValidarCliente(Cliente arg)
         {
             ValidadorCliente validador = new ValidadorCliente();
 
             var resultadoValidacao = validador.Validate(arg);
 
-            if (CPF_CNPJ_Duplicado(arg))
-                resultadoValidacao.Errors.Add(new ValidationFailure("CPF", "CPF duplicado"));
+            List<Error> erros = new List<Error>();
 
-            return resultadoValidacao;
+            foreach (ValidationFailure item in resultadoValidacao.Errors) 
+                erros.Add(new Error(item.ErrorMessage));
+
+            if (CPF_CNPJ_Duplicado(arg))
+                erros.Add(new Error("CPF duplicado"));
+
+            return Result.Ok();
         }
 
         private bool CPF_CNPJ_Duplicado(Cliente arg)
