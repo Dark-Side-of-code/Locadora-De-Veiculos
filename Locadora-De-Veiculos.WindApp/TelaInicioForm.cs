@@ -1,5 +1,4 @@
-﻿using Locadora_De_Veiculos.Dominio.ModuloTaxas;
-using Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos;
+﻿using Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos;
 using Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario;
 using Locadora_De_Veiculos.Infra.Banco.ModuloCliente;
 using Locadora_De_Veiculos.Infra.Banco.ModuloTaxas;
@@ -7,15 +6,8 @@ using Locadora_De_Veiculos.WindApp.Compartilhado;
 using Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos;
 using Locadora_De_Veiculos.WindApp.ModuloFuncionario;
 using Locadora_De_Veiculos.WindApp.ModuloCliente;
-using Locadora_De_Veiculos.WindApp.ModuloTaxas;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Locadora_De_Veiculos.Aplicacao.ModuloFuncionario;
 using Locadora_De_Veiculos.Aplicacao.ModuloCliente;
@@ -28,9 +20,9 @@ using Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo;
 using Locadora_De_Veiculos.Aplicacao.ModuloVeiculo;
 using Locadora_De_Veiculos.WindApp.ModuloVeiculo;
 using Locadora_De_Veiculos.WindApp.ModuloPlanosDeCobranca;
-using Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca;
 using Locadora_De_Veiculos.Infra.Banco.ModuloPlanosDeCobranca;
 using Locadora_De_Veiculos.Aplicacao.ModuloPlanoDeCobranca;
+using Locadora_De_Veiculos.WindApp.ModuloTaxa;
 
 namespace Locadora_De_Veiculos.WindApp
 {
