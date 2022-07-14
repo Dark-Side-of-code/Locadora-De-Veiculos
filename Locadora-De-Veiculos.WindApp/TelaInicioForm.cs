@@ -160,7 +160,7 @@ namespace Locadora_De_Veiculos.WindApp
             controladores.Add("Catergorias", new ControladorDeCategoriaDeVeiculo(servicoCategoriaDeVeiculos));
             controladores.Add("Funcionários",new ControladorDeFuncionario(servicoFuncionario));
             controladores.Add("Condutores", new ControladorCondutor(servicoCondutor));
-            controladores.Add("Veiculos", new ControladorVeiculo( servicoVeiculo));
+            controladores.Add("Veiculos", new ControladorVeiculo(repositorioGrupoVeiculos, servicoVeiculo));
             controladores.Add("Planos de Cobrança", new ControladorPlanoDeCobranca(servicoPlanoDeCobranca));
         }
 

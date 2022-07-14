@@ -1,4 +1,5 @@
-﻿ using FluentValidation.Results;
+﻿using FluentResults;
+using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
 using Locadora_De_Veiculos.Dominio.ModuloVeiculo;
 using Locadora_De_Veiculos.Infra.Banco.Compartilhado;
@@ -20,6 +21,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
     {
         private Veiculo veiculo;
         private List<CategoriaDeVeiculos> categoria;
+
         public TelaCadastroVeiculo(List<CategoriaDeVeiculos> categoria)
         {
             this.categoria = categoria;
@@ -30,7 +32,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
             ClassMaskValorNumerico.AplicaMascaraValorNumerico(txt_Km);
         }
 
-        public Func<Veiculo, ValidationResult> GravarRegistro { get; set; }
+        public Func<Veiculo, Result<Veiculo>> GravarRegistro { get; set; }
 
         public Veiculo Veiculo
         {
@@ -91,16 +93,23 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
             veiculo.Foto = ConversorDeImagemParaByteParaImagem.ConverteImagemParaByteArray(pictureBoxFoto.Image);
 
             var resultadoValidacao = GravarRegistro(Veiculo);
-            
-            if (resultadoValidacao.IsValid == false)
+
+            if (resultadoValidacao.IsFailed)
             {
-                string erro = resultadoValidacao.Errors[0].ErrorMessage;
+                string erro = resultadoValidacao.Errors[0].Message;
 
-                TelaInicioForm.Instancia.AtualizarRodape(erro);
+                if (erro.StartsWith("Falha no sistema"))
+                {
+                    MessageBox.Show(erro,
+                    "Inserção de Veículo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    TelaInicioForm.Instancia.AtualizarRodape(erro);
 
-                DialogResult = DialogResult.None;
+                    DialogResult = DialogResult.None;
+                }
             }
-
         }
 
         private void pictureBoxFoto_Click(object sender, EventArgs e)
