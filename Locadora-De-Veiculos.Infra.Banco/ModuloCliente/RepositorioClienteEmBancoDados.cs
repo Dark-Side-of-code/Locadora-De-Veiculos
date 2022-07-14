@@ -75,19 +75,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
 	        FROM 
 		        [TBCLIENTE]";
 
-        protected string sqlSelecionarPorCNH =>
-        @"SELECT
-                [ID],
-		        [NOME],
-                [CPF_CNPJ],
-                [TIPO_CLIENTE],
-                [EMAIL],
-                [TELEFONE]
-	        FROM 
-		        [TBCLIENTE]
-		    WHERE
-                [CNH] = @CNH";
-
         protected string sqlSelecionarPorCPF_CNPJ =>
         @"SELECT
                 [ID],
@@ -113,11 +100,6 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloCliente
 		        [TBCLIENTE]
 		    WHERE
                 [NOME] = @NOME";
-
-        public Cliente SelecionarClientePorCNH(string cnh)
-        {
-            return SelecionarPorParametro(sqlSelecionarPorCNH, new SqlParameter("CNH", cnh));
-        }
 
         public Cliente SelecionarClientePorCPF_CNPJ(string cpf_cnpj)
         {

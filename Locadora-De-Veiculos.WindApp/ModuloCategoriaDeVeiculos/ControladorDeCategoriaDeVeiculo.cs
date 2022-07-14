@@ -12,13 +12,11 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
 {
     internal class ControladorDeCategoriaDeVeiculo : ControladorBase
     {
-        private readonly IRepositorioCategoriaDeVeiculos repositorioCategoriaDeVeiculos;
         private TabelaCategoriasDeVeiculosControl? listagemCategoriaDeVeiculos;
         private readonly ServicoCategoriasDeVeiculos servicoCategoriaDeVeiculos;
 
-        public ControladorDeCategoriaDeVeiculo(IRepositorioCategoriaDeVeiculos repositorioCategoriaDeVeiculos, ServicoCategoriasDeVeiculos servicoCategoriaDeVeiculos)
+        public ControladorDeCategoriaDeVeiculo(ServicoCategoriasDeVeiculos servicoCategoriaDeVeiculos)
         {
-            this.repositorioCategoriaDeVeiculos = repositorioCategoriaDeVeiculos;
             this.servicoCategoriaDeVeiculos = servicoCategoriaDeVeiculos;
         }
 
@@ -34,60 +32,75 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
 
             if (resultado == DialogResult.OK)
             {
-                CarregarTaxas();
+                CarregarCategoriaDeVeiculos();
             }
         }
 
         public override void Editar()
         {
-            CategoriaDeVeiculos categoriaSelecionada = ObtemCategoriaDeVeiculoSelecionado();
+            var id = listagemCategoriaDeVeiculos.ObtemIdCategoriaVeiculoSelecionado();
 
-            if (categoriaSelecionada == null)
+            if (id == Guid.Empty)
             {
-                MessageBox.Show("Selecione uma taxa primeiro",
-                "Edição de Taxas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um funcionário primeiro",
+                    "Edição de Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
+            var resultado = servicoCategoriaDeVeiculos.SelecionarPorId(id);
+
+            if (resultado.IsFailed)
+            {
+                MessageBox.Show(resultado.Errors[0].Message,
+                    "Edição de Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var CategoriaDeVeiculoSelecionado = resultado.Value;
+
             var tela = new TelaDeCadastroDeCategoriaDeVeiculoForm();
 
-            tela.CategoriaDeVeiculos = (CategoriaDeVeiculos)categoriaSelecionada.Clone();
+            tela.CategoriaDeVeiculos = (CategoriaDeVeiculos)CategoriaDeVeiculoSelecionado.Clone();
 
             tela.GravarRegistro = servicoCategoriaDeVeiculos.Editar;
 
-            DialogResult resultado = tela.ShowDialog();
-
-            if (resultado == DialogResult.OK)
-            {
-                CarregarTaxas();
-            }
-
+            if (tela.ShowDialog() == DialogResult.OK)
+                CarregarCategoriaDeVeiculos();
         }
 
         public override void Excluir()
         {
-            CategoriaDeVeiculos categoriaSelecionada = ObtemCategoriaDeVeiculoSelecionado();
+            var id = listagemCategoriaDeVeiculos.ObtemIdCategoriaVeiculoSelecionado();
 
-            if (categoriaSelecionada == null)
+            if (id == Guid.Empty)
             {
-                MessageBox.Show("Selecione uma taxa primeiro",
-                "Exclusão de Taxas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um funcionário primeiro",
+                    "Exclusão de Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            DialogResult resultado = MessageBox.Show("Deseja realmente excluir a taxa?",
-               "Exclusão de Taxas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            var resultadoSelecao = servicoCategoriaDeVeiculos.SelecionarPorId(id);
 
-            if (resultado == DialogResult.OK)
-                    repositorioCategoriaDeVeiculos.Excluir(categoriaSelecionada);
-                    
-            CarregarTaxas();
-        }
+            if (resultadoSelecao.IsFailed)
+            {
+                MessageBox.Show(resultadoSelecao.Errors[0].Message,
+                    "Exclusão de Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-        private CategoriaDeVeiculos ObtemCategoriaDeVeiculoSelecionado()
-        {
-            var id = listagemCategoriaDeVeiculos.ObtemIdCategoriaVeiculoSelecionado();
-            return repositorioCategoriaDeVeiculos.SelecionarPorNumero(id);
+            var funcionarioSelecionado = resultadoSelecao.Value;
+
+            if (MessageBox.Show("Deseja realmente excluir o funcionário?", "Exclusão de Funcionário",
+                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                var resultadoExclusao = servicoCategoriaDeVeiculos.Excluir(funcionarioSelecionado);
+
+                if (resultadoExclusao.IsSuccess)
+                    CarregarCategoriaDeVeiculos();
+                else
+                    MessageBox.Show(resultadoExclusao.Errors[0].Message,
+                        "Exclusão de Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public override ConfiguracaoToolboxBase ObtemConfiguracaoToolbox()
@@ -100,18 +113,28 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
             if (listagemCategoriaDeVeiculos == null)
                 listagemCategoriaDeVeiculos = new TabelaCategoriasDeVeiculosControl();
 
-            CarregarTaxas();
+            CarregarCategoriaDeVeiculos();
 
             return listagemCategoriaDeVeiculos;
         }
 
-        private void CarregarTaxas()
+        private void CarregarCategoriaDeVeiculos()
         {
-            List<CategoriaDeVeiculos> categorias = repositorioCategoriaDeVeiculos.SelecionarTodos();
+            var resultado = servicoCategoriaDeVeiculos.SelecionarTodos();
 
-            listagemCategoriaDeVeiculos?.AtualizarRegistros(categorias);
+            if (resultado.IsSuccess)
+            {
+                List<CategoriaDeVeiculos> funcionarios = resultado.Value;
 
-            TelaInicioForm.Instancia.AtualizarRodape($"Visualizando {categorias.Count} disciplina(s)");
+                listagemCategoriaDeVeiculos.AtualizarRegistros(funcionarios);
+
+                TelaInicioForm.Instancia.AtualizarRodape($"Visualizando {funcionarios.Count} funcionário(s)");
+            }
+            else
+            {
+                MessageBox.Show(resultado.Errors[0].Message, "Exclusão de Funcionário",
+                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

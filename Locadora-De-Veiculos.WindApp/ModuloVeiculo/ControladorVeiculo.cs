@@ -14,14 +14,12 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
 {
     public class ControladorVeiculo : ControladorBase
     {
-        private readonly IRepositorioVeiculo repositorioVeiculo;
         private readonly IRepositorioCategoriaDeVeiculos repositorioCategoria;
-        private TabelaVeiculoControl? listagemVeiculos;
+        private TabelaVeiculoControl listagemVeiculos;
         private readonly ServicoVeiculo servicoVeiculo;
 
-        public ControladorVeiculo(IRepositorioVeiculo repositorioVeiculo, IRepositorioCategoriaDeVeiculos repositorioCategoria, ServicoVeiculo servicoVeiculo)
+        public ControladorVeiculo(IRepositorioCategoriaDeVeiculos repositorioCategoria, ServicoVeiculo servicoVeiculo)
         {
-            this.repositorioVeiculo = repositorioVeiculo;
             this.repositorioCategoria = repositorioCategoria;
             this.servicoVeiculo = servicoVeiculo;
         }
@@ -29,68 +27,88 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
         public override void Inserir()
         {
             var categorias = repositorioCategoria.SelecionarTodos();
+
             var tela = new TelaCadastroVeiculo(categorias);
+
             tela.Veiculo = new Veiculo();
+
             tela.GravarRegistro = servicoVeiculo.Inserir;
+
             DialogResult resultado = tela.ShowDialog();
+
             if (resultado == DialogResult.OK)
             {
                 CarregarVeiculos();
             }
         }
 
-        private void CarregarVeiculos()
-        {
-            List<Veiculo> veiculos = repositorioVeiculo.SelecionarTodos();
-            listagemVeiculos?.AtualizarRegistros(veiculos);
-            TelaInicioForm.Instancia.AtualizarRodape($"Visualizando {veiculos.Count} veiculos(s)");
-        }
-
         public override void Editar()
         {
-            Veiculo veiculoSelecionado = ObtemVeiculoSelecionado();
+            var id = listagemVeiculos.ObtemIdFuncionarioSelecionado();
 
-            if (veiculoSelecionado == null)
+            if (id == Guid.Empty)
             {
-                MessageBox.Show("Selecione um veiculo primeiro",
-                "Edição de Veiculo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um veículo primeiro",
+                    "Edição de Veículo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
+            var resultado = servicoVeiculo.SelecionarPorId(id);
+
+            if (resultado.IsFailed)
+            {
+                MessageBox.Show(resultado.Errors[0].Message,
+                    "Edição de Veículo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var veiculoSelecionado = resultado.Value;
             var categorias = repositorioCategoria.SelecionarTodos();
-            TelaCadastroVeiculo tela = new TelaCadastroVeiculo(categorias);
+
+            var tela = new TelaCadastroVeiculo(categorias);
 
             tela.Veiculo = veiculoSelecionado.Clone();
 
             tela.GravarRegistro = servicoVeiculo.Editar;
 
-            DialogResult resultado = tela.ShowDialog();
-
-            if (resultado == DialogResult.OK)
+            if (tela.ShowDialog() == DialogResult.OK)
                 CarregarVeiculos();
         }
 
         public override void Excluir()
         {
-            Veiculo veiculoSelecionado = ObtemVeiculoSelecionado();
+            var id = listagemVeiculos.ObtemIdFuncionarioSelecionado();
 
-            if (veiculoSelecionado == null)
+            if (id == Guid.Empty)
             {
-                MessageBox.Show("Selecione um veiculo primeiro",
-                "Exclusão de Veiculo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um veículo primeiro",
+                    "Exclusão de Veículo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            DialogResult resultado = MessageBox.Show("Deseja realmente excluir o veiculo?",
-                "Exclusão de Veiculo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            var resultadoSelecao = servicoVeiculo.SelecionarPorId(id);
 
-            if (resultado == DialogResult.OK)
-                repositorioVeiculo.Excluir(veiculoSelecionado);
+            if (resultadoSelecao.IsFailed)
+            {
+                MessageBox.Show(resultadoSelecao.Errors[0].Message,
+                    "Exclusão de Veeículo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            CarregarVeiculos();
+            var veiculoSelecionado = resultadoSelecao.Value;
+
+            if (MessageBox.Show("Deseja realmente excluir o veículo?", "Exclusão de Veículo",
+                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                var resultadoExclusao = servicoVeiculo.Excluir(veiculoSelecionado);
+
+                if (resultadoExclusao.IsSuccess)
+                    CarregarVeiculos();
+                else
+                    MessageBox.Show(resultadoExclusao.Errors[0].Message,
+                        "Exclusão de Veículo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
-
 
         public override ConfiguracaoToolboxBase ObtemConfiguracaoToolbox()
         {
@@ -107,11 +125,23 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
             return listagemVeiculos;
         }
 
-        private Veiculo ObtemVeiculoSelecionado()
+        private void CarregarVeiculos()
         {
-            var id = listagemVeiculos.ObtemIdFuncionarioSelecionado();
+            var resultado = servicoVeiculo.SelecionarTodos();
 
-            return repositorioVeiculo.SelecionarPorNumero(id);
+            if (resultado.IsSuccess)
+            {
+                List<Veiculo> clientes = resultado.Value;
+
+                listagemVeiculos.AtualizarRegistros(clientes);
+
+                TelaInicioForm.Instancia.AtualizarRodape($"Visualizando {clientes.Count} veículo(s)");
+            }
+            else
+            {
+                MessageBox.Show(resultado.Errors[0].Message, "Exclusão de Veículo",
+                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
