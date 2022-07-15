@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using FluentResults;
+using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.ModuloCliente;
 using Locadora_De_Veiculos.Dominio.ModuloCondutor;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
@@ -27,7 +28,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
             PreencherComboBox();
         }
 
-        public Func<Condutor, ValidationResult> GravarRegistro { get; set; }
+        public Func<Condutor, Result<Condutor>> GravarRegistro { get; set; }
 
         public Condutor Condutor
         {
@@ -74,13 +75,21 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
 
             var resultadoValidacao = GravarRegistro(Condutor);
 
-            if (resultadoValidacao.IsValid == false)
+            if (resultadoValidacao.IsFailed)
             {
-                string erro = resultadoValidacao.Errors[0].ErrorMessage;
+                string erro = resultadoValidacao.Errors[0].Message;
 
-                TelaInicioForm.Instancia.AtualizarRodape(erro);
+                if (erro.StartsWith("Falha no sistema"))
+                {
+                    MessageBox.Show(erro,
+                    "Inserção de Condutor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    TelaInicioForm.Instancia.AtualizarRodape(erro);
 
-                DialogResult = DialogResult.None;
+                    DialogResult = DialogResult.None;
+                }
             }
         }
         
