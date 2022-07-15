@@ -42,8 +42,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
 
             if (id == Guid.Empty)
             {
-                MessageBox.Show("Selecione um funcionário primeiro",
-                    "Edição de Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione uma categoria primeiro",
+                    "Edição de Categoria de Veículos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -52,7 +52,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
             if (resultado.IsFailed)
             {
                 MessageBox.Show(resultado.Errors[0].Message,
-                    "Edição de Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "Edição de Categoria de Veículos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -74,8 +74,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
 
             if (id == Guid.Empty)
             {
-                MessageBox.Show("Selecione um funcionário primeiro",
-                    "Exclusão de Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione uma categoria primeiro",
+                    "Exclusão de Categoria de Veículos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -84,22 +84,22 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
             if (resultadoSelecao.IsFailed)
             {
                 MessageBox.Show(resultadoSelecao.Errors[0].Message,
-                    "Exclusão de Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "Exclusão de Categoria de Veículos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            var funcionarioSelecionado = resultadoSelecao.Value;
+            var categoriaSelecionada = resultadoSelecao.Value;
 
-            if (MessageBox.Show("Deseja realmente excluir o funcionário?", "Exclusão de Funcionário",
+            if (MessageBox.Show("Deseja realmente excluir a categoria?", "Exclusão de Categoria de Veículos",
                  MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                var resultadoExclusao = servicoCategoriaDeVeiculos.Excluir(funcionarioSelecionado);
+                var resultadoExclusao = servicoCategoriaDeVeiculos.Excluir(categoriaSelecionada);
 
                 if (resultadoExclusao.IsSuccess)
                     CarregarCategoriaDeVeiculos();
                 else
                     MessageBox.Show(resultadoExclusao.Errors[0].Message,
-                        "Exclusão de Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        "Exclusão de Categoria", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -124,15 +124,15 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
 
             if (resultado.IsSuccess)
             {
-                List<CategoriaDeVeiculos> funcionarios = resultado.Value;
+                List<CategoriaDeVeiculos> categorias = resultado.Value;
 
-                listagemCategoriaDeVeiculos.AtualizarRegistros(funcionarios);
+                listagemCategoriaDeVeiculos.AtualizarRegistros(categorias);
 
-                TelaInicioForm.Instancia.AtualizarRodape($"Visualizando {funcionarios.Count} funcionário(s)");
+                TelaInicioForm.Instancia.AtualizarRodape($"Visualizando {categorias.Count} categoria(s)");
             }
             else
             {
-                MessageBox.Show(resultado.Errors[0].Message, "Exclusão de Funcionário",
+                MessageBox.Show(resultado.Errors[0].Message, "Exclusão de Categoria de Veículos",
                  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
