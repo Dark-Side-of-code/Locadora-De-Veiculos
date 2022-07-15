@@ -156,6 +156,9 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCliente
             if (CPF_CNPJ_Duplicado(arg))
                 erros.Add(new Error("CPF duplicado"));
 
+            if (erros.Any())
+                return Result.Fail(erros);
+
             return Result.Ok();
         }
 

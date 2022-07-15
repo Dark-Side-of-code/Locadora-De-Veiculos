@@ -157,6 +157,9 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloVeiculo
             if (PlacaDuplicado(arg))
                 erros.Add(new Error("Placa duplicado"));
 
+            if (erros.Any())
+                return Result.Fail(erros);
+
             return Result.Ok();
         }
 
