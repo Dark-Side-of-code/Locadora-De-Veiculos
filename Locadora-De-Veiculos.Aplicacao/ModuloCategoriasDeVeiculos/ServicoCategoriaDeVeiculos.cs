@@ -144,13 +144,6 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
             }
         }
 
-
-
-
-
-
-
-
         private Result ValidarCategoriaDeVeiculos(CategoriaDeVeiculos arg)
         {
             ValidadorCategoriaDeVeiculos validador = new ValidadorCategoriaDeVeiculos();
