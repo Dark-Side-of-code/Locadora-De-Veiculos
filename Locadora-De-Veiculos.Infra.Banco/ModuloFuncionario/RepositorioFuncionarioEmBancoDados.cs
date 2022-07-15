@@ -80,7 +80,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario
         FROM
             [TBFUNCIONARIO]";
 
-        private string sqlSelecionarPorNome =>
+        protected string sqlSelecionarPorNome =>
         @"SELECT 
             [ID],
             [NOME],
@@ -94,7 +94,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario
             WHERE 
                 [NOME] = @NOME";
 
-        private string sqlSelecionarPorUsuario =>
+        protected string sqlSelecionarPorUsuario =>
         @"SELECT 
             [ID],
             [NOME],
@@ -115,7 +115,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario
 
         public Funcionario SelecionarFuncionarioPorUsuario(string usuario)
         {
-            return SelecionarPorParametro(sqlSelecionarPorUsuario, new SqlParameter("TIPOFUNCIONARIO", usuario));
+            return SelecionarPorParametro(sqlSelecionarPorUsuario, new SqlParameter("LOGIN", usuario));
         }
     }
 

@@ -160,6 +160,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloFuncionario
             if (UsuarioDuplicado(arg))
                 erros.Add(new Error("Login duplicado"));
 
+
             if (erros.Any())
                 return Result.Fail(erros);
 
