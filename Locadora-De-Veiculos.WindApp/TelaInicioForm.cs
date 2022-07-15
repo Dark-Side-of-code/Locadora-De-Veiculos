@@ -151,7 +151,7 @@ namespace Locadora_De_Veiculos.WindApp
             controladores.Add("Clientes", new ControladorCliente(servicoCliente));
             controladores.Add("Catergorias", new ControladorDeCategoriaDeVeiculo(servicoCategoriaDeVeiculos));
             controladores.Add("Funcionários",new ControladorDeFuncionario(servicoFuncionario));
-            //controladores.Add("Condutores", new ControladorCondutor(servicoCondutor));
+            controladores.Add("Condutores", new ControladorCondutor(servicoCliente ,servicoCondutor));
             controladores.Add("Veiculos", new ControladorVeiculo(servicoCategoriaDeVeiculos ,servicoVeiculo));
             controladores.Add("Planos de Cobrança", new ControladorPlanoDeCobranca(servicoCategoriaDeVeiculos, servicoPlanoDeCobranca));
         }

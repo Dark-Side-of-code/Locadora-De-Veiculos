@@ -94,7 +94,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
             if (resultadoSelecao.IsFailed)
             {
                 MessageBox.Show(resultadoSelecao.Errors[0].Message,
-                    "Exclusão de Veeículo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "Exclusão de Veículo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -134,11 +134,11 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
 
             if (resultado.IsSuccess)
             {
-                List<Veiculo> clientes = resultado.Value;
+                List<Veiculo> veiculos = resultado.Value;
 
-                listagemVeiculos.AtualizarRegistros(clientes);
+                listagemVeiculos.AtualizarRegistros(veiculos);
 
-                TelaInicioForm.Instancia.AtualizarRodape($"Visualizando {clientes.Count} veículo(s)");
+                TelaInicioForm.Instancia.AtualizarRodape($"Visualizando {veiculos.Count} veículo(s)");
             }
             else
             {

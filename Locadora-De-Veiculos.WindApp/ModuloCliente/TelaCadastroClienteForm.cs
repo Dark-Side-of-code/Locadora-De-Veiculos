@@ -21,6 +21,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
         {
             InitializeComponent();
             this.ConfigurarTela();
+            ClassMaskValorNumerico.AplicaMascaraValorNumerico(txtMask_Cpf_Cnpj);
         }
 
         public Func<Cliente, Result<Cliente>> GravarRegistro { get; set; }

@@ -49,7 +49,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
                 txt_Cor.Text = veiculo.Cor;
                 comboBox_Categoria.SelectedItem = veiculo.CategoriaDeVeiculos;
                 txt_Capacidade.Text = veiculo.Capacidade_tanque.ToString();
-                if(veiculo.Tipo_combustivel != null)
+                pictureBoxFoto.Image = ConversorDeImagemParaByteParaImagem.ConverteByteArrayParaImagem(veiculo.Foto);
+                if (veiculo.Tipo_combustivel != null)
                 {
                     comboBox_Tipo.SelectedItem = veiculo.Tipo_combustivel;
                     comboBox_Tipo.SelectedIndex = 0;
