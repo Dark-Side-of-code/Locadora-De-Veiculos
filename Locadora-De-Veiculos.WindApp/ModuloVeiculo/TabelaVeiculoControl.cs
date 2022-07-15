@@ -47,7 +47,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "TipoVeiculo", HeaderText = "Tipo de Veiculo", FillWeight=85F },
 
-                new DataGridViewImageColumn { DataPropertyName = "Foto", HeaderText = "Foto", FillWeight=85F },
+                new DataGridViewImageColumn { DataPropertyName = "Foto", HeaderText = "Foto", FillWeight=50F, ImageLayout=DataGridViewImageCellLayout.Stretch},
             };
 
             return colunas;

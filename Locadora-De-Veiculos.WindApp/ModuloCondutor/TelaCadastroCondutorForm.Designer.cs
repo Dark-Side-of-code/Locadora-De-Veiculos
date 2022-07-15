@@ -43,7 +43,6 @@
             this.cbx_cliente = new System.Windows.Forms.ComboBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.txt_nome = new System.Windows.Forms.TextBox();
-            this.txt_CPF = new System.Windows.Forms.TextBox();
             this.txt_Email = new System.Windows.Forms.TextBox();
             this.txt_endereco = new System.Windows.Forms.TextBox();
             this.dateTime_Validade_Cnh = new System.Windows.Forms.DateTimePicker();
@@ -51,6 +50,7 @@
             this.txtMask_Cnh = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtMask_Fone = new System.Windows.Forms.MaskedTextBox();
+            this.txt_CPF = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // button2
@@ -200,13 +200,6 @@
             this.txt_nome.Size = new System.Drawing.Size(261, 23);
             this.txt_nome.TabIndex = 112;
             // 
-            // txt_CPF
-            // 
-            this.txt_CPF.Location = new System.Drawing.Point(115, 223);
-            this.txt_CPF.Name = "txt_CPF";
-            this.txt_CPF.Size = new System.Drawing.Size(261, 23);
-            this.txt_CPF.TabIndex = 113;
-            // 
             // txt_Email
             // 
             this.txt_Email.Location = new System.Drawing.Point(115, 281);
@@ -263,11 +256,20 @@
             this.txtMask_Fone.Size = new System.Drawing.Size(261, 23);
             this.txtMask_Fone.TabIndex = 122;
             // 
+            // txt_CPF
+            // 
+            this.txt_CPF.Location = new System.Drawing.Point(115, 223);
+            this.txt_CPF.Mask = "000,000,000-00";
+            this.txt_CPF.Name = "txt_CPF";
+            this.txt_CPF.Size = new System.Drawing.Size(261, 23);
+            this.txt_CPF.TabIndex = 123;
+            // 
             // TelaCadastroCondutorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 475);
+            this.Controls.Add(this.txt_CPF);
             this.Controls.Add(this.txtMask_Fone);
             this.Controls.Add(this.dateTime_Validade_Cnh);
             this.Controls.Add(this.label5);
@@ -275,7 +277,6 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_endereco);
             this.Controls.Add(this.txt_Email);
-            this.Controls.Add(this.txt_CPF);
             this.Controls.Add(this.txt_nome);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.cbx_cliente);
@@ -315,7 +316,6 @@
         private System.Windows.Forms.ComboBox cbx_cliente;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox txt_nome;
-        private System.Windows.Forms.TextBox txt_CPF;
         private System.Windows.Forms.TextBox txt_Email;
         private System.Windows.Forms.TextBox txt_endereco;
         private System.Windows.Forms.DateTimePicker dateTime_Validade_Cnh;
@@ -323,5 +323,6 @@
         private System.Windows.Forms.MaskedTextBox txtMask_Cnh;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.MaskedTextBox txtMask_Fone;
+        private System.Windows.Forms.MaskedTextBox txt_CPF;
     }
 }
