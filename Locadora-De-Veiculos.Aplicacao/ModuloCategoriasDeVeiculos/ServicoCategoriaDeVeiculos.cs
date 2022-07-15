@@ -22,7 +22,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
 
         public Result<CategoriaDeVeiculos> Inserir(CategoriaDeVeiculos arg)
         {
-            Log.Logger.Debug("Tentando inserir funcionário... {@f}", arg);
+            Log.Logger.Debug("Tentando inserir categoria... {@f}", arg);
 
             Result resultadoValidacao = ValidarCategoriaDeVeiculos(arg);
 
@@ -30,7 +30,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
             {
                 foreach (var erro in resultadoValidacao.Errors)
                 {
-                    Log.Logger.Warning("Falha ao tentar inserir o Funcionário {CategoriaDeVeiculosId} - {Motivo}",
+                    Log.Logger.Warning("Falha ao tentar inserir a Categoria {CategoriaDeVeiculosId} - {Motivo}",
                        arg.Id, erro.Message);
                 }
 
@@ -41,13 +41,13 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
             {
                 repositorioCategoriaDeVeiculos.Inserir(arg);
 
-                Log.Logger.Information("Funcionário {CategoriaDeVeiculosId} inserido com sucesso", arg.Id);
+                Log.Logger.Information("Categoria {CategoriaDeVeiculosId} inserida com sucesso", arg.Id);
 
                 return Result.Ok(arg);
             }
             catch (Exception ex)
             {
-                string msgErro = "Falha no sistema ao tentar inserir o funcionário";
+                string msgErro = "Falha no sistema ao tentar inserir a categoria";
 
                 Log.Logger.Error(ex, msgErro + "{CategoriaDeVeiculosId}", arg.Id);
 
@@ -57,7 +57,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
 
         public Result<CategoriaDeVeiculos> Editar(CategoriaDeVeiculos arg)
         {
-            Log.Logger.Debug("Tentando editar funcionário... {@f}", arg);
+            Log.Logger.Debug("Tentando editar categoria... {@f}", arg);
 
             Result resultadoValidacao = ValidarCategoriaDeVeiculos(arg);
 
@@ -65,7 +65,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
             {
                 foreach (var erro in resultadoValidacao.Errors)
                 {
-                    Log.Logger.Warning("Falha ao tentar editar o Funcionário {CategoriaDeVeiculosId} - {Motivo}",
+                    Log.Logger.Warning("Falha ao tentar editar a Categoria {CategoriaDeVeiculosId} - {Motivo}",
                        arg.Id, erro.Message);
                 }
 
@@ -76,13 +76,13 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
             {
                 repositorioCategoriaDeVeiculos.Editar(arg);
 
-                Log.Logger.Information("Funcionário {CategoriaDeVeiculosId} editado com sucesso", arg.Id);
+                Log.Logger.Information("Categoria {CategoriaDeVeiculosId} editada com sucesso", arg.Id);
 
                 return Result.Ok(arg);
             }
             catch (Exception ex)
             {
-                string msgErro = "Falha no sistema ao tentar editar o funcionário";
+                string msgErro = "Falha no sistema ao tentar editar a categoria";
 
                 Log.Logger.Error(ex, msgErro + "{CategoriaDeVeiculosId}", arg.Id);
 
@@ -92,19 +92,19 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
 
         public Result Excluir(CategoriaDeVeiculos arg)
         {
-            Log.Logger.Debug("Tentando excluir funcionário... {@f}", arg);
+            Log.Logger.Debug("Tentando excluir categoria... {@f}", arg);
 
             try
             {
                 repositorioCategoriaDeVeiculos.Excluir(arg);
 
-                Log.Logger.Information("Funcionário {CategoriaDeVeiculosId} excluído com sucesso", arg.Id);
+                Log.Logger.Information("Categoria {CategoriaDeVeiculosId} excluída com sucesso", arg.Id);
 
                 return Result.Ok();
             }
             catch (Exception ex)
             {
-                string msgErro = "Falha no sistema ao tentar excluir o funcionário";
+                string msgErro = "Falha no sistema ao tentar excluir a categoria";
 
                 Log.Logger.Error(ex, msgErro + "{CategoriaDeVeiculosId}", arg.Id);
 
@@ -120,7 +120,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
             }
             catch (Exception ex)
             {
-                string msgErro = "Falha no sistema ao tentar selecionar todos os funcionários";
+                string msgErro = "Falha no sistema ao tentar selecionar todos as categorias";
 
                 Log.Logger.Error(ex, msgErro);
 
@@ -136,7 +136,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
             }
             catch (Exception ex)
             {
-                string msgErro = "Falha no sistema ao tentar selecionar o funcionário";
+                string msgErro = "Falha no sistema ao tentar selecionar a categoria";
 
                 Log.Logger.Error(ex, msgErro + "{CategoriaDeVeiculosId}", id);
 
