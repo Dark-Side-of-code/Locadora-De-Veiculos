@@ -170,8 +170,9 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloPlanoDeCobranca
 
             return planoEncontrado != null &&
                    planoEncontrado.CategoriaDeVeiculos.Nome == arg.CategoriaDeVeiculos.Nome &&
-                   planoEncontrado.CategoriaDeVeiculos.Id != arg.CategoriaDeVeiculos.Id; 
-                   //planoEncontrado.Id != arg.Id;
+                   planoEncontrado.CategoriaDeVeiculos.Id == arg.CategoriaDeVeiculos.Id &&
+                   planoEncontrado.Id != arg.Id;
+                  
         }
     }
 }
