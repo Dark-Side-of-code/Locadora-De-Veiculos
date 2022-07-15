@@ -153,7 +153,7 @@ namespace Locadora_De_Veiculos.WindApp
             controladores.Add("Funcionários",new ControladorDeFuncionario(servicoFuncionario));
             controladores.Add("Condutores", new ControladorCondutor(servicoCondutor));
             controladores.Add("Veiculos", new ControladorVeiculo(servicoCategoriaDeVeiculos ,servicoVeiculo));
-            controladores.Add("Planos de Cobrança", new ControladorPlanoDeCobranca(servicoPlanoDeCobranca));
+            controladores.Add("Planos de Cobrança", new ControladorPlanoDeCobranca(servicoCategoriaDeVeiculos, servicoPlanoDeCobranca));
         }
 
         private void ClientesMenuItem_Click(object sender, EventArgs e)
