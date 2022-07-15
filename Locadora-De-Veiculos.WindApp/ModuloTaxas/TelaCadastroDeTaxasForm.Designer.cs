@@ -38,7 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.tb_Diario = new System.Windows.Forms.RadioButton();
+            this.rb_Diario = new System.Windows.Forms.RadioButton();
             this.rb_Fixo = new System.Windows.Forms.RadioButton();
             this.txt_Nome = new System.Windows.Forms.TextBox();
             this.txt_Descricao = new System.Windows.Forms.TextBox();
@@ -150,16 +150,16 @@
             this.label5.TabIndex = 64;
             this.label5.Text = "Tipo Taxa:";
             // 
-            // tb_Diario
+            // rb_Diario
             // 
-            this.tb_Diario.AutoSize = true;
-            this.tb_Diario.Location = new System.Drawing.Point(6, 16);
-            this.tb_Diario.Name = "tb_Diario";
-            this.tb_Diario.Size = new System.Drawing.Size(56, 19);
-            this.tb_Diario.TabIndex = 0;
-            this.tb_Diario.TabStop = true;
-            this.tb_Diario.Text = "Diário";
-            this.tb_Diario.UseVisualStyleBackColor = true;
+            this.rb_Diario.AutoSize = true;
+            this.rb_Diario.Location = new System.Drawing.Point(6, 16);
+            this.rb_Diario.Name = "rb_Diario";
+            this.rb_Diario.Size = new System.Drawing.Size(56, 19);
+            this.rb_Diario.TabIndex = 0;
+            this.rb_Diario.TabStop = true;
+            this.rb_Diario.Text = "Diário";
+            this.rb_Diario.UseVisualStyleBackColor = true;
             // 
             // rb_Fixo
             // 
@@ -191,7 +191,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rb_Fixo);
-            this.groupBox1.Controls.Add(this.tb_Diario);
+            this.groupBox1.Controls.Add(this.rb_Diario);
             this.groupBox1.Location = new System.Drawing.Point(142, 255);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(148, 41);
@@ -244,7 +244,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RadioButton tb_Diario;
+        private System.Windows.Forms.RadioButton rb_Diario;
         private System.Windows.Forms.RadioButton rb_Fixo;
         private System.Windows.Forms.TextBox txt_Nome;
         private System.Windows.Forms.TextBox txt_Descricao;

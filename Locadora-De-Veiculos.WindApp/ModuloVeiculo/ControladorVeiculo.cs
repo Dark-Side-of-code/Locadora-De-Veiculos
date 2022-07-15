@@ -24,9 +24,20 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
         public override void Inserir()
         {
             List<CategoriaDeVeiculos> categorias = new List<CategoriaDeVeiculos>();
+            
             var resultadoCategoria = servicoCategoria.SelecionarTodos();
+            
             if (resultadoCategoria.IsSuccess)
                 categorias = resultadoCategoria.Value;
+
+            if (categorias.Count == 0)
+            {
+                MessageBox.Show("Insira uma categoria primeiro",
+               "Inserção de Veículos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+                
+
             var tela = new TelaCadastroVeiculo(categorias);
 
             tela.Veiculo = new Veiculo();

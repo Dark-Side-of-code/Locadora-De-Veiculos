@@ -59,7 +59,16 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
                 {
                     comboBox_Tipo.SelectedIndex = 0;
                 }
-                
+
+                if (veiculo.CategoriaDeVeiculos != null)
+                {
+                    comboBox_Categoria.SelectedItem = veiculo.Tipo_combustivel;
+                    comboBox_Categoria.SelectedIndex = 0;
+                }
+                else
+                {
+                    comboBox_Categoria.SelectedIndex = 0;
+                }
 
                 if (veiculo.Ano > DateTimePicker.MinimumDateTime)
                 {

@@ -29,11 +29,20 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
             set
             {
                 taxa = value;
-        
+               
                 txt_Nome.Text = taxa.Nome;
                 txt_Valor.Text = taxa.Valor.ToString();
                 txt_Descricao.Text = taxa.Descricao;
-        
+               
+                if (taxa.TipoDeCobraca == "Fixa")
+                {
+                    rb_Fixo.Checked = true;
+                }
+                else
+                {
+                    rb_Diario.Checked = true;
+                }
+
             }
         }
         
@@ -42,6 +51,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
             taxa.Nome = txt_Nome.Text;
             taxa.Valor = Convert.ToDouble(txt_Valor.Text.Replace("R$", string.Empty).Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
             taxa.Descricao = txt_Descricao.Text;
+            
             if (rb_Fixo.Checked)
                 taxa.TipoDeCobraca = "Fixa";
             else

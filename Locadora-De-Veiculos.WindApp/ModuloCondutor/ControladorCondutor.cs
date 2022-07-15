@@ -27,10 +27,17 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
         public override void Inserir()
         {
             List<Cliente> clientes = new List<Cliente>();
+           
             var resultadoCliente = servicoCliente.SelecionarTodos();
             if (resultadoCliente.IsSuccess)
                 clientes = resultadoCliente.Value;
-
+            
+            if (clientes.Count == 0)
+            {
+                MessageBox.Show("Insira um cliente primeiro",
+               "Inserção de Condutores", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             var tela = new TelaCadastroCondutorForm(clientes);
 
             tela.Condutor = new Condutor();
