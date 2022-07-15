@@ -49,7 +49,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
         
             var resultadoValidacao = GravarRegistro(Taxa);
         
-            if (resultadoValidacao.IsFailed == false)
+            if (resultadoValidacao.IsFailed)
             {
                 string erro = resultadoValidacao.Errors[0].Message;
         
