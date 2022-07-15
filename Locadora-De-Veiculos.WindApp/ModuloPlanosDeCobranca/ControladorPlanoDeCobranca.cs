@@ -71,7 +71,9 @@ namespace Locadora_De_Veiculos.WindApp.ModuloPlanosDeCobranca
             var planoSelecionado = resultado.Value;
 
             List<CategoriaDeVeiculos> categoria = new List<CategoriaDeVeiculos>();
+            
             var resultadoCategoria = servicoCategoria.SelecionarTodos();
+            
             if (resultadoCategoria.IsSuccess)
                 categoria = resultadoCategoria.Value;
 
