@@ -293,7 +293,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Name = "TelaCadastroCondutorForm";
-            this.Text = "TelaCadastroCondutor";
             this.ResumeLayout(false);
             this.PerformLayout();
 

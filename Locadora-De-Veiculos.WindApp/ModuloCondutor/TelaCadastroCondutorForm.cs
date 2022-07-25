@@ -105,8 +105,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
 
         private void checkBox1_CheckStateChanged(object sender, EventArgs e)
         {
-            if(condutor.Cliente != null)
-            {
+           
                 if (checkBox1.Checked == true)
                 {
                     condutor.Cliente = (Cliente)cbx_cliente.SelectedItem;
@@ -123,7 +122,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
                     txtMask_Fone.Text = "";
                     txt_nome.Text = "";
                 }
-            }
+            
         }
     }
 }
