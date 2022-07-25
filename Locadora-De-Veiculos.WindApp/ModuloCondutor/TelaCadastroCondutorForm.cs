@@ -41,6 +41,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
                 {
                     cbx_cliente.SelectedItem = condutor.Cliente;
                     cbx_cliente.SelectedIndex = 0;
+
                 }
                 else
                 {
@@ -52,13 +53,18 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
                 txtMask_Fone.Text = condutor.Telefone;
                 txt_nome.Text = condutor.Nome;
                 txtMask_Cnh.Text = condutor.CNH;
-                
+                txt_endereco.Text = condutor.Edereco;
+
+               
+
+
                 if (Condutor.Validade_CNH > DateTimePicker.MinimumDateTime)
                 {
                     dateTime_Validade_Cnh.Value = condutor.Validade_CNH;
                 }
                 else
-                    dateTime_Validade_Cnh.Value = DateTime.Now;
+                    dateTime_Validade_Cnh.Value = DateTime.Today;
+
             }
         }
 
@@ -72,6 +78,13 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
             condutor.CNH = txtMask_Cnh.Text;
             condutor.Edereco = txt_endereco.Text;
             condutor.Validade_CNH = DateTime.Parse(dateTime_Validade_Cnh.Text);
+
+            if (checkBox1.Checked == true)
+
+                checkBox1.Checked = true;
+
+            else
+                checkBox1.Checked = false;
 
             var resultadoValidacao = GravarRegistro(Condutor);
 
