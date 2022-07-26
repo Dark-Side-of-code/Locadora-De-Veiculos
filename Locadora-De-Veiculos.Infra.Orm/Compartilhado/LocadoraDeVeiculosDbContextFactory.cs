@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace Locadora_De_Veiculos.Infra.Orm
+namespace Locadora_De_Veiculos.Infra.Orm.Compartilhado
 {
     internal class LocadoraDeVeiculosDbContextFactory : IDesignTimeDbContextFactory<LocaDoraDeVeiculosDbContext>
     {
