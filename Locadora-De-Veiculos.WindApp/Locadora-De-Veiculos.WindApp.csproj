@@ -23,6 +23,7 @@
     <ProjectReference Include="..\Locadora-De-Veiculos.Aplicacao\Locadora-De-Veiculos.Aplicacao.csproj" />
     <ProjectReference Include="..\Locadora-De-Veiculos.Dominio\Locadora-De-Veiculos.Dominio.csproj" />
     <ProjectReference Include="..\Locadora-De-Veiculos.Infra.Banco\Locadora-De-Veiculos.Infra.Banco.csproj" />
+    <ProjectReference Include="..\Locadora-De-Veiculos.Infra.Orm\Locadora-De-Veiculos.Infra.Orm.csproj" />
     <ProjectReference Include="..\Locadora_De_Veiculos.Infra.Logging\Locadora_De_Veiculos.Infra.Logging.csproj" />
   </ItemGroup>
 

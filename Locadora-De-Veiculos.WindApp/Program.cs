@@ -1,4 +1,5 @@
 ﻿using Locadora_De_Veiculos.Infra.Logging;
+using Locadora_De_Veiculos.Infra.Orm.Compartilhado;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace Locadora_De_Veiculos.WindApp
         static void Main()
         
         {
+            MigradorBancoDados.AtualizarBancoDados();
             ConfiguracaoLogsLocadora.ConfigurarEscritaLog();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
