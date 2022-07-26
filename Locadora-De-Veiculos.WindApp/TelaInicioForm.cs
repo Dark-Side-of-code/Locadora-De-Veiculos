@@ -24,6 +24,8 @@ namespace Locadora_De_Veiculos.WindApp
             labelRodape.Text = string.Empty;
 
             labelTipoCadastro.Text = string.Empty;
+
+            this.serviceLocator = serviceLocator;
         }
         public static TelaInicioForm Instancia
         {
