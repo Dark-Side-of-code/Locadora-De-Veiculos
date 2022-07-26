@@ -14,8 +14,8 @@ namespace Locadora_De_Veiculos.WindApp
     public partial class TelaInicioForm : Form
     {
         private ControladorBase controlador;
-        private IServiceLocator serviceLocator;
-        public TelaInicioForm(IServiceLocator serviceLocator)
+        private ServiceLocatorManual serviceLocator = new ServiceLocatorManual(); //refatorar 
+        public TelaInicioForm()
         {
             InitializeComponent();
 

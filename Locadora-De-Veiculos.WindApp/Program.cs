@@ -1,5 +1,4 @@
 ﻿using Locadora_De_Veiculos.Infra.Logging;
-using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +21,7 @@ namespace Locadora_De_Veiculos.WindApp
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //var serviceLocator = new ServiceLocatorComAutofac();
-            var serviceLocator = new ServiceLocatorManual();
-            Application.Run(new TelaInicioForm(serviceLocator));
+            Application.Run(new TelaInicioForm());
         }
     }
 }

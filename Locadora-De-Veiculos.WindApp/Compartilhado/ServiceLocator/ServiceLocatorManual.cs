@@ -27,7 +27,7 @@ using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.WindApp.Compartilhado
 {
-    public class ServiceLocatorManual : IServiceLocator
+    public class ServiceLocatorManual
 
     {
         private Dictionary<string, ControladorBase> controladores;
@@ -64,13 +64,13 @@ namespace Locadora_De_Veiculos.WindApp.Compartilhado
             controladores.Add("ControladorPlanoDeCobranca", new ControladorPlanoDeCobranca(servicoCategoriaDeVeiculos, servicoPlanoDeCobranca));
         }
 
-        public T Get<T>() where T : ControladorBase
+        public ControladorBase Get<T>()
         {
-            var tipo = typeof(T);
+            var tipo = typeof(T); 
 
             var nomeControlador = tipo.Name;
 
-            return (T)controladores[nomeControlador];
+            return controladores[nomeControlador];
         }
     }
 }
