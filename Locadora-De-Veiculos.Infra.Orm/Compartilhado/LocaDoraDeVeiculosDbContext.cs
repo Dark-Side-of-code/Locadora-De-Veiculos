@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Locadora_De_Veiculos.Infra.Orm
+namespace Locadora_De_Veiculos.Infra.Orm.Compartilhado
 {
     public class LocaDoraDeVeiculosDbContext : DbContext  //, IContextoPersistencia
     {
