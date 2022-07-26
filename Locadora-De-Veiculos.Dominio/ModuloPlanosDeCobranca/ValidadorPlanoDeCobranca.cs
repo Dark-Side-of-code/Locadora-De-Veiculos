@@ -44,9 +44,6 @@ namespace Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca
                 .NotNull()
                 .NotEmpty()
                 .GreaterThan(0);
-
-
-
         }
     }
 }
