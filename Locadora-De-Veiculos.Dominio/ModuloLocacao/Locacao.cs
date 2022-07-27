@@ -22,7 +22,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
         public Veiculo Veiculo { get; set; }
         public PlanoDeCobranca PlanoDeCobranca { get; set; }
         public DateTime DataInicio { get; set; }
-        public DateTime DataFinal { get; set; }
+        public DateTime DataFinalPrevista { get; set; }
 
         public Locacao()
         {
@@ -38,7 +38,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
             Veiculo = veiculo;
             PlanoDeCobranca = planoDeCobranca;
             DataInicio = dataInicio;
-            DataFinal = dataFinal;
+            DataFinalPrevista = dataFinal;
         }
         public override bool Equals(object obj)
         {
@@ -51,7 +51,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
                    EqualityComparer<Veiculo>.Default.Equals(Veiculo, locacao.Veiculo) &&
                    EqualityComparer<PlanoDeCobranca>.Default.Equals(PlanoDeCobranca, locacao.PlanoDeCobranca) &&
                    DataInicio == locacao.DataInicio &&
-                   DataFinal == locacao.DataFinal;
+                   DataFinalPrevista == locacao.DataFinalPrevista;
         }
 
         public Condutor Clone()
