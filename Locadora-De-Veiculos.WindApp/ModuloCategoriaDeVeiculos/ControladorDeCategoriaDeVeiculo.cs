@@ -1,7 +1,5 @@
 ﻿using Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos;
-using Locadora_De_Veiculos.Dominio.ModuloCategoriaDeVeiculos;
 using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
-using Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using Locadora_De_Veiculos.WindApp.ModuloGrupoDeVeiculos;
 using System;
@@ -60,7 +58,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
 
             var tela = new TelaDeCadastroDeCategoriaDeVeiculoForm();
 
-            tela.CategoriaDeVeiculos = (CategoriaDeVeiculos)CategoriaDeVeiculoSelecionado.Clone();
+            tela.CategoriaDeVeiculos = CategoriaDeVeiculoSelecionado;
 
             tela.GravarRegistro = servicoCategoriaDeVeiculos.Editar;
 
