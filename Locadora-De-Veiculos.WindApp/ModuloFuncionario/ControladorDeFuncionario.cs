@@ -58,7 +58,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloFuncionario
 
             var tela = new TelaCadastroFuncionarioForm();
 
-            tela.Funcionario = funcionarioSelecionado.Clone();
+            tela.Funcionario = funcionarioSelecionado;
 
             tela.GravarRegistro = servicoFuncionario.Editar;
 
