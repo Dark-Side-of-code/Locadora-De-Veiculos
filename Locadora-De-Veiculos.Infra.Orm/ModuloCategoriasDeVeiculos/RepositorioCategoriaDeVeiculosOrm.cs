@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Infra.Orm.ModuloCategoriasDeVeiculos
 {
-    internal class RepositorioCategoriaDeVeiculosOrm : RepositorioBaseOrm<CategoriaDeVeiculos>, IRepositorioCategoriaDeVeiculos
+    public class RepositorioCategoriaDeVeiculosOrm : RepositorioBaseOrm<CategoriaDeVeiculos>, IRepositorioCategoriaDeVeiculos
     {
         private DbSet<CategoriaDeVeiculos> categorias;
         private readonly LocaDoraDeVeiculosDbContext dbContext;

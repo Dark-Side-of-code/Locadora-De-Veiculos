@@ -1,5 +1,6 @@
 ﻿using FluentResults;
 using FluentValidation.Results;
+using Locadora_De_Veiculos.Dominio.Compartilhado;
 using Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca;
 using Serilog;
 using System;
@@ -13,10 +14,12 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloPlanoDeCobranca
     public class ServicoPlanoDeCobranca
     {
         private IRepositorioPlanoDeCobranca repositorioPlanoDeCobranca;
+        private IContextoPersistencia contexto;
 
-        public ServicoPlanoDeCobranca(IRepositorioPlanoDeCobranca repositorioPlanoDeCobranca)
+        public ServicoPlanoDeCobranca(IRepositorioPlanoDeCobranca repositorioPlanoDeCobranca, IContextoPersistencia contexto)
         {
             this.repositorioPlanoDeCobranca = repositorioPlanoDeCobranca;
+            this.contexto = contexto;
         }
 
         public Result<PlanoDeCobranca> Inserir(PlanoDeCobranca arg)
@@ -38,6 +41,8 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloPlanoDeCobranca
             try 
             {
                 repositorioPlanoDeCobranca.Inserir(arg);
+
+                contexto.GravarDados();
 
                 Log.Logger.Information("Plano de cobrança {PlanoCobranca} inserido com sucesso.", arg.Id);
 
@@ -75,6 +80,8 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloPlanoDeCobranca
             {
                 repositorioPlanoDeCobranca.Editar(arg);
 
+                contexto.GravarDados();
+
                 Log.Logger.Information("Plano de cobrança {PlanoCobranca} editado com sucesso.", arg.Id);
 
                 return Result.Ok(arg);
@@ -96,6 +103,8 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloPlanoDeCobranca
             try
             {
                 repositorioPlanoDeCobranca.Excluir(arg);
+
+                contexto.GravarDados();
 
                 Log.Logger.Information("Plano de Cobrança {PlanoCobranca} excluído com sucesso", arg.Id);
 

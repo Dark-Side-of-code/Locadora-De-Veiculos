@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Locadora_De_Veiculos.Dominio.Compartilhado;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Infra.Orm.Compartilhado
 {
-    public class LocaDoraDeVeiculosDbContext : DbContext  //, IContextoPersistencia
+    public class LocaDoraDeVeiculosDbContext : DbContext, IContextoPersistencia
     {
         private string connectionString;
 
