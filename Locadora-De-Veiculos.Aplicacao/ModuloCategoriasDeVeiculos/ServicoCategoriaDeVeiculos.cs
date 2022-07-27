@@ -1,5 +1,6 @@
 ﻿using FluentResults;
 using FluentValidation.Results;
+using Locadora_De_Veiculos.Dominio.Compartilhado;
 using Locadora_De_Veiculos.Dominio.ModuloCategoriaDeVeiculos;
 using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
 using Serilog;
@@ -14,10 +15,12 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
     public class ServicoCategoriasDeVeiculos
     {
         private IRepositorioCategoriaDeVeiculos repositorioCategoriaDeVeiculos;
+        private IContextoPersistencia contexto;
 
-        public ServicoCategoriasDeVeiculos(IRepositorioCategoriaDeVeiculos repositorioCategoriaDeVeiculos)
+        public ServicoCategoriasDeVeiculos(IRepositorioCategoriaDeVeiculos repositorioCategoriaDeVeiculos, IContextoPersistencia contexto)
         {
             this.repositorioCategoriaDeVeiculos = repositorioCategoriaDeVeiculos;
+            this.contexto = contexto;
         }
 
         public Result<CategoriaDeVeiculos> Inserir(CategoriaDeVeiculos arg)
@@ -40,6 +43,8 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
             try
             {
                 repositorioCategoriaDeVeiculos.Inserir(arg);
+
+                contexto.GravarDados();
 
                 Log.Logger.Information("Categoria {CategoriaDeVeiculosId} inserida com sucesso", arg.Id);
 
@@ -76,6 +81,8 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
             {
                 repositorioCategoriaDeVeiculos.Editar(arg);
 
+                contexto.GravarDados();
+
                 Log.Logger.Information("Categoria {CategoriaDeVeiculosId} editada com sucesso", arg.Id);
 
                 return Result.Ok(arg);
@@ -97,6 +104,8 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloCategoriasDeVeiculos
             try
             {
                 repositorioCategoriaDeVeiculos.Excluir(arg);
+
+                contexto.GravarDados();
 
                 Log.Logger.Information("Categoria {CategoriaDeVeiculosId} excluída com sucesso", arg.Id);
 

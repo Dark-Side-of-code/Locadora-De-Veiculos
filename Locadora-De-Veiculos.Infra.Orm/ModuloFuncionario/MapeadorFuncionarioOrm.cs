@@ -13,7 +13,7 @@ namespace Locadora_De_Veiculos.Infra.Orm.ModuloFuncionario
     {
         public void Configure(EntityTypeBuilder<Funcionario> builder)
         {
-            builder.ToTable("TbCliente");
+            builder.ToTable("TbFuncionario");
             builder.Property(x => x.Id).ValueGeneratedNever();
             builder.Property(x => x.Nome).IsRequired().HasColumnType("varchar(200)");
             builder.Property(x => x.Login).IsRequired().HasColumnType("varchar(50)");

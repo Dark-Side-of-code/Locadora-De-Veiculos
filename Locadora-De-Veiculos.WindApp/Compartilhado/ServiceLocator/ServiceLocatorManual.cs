@@ -5,13 +5,14 @@ using Locadora_De_Veiculos.Aplicacao.ModuloFuncionario;
 using Locadora_De_Veiculos.Aplicacao.ModuloPlanoDeCobranca;
 using Locadora_De_Veiculos.Aplicacao.ModuloTaxas;
 using Locadora_De_Veiculos.Aplicacao.ModuloVeiculo;
-using Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos;
-using Locadora_De_Veiculos.Infra.Banco.ModuloCliente;
-using Locadora_De_Veiculos.Infra.Banco.ModuloCondutor;
-using Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario;
-using Locadora_De_Veiculos.Infra.Banco.ModuloPlanosDeCobranca;
-using Locadora_De_Veiculos.Infra.Banco.ModuloTaxas;
 using Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo;
+using Locadora_De_Veiculos.Infra.Orm.Compartilhado;
+using Locadora_De_Veiculos.Infra.Orm.ModuloCategoriasDeVeiculos;
+using Locadora_De_Veiculos.Infra.Orm.ModuloCliente;
+using Locadora_De_Veiculos.Infra.Orm.ModuloCondutor;
+using Locadora_De_Veiculos.Infra.Orm.ModuloFuncionario;
+using Locadora_De_Veiculos.Infra.Orm.ModuloPlanosDeCobrança;
+using Locadora_De_Veiculos.Infra.Orm.ModuloTaxas;
 using Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos;
 using Locadora_De_Veiculos.WindApp.ModuloCliente;
 using Locadora_De_Veiculos.WindApp.ModuloFuncionario;
@@ -19,8 +20,10 @@ using Locadora_De_Veiculos.WindApp.ModuloMotorista;
 using Locadora_De_Veiculos.WindApp.ModuloPlanosDeCobranca;
 using Locadora_De_Veiculos.WindApp.ModuloTaxa;
 using Locadora_De_Veiculos.WindApp.ModuloVeiculo;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,34 +36,46 @@ namespace Locadora_De_Veiculos.WindApp.Compartilhado
         private Dictionary<string, ControladorBase> controladores;
         public ServiceLocatorManual()
         {
+            controladores = new Dictionary<string, ControladorBase>();
             InicializarControladores();
         }
         private void InicializarControladores()
         {
-            var repositorioCliente = new RepositorioClienteEmBancoDados();
-            var repositorioGrupoVeiculos = new RepositorioCategoriaDeVeiculosEmBancoDados();
-            var repositorioTaxa = new RepositorioTaxaEmBancoDados();
-            var repositorioFuncionario = new RepositorioFuncionarioEmBancoDados();
-            var repositorioCondutor = new RepositorioCondutorEmBancoDados();
-            var repositorioVeiculo = new RepositorioVeiculoEmBancoDados();
-            var repositorioPlanoDeCobranca = new RepositorioPlanosDeCobrancaEmBancoDados();
+            IConfiguration configuracao = new ConfigurationBuilder()
+                 .SetBasePath(Directory.GetCurrentDirectory())
+                 .AddJsonFile("ConfiguracaoAplicacao.json")
+                 .Build();
 
-            var servicoFuncionario = new ServicoFuncionario(repositorioFuncionario);
-            var servicoCliente = new ServicoCliente(repositorioCliente);
-            var servicoCategoriaDeVeiculos = new ServicoCategoriasDeVeiculos(repositorioGrupoVeiculos);
-            var servicoTaxa = new ServicoTaxa(repositorioTaxa);
-            var servicoCondutor = new ServicoCondutor(repositorioCondutor);
-            var servicoVeiculo = new ServicoVeiculo(repositorioVeiculo);
-            var servicoPlanoDeCobranca = new ServicoPlanoDeCobranca(repositorioPlanoDeCobranca);
+            var connectionString = configuracao.GetConnectionString("SqlServer");
 
-            controladores = new Dictionary<string, ControladorBase>();
+            var contextoDadosOrm = new LocaDoraDeVeiculosDbContext(connectionString);
 
-            controladores.Add("ControladorTaxa", new ControladorTaxa(servicoTaxa));
+            var repositorioCliente = new RepositorioClienteOrm(contextoDadosOrm);
+            var servicoCliente = new ServicoCliente(repositorioCliente, contextoDadosOrm);
             controladores.Add("ControladorCliente", new ControladorCliente(servicoCliente));
+
+            var repositorioGrupoVeiculos = new RepositorioCategoriaDeVeiculosOrm(contextoDadosOrm);
+            var servicoCategoriaDeVeiculos = new ServicoCategoriasDeVeiculos(repositorioGrupoVeiculos, contextoDadosOrm);
             controladores.Add("ControladorDeCategoriaDeVeiculo", new ControladorDeCategoriaDeVeiculo(servicoCategoriaDeVeiculos));
+
+            var repositorioTaxa = new RepositorioTaxaOrm(contextoDadosOrm);
+            var servicoTaxa = new ServicoTaxa(repositorioTaxa, contextoDadosOrm);
+            controladores.Add("ControladorTaxa", new ControladorTaxa(servicoTaxa));
+
+            var repositorioFuncionario = new RepositorioFuncionarioOrm(contextoDadosOrm);
+            var servicoFuncionario = new ServicoFuncionario(repositorioFuncionario, contextoDadosOrm);
             controladores.Add("ControladorDeFuncionario", new ControladorDeFuncionario(servicoFuncionario));
+
+            var repositorioCondutor = new RepositorioCondutorOrm(contextoDadosOrm);
+            var servicoCondutor = new ServicoCondutor(repositorioCondutor, contextoDadosOrm);
             controladores.Add("ControladorCondutor", new ControladorCondutor(servicoCliente, servicoCondutor));
+
+            var repositorioVeiculo = new RepositorioVeiculoEmBancoDados();
+            var servicoVeiculo = new ServicoVeiculo(repositorioVeiculo);
             controladores.Add("ControladorVeiculo", new ControladorVeiculo(servicoCategoriaDeVeiculos, servicoVeiculo));
+
+            var repositorioPlanoDeCobranca = new RepositorioPlanosDeCobrancaOrm(contextoDadosOrm);
+            var servicoPlanoDeCobranca = new ServicoPlanoDeCobranca(repositorioPlanoDeCobranca, contextoDadosOrm);
             controladores.Add("ControladorPlanoDeCobranca", new ControladorPlanoDeCobranca(servicoCategoriaDeVeiculos, servicoPlanoDeCobranca));
         }
 

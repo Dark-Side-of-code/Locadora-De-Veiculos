@@ -13,13 +13,13 @@ using Locadora_De_Veiculos.Dominio.ModuloFuncionario;
 using Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca;
 using Locadora_De_Veiculos.Dominio.ModuloTaxas;
 using Locadora_De_Veiculos.Dominio.ModuloVeiculo;
-using Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos;
-using Locadora_De_Veiculos.Infra.Banco.ModuloCliente;
-using Locadora_De_Veiculos.Infra.Banco.ModuloCondutor;
-using Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario;
-using Locadora_De_Veiculos.Infra.Banco.ModuloPlanosDeCobranca;
-using Locadora_De_Veiculos.Infra.Banco.ModuloTaxas;
 using Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo;
+using Locadora_De_Veiculos.Infra.Orm.ModuloCliente;
+using Locadora_De_Veiculos.Infra.Orm.ModuloCondutor;
+using Locadora_De_Veiculos.Infra.Orm.ModuloFuncionario;
+using Locadora_De_Veiculos.Infra.Orm.ModuloPlanosDeCobrança;
+using Locadora_De_Veiculos.Infra.Orm.ModuloTaxas;
+using Locadora_De_Veiculos.Infra.Orm.ModuloCategoriasDeVeiculos;
 using Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos;
 using Locadora_De_Veiculos.WindApp.ModuloCliente;
 using Locadora_De_Veiculos.WindApp.ModuloFuncionario;
@@ -27,6 +27,12 @@ using Locadora_De_Veiculos.WindApp.ModuloMotorista;
 using Locadora_De_Veiculos.WindApp.ModuloPlanosDeCobranca;
 using Locadora_De_Veiculos.WindApp.ModuloTaxa;
 using Locadora_De_Veiculos.WindApp.ModuloVeiculo;
+using Locadora_De_Veiculos.Infra.Banco.ModuloPlanosDeCobranca;
+using Locadora_De_Veiculos.Infra.Banco.ModuloCliente;
+using Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos;
+using Locadora_De_Veiculos.Infra.Banco.ModuloTaxas;
+using Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario;
+using Locadora_De_Veiculos.Infra.Banco.ModuloCondutor;
 
 namespace Locadora_De_Veiculos.WindApp.Compartilhado
 {
