@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="ModuloCategoriasDeVeiculos\" />
-    <Folder Include="ModuloCondutor\" />
     <Folder Include="ModuloFuncionario\" />
     <Folder Include="ModuloPlanosDeCobrança\" />
     <Folder Include="ModuloTaxas\" />

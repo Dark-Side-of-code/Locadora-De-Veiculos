@@ -34,6 +34,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCondutor
         public string Telefone { get; set; }
         public string Edereco { get; set; }
         public Cliente Cliente { get; set; }
+        public Guid ClienteId { get; set; }
 
         public Condutor Clone()
         {
@@ -75,6 +76,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCondutor
                 return;
 
             Cliente = cliente;
+            ClienteId = cliente.Id;
         }
     }
 }
