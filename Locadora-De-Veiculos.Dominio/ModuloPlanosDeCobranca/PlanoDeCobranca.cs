@@ -45,7 +45,10 @@ namespace Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca
         public double PlanoKM_controlado_ValorPorKM { get; set; }
        
         public CategoriaDeVeiculos CategoriaDeVeiculos{ get; set; }
-       
+
+        public Guid CategoriaDeVeiculosId { get; set; }
+
+
 
         public override bool Equals(object obj)
         {
@@ -75,6 +78,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca
             if (categoria == null)
                 return;
 
+            CategoriaDeVeiculosId = categoria.Id;
             CategoriaDeVeiculos = categoria;
         }
     }
