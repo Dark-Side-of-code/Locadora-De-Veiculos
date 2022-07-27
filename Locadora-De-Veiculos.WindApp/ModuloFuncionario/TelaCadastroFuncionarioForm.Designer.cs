@@ -65,7 +65,6 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "Voltar";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -90,7 +89,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(486, 10);
             this.panel2.TabIndex = 39;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label8
             // 
@@ -109,7 +107,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(485, 30);
             this.panel1.TabIndex = 23;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -120,7 +117,6 @@
             this.label1.Size = new System.Drawing.Size(296, 32);
             this.label1.TabIndex = 22;
             this.label1.Text = "Cadastro De Funcionário";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -273,7 +269,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Name = "TelaCadastroFuncionarioForm";
-            this.Load += new System.EventHandler(this.TelaCadastroFuncionarioForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

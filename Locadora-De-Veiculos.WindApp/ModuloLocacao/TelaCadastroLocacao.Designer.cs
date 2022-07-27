@@ -47,16 +47,16 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.cbxFuncionario = new System.Windows.Forms.ComboBox();
+            this.cbxCliente = new System.Windows.Forms.ComboBox();
+            this.cbxCategoria = new System.Windows.Forms.ComboBox();
+            this.cbxPlano = new System.Windows.Forms.ComboBox();
+            this.cbxCondutor = new System.Windows.Forms.ComboBox();
+            this.cbxVeiculo = new System.Windows.Forms.ComboBox();
+            this.dateInicio = new System.Windows.Forms.DateTimePicker();
+            this.dateDevolucao = new System.Windows.Forms.DateTimePicker();
+            this.txtKilometragem = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -116,6 +116,7 @@
             this.button1.TabIndex = 46;
             this.button1.Text = "Cadastarar";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label8
             // 
@@ -247,77 +248,6 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(149, 126);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(210, 23);
-            this.comboBox1.TabIndex = 60;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(149, 167);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(210, 23);
-            this.comboBox2.TabIndex = 61;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(149, 203);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(210, 23);
-            this.comboBox3.TabIndex = 62;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(149, 239);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(210, 23);
-            this.comboBox4.TabIndex = 63;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(484, 167);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(210, 23);
-            this.comboBox5.TabIndex = 64;
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(484, 203);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(210, 23);
-            this.comboBox6.TabIndex = 65;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(149, 275);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(210, 23);
-            this.dateTimePicker1.TabIndex = 66;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(484, 275);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(210, 23);
-            this.dateTimePicker2.TabIndex = 67;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(484, 239);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(210, 23);
-            this.textBox1.TabIndex = 68;
-            // 
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
@@ -326,20 +256,91 @@
             this.checkedListBox1.Size = new System.Drawing.Size(621, 148);
             this.checkedListBox1.TabIndex = 0;
             // 
+            // cbxFuncionario
+            // 
+            this.cbxFuncionario.FormattingEnabled = true;
+            this.cbxFuncionario.Location = new System.Drawing.Point(149, 126);
+            this.cbxFuncionario.Name = "cbxFuncionario";
+            this.cbxFuncionario.Size = new System.Drawing.Size(210, 23);
+            this.cbxFuncionario.TabIndex = 60;
+            // 
+            // cbxCliente
+            // 
+            this.cbxCliente.FormattingEnabled = true;
+            this.cbxCliente.Location = new System.Drawing.Point(149, 167);
+            this.cbxCliente.Name = "cbxCliente";
+            this.cbxCliente.Size = new System.Drawing.Size(210, 23);
+            this.cbxCliente.TabIndex = 61;
+            // 
+            // cbxCategoria
+            // 
+            this.cbxCategoria.FormattingEnabled = true;
+            this.cbxCategoria.Location = new System.Drawing.Point(149, 203);
+            this.cbxCategoria.Name = "cbxCategoria";
+            this.cbxCategoria.Size = new System.Drawing.Size(210, 23);
+            this.cbxCategoria.TabIndex = 62;
+            // 
+            // cbxPlano
+            // 
+            this.cbxPlano.FormattingEnabled = true;
+            this.cbxPlano.Location = new System.Drawing.Point(149, 239);
+            this.cbxPlano.Name = "cbxPlano";
+            this.cbxPlano.Size = new System.Drawing.Size(210, 23);
+            this.cbxPlano.TabIndex = 63;
+            // 
+            // cbxCondutor
+            // 
+            this.cbxCondutor.FormattingEnabled = true;
+            this.cbxCondutor.Location = new System.Drawing.Point(484, 167);
+            this.cbxCondutor.Name = "cbxCondutor";
+            this.cbxCondutor.Size = new System.Drawing.Size(210, 23);
+            this.cbxCondutor.TabIndex = 64;
+            // 
+            // cbxVeiculo
+            // 
+            this.cbxVeiculo.FormattingEnabled = true;
+            this.cbxVeiculo.Location = new System.Drawing.Point(484, 203);
+            this.cbxVeiculo.Name = "cbxVeiculo";
+            this.cbxVeiculo.Size = new System.Drawing.Size(210, 23);
+            this.cbxVeiculo.TabIndex = 65;
+            // 
+            // dateInicio
+            // 
+            this.dateInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateInicio.Location = new System.Drawing.Point(149, 275);
+            this.dateInicio.Name = "dateInicio";
+            this.dateInicio.Size = new System.Drawing.Size(210, 23);
+            this.dateInicio.TabIndex = 66;
+            // 
+            // dateDevolucao
+            // 
+            this.dateDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateDevolucao.Location = new System.Drawing.Point(484, 275);
+            this.dateDevolucao.Name = "dateDevolucao";
+            this.dateDevolucao.Size = new System.Drawing.Size(210, 23);
+            this.dateDevolucao.TabIndex = 67;
+            // 
+            // txtKilometragem
+            // 
+            this.txtKilometragem.Location = new System.Drawing.Point(484, 239);
+            this.txtKilometragem.Name = "txtKilometragem";
+            this.txtKilometragem.Size = new System.Drawing.Size(210, 23);
+            this.txtKilometragem.TabIndex = 68;
+            // 
             // TelaCadastroLocacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 624);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox6);
-            this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtKilometragem);
+            this.Controls.Add(this.dateDevolucao);
+            this.Controls.Add(this.dateInicio);
+            this.Controls.Add(this.cbxVeiculo);
+            this.Controls.Add(this.cbxCondutor);
+            this.Controls.Add(this.cbxPlano);
+            this.Controls.Add(this.cbxCategoria);
+            this.Controls.Add(this.cbxCliente);
+            this.Controls.Add(this.cbxFuncionario);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -389,14 +390,14 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cbxFuncionario;
+        private System.Windows.Forms.ComboBox cbxCliente;
+        private System.Windows.Forms.ComboBox cbxCategoria;
+        private System.Windows.Forms.ComboBox cbxPlano;
+        private System.Windows.Forms.ComboBox cbxCondutor;
+        private System.Windows.Forms.ComboBox cbxVeiculo;
+        private System.Windows.Forms.DateTimePicker dateInicio;
+        private System.Windows.Forms.DateTimePicker dateDevolucao;
+        private System.Windows.Forms.TextBox txtKilometragem;
     }
 }
