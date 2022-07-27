@@ -81,7 +81,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
 
             var tela = new TelaCadastroCondutorForm(clientes);
 
-            tela.Condutor = condutorSelecionado.Clone();
+            tela.Condutor = condutorSelecionado;
 
             tela.GravarRegistro = servicoCondutor.Editar;
 
