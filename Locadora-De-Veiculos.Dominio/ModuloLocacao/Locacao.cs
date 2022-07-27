@@ -21,6 +21,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
         public CategoriaDeVeiculos Categoria { get; set; }
         public Veiculo Veiculo { get; set; }
         public PlanoDeCobranca PlanoDeCobranca { get; set; }
+        public double valorEstimado { get; set; }
         public DateTime DataInicio { get; set; }
         public DateTime DataFinalPrevista { get; set; }
 
