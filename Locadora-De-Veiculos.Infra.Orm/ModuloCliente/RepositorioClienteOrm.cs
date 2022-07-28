@@ -14,7 +14,7 @@ namespace Locadora_De_Veiculos.Infra.Orm.ModuloCliente
         private DbSet<Cliente> clientes;
         private readonly LocaDoraDeVeiculosDbContext dbContext;
 
-        public RepositorioClienteOrm(LocaDoraDeVeiculosDbContext dbContext)
+        public RepositorioClienteOrm(LocaDoraDeVeiculosDbContext dbContext) : base(dbContext)
         {
             clientes = dbContext.Set<Cliente>();
             this.dbContext = dbContext;

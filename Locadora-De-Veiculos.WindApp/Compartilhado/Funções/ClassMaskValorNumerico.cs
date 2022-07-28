@@ -5,20 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Locadora_De_Veiculos.WindApp.Compartilhado
+namespace Locadora_De_Veiculos.WindApp.Compartilhado.Funções
 {
     public class ClassMaskValorNumerico
     {
         static string valor = "";
-        
+
         private static void Aplica_KeyPress_Mascara(object sender, KeyPressEventArgs e)
         {
             TextBoxBase txt = (TextBoxBase)sender;
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back))
             {
                 if (e.KeyChar == ',')
                 {
-                    e.Handled = (txt.Text.Contains(","));
+                    e.Handled = txt.Text.Contains(",");
                 }
                 else
                 {

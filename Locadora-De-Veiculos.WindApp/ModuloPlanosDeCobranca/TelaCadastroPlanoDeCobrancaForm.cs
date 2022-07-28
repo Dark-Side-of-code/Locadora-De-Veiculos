@@ -3,6 +3,7 @@ using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
 using Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
+using Locadora_De_Veiculos.WindApp.Compartilhado.Funções;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

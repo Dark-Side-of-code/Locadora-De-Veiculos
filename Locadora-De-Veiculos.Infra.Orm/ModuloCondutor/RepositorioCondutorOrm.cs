@@ -14,7 +14,7 @@ namespace Locadora_De_Veiculos.Infra.Orm.ModuloCondutor
         private DbSet<Condutor> condutores;
         private readonly LocaDoraDeVeiculosDbContext dbContext;
 
-        public RepositorioCondutorOrm(LocaDoraDeVeiculosDbContext dbContext)
+        public RepositorioCondutorOrm(LocaDoraDeVeiculosDbContext dbContext) : base(dbContext)
         {
             condutores = dbContext.Set<Condutor>();
             this.dbContext = dbContext;

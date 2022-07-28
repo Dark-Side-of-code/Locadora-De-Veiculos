@@ -43,23 +43,23 @@ namespace Locadora_De_Veiculos.WindApp.Compartilhado
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<RepositorioClienteEmBancoDados>().As<IRepositorioCliente>();
+            builder.RegisterType<RepositorioClienteOrm>().As<IRepositorioCliente>();
             builder.RegisterType<ServicoCliente>().AsSelf();
             builder.RegisterType<ControladorCliente>().AsSelf();
 
-            builder.RegisterType<RepositorioCategoriaDeVeiculosEmBancoDados>().As<IRepositorioCategoriaDeVeiculos>();
+            builder.RegisterType<RepositorioCategoriaDeVeiculosOrm>().As<IRepositorioCategoriaDeVeiculos>();
             builder.RegisterType<ServicoCategoriasDeVeiculos>().AsSelf();
             builder.RegisterType<ControladorDeCategoriaDeVeiculo>().AsSelf();
 
-            builder.RegisterType<RepositorioTaxaEmBancoDados>().As<IRepositorioTaxa>();
+            builder.RegisterType<RepositorioTaxaOrm>().As<IRepositorioTaxa>();
             builder.RegisterType<ServicoTaxa>().AsSelf();
             builder.RegisterType<ControladorTaxa>().AsSelf();
 
-            builder.RegisterType<RepositorioFuncionarioEmBancoDados>().As<IRepositorioFuncionario>();
+            builder.RegisterType<RepositorioFuncionarioOrm>().As<IRepositorioFuncionario>();
             builder.RegisterType<ServicoFuncionario>().AsSelf();
             builder.RegisterType<ControladorDeFuncionario>().AsSelf();
 
-            builder.RegisterType<RepositorioCondutorEmBancoDados>().As<IRepositorioCondutor>();
+            builder.RegisterType<RepositorioCondutorOrm>().As<IRepositorioCondutor>();
             builder.RegisterType<ServicoCondutor>().AsSelf();
             builder.RegisterType<ControladorCondutor>().AsSelf();
 
@@ -67,7 +67,7 @@ namespace Locadora_De_Veiculos.WindApp.Compartilhado
             builder.RegisterType<ServicoVeiculo>().AsSelf();
             builder.RegisterType<ControladorVeiculo>().AsSelf();
 
-            builder.RegisterType<RepositorioPlanosDeCobrancaEmBancoDados>().As<IRepositorioPlanoDeCobranca>();
+            builder.RegisterType<RepositorioPlanosDeCobrancaOrm>().As<IRepositorioPlanoDeCobranca>();
             builder.RegisterType<ServicoPlanoDeCobranca>().AsSelf();
             builder.RegisterType<ControladorPlanoDeCobranca>().AsSelf();
 

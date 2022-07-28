@@ -12,6 +12,13 @@ namespace Locadora_De_Veiculos.Infra.Orm.Compartilhado
         where T : EntidadeBase<T>
     {
         private DbSet<T> entidades;
+        private readonly LocaDoraDeVeiculosDbContext dbContext;
+
+        protected RepositorioBaseOrm(LocaDoraDeVeiculosDbContext dbContext)
+        {
+            entidades = dbContext.Set<T>();
+            this.dbContext = dbContext;
+        }
 
         public virtual void Editar(T registro)
         {

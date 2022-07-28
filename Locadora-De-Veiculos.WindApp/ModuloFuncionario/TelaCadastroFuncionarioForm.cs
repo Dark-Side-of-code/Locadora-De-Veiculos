@@ -2,6 +2,7 @@
 using FluentValidation.Results;
 using Locadora_De_Veiculos.Dominio.ModuloFuncionario;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
+using Locadora_De_Veiculos.WindApp.Compartilhado.Funções;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -8,14 +8,14 @@ using System.Windows;
 using System.IO;
 using System.Drawing.Imaging;
 
-namespace Locadora_De_Veiculos.Infra.Banco.Compartilhado
+namespace Locadora_De_Veiculos.WindApp.Compartilhado.Funções
 {
     public class ConversorDeImagemParaByteParaImagem
     {
         public static byte[] ConverteImagemParaByteArray(Image img)
         {
             MemoryStream ms = new MemoryStream();
-            if(img != null)
+            if (img != null)
                 img.Save(ms, ImageFormat.Jpeg);
             return ms.ToArray();
         }
