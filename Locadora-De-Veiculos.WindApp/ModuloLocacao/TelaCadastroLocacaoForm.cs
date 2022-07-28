@@ -5,6 +5,7 @@ using Locadora_De_Veiculos.Dominio.ModuloFuncionario;
 using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
 using Locadora_De_Veiculos.Dominio.ModuloLocacao;
 using Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca;
+using Locadora_De_Veiculos.Dominio.ModuloTaxas;
 using Locadora_De_Veiculos.Dominio.ModuloVeiculo;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
@@ -13,7 +14,7 @@ using System.Windows.Forms;
 
 namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 {
-    public partial class TelaCadastroLocacao : Form
+    public partial class TelaCadastroLocacaoForm : Form
     {
         private Locacao locacao;
         public List<Funcionario> funcionarios;
@@ -22,8 +23,9 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
         public List<CategoriaDeVeiculos> categorias;
         public List<Veiculo> veiculos;
         public List<PlanoDeCobranca> planos;
+        public List<Taxa> taxas;
 
-        public TelaCadastroLocacao(List<Funcionario> funcionario, List<Cliente> clientes, List<Condutor> condutor, List<CategoriaDeVeiculos> categoria, List<Veiculo> veiculo, List<PlanoDeCobranca> plano)
+        public TelaCadastroLocacaoForm(List<Funcionario> funcionario, List<Cliente> clientes, List<Condutor> condutor, List<CategoriaDeVeiculos> categoria, List<Veiculo> veiculo, List<PlanoDeCobranca> plano, List<Taxa> taxa)
         {
             InitializeComponent();
             this.ConfigurarTela();
@@ -33,6 +35,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             this.categorias = categoria;
             this.veiculos = veiculo;
             this.planos = plano;
+            this.taxas = taxa;
         }
 
         public Func<Locacao, Result<Locacao>> GravarRegistro { get; set; }
@@ -105,6 +108,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
                     cbxPlano.SelectedIndex = 0;
                 }
 
+
                 if (locacao.DataInicio != null)
                     dateInicio.Value = locacao.DataInicio;
                 else
@@ -147,7 +151,10 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             CarregarCategorias();
             CarregarVeiculos();
             CarregarPlanos();
+            CarregarTaxas();
         }
+
+        
 
         #region Metodos Privados
 
@@ -208,6 +215,16 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             foreach (Funcionario f in funcionarios)
             {
                 cbxFuncionario.Items.Add(f);
+            }
+        }
+
+        private void CarregarTaxas()
+        {
+            listTaxas.Items.Clear();
+
+            foreach (Taxa t in taxas)
+            {
+                listTaxas.Items.Add(t);
             }
         }
 
