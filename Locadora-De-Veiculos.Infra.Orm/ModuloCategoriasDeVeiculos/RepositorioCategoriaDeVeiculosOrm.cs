@@ -15,7 +15,7 @@ namespace Locadora_De_Veiculos.Infra.Orm.ModuloCategoriasDeVeiculos
         private DbSet<CategoriaDeVeiculos> categorias;
         private readonly LocaDoraDeVeiculosDbContext dbContext;
 
-        public RepositorioCategoriaDeVeiculosOrm(LocaDoraDeVeiculosDbContext dbContext)
+        public RepositorioCategoriaDeVeiculosOrm(LocaDoraDeVeiculosDbContext dbContext) : base(dbContext)
         {
             categorias = dbContext.Set<CategoriaDeVeiculos>();
             this.dbContext = dbContext;

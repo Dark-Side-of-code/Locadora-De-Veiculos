@@ -14,7 +14,7 @@ namespace Locadora_De_Veiculos.Infra.Orm.ModuloFuncionario
         private DbSet<Funcionario> funcionarios;
         private readonly LocaDoraDeVeiculosDbContext dbContext;
 
-        public RepositorioFuncionarioOrm(LocaDoraDeVeiculosDbContext dbContext)
+        public RepositorioFuncionarioOrm(LocaDoraDeVeiculosDbContext dbContext) : base(dbContext)
         {
             funcionarios = dbContext.Set<Funcionario>(); 
             this.dbContext = dbContext;

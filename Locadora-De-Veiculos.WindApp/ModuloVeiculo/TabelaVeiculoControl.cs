@@ -1,6 +1,6 @@
 ﻿using Locadora_De_Veiculos.Dominio.ModuloVeiculo;
-using Locadora_De_Veiculos.Infra.Banco.Compartilhado;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
+using Locadora_De_Veiculos.WindApp.Compartilhado.Funções;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

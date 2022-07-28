@@ -14,7 +14,7 @@ namespace Locadora_De_Veiculos.Infra.Orm.ModuloTaxas
         private DbSet<Taxa> taxas;
         private readonly LocaDoraDeVeiculosDbContext dbContext;
 
-        public RepositorioTaxaOrm(LocaDoraDeVeiculosDbContext dbContext)
+        public RepositorioTaxaOrm(LocaDoraDeVeiculosDbContext dbContext) : base(dbContext)
         {
             taxas = dbContext.Set<Taxa>();
             this.dbContext = dbContext;

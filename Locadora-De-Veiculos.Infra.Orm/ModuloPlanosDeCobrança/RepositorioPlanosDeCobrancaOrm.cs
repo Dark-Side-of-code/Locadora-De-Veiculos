@@ -14,7 +14,7 @@ namespace Locadora_De_Veiculos.Infra.Orm.ModuloPlanosDeCobrança
         private DbSet<PlanoDeCobranca> planosDeCobranca;
         private readonly LocaDoraDeVeiculosDbContext dbContext;
 
-        public RepositorioPlanosDeCobrancaOrm(LocaDoraDeVeiculosDbContext dbContext)
+        public RepositorioPlanosDeCobrancaOrm(LocaDoraDeVeiculosDbContext dbContext) : base(dbContext)
         {
             planosDeCobranca = dbContext.Set<PlanoDeCobranca>();
             this.dbContext = dbContext;
