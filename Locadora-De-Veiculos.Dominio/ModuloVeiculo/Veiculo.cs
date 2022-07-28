@@ -41,6 +41,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
         public double Km_total { get; set; }
         public byte[] Foto { get; set; }
         public CategoriaDeVeiculos CategoriaDeVeiculos { get; set; }
+        public Guid CategoriaDeVeiculosId { get; set; }
         public bool StatusVeiculo { get; set; }
         public override bool Equals(object obj)
         {
@@ -87,6 +88,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
             if (categoria == null)
                 return;
 
+            CategoriaDeVeiculosId = categoria.Id;
             CategoriaDeVeiculos = categoria;
         }
     }
