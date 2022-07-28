@@ -1,11 +1,6 @@
 ﻿using Locadora_De_Veiculos.Dominio.ModuloCondutor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Infra.Orm.ModuloCondutor
 {

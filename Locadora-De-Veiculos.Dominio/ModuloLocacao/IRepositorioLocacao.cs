@@ -9,6 +9,5 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
 {
     public interface IRepositorioLocacao : IRepositorio<Locacao>
     {
-        Locacao SelecionarNomeCategoria(string nomeCategoria);
     }
 }

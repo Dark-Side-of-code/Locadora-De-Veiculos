@@ -2,6 +2,7 @@
 using Locadora_De_Veiculos.Aplicacao.ModuloCliente;
 using Locadora_De_Veiculos.Aplicacao.ModuloCondutor;
 using Locadora_De_Veiculos.Aplicacao.ModuloFuncionario;
+using Locadora_De_Veiculos.Aplicacao.ModuloLocacao;
 using Locadora_De_Veiculos.Aplicacao.ModuloPlanoDeCobranca;
 using Locadora_De_Veiculos.Aplicacao.ModuloTaxas;
 using Locadora_De_Veiculos.Aplicacao.ModuloVeiculo;
@@ -10,12 +11,14 @@ using Locadora_De_Veiculos.Infra.Orm.ModuloCategoriasDeVeiculos;
 using Locadora_De_Veiculos.Infra.Orm.ModuloCliente;
 using Locadora_De_Veiculos.Infra.Orm.ModuloCondutor;
 using Locadora_De_Veiculos.Infra.Orm.ModuloFuncionario;
+using Locadora_De_Veiculos.Infra.Orm.ModuloLocacao;
 using Locadora_De_Veiculos.Infra.Orm.ModuloPlanosDeCobrança;
 using Locadora_De_Veiculos.Infra.Orm.ModuloTaxas;
 using Locadora_De_Veiculos.Infra.Orm.ModuloVeiculo;
 using Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos;
 using Locadora_De_Veiculos.WindApp.ModuloCliente;
 using Locadora_De_Veiculos.WindApp.ModuloFuncionario;
+using Locadora_De_Veiculos.WindApp.ModuloLocacao;
 using Locadora_De_Veiculos.WindApp.ModuloMotorista;
 using Locadora_De_Veiculos.WindApp.ModuloPlanosDeCobranca;
 using Locadora_De_Veiculos.WindApp.ModuloTaxa;
@@ -77,6 +80,10 @@ namespace Locadora_De_Veiculos.WindApp.Compartilhado
             var repositorioPlanoDeCobranca = new RepositorioPlanosDeCobrancaOrm(contextoDadosOrm);
             var servicoPlanoDeCobranca = new ServicoPlanoDeCobranca(repositorioPlanoDeCobranca, contextoDadosOrm);
             controladores.Add("ControladorPlanoDeCobranca", new ControladorPlanoDeCobranca(servicoCategoriaDeVeiculos, servicoPlanoDeCobranca));
+
+            var repositorioLocacao = new RepositorioLocacaoOrm(contextoDadosOrm);
+            var servicoLocacao = new ServicoLocacao(repositorioLocacao, contextoDadosOrm);
+            controladores.Add("ControladorPlanoDeCobranca", new ControladorDeLocacao(servicoLocacao, servicoFuncionario, servicoCliente, servicoCondutor, servicoCategoriaDeVeiculos, servicoVeiculo, servicoPlanoDeCobranca));
         }
 
         public T Get<T>() where T : ControladorBase

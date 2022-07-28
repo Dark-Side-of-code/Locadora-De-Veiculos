@@ -2,6 +2,7 @@
 using Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos;
 using Locadora_De_Veiculos.WindApp.ModuloCliente;
 using Locadora_De_Veiculos.WindApp.ModuloFuncionario;
+using Locadora_De_Veiculos.WindApp.ModuloLocacao;
 using Locadora_De_Veiculos.WindApp.ModuloMotorista;
 using Locadora_De_Veiculos.WindApp.ModuloPlanosDeCobranca;
 using Locadora_De_Veiculos.WindApp.ModuloTaxa;
@@ -138,6 +139,11 @@ namespace Locadora_De_Veiculos.WindApp
         private void planosDeCobrançaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(serviceLocator.Get<ControladorPlanoDeCobranca>());
+        }
+
+        private void locacaoDevolucaoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(serviceLocator.Get<ControladorDeLocacao>());
         }
     }
 }
