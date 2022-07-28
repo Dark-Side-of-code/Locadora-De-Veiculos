@@ -15,20 +15,8 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
 
         }
 
-        public Veiculo(string modelo, string placa, string marca, string cor, string tipo_combustivel, double capacidade_tanque, DateTime ano, double km_total, CategoriaDeVeiculos categoriaDeVeiculos)
-        {
-            Modelo = modelo;
-            Placa = placa;
-            Marca = marca;
-            Cor = cor;
-            Tipo_combustivel = tipo_combustivel;
-            Capacidade_tanque = capacidade_tanque;
-            Ano = ano;
-            Km_total = km_total;
-            CategoriaDeVeiculos = categoriaDeVeiculos;
-        }
 
-        public Veiculo(string modelo, string placa, string marca, string cor, string tipo_combustivel, double capacidade_tanque, DateTime ano, double km_total, byte[] foto, CategoriaDeVeiculos categoriaDeVeiculos)
+        public Veiculo(string modelo, string placa, string marca, string cor, string tipo_combustivel, double capacidade_tanque, DateTime ano, double km_total, byte[] foto, CategoriaDeVeiculos categoriaDeVeiculos, bool statusLocacao)
         {
             Modelo = modelo;
             Placa = placa;
@@ -40,6 +28,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
             Km_total = km_total;
             Foto = foto;
             CategoriaDeVeiculos = categoriaDeVeiculos;
+            StatusVeiculo = statusLocacao = true; //para o status de um veiculo novo inicie como disponivel para locação
         }
 
         public string Modelo { get; set; }
@@ -52,7 +41,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
         public double Km_total { get; set; }
         public byte[] Foto { get; set; }
         public CategoriaDeVeiculos CategoriaDeVeiculos { get; set; }
-
+        public bool StatusVeiculo { get; set; }
         public override bool Equals(object obj)
         {
             return obj is Veiculo veiculo &&
@@ -66,7 +55,8 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
                    Ano == veiculo.Ano &&
                    Km_total == veiculo.Km_total &&
                    //EqualityComparer<byte[]>.Default.Equals(Foto, veiculo.Foto) &&
-                   EqualityComparer<CategoriaDeVeiculos>.Default.Equals(CategoriaDeVeiculos, veiculo.CategoriaDeVeiculos);
+                   EqualityComparer<CategoriaDeVeiculos>.Default.Equals(CategoriaDeVeiculos, veiculo.CategoriaDeVeiculos) &&
+                   StatusVeiculo == veiculo.StatusVeiculo;
         }
 
         public override int GetHashCode()
@@ -83,6 +73,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
             hash.Add(Km_total);
             //hash.Add(Foto);
             hash.Add(CategoriaDeVeiculos);
+            hash.Add(StatusVeiculo);
             return hash.ToHashCode();
         }
 

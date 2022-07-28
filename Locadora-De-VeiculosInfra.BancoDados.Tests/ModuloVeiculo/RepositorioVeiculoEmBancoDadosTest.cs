@@ -33,7 +33,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloVeiculo
         {
             //arrange
             categoriaDeVeiculos = new CategoriaDeVeiculos("popular");
-            veiculo = new Veiculo("Ford KA", "ABC456L", "Ford", "Vermelho", "Gasolina", 40, new DateTime(2007, 9, 6), 1000, new byte[] { }, categoriaDeVeiculos);
+            veiculo = new Veiculo("Ford KA", "ABC456L", "Ford", "Vermelho", "Gasolina", 40, new DateTime(2007, 9, 6), 1000, new byte[] { }, categoriaDeVeiculos, true);
 
             repositorioCategoria.Inserir(categoriaDeVeiculos);
             repositorio.Inserir(veiculo);
@@ -52,7 +52,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloVeiculo
         {
             //arrange
             categoriaDeVeiculos = new CategoriaDeVeiculos("popular");
-            veiculo = new Veiculo("Ford KA", "ABC456L", "Ford", "Vermelho", "Gasolina", 40, new DateTime(2007, 9, 6), 1000, new byte[] { }, categoriaDeVeiculos);
+            veiculo = new Veiculo("Ford KA", "ABC456L", "Ford", "Vermelho", "Gasolina", 40, new DateTime(2007, 9, 6), 1000, new byte[] { }, categoriaDeVeiculos, true);
 
             repositorioCategoria.Inserir(categoriaDeVeiculos);
             repositorio.Inserir(veiculo);
@@ -82,7 +82,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloVeiculo
         {
             //arrange
             categoriaDeVeiculos = new CategoriaDeVeiculos("popular");
-            veiculo = new Veiculo("Ford KA", "ABC456L", "Ford", "Vermelho", "Gasolina", 40, new DateTime(2007, 9, 6), 1000, new byte[] {}, categoriaDeVeiculos);
+            veiculo = new Veiculo("Ford KA", "ABC456L", "Ford", "Vermelho", "Gasolina", 40, new DateTime(2007, 9, 6), 1000, new byte[] {}, categoriaDeVeiculos, true);
 
             repositorioCategoria.Inserir(categoriaDeVeiculos);
             repositorio.Inserir(veiculo);
@@ -100,7 +100,7 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloVeiculo
         {
             //arrange
             categoriaDeVeiculos = new CategoriaDeVeiculos("popular");
-            veiculo = new Veiculo("Ford KA", "ABC456L", "Ford", "Vermelho", "Gasolina", 40, new DateTime(2007, 9, 6), 1000, new byte[] { }, categoriaDeVeiculos);
+            veiculo = new Veiculo("Ford KA", "ABC456L", "Ford", "Vermelho", "Gasolina", 40, new DateTime(2007, 9, 6), 1000, new byte[] { }, categoriaDeVeiculos, true);
 
             repositorioCategoria.Inserir(categoriaDeVeiculos);
             repositorio.Inserir(veiculo);
@@ -119,9 +119,9 @@ namespace Locadora_De_VeiculosInfra.BancoDados.Tests.ModuloVeiculo
         {
             //arrange
             categoriaDeVeiculos = new CategoriaDeVeiculos("popular");
-            var p01 = new Veiculo("Ford KA", "ABC456L", "Ford", "Vermelho", "Gasolina", 40, new DateTime(2007, 9, 6), 1000, new byte[] { }, categoriaDeVeiculos);
-            var p02 = new Veiculo("Ford KA", "ABC456L", "Ford", "Vermelho", "Gasolina", 40, new DateTime(2007, 9, 6), 1000, new byte[] { }, categoriaDeVeiculos);
-            var p03 = new Veiculo("Ford KA", "ABC456L", "Ford", "Vermelho", "Gasolina", 40, new DateTime(2007, 9, 6), 1000, new byte[] { }, categoriaDeVeiculos);
+            var p01 = new Veiculo("Ford KA", "ABC456L", "Ford", "Vermelho", "Gasolina", 40, new DateTime(2007, 9, 6), 1000, new byte[] { }, categoriaDeVeiculos, true);
+            var p02 = new Veiculo("Ford KA", "ABC456L", "Ford", "Vermelho", "Gasolina", 40, new DateTime(2007, 9, 6), 1000, new byte[] { }, categoriaDeVeiculos, true);
+            var p03 = new Veiculo("Ford KA", "ABC456L", "Ford", "Vermelho", "Gasolina", 40, new DateTime(2007, 9, 6), 1000, new byte[] { }, categoriaDeVeiculos, false);
 
             var repositorio = new RepositorioVeiculoEmBancoDados();
             repositorioCategoria.Inserir(categoriaDeVeiculos);

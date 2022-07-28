@@ -25,7 +25,8 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
             [ANO],
             [KM_TOTAL],
             [CATEGORIA_ID],
-            [FOTO]
+            [FOTO],
+            [STATUSVEICULO]
 		   )
      VALUES
            (
@@ -39,7 +40,8 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
             @ANO,
 			@KM_TOTAL,
             @CATEGORIA_ID,
-            @FOTO
+            @FOTO,
+            @STATUSVEICULO
 		   );";
 
         protected override string sqlEditar =>
@@ -54,7 +56,8 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
                 [ANO] = @ANO,
                 [KM_TOTAL] = @KM_TOTAL,
                 [CATEGORIA_ID] = @CATEGORIA_ID,
-                [FOTO] = @FOTO
+                [FOTO] = @FOTO,
+                [STATUSVEICULO] = @STATUSVEICULO
             WHERE [ID] = @ID";
 
         protected override string sqlExcluir =>
@@ -73,6 +76,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
 			,VEICULO.ANO
 			,VEICULO.KM_TOTAL
             ,VEICULO.FOTO
+            ,VEICULO.STATUSVEICULO
 
 			,CATEGORIAVEICULO.ID CATEGORIA_ID
 			,CATEGORIAVEICULO.NOME CATEGORIA_NOME
@@ -95,6 +99,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
 			,VEICULO.ANO
 			,VEICULO.KM_TOTAL
             ,VEICULO.FOTO
+            ,VEICULO.STATUSVEICULO
 
 			,CATEGORIAVEICULO.ID CATEGORIA_ID
 			,CATEGORIAVEICULO.NOME CATEGORIA_NOME
@@ -115,6 +120,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
 			,VEICULO.ANO
 			,VEICULO.KM_TOTAL
             ,VEICULO.FOTO
+            ,VEICULO.STATUSVEICULO
 
 			,CATEGORIAVEICULO.ID CATEGORIA_ID
 			,CATEGORIAVEICULO.NOME CATEGORIA_NOME
