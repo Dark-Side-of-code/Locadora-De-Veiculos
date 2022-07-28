@@ -47,7 +47,10 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "TipoVeiculo", HeaderText = "Tipo de Veiculo", FillWeight=85F },
 
+                new DataGridViewTextBoxColumn { DataPropertyName = "StatusVeiculo", HeaderText = "Status do Veiculo", FillWeight=85F },
+
                 new DataGridViewImageColumn { DataPropertyName = "Foto", HeaderText = "Foto", FillWeight=50F, ImageLayout=DataGridViewImageCellLayout.Stretch},
+
             };
 
             return colunas;
@@ -64,7 +67,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
 
             foreach (Veiculo veiculo in veiculos)
             {
-                grid.Rows.Add(veiculo.Id, veiculo.Modelo, veiculo.Placa, veiculo.Marca, veiculo.Cor, veiculo.Tipo_combustivel, veiculo.Capacidade_tanque, veiculo.Ano, veiculo.Km_total, veiculo.CategoriaDeVeiculos, ConversorDeImagemParaByteParaImagem.ConverteByteArrayParaImagem(veiculo.Foto));
+                grid.Rows.Add(veiculo.Id, veiculo.Modelo, veiculo.Placa, veiculo.Marca, veiculo.Cor, veiculo.Tipo_combustivel, veiculo.Capacidade_tanque, veiculo.Ano, veiculo.Km_total, veiculo.CategoriaDeVeiculos, ConversorDeImagemParaByteParaImagem.ConverteByteArrayParaImagem(veiculo.Foto), veiculo.StatusVeiculo);
             }
         }
     }

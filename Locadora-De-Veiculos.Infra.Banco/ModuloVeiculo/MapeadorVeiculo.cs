@@ -25,6 +25,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
             comando.Parameters.AddWithValue("KM_TOTAL", registro.Km_total);
             comando.Parameters.AddWithValue("FOTO", registro.Foto);
             comando.Parameters.AddWithValue("CATEGORIA_ID", registro.CategoriaDeVeiculos.Id);
+            comando.Parameters.AddWithValue("STATUSVEICULO", registro.StatusVeiculo);
         }
 
         public override Veiculo ConverterRegistro(SqlDataReader leitorRegistro)
@@ -39,6 +40,7 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
             var ano = Convert.ToDateTime(leitorRegistro["ANO"]);
             var km_total = Convert.ToDouble(leitorRegistro["KM_TOTAL"]);
             var foto = (byte[])leitorRegistro["FOTO"];
+            var statusVeiculo = Convert.ToBoolean(leitorRegistro["STATUSVEICULO"]);
 
             var categoria_id = Guid.Parse(leitorRegistro["CATEGORIA_ID"].ToString());
             var categoria_nome = Convert.ToString(leitorRegistro["CATEGORIA_NOME"]);
@@ -54,7 +56,8 @@ namespace Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo
                 Capacidade_tanque = capacidade,
                 Ano = ano,
                 Km_total = km_total,
-                Foto = foto
+                Foto = foto,
+                StatusVeiculo = statusVeiculo,
             };
 
             var categoriaVeiculo = new CategoriaDeVeiculos

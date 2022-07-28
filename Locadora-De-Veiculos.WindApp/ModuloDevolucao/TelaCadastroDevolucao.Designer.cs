@@ -63,6 +63,8 @@
             this.lb_Funcionario = new System.Windows.Forms.Label();
             this.dateTimePicker_DataDevolucao = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -207,7 +209,7 @@
             this.cbx_NivelTanque.FormattingEnabled = true;
             this.cbx_NivelTanque.Location = new System.Drawing.Point(412, 296);
             this.cbx_NivelTanque.Name = "cbx_NivelTanque";
-            this.cbx_NivelTanque.Size = new System.Drawing.Size(150, 23);
+            this.cbx_NivelTanque.Size = new System.Drawing.Size(146, 23);
             this.cbx_NivelTanque.TabIndex = 117;
             // 
             // tabControl1
@@ -396,11 +398,29 @@
             this.label15.TabIndex = 132;
             this.label15.Text = "<Valor Somado>";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(306, 339);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(100, 15);
+            this.label16.TabIndex = 133;
+            this.label16.Text = "Valor da Gasolina:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(412, 333);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(148, 23);
+            this.textBox1.TabIndex = 134;
+            // 
             // TelaCadastroDevolucao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 749);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.dateTimePicker_DataDevolucao);
             this.Controls.Add(this.lb_Funcionario);
@@ -478,5 +498,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckedListBox List_taxasSelecionadas;
         private System.Windows.Forms.CheckedListBox List_TaxaAdicionais;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
