@@ -5,7 +5,6 @@ using Locadora_De_Veiculos.Aplicacao.ModuloFuncionario;
 using Locadora_De_Veiculos.Aplicacao.ModuloPlanoDeCobranca;
 using Locadora_De_Veiculos.Aplicacao.ModuloTaxas;
 using Locadora_De_Veiculos.Aplicacao.ModuloVeiculo;
-using Locadora_De_Veiculos.Infra.Banco.ModuloVeiculo;
 using Locadora_De_Veiculos.Infra.Orm.Compartilhado;
 using Locadora_De_Veiculos.Infra.Orm.ModuloCategoriasDeVeiculos;
 using Locadora_De_Veiculos.Infra.Orm.ModuloCliente;
@@ -13,6 +12,7 @@ using Locadora_De_Veiculos.Infra.Orm.ModuloCondutor;
 using Locadora_De_Veiculos.Infra.Orm.ModuloFuncionario;
 using Locadora_De_Veiculos.Infra.Orm.ModuloPlanosDeCobrança;
 using Locadora_De_Veiculos.Infra.Orm.ModuloTaxas;
+using Locadora_De_Veiculos.Infra.Orm.ModuloVeiculo;
 using Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos;
 using Locadora_De_Veiculos.WindApp.ModuloCliente;
 using Locadora_De_Veiculos.WindApp.ModuloFuncionario;
@@ -70,8 +70,8 @@ namespace Locadora_De_Veiculos.WindApp.Compartilhado
             var servicoCondutor = new ServicoCondutor(repositorioCondutor, contextoDadosOrm);
             controladores.Add("ControladorCondutor", new ControladorCondutor(servicoCliente, servicoCondutor));
 
-            var repositorioVeiculo = new RepositorioVeiculoEmBancoDados();
-            var servicoVeiculo = new ServicoVeiculo(repositorioVeiculo);
+            var repositorioVeiculo = new RepositorioVeiculoOrm(contextoDadosOrm);
+            var servicoVeiculo = new ServicoVeiculo(repositorioVeiculo, contextoDadosOrm);
             controladores.Add("ControladorVeiculo", new ControladorVeiculo(servicoCategoriaDeVeiculos, servicoVeiculo));
 
             var repositorioPlanoDeCobranca = new RepositorioPlanosDeCobrancaOrm(contextoDadosOrm);
