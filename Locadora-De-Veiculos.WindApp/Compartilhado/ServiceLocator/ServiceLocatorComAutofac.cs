@@ -33,6 +33,9 @@ using Locadora_De_Veiculos.Infra.Banco.ModuloCategoriasDeVeiculos;
 using Locadora_De_Veiculos.Infra.Banco.ModuloTaxas;
 using Locadora_De_Veiculos.Infra.Banco.ModuloFuncionario;
 using Locadora_De_Veiculos.Infra.Banco.ModuloCondutor;
+using Locadora_De_Veiculos.Infra.Orm.ModuloLocacao;
+using Locadora_De_Veiculos.Aplicacao.ModuloLocacao;
+using Locadora_De_Veiculos.WindApp.ModuloLocacao;
 
 namespace Locadora_De_Veiculos.WindApp.Compartilhado
 {
@@ -70,6 +73,10 @@ namespace Locadora_De_Veiculos.WindApp.Compartilhado
             builder.RegisterType<RepositorioPlanosDeCobrancaOrm>().As<IRepositorioPlanoDeCobranca>();
             builder.RegisterType<ServicoPlanoDeCobranca>().AsSelf();
             builder.RegisterType<ControladorPlanoDeCobranca>().AsSelf();
+
+            builder.RegisterType<RepositorioLocacaoOrm>().As<IRepositorioPlanoDeCobranca>();
+            builder.RegisterType<ServicoLocacao>().AsSelf();
+            builder.RegisterType<ControladorDeLocacao>().AsSelf();
 
             container = builder.Build();
         }

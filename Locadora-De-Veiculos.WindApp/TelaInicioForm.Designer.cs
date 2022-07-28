@@ -37,6 +37,7 @@
             this.CatergoriasMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CondutoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.veiculosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.planosDeCobrançaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelRegistros = new System.Windows.Forms.Panel();
@@ -49,7 +50,7 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
             this.labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
-            this.planosDeCobrançaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.locacaoDevolucaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolbox.SuspendLayout();
@@ -76,7 +77,8 @@
             this.CatergoriasMenuItem,
             this.CondutoresToolStripMenuItem,
             this.veiculosToolStripMenuItem,
-            this.planosDeCobrançaToolStripMenuItem});
+            this.planosDeCobrançaToolStripMenuItem,
+            this.locacaoDevolucaoToolStripMenuItem});
             this.cadastrosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
@@ -129,6 +131,14 @@
             this.veiculosToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.veiculosToolStripMenuItem.Text = "Veiculos";
             this.veiculosToolStripMenuItem.Click += new System.EventHandler(this.veiculosToolStripMenuItem_Click);
+            // 
+            // planosDeCobrançaToolStripMenuItem
+            // 
+            this.planosDeCobrançaToolStripMenuItem.Name = "planosDeCobrançaToolStripMenuItem";
+            this.planosDeCobrançaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
+            this.planosDeCobrançaToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.planosDeCobrançaToolStripMenuItem.Text = "Planos de Cobrança";
+            this.planosDeCobrançaToolStripMenuItem.Click += new System.EventHandler(this.planosDeCobrançaToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -244,13 +254,12 @@
             this.labelTipoCadastro.Size = new System.Drawing.Size(122, 31);
             this.labelTipoCadastro.Text = "[tipoCadastro]";
             // 
-            // planosDeCobrançaToolStripMenuItem
+            // locacaoDevolucaoToolStripMenuItem
             // 
-            this.planosDeCobrançaToolStripMenuItem.Name = "planosDeCobrançaToolStripMenuItem";
-            this.planosDeCobrançaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
-            this.planosDeCobrançaToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.planosDeCobrançaToolStripMenuItem.Text = "Planos de Cobrança";
-            this.planosDeCobrançaToolStripMenuItem.Click += new System.EventHandler(this.planosDeCobrançaToolStripMenuItem_Click);
+            this.locacaoDevolucaoToolStripMenuItem.Name = "locacaoDevolucaoToolStripMenuItem";
+            this.locacaoDevolucaoToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.locacaoDevolucaoToolStripMenuItem.Text = "Locacao & Devolucao";
+            this.locacaoDevolucaoToolStripMenuItem.Click += new System.EventHandler(this.locacaoDevolucaoToolStripMenuItem_Click);
             // 
             // TelaInicioForm
             // 
@@ -299,5 +308,6 @@
         private System.Windows.Forms.ToolStripMenuItem CondutoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem veiculosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem planosDeCobrançaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem locacaoDevolucaoToolStripMenuItem;
     }
 }

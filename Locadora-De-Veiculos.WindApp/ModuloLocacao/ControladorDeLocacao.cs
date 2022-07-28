@@ -44,6 +44,17 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
         List<PlanoDeCobranca> planos = new List<PlanoDeCobranca>();
         List<Taxa> taxas = new List<Taxa>();
 
+        public ControladorDeLocacao(ServicoLocacao servicoLocacao, ServicoFuncionario servicoFuncionario, ServicoCliente servicoCliente, ServicoCondutor servicoCondutor, ServicoCategoriasDeVeiculos servicoCategoria, ServicoVeiculo servicoVeiculo, ServicoPlanoDeCobranca servicoPlanoDeCobranca)
+        {
+            this.servicoLocacao = servicoLocacao;
+            this.servicoFuncionario = servicoFuncionario;
+            this.servicoCliente = servicoCliente;
+            this.servicoCondutor = servicoCondutor;
+            this.servicoCategoria = servicoCategoria;
+            this.servicoVeiculo = servicoVeiculo;
+            this.servicoPlanoDeCobranca = servicoPlanoDeCobranca;
+        }
+
         public override void Inserir()
         {
             var resultadoFuncionario = servicoFuncionario.SelecionarTodos();
@@ -123,7 +134,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
                 return;
             }
 
-            var tela = new TelaCadastroLocacaoForm(funcionarios, clientes, condutores, categorias, veiculo, planos, taxas);
+            var tela = new TelaCadastroLocacaoForm(funcionarios, clientes, condutores, categorias, veiculos, planos, taxas);
 
             tela.Locacao = new Locacao();
 
@@ -139,7 +150,6 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
         public override void Editar()
         {
-            throw new System.NotImplementedException();
         }
 
         public override void Excluir()

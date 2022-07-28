@@ -8,21 +8,32 @@ using Locadora_De_Veiculos.Dominio.ModuloTaxas;
 using Locadora_De_Veiculos.Dominio.ModuloVeiculo;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
 {
     public class Locacao : EntidadeBase<Locacao>
     {
         public Funcionario Funcionario { get; set; }
+        public Guid FuncionarioId { get; set; }
+
         public Cliente Cliente { get; set; }
+        public Guid ClienteId { get; set; }
+
         public Condutor Condutor { get; set; }
+        public Guid CondutorId { get; set; }
+
         public CategoriaDeVeiculos Categoria { get; set; }
+        public Guid CategoriaId { get; set; }
+
         public Veiculo Veiculo { get; set; }
+        public Guid VeiculoId { get; set; }
+
         public PlanoDeCobranca PlanoDeCobranca { get; set; }
+        public Guid PlanoDeCobrancaId { get; set; }
+
         public Taxa Taxa { get; set; }
+        public Guid TaxaId { get; set; }
+
         public double valorEstimado { get; set; }
         public DateTime DataInicio { get; set; }
         public DateTime DataFinalPrevista { get; set; }
@@ -60,6 +71,52 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
         public Condutor Clone()
         {
             return MemberwiseClone() as Condutor;
+        }
+
+        public void ConfigurarLocacao(Funcionario funcionario, Cliente cliente, Condutor condutor, CategoriaDeVeiculos categoria,
+        Veiculo veiculo, PlanoDeCobranca planoDeCobranca, Taxa taxa)
+        {
+            if (funcionario == null)
+                return;
+
+            Funcionario = funcionario;
+            FuncionarioId = funcionario.Id;
+
+            if (cliente == null)
+                return;
+
+            Cliente = cliente;
+            ClienteId = cliente.Id;
+
+            if (condutor == null)
+                return;
+
+            Condutor = condutor;
+            CondutorId = condutor.Id;
+
+            if (categoria == null)
+                return;
+
+            Categoria = categoria;
+            CategoriaId = categoria.Id;
+
+            if (veiculo == null)
+                return;
+
+            Veiculo = veiculo;
+            VeiculoId = veiculo.Id;
+
+            if (planoDeCobranca == null)
+                return;
+
+            PlanoDeCobranca = planoDeCobranca;
+            PlanoDeCobrancaId = planoDeCobranca.Id;
+
+            if (taxa == null)
+                return;
+
+            Taxa = taxa;
+            TaxaId = taxa.Id;
         }
     }
 }
