@@ -4,6 +4,7 @@ using Locadora_De_Veiculos.Dominio.ModuloCondutor;
 using Locadora_De_Veiculos.Dominio.ModuloFuncionario;
 using Locadora_De_Veiculos.Dominio.ModuloGrupoDeVeiculos;
 using Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca;
+using Locadora_De_Veiculos.Dominio.ModuloTaxas;
 using Locadora_De_Veiculos.Dominio.ModuloVeiculo;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
         public CategoriaDeVeiculos Categoria { get; set; }
         public Veiculo Veiculo { get; set; }
         public PlanoDeCobranca PlanoDeCobranca { get; set; }
+        public Taxa Taxa { get; set; }
         public double valorEstimado { get; set; }
         public DateTime DataInicio { get; set; }
         public DateTime DataFinalPrevista { get; set; }

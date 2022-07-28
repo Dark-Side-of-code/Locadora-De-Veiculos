@@ -1,6 +1,6 @@
 ﻿namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 {
-    partial class TelaCadastroLocacao
+    partial class TelaCadastroLocacaoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.listTaxas = new System.Windows.Forms.CheckedListBox();
             this.cbxFuncionario = new System.Windows.Forms.ComboBox();
             this.cbxCliente = new System.Windows.Forms.ComboBox();
             this.cbxCategoria = new System.Windows.Forms.ComboBox();
@@ -239,7 +239,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.checkedListBox1);
+            this.tabPage1.Controls.Add(this.listTaxas);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -248,13 +248,13 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // checkedListBox1
+            // listTaxas
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(0, 1);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(621, 148);
-            this.checkedListBox1.TabIndex = 0;
+            this.listTaxas.FormattingEnabled = true;
+            this.listTaxas.Location = new System.Drawing.Point(0, 1);
+            this.listTaxas.Name = "listTaxas";
+            this.listTaxas.Size = new System.Drawing.Size(621, 148);
+            this.listTaxas.TabIndex = 0;
             // 
             // cbxFuncionario
             // 
@@ -389,7 +389,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox listTaxas;
         private System.Windows.Forms.ComboBox cbxFuncionario;
         private System.Windows.Forms.ComboBox cbxCliente;
         private System.Windows.Forms.ComboBox cbxCategoria;

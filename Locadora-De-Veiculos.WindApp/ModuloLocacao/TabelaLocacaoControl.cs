@@ -40,7 +40,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             return colunas;
         }
 
-        public Guid ObtemIdFuncionarioSelecionado()
+        public Guid ObtemIdLocacaoSelecionado()
         {
             return grid.SelecionarNumero<Guid>();
         }
