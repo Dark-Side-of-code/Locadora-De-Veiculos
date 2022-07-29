@@ -45,11 +45,11 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Km_total", HeaderText = "Km_total", FillWeight=85F },
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "TipoVeiculo", HeaderText = "Tipo de Veiculo", FillWeight=85F },
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "StatusVeiculo", HeaderText = "Status do Veiculo", FillWeight=85F },
+                new DataGridViewTextBoxColumn { DataPropertyName = "CategoriaDeVeiculos", HeaderText = "Tipo de Veiculo", FillWeight=85F },
 
                 new DataGridViewImageColumn { DataPropertyName = "Foto", HeaderText = "Foto", FillWeight=50F, ImageLayout=DataGridViewImageCellLayout.Stretch},
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "StatusVeiculo", HeaderText = "Status do Veiculo", FillWeight=85F },
 
             };
 

@@ -20,6 +20,11 @@ namespace Locadora_De_Veiculos.Infra.Orm.ModuloVeiculo
             this.dbContext = dbContext;
         }
 
+        public override List<Veiculo> SelecionarTodos()
+        {
+            return veiculos.Include(x => x.CategoriaDeVeiculos).ToList();
+        }
+
         public Veiculo SelecionarVeiculoPorPlaca(string placa)
         {
             return veiculos.SingleOrDefault(x => x.Placa == placa);
