@@ -62,9 +62,9 @@
             this.lb_DataLocacao = new System.Windows.Forms.Label();
             this.lb_Funcionario = new System.Windows.Forms.Label();
             this.dateTimePicker_DataDevolucao = new System.Windows.Forms.DateTimePicker();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lb_ValorTotal = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_ValorGasolina = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -300,6 +300,7 @@
             this.btn_Cadastrar.TabIndex = 121;
             this.btn_Cadastrar.Text = "Cadastarar";
             this.btn_Cadastrar.UseVisualStyleBackColor = false;
+            this.btn_Cadastrar.Click += new System.EventHandler(this.btn_Cadastrar_Click);
             // 
             // panel2
             // 
@@ -389,14 +390,14 @@
             this.dateTimePicker_DataDevolucao.Size = new System.Drawing.Size(149, 23);
             this.dateTimePicker_DataDevolucao.TabIndex = 131;
             // 
-            // label15
+            // lb_ValorTotal
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(98, 607);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(96, 15);
-            this.label15.TabIndex = 132;
-            this.label15.Text = "<Valor Somado>";
+            this.lb_ValorTotal.AutoSize = true;
+            this.lb_ValorTotal.Location = new System.Drawing.Point(98, 607);
+            this.lb_ValorTotal.Name = "lb_ValorTotal";
+            this.lb_ValorTotal.Size = new System.Drawing.Size(96, 15);
+            this.lb_ValorTotal.TabIndex = 132;
+            this.lb_ValorTotal.Text = "<Valor Somado>";
             // 
             // label16
             // 
@@ -407,21 +408,21 @@
             this.label16.TabIndex = 133;
             this.label16.Text = "Valor da Gasolina:";
             // 
-            // textBox1
+            // txt_ValorGasolina
             // 
-            this.textBox1.Location = new System.Drawing.Point(412, 333);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(148, 23);
-            this.textBox1.TabIndex = 134;
+            this.txt_ValorGasolina.Location = new System.Drawing.Point(412, 333);
+            this.txt_ValorGasolina.Name = "txt_ValorGasolina";
+            this.txt_ValorGasolina.Size = new System.Drawing.Size(148, 23);
+            this.txt_ValorGasolina.TabIndex = 134;
             // 
             // TelaCadastroDevolucao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 749);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_ValorGasolina);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
+            this.Controls.Add(this.lb_ValorTotal);
             this.Controls.Add(this.dateTimePicker_DataDevolucao);
             this.Controls.Add(this.lb_Funcionario);
             this.Controls.Add(this.lb_DataLocacao);
@@ -495,10 +496,10 @@
         private System.Windows.Forms.Label lb_DataLocacao;
         private System.Windows.Forms.Label lb_Funcionario;
         private System.Windows.Forms.DateTimePicker dateTimePicker_DataDevolucao;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lb_ValorTotal;
         private System.Windows.Forms.CheckedListBox List_taxasSelecionadas;
         private System.Windows.Forms.CheckedListBox List_TaxaAdicionais;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_ValorGasolina;
     }
 }
