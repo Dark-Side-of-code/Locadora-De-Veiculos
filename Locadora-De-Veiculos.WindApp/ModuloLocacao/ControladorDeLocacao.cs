@@ -21,7 +21,7 @@ using System.Windows.Forms;
 
 namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 {
-    internal class ControladorDeLocacao : ControladorBase
+    public class ControladorDeLocacao : ControladorBase
     {
         
         private TabelaLocacaoControl? listagemLocacao;
