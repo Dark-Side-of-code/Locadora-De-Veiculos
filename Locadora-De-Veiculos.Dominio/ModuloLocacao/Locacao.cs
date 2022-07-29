@@ -34,6 +34,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
         public List<Taxa> Taxas { get; set; }
         public string NomeDoPlano { get; set; }
         public double valorEstimado { get; set; }
+        public string Status { get; set; }
         public DateTime DataInicio { get; set; }
         public DateTime DataFinalPrevista { get; set; }
 
@@ -52,6 +53,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
             PlanoDeCobranca = planoDeCobranca;
             DataInicio = dataInicio;
             DataFinalPrevista = dataFinal;
+            Status = "Em Aberto";
         }
         public override bool Equals(object obj)
         {

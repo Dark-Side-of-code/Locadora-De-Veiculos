@@ -26,6 +26,7 @@ namespace Locadora_De_Veiculos.Infra.Orm.Migrations
                     PlanoDeCobrancaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     NomeDoPlano = table.Column<string>(type: "varchar(300)", nullable: false),
                     valorEstimado = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Status = table.Column<string>(type: "varchar(50)", nullable: false),
                     DataInicio = table.Column<DateTime>(type: "datetime", nullable: false),
                     DataFinalPrevista = table.Column<DateTime>(type: "datetime", nullable: false)
                 },
