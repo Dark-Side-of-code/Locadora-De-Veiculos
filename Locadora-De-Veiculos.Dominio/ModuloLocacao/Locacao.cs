@@ -31,9 +31,9 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
         public PlanoDeCobranca PlanoDeCobranca { get; set; }
         public Guid PlanoDeCobrancaId { get; set; }
 
-        public Taxa Taxa { get; set; }
+        public List<Taxa> Taxas { get; set; }
         public Guid TaxaId { get; set; }
-
+        public string NomeDoPlano { get; set; }
         public double valorEstimado { get; set; }
         public DateTime DataInicio { get; set; }
         public DateTime DataFinalPrevista { get; set; }
@@ -74,7 +74,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
         }
 
         public void ConfigurarLocacao(Funcionario funcionario, Cliente cliente, Condutor condutor, CategoriaDeVeiculos categoria,
-        Veiculo veiculo, PlanoDeCobranca planoDeCobranca, Taxa taxa)
+        Veiculo veiculo, PlanoDeCobranca planoDeCobranca, List<Taxa> taxa)
         {
             if (funcionario == null)
                 return;
@@ -115,8 +115,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
             if (taxa == null)
                 return;
 
-            Taxa = taxa;
-            TaxaId = taxa.Id;
+            Taxas = taxa;
         }
     }
 }

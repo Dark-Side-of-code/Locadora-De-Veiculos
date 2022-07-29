@@ -16,8 +16,9 @@ namespace Locadora_De_Veiculos.Infra.Orm.ModuloLocacao
             builder.HasOne(x => x.Categoria);
             builder.HasOne(x => x.Veiculo);
             builder.HasOne(x => x.PlanoDeCobranca);
-            builder.HasOne(x => x.Taxa);
+            builder.HasOne(x => x.Taxas);
             builder.Property(x => x.valorEstimado).IsRequired().HasColumnType("decimal(18, 2)");
+            builder.Property(x => x.NomeDoPlano).IsRequired().HasColumnType("varchar(300)");
             builder.Property(x => x.DataInicio).IsRequired().HasColumnType("datetime");
             builder.Property(x => x.DataFinalPrevista).IsRequired().HasColumnType("datetime");
         }
