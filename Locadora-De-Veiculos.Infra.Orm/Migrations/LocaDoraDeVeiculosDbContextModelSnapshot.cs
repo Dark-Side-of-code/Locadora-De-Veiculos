@@ -167,6 +167,10 @@ namespace Locadora_De_Veiculos.Infra.Orm.Migrations
                     b.Property<Guid>("PlanoDeCobrancaId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
                     b.Property<Guid>("VeiculoId")
                         .HasColumnType("uniqueidentifier");
 

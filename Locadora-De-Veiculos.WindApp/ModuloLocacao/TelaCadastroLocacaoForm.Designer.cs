@@ -44,7 +44,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.ValorFinal = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.listTaxas = new System.Windows.Forms.CheckedListBox();
@@ -218,15 +218,15 @@
             this.label12.TabIndex = 57;
             this.label12.Text = "Valor Total Previsto: ";
             // 
-            // label13
+            // ValorFinal
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(203, 486);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(50, 15);
-            this.label13.TabIndex = 58;
-            this.label13.Text = "<Valor>";
+            this.ValorFinal.AutoSize = true;
+            this.ValorFinal.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ValorFinal.Location = new System.Drawing.Point(203, 486);
+            this.ValorFinal.Name = "ValorFinal";
+            this.ValorFinal.Size = new System.Drawing.Size(50, 15);
+            this.ValorFinal.TabIndex = 58;
+            this.ValorFinal.Text = "<Valor>";
             // 
             // tabControl1
             // 
@@ -271,6 +271,7 @@
             this.cbxCliente.Name = "cbxCliente";
             this.cbxCliente.Size = new System.Drawing.Size(210, 23);
             this.cbxCliente.TabIndex = 61;
+            this.cbxCliente.SelectedIndexChanged += new System.EventHandler(this.ClienteChanged);
             // 
             // cbxCategoria
             // 
@@ -279,6 +280,7 @@
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(210, 23);
             this.cbxCategoria.TabIndex = 62;
+            this.cbxCategoria.SelectedIndexChanged += new System.EventHandler(this.CategoriaChanged);
             // 
             // cbxPlano
             // 
@@ -287,6 +289,7 @@
             this.cbxPlano.Name = "cbxPlano";
             this.cbxPlano.Size = new System.Drawing.Size(210, 23);
             this.cbxPlano.TabIndex = 63;
+            this.cbxPlano.SelectedIndexChanged += new System.EventHandler(this.PlanoChanged);
             // 
             // cbxCondutor
             // 
@@ -327,7 +330,7 @@
             this.txtKilometragem.Size = new System.Drawing.Size(210, 23);
             this.txtKilometragem.TabIndex = 68;
             // 
-            // TelaCadastroLocacao
+            // TelaCadastroLocacaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -342,7 +345,7 @@
             this.Controls.Add(this.cbxCliente);
             this.Controls.Add(this.cbxFuncionario);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.label13);
+            this.Controls.Add(this.ValorFinal);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -359,7 +362,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Name = "TelaCadastroLocacao";
+            this.Name = "TelaCadastroLocacaoForm";
             this.Text = "TelaCadastroLocacao";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -386,7 +389,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label ValorFinal;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.CheckedListBox listTaxas;

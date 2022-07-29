@@ -29,6 +29,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
         {
             InitializeComponent();
             this.ConfigurarTela();
+            PreencherComboBox();
             this.funcionarios = funcionario;
             this.clientes = clientes;
             this.condutores = condutor;
@@ -128,6 +129,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             locacao.Categoria = (CategoriaDeVeiculos)cbxCategoria.SelectedItem;
             locacao.Veiculo = (Veiculo)cbxVeiculo.SelectedItem;
             locacao.PlanoDeCobranca = (PlanoDeCobranca)cbxPlano.SelectedItem;
+            locacao.NomeDoPlano = cbxPlano.Text;
+            locacao.valorEstimado = CalcularValorFinal();
             locacao.DataInicio = DateTime.Parse(dateInicio.Text);
             locacao.DataFinalPrevista = DateTime.Parse(dateDevolucao.Text);
 
@@ -154,18 +157,54 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             CarregarTaxas();
         }
 
-        
+        private void ClienteChanged(object sender, EventArgs e)
+        {
+            CarregarCondutores();
+        }
 
+        private void CategoriaChanged(object sender, EventArgs e)
+        {
+            CarregarVeiculos();
+        }
+
+        private void PlanoChanged(object sender, EventArgs e)
+        {
+            ValorFinal.Text = CalcularValorFinal().ToString();
+        }
+
+        public double CalcularValorFinal()
+        {
+            PlanoDeCobranca pCalculo = null;
+            double resultado = 0;
+
+            int dias = (DateTime.Parse(dateInicio.Text) - DateTime.Parse(dateDevolucao.Text)).Days;
+
+            foreach (PlanoDeCobranca p in planos){
+                if (p.CategoriaDeVeiculos == (CategoriaDeVeiculos)cbxCategoria.SelectedItem)
+                    pCalculo = p;
+            }
+
+            if(cbxPlano.Text == "Diario")
+            {
+                resultado = dias * pCalculo.PlanoDiario_ValorDiario;
+            }
+            if (cbxPlano.Text == "Km Controlado")
+            {
+                resultado = dias * pCalculo.PlanoKM_controlado_ValorDiario;
+            }
+            if (cbxPlano.Text == "Km Livre")
+            {
+                resultado = dias * pCalculo.PlanoKM_Livre_ValorDiario;
+            }
+            return resultado;
+        }
         #region Metodos Privados
 
         private void CarregarPlanos()
         {
-            cbxPlano.Items.Clear();
-
-            foreach (PlanoDeCobranca c in planos)
-            {
-                cbxPlano.Items.Add(c);
-            }
+            cbxPlano.Items.Add("Diario");
+            cbxPlano.Items.Add("Km Controlado");
+            cbxPlano.Items.Add("Km Livre");
         }
 
         private void CarregarVeiculos()
@@ -174,6 +213,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
             foreach (Veiculo c in veiculos)
             {
+                if(c.CategoriaDeVeiculos == (CategoriaDeVeiculos)cbxCategoria.SelectedItem && c.StatusVeiculo == true)
                 cbxVeiculo.Items.Add(c);
             }
         }
@@ -194,7 +234,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
             foreach (Condutor c in condutores)
             {
-                cbxCliente.Items.Add(c);
+                if (c.Cliente == (Cliente)cbxCliente.SelectedItem)
+                    cbxCliente.Items.Add(c);
             }
         }
 
@@ -229,5 +270,6 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
         }
 
         #endregion
+
     }
 }
