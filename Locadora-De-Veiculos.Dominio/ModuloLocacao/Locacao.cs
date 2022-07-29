@@ -32,7 +32,6 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
         public Guid PlanoDeCobrancaId { get; set; }
 
         public List<Taxa> Taxas { get; set; }
-        public Guid TaxaId { get; set; }
         public string NomeDoPlano { get; set; }
         public double valorEstimado { get; set; }
         public DateTime DataInicio { get; set; }

@@ -8,15 +8,15 @@ namespace Locadora_De_Veiculos.Infra.Orm.ModuloLocacao
     {
         public void Configure(EntityTypeBuilder<Locacao> builder)
         {
-            builder.ToTable("TbCondutor");
+            builder.ToTable("TbLocacao");
             builder.Property(x => x.Id).ValueGeneratedNever();
             builder.HasOne(x => x.Funcionario);
             builder.HasOne(x => x.Cliente);
-            builder.HasOne(x => x.Condutor);
+            builder.HasOne(x => x.Condutor).WithMany().OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(x => x.Categoria);
-            builder.HasOne(x => x.Veiculo);
-            builder.HasOne(x => x.PlanoDeCobranca);
-            builder.HasOne(x => x.Taxas);
+            builder.HasOne(x => x.Veiculo).WithMany().OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne(x => x.PlanoDeCobranca).WithMany().OnDelete(DeleteBehavior.NoAction);
+            builder.HasMany(x => x.Taxas);
             builder.Property(x => x.valorEstimado).IsRequired().HasColumnType("decimal(18, 2)");
             builder.Property(x => x.NomeDoPlano).IsRequired().HasColumnType("varchar(300)");
             builder.Property(x => x.DataInicio).IsRequired().HasColumnType("datetime");
