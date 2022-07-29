@@ -8,6 +8,7 @@ using Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca;
 using Locadora_De_Veiculos.Dominio.ModuloTaxas;
 using Locadora_De_Veiculos.Dominio.ModuloVeiculo;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
+using Locadora_De_Veiculos.WindApp.Compartilhado.Funções;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -29,7 +30,6 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
         {
             InitializeComponent();
             this.ConfigurarTela();
-            PreencherComboBox();
             this.funcionarios = funcionario;
             this.clientes = clientes;
             this.condutores = condutor;
@@ -37,6 +37,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             this.veiculos = veiculo;
             this.planos = plano;
             this.taxas = taxa;
+            ClassMaskValorNumerico.AplicaMascaraValorNumerico(txtKilometragem);
+            PreencherComboBox();
         }
 
         public Func<Locacao, Result<Locacao>> GravarRegistro { get; set; }

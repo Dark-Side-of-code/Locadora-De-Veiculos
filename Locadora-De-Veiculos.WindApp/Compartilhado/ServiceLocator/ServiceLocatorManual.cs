@@ -83,7 +83,7 @@ namespace Locadora_De_Veiculos.WindApp.Compartilhado
 
             var repositorioLocacao = new RepositorioLocacaoOrm(contextoDadosOrm);
             var servicoLocacao = new ServicoLocacao(repositorioLocacao, contextoDadosOrm);
-            controladores.Add("ControladorDeLocacao", new ControladorDeLocacao(servicoLocacao, servicoFuncionario, servicoCliente, servicoCondutor, servicoCategoriaDeVeiculos, servicoVeiculo, servicoPlanoDeCobranca));
+            controladores.Add("ControladorDeLocacao", new ControladorDeLocacao(servicoLocacao, servicoFuncionario, servicoCliente, servicoCondutor, servicoCategoriaDeVeiculos, servicoVeiculo, servicoPlanoDeCobranca, servicoTaxa));
         }
 
         public T Get<T>() where T : ControladorBase

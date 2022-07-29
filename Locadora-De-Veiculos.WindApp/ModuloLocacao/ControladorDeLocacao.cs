@@ -44,7 +44,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
         List<PlanoDeCobranca> planos = new List<PlanoDeCobranca>();
         List<Taxa> taxas = new List<Taxa>();
 
-        public ControladorDeLocacao(ServicoLocacao servicoLocacao, ServicoFuncionario servicoFuncionario, ServicoCliente servicoCliente, ServicoCondutor servicoCondutor, ServicoCategoriasDeVeiculos servicoCategoria, ServicoVeiculo servicoVeiculo, ServicoPlanoDeCobranca servicoPlanoDeCobranca)
+        public ControladorDeLocacao(ServicoLocacao servicoLocacao, ServicoFuncionario servicoFuncionario, ServicoCliente servicoCliente, ServicoCondutor servicoCondutor, ServicoCategoriasDeVeiculos servicoCategoria, ServicoVeiculo servicoVeiculo, ServicoPlanoDeCobranca servicoPlanoDeCobranca, ServicoTaxa servicoTaxa)
         {
             this.servicoLocacao = servicoLocacao;
             this.servicoFuncionario = servicoFuncionario;
@@ -53,6 +53,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             this.servicoCategoria = servicoCategoria;
             this.servicoVeiculo = servicoVeiculo;
             this.servicoPlanoDeCobranca = servicoPlanoDeCobranca;
+            this.servicoTaxa = servicoTaxa;
         }
 
         public override void Inserir()
@@ -107,7 +108,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
             if (veiculos.Count == 0)
             {
-                MessageBox.Show("Insira um cliente primeiro",
+                MessageBox.Show("Insira um veiculo primeiro",
                "Inserção de Locacao", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
@@ -118,7 +119,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
             if (planos.Count == 0)
             {
-                MessageBox.Show("Insira um cliente primeiro",
+                MessageBox.Show("Insira um plano de cobrança primeiro",
                "Inserção de Locacao", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
@@ -129,7 +130,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
             if (taxas.Count == 0)
             {
-                MessageBox.Show("Insira um cliente primeiro",
+                MessageBox.Show("Insira um taxa primeiro",
                "Inserção de Locacao", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
