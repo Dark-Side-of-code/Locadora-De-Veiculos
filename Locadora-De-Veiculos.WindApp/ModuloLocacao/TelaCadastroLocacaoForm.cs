@@ -37,7 +37,6 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             this.veiculos = veiculo;
             this.planos = plano;
             this.taxas = taxa;
-            ClassMaskValorNumerico.AplicaMascaraValorNumerico(txtKilometragem);
             PreencherComboBox();
         }
 
@@ -172,6 +171,12 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             CarregarVeiculos();
         }
 
+        private void VeiculoChanged(object sender, EventArgs e)
+        {
+            var veiculo = (Veiculo)cbxVeiculo.SelectedItem;
+            txtKm.Text = veiculo.Km_total.ToString() + " Km";
+        }
+
         //private void PlanoChanged(object sender, EventArgs e)
         //{
         //    if(cbxPlano.SelectedItem != null)
@@ -204,6 +209,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             }
             return resultado;
         }
+
         #region Metodos Privados
 
         private void CarregarPlanos()
@@ -241,12 +247,15 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
         private void CarregarCondutores()
         {
             cbxCondutor.Items.Clear();
+            cbxCondutor.Text = "";
 
             foreach (Condutor c in condutores)
             {
                 if (c.Cliente == (Cliente)cbxCliente.SelectedItem)
                     cbxCondutor.Items.Add(c);
             }
+            if (cbxVeiculo.Items.Count > 0)
+                cbxVeiculo.SelectedIndex = 0;
         }
 
         private void CarregarClientes()
@@ -280,6 +289,5 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
         }
 
         #endregion
-
     }
 }

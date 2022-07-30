@@ -56,7 +56,7 @@
             this.cbxVeiculo = new System.Windows.Forms.ComboBox();
             this.dateInicio = new System.Windows.Forms.DateTimePicker();
             this.dateDevolucao = new System.Windows.Forms.DateTimePicker();
-            this.txtKilometragem = new System.Windows.Forms.TextBox();
+            this.txtKm = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -289,7 +289,6 @@
             this.cbxPlano.Name = "cbxPlano";
             this.cbxPlano.Size = new System.Drawing.Size(210, 23);
             this.cbxPlano.TabIndex = 63;
-           // this.cbxPlano.SelectedIndexChanged += new System.EventHandler(this.PlanoChanged);
             // 
             // cbxCondutor
             // 
@@ -306,6 +305,7 @@
             this.cbxVeiculo.Name = "cbxVeiculo";
             this.cbxVeiculo.Size = new System.Drawing.Size(210, 23);
             this.cbxVeiculo.TabIndex = 65;
+            this.cbxVeiculo.SelectedIndexChanged += new System.EventHandler(this.VeiculoChanged);
             // 
             // dateInicio
             // 
@@ -323,19 +323,21 @@
             this.dateDevolucao.Size = new System.Drawing.Size(210, 23);
             this.dateDevolucao.TabIndex = 67;
             // 
-            // txtKilometragem
+            // txtKm
             // 
-            this.txtKilometragem.Location = new System.Drawing.Point(484, 239);
-            this.txtKilometragem.Name = "txtKilometragem";
-            this.txtKilometragem.Size = new System.Drawing.Size(210, 23);
-            this.txtKilometragem.TabIndex = 68;
+            this.txtKm.AutoSize = true;
+            this.txtKm.Location = new System.Drawing.Point(484, 242);
+            this.txtKm.Name = "txtKm";
+            this.txtKm.Size = new System.Drawing.Size(157, 15);
+            this.txtKm.TabIndex = 68;
+            this.txtKm.Text = "<Kilometragem Do Veiculo>";
             // 
             // TelaCadastroLocacaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 624);
-            this.Controls.Add(this.txtKilometragem);
+            this.Controls.Add(this.txtKm);
             this.Controls.Add(this.dateDevolucao);
             this.Controls.Add(this.dateInicio);
             this.Controls.Add(this.cbxVeiculo);
@@ -401,6 +403,6 @@
         private System.Windows.Forms.ComboBox cbxVeiculo;
         private System.Windows.Forms.DateTimePicker dateInicio;
         private System.Windows.Forms.DateTimePicker dateDevolucao;
-        private System.Windows.Forms.TextBox txtKilometragem;
+        private System.Windows.Forms.Label txtKm;
     }
 }
