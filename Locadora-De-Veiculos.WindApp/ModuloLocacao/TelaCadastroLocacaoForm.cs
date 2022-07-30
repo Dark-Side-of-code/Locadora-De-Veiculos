@@ -78,7 +78,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
                 }
                 else
                 {
-                    cbxCondutor.SelectedIndex = 0;
+                    if(cbxCondutor.Items.Count > 0)
+                        cbxCondutor.SelectedIndex = 0;
                 }
 
                 if (locacao.Categoria != null)
@@ -98,7 +99,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
                 }
                 else
                 {
-                    cbxVeiculo.SelectedIndex = 0;
+                    if(cbxVeiculo.Items.Count > 0)
+                        cbxVeiculo.SelectedIndex = 0;
                 }
 
                 if (locacao.PlanoDeCobranca != null)
@@ -112,11 +114,12 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
                 }
 
 
-                if (locacao.DataInicio != null)
+                if (locacao.DataInicio > DateTimePicker.MinimumDateTime)
                     dateInicio.Value = locacao.DataInicio;
                 else
                     dateInicio.Value = DateTime.Now;
-                if (locacao.DataFinalPrevista != null)
+
+                if (locacao.DataFinalPrevista >DateTimePicker.MinimumDateTime)
                     dateDevolucao.Value = locacao.DataFinalPrevista;
                 else
                     dateDevolucao.Value = DateTime.Now;
@@ -169,10 +172,11 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             CarregarVeiculos();
         }
 
-        private void PlanoChanged(object sender, EventArgs e)
-        {
-            ValorFinal.Text = CalcularValorFinal().ToString();
-        }
+        //private void PlanoChanged(object sender, EventArgs e)
+        //{
+        //    if(cbxPlano.SelectedItem != null)
+        //    ValorFinal.Text = CalcularValorFinal().ToString();
+        //}
 
         public double CalcularValorFinal()
         {
@@ -237,7 +241,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             foreach (Condutor c in condutores)
             {
                 if (c.Cliente == (Cliente)cbxCliente.SelectedItem)
-                    cbxCliente.Items.Add(c);
+                    cbxCondutor.Items.Add(c);
             }
         }
 
