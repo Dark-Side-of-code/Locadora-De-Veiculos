@@ -289,7 +289,7 @@
             this.cbxPlano.Name = "cbxPlano";
             this.cbxPlano.Size = new System.Drawing.Size(210, 23);
             this.cbxPlano.TabIndex = 63;
-            this.cbxPlano.SelectedIndexChanged += new System.EventHandler(this.PlanoChanged);
+           // this.cbxPlano.SelectedIndexChanged += new System.EventHandler(this.PlanoChanged);
             // 
             // cbxCondutor
             // 
