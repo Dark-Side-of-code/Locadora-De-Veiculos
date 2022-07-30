@@ -28,7 +28,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
             Km_total = km_total;
             Foto = foto;
             CategoriaDeVeiculos = categoriaDeVeiculos;
-            StatusVeiculo = statusLocacao = true; //para o status de um veiculo novo inicie como disponivel para locação
+            StatusVeiculo = true; //para o status de um veiculo novo inicie como disponivel para locação
         }
 
         public string Modelo { get; set; }
@@ -90,6 +90,11 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
 
             CategoriaDeVeiculosId = categoria.Id;
             CategoriaDeVeiculos = categoria;
+        }
+
+        public override string ToString()
+        {
+            return this.Modelo + " e " + Marca;
         }
     }
 }

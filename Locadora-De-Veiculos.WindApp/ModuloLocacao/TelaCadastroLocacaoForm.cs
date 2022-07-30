@@ -216,12 +216,16 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
         private void CarregarVeiculos()
         {
             cbxVeiculo.Items.Clear();
+            cbxVeiculo.Text = "";
 
             foreach (Veiculo c in veiculos)
             {
                 if(c.CategoriaDeVeiculos == (CategoriaDeVeiculos)cbxCategoria.SelectedItem && c.StatusVeiculo == true)
                 cbxVeiculo.Items.Add(c);
             }
+            if (cbxVeiculo.Items.Count > 0)
+                cbxVeiculo.SelectedIndex = 0;
+
         }
 
         private void CarregarCategorias()
