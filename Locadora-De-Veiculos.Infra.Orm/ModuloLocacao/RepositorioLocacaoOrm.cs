@@ -19,5 +19,18 @@ namespace Locadora_De_Veiculos.Infra.Orm.ModuloLocacao
             locacoes = dbContext.Set<Locacao>();
             this.dbContext = dbContext;
         }
+
+        public override List<Locacao> SelecionarTodos()
+        {
+            return locacoes
+                .Include(x => x.Funcionario)
+                .Include(x => x.Cliente)
+                .Include(x => x.Condutor)
+                .Include(x => x.Categoria)
+                .Include(x => x.Veiculo)
+                .Include(x => x.PlanoDeCobranca)
+                .Include(x => x.Taxas)
+                .ToList();
+        }
     }
 }
