@@ -67,7 +67,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
                 }
                 else
                 {
-                    cbxFuncionario.SelectedIndex = 0;
+                    cbxCliente.SelectedIndex = 0;
                 }
 
                 if (locacao.Condutor != null)
@@ -132,11 +132,20 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             locacao.Condutor = (Condutor)cbxCondutor.SelectedItem;
             locacao.Categoria = (CategoriaDeVeiculos)cbxCategoria.SelectedItem;
             locacao.Veiculo = (Veiculo)cbxVeiculo.SelectedItem;
-            locacao.PlanoDeCobranca = (PlanoDeCobranca)cbxPlano.SelectedItem;
+            Veiculo veiculo = (Veiculo)cbxVeiculo.SelectedItem;
+            veiculo.StatusVeiculo = false;
+            PlanoDeCobranca plano = null;
+            foreach(PlanoDeCobranca p in planos)
+            {
+                if (p.CategoriaDeVeiculos == (CategoriaDeVeiculos)cbxCategoria.SelectedItem)
+                    plano = p;
+            }
+            locacao.PlanoDeCobranca = plano;
             locacao.NomeDoPlano = cbxPlano.Text;
             locacao.valorEstimado = CalcularValorFinal();
             locacao.DataInicio = DateTime.Parse(dateInicio.Text);
             locacao.DataFinalPrevista = DateTime.Parse(dateDevolucao.Text);
+            locacao.Status = "Em Aberto";
 
             var resultadoValidacao = GravarRegistro(Locacao);
 
