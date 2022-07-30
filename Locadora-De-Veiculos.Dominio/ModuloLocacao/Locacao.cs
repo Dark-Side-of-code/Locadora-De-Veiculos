@@ -15,28 +15,33 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
     {
         public Funcionario Funcionario { get; set; }
         public Guid FuncionarioId { get; set; }
-
         public Cliente Cliente { get; set; }
         public Guid ClienteId { get; set; }
-
         public Condutor Condutor { get; set; }
         public Guid CondutorId { get; set; }
-
         public CategoriaDeVeiculos Categoria { get; set; }
         public Guid CategoriaId { get; set; }
-
         public Veiculo Veiculo { get; set; }
         public Guid VeiculoId { get; set; }
-
         public PlanoDeCobranca PlanoDeCobranca { get; set; }
         public Guid PlanoDeCobrancaId { get; set; }
-
         public List<Taxa> Taxas { get; set; }
         public string NomeDoPlano { get; set; }
         public double valorEstimado { get; set; }
         public string Status { get; set; }
         public DateTime DataInicio { get; set; }
         public DateTime DataFinalPrevista { get; set; }
+
+        //Atributos Relacionados A Devolucao
+
+        public DateTime DataFinalReal { get; set; }
+        public int QuilometragemDoVeiculo { get; set; }
+        public double ValorGasolina { get; set; }
+        public decimal NivelDoTanque { get; set; }
+        public double ValorTotal { get; set; }
+        public List<Taxa> TaxaAdicional { get; set; }
+
+
 
         public Locacao()
         {
