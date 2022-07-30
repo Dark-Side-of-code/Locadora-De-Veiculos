@@ -24,7 +24,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloTaxas
 
         public Result<Taxa> Inserir(Taxa arg)
         {
-            Log.Logger.Debug("Tentando inserir funcionário... {@f}", arg);
+            Log.Logger.Debug("Tentando inserir Taxa... {@f}", arg);
 
             Result resultadoValidacao = ValidarTaxa(arg);
 
@@ -32,7 +32,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloTaxas
             {
                 foreach (var erro in resultadoValidacao.Errors)
                 {
-                    Log.Logger.Warning("Falha ao tentar inserir o Funcionário {TaxaId} - {Motivo}",
+                    Log.Logger.Warning("Falha ao tentar inserir o Taxa {TaxaId} - {Motivo}",
                        arg.Id, erro.Message);
                 }
 
@@ -45,13 +45,13 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloTaxas
 
                 contexto.GravarDados();
 
-                Log.Logger.Information("Funcionário {TaxaId} inserido com sucesso", arg.Id);
+                Log.Logger.Information("Taxa {TaxaId} inserido com sucesso", arg.Id);
 
                 return Result.Ok(arg);
             }
             catch (Exception ex)
             {
-                string msgErro = "Falha no sistema ao tentar inserir o funcionário";
+                string msgErro = "Falha no sistema ao tentar inserir o Taxa";
 
                 Log.Logger.Error(ex, msgErro + "{TaxaId}", arg.Id);
 
@@ -61,7 +61,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloTaxas
 
         public Result<Taxa> Editar(Taxa arg)
         {
-            Log.Logger.Debug("Tentando editar funcionário... {@f}", arg);
+            Log.Logger.Debug("Tentando editar Taxa... {@f}", arg);
 
             Result resultadoValidacao = ValidarTaxa(arg);
 
@@ -69,7 +69,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloTaxas
             {
                 foreach (var erro in resultadoValidacao.Errors)
                 {
-                    Log.Logger.Warning("Falha ao tentar editar o Funcionário {TaxaId} - {Motivo}",
+                    Log.Logger.Warning("Falha ao tentar editar o Taxa {TaxaId} - {Motivo}",
                        arg.Id, erro.Message);
                 }
 
@@ -82,13 +82,13 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloTaxas
 
                 contexto.GravarDados();
 
-                Log.Logger.Information("Funcionário {TaxaId} editado com sucesso", arg.Id);
+                Log.Logger.Information("Taxa {TaxaId} editado com sucesso", arg.Id);
 
                 return Result.Ok(arg);
             }
             catch (Exception ex)
             {
-                string msgErro = "Falha no sistema ao tentar editar o funcionário";
+                string msgErro = "Falha no sistema ao tentar editar o taxa";
 
                 Log.Logger.Error(ex, msgErro + "{TaxaId}", arg.Id);
 
@@ -98,7 +98,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloTaxas
 
         public Result Excluir(Taxa arg)
         {
-            Log.Logger.Debug("Tentando excluir funcionário... {@f}", arg);
+            Log.Logger.Debug("Tentando excluir taxa... {@f}", arg);
 
             try
             {
@@ -106,13 +106,13 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloTaxas
 
                 contexto.GravarDados();
 
-                Log.Logger.Information("Funcionário {TaxaId} excluído com sucesso", arg.Id);
+                Log.Logger.Information("Taxa {TaxaId} excluído com sucesso", arg.Id);
 
                 return Result.Ok();
             }
             catch (Exception ex)
             {
-                string msgErro = "Falha no sistema ao tentar excluir o funcionário";
+                string msgErro = "Falha no sistema ao tentar excluir o taxa";
 
                 Log.Logger.Error(ex, msgErro + "{TaxaId}", arg.Id);
 
@@ -128,7 +128,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloTaxas
             }
             catch (Exception ex)
             {
-                string msgErro = "Falha no sistema ao tentar selecionar todos os funcionários";
+                string msgErro = "Falha no sistema ao tentar selecionar todos os taxas";
 
                 Log.Logger.Error(ex, msgErro);
 
@@ -144,7 +144,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloTaxas
             }
             catch (Exception ex)
             {
-                string msgErro = "Falha no sistema ao tentar selecionar o funcionário";
+                string msgErro = "Falha no sistema ao tentar selecionar o taxa";
 
                 Log.Logger.Error(ex, msgErro + "{TaxaId}", id);
 
