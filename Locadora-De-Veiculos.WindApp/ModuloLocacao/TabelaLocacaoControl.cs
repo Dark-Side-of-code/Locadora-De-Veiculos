@@ -20,6 +20,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
         {
             var colunas = new DataGridViewColumn[]
             {
+                new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Número", FillWeight=15F },
+
                 new DataGridViewTextBoxColumn { DataPropertyName = "Funcionario", HeaderText = "Funcionario", FillWeight=15F },
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Cliente", HeaderText = "Cliente", FillWeight=85F },
@@ -45,13 +47,13 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             return grid.SelecionarNumero<Guid>();
         }
 
-        public void AtualizarRegistros(List<Locacao> disciplinas)
+        public void AtualizarRegistros(List<Locacao> locacoes)
         {
             grid.Rows.Clear();
 
-            foreach (Locacao locacao in disciplinas)
+            foreach (Locacao locacao in locacoes)
             {
-                grid.Rows.Add(locacao.Funcionario, locacao.Cliente, locacao.Condutor, locacao.Categoria, locacao.Veiculo, locacao.PlanoDeCobranca, locacao.DataInicio, locacao.DataFinalPrevista);
+                grid.Rows.Add(locacao.Id, locacao.Funcionario, locacao.Cliente, locacao.Condutor, locacao.Categoria, locacao.Veiculo, locacao.PlanoDeCobranca, locacao.DataInicio, locacao.DataFinalPrevista);
             }
         }
     }

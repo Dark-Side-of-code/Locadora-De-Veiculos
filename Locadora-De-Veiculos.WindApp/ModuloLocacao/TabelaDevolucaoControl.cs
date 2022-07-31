@@ -20,7 +20,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
         {
             var colunas = new DataGridViewColumn[]
             {
-                 new DataGridViewTextBoxColumn { DataPropertyName = "Funcionario", HeaderText = "Funcionario", FillWeight=15F },
+                new DataGridViewTextBoxColumn { DataPropertyName = "Funcionario", HeaderText = "Funcionario", FillWeight=15F },
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Cliente", HeaderText = "Cliente", FillWeight=85F },
 
@@ -32,9 +32,26 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "PlanoDeCobranca", HeaderText = "Plano", FillWeight=85F },
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "DataInicio", HeaderText = "Locacao", FillWeight=85F },
+                new DataGridViewTextBoxColumn { DataPropertyName = "QuilometragemDoVeiculo", HeaderText = "Quilometragem do veículo", FillWeight=85F },
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "DataFinalPrevista", HeaderText = "Devolucao", FillWeight=85F },
+                new DataGridViewTextBoxColumn { DataPropertyName = "NivelDoTanque", HeaderText = "Nível do Tanque", FillWeight=85F },
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "ValorGasolina", HeaderText = "Preço gasolina", FillWeight=85F },
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "TaxaAdicional", HeaderText = "Taxa Adicional", FillWeight=85F },
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "TaxaSelecionada", HeaderText = "Taxa Selecionada", FillWeight=85F },
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "DataInicio", HeaderText = "Data Inicio", FillWeight=85F },
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "DataFinalPrevista", HeaderText = "Data Final Prevista", FillWeight=85F },
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "Data_Da_Entrega", HeaderText = "Data Da Entrega", FillWeight=85F },
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "ValorTotal", HeaderText = "Valor Total", FillWeight=85F },
+
+
+
             };
 
             return colunas;
