@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grid = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
+            this.gridDevolucao = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDevolucao)).BeginInit();
             this.SuspendLayout();
             // 
-            // grid
+            // gridDevolucao
             // 
-            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grid.Location = new System.Drawing.Point(0, 0);
-            this.grid.Name = "grid";
-            this.grid.RowTemplate.Height = 25;
-            this.grid.Size = new System.Drawing.Size(377, 279);
-            this.grid.TabIndex = 0;
+            this.gridDevolucao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridDevolucao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridDevolucao.Location = new System.Drawing.Point(0, 0);
+            this.gridDevolucao.Name = "gridDevolucao";
+            this.gridDevolucao.RowTemplate.Height = 25;
+            this.gridDevolucao.Size = new System.Drawing.Size(377, 279);
+            this.gridDevolucao.TabIndex = 0;
             // 
             // TabelaDevolucaoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.grid);
+            this.Controls.Add(this.gridDevolucao);
             this.Name = "TabelaDevolucaoControl";
             this.Size = new System.Drawing.Size(377, 279);
-            ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDevolucao)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView grid;
+        private System.Windows.Forms.DataGridView gridDevolucao;
     }
 }
