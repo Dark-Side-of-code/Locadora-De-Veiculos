@@ -20,6 +20,11 @@ namespace Locadora_De_Veiculos.Infra.Orm.ModuloPlanosDeCobrança
             this.dbContext = dbContext;
         }
 
+        public override List<PlanoDeCobranca> SelecionarTodos()
+        {
+            return planosDeCobranca.Include(x => x.CategoriaDeVeiculos).ToList();
+        }
+
         public PlanoDeCobranca SelecionarNomeCategoria(string nomeCategoria)
         {
             return planosDeCobranca.SingleOrDefault(x => x.CategoriaDeVeiculos.Nome == nomeCategoria); //Caso haja erro mudar para ToString()
