@@ -255,6 +255,7 @@
             this.listTaxas.Name = "listTaxas";
             this.listTaxas.Size = new System.Drawing.Size(621, 148);
             this.listTaxas.TabIndex = 0;
+            this.listTaxas.SelectedValueChanged += new System.EventHandler(this.taxasChenged);
             // 
             // cbxFuncionario
             // 
@@ -289,6 +290,7 @@
             this.cbxPlano.Name = "cbxPlano";
             this.cbxPlano.Size = new System.Drawing.Size(210, 23);
             this.cbxPlano.TabIndex = 63;
+            this.cbxPlano.SelectedIndexChanged += new System.EventHandler(this.PlanoChanged);
             // 
             // cbxCondutor
             // 
@@ -314,6 +316,7 @@
             this.dateInicio.Name = "dateInicio";
             this.dateInicio.Size = new System.Drawing.Size(210, 23);
             this.dateInicio.TabIndex = 66;
+            this.dateInicio.ValueChanged += new System.EventHandler(this.DataInicialChanged);
             // 
             // dateDevolucao
             // 
@@ -322,6 +325,7 @@
             this.dateDevolucao.Name = "dateDevolucao";
             this.dateDevolucao.Size = new System.Drawing.Size(210, 23);
             this.dateDevolucao.TabIndex = 67;
+            this.dateDevolucao.ValueChanged += new System.EventHandler(this.DataFinalChanged);
             // 
             // txtKm
             // 

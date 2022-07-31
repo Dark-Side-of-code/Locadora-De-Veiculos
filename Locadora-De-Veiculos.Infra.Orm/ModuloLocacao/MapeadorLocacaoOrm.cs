@@ -22,6 +22,7 @@ namespace Locadora_De_Veiculos.Infra.Orm.ModuloLocacao
             builder.Property(x => x.Status).IsRequired().HasColumnType("varchar(50)");
             builder.Property(x => x.DataInicio).IsRequired().HasColumnType("datetime");
             builder.Property(x => x.DataFinalPrevista).IsRequired().HasColumnType("datetime");
+            builder.Property(x => x.TipoDoPlano).IsRequired().HasColumnType("varchar(50)");
 
             //Atributos Relacionados A Devolucao
 
