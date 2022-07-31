@@ -174,6 +174,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             }
 
             var veiculoSelecionado = resultadoSelecao.Value;
+            var locacao = servicoLocacao.SelecionarLocacaoPorID(id);
+            locacao.Status = "Excluido";
 
             if (MessageBox.Show("Deseja realmente excluir a Locacao?", "Exclusão de Locacao",
                  MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)

@@ -64,7 +64,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloLocacao
 
             try
             {
-                repositorioLocacao.Excluir(arg);
+                repositorioLocacao.Editar(arg);
 
                 contexto.GravarDados();
 
@@ -117,6 +117,11 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloLocacao
         private Result ValidarLocacao(Locacao arg)
         {
             return Result.Ok();
+        }
+
+        public Locacao SelecionarLocacaoPorID(Guid id)
+        {
+            return repositorioLocacao.SelecionarLocacaoPorGuid(id);
         }
     }
 }

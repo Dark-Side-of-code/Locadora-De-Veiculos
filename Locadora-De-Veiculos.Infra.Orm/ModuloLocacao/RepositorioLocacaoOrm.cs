@@ -20,6 +20,11 @@ namespace Locadora_De_Veiculos.Infra.Orm.ModuloLocacao
             this.dbContext = dbContext;
         }
 
+        public Locacao SelecionarLocacaoPorGuid(Guid id)
+        {
+            return locacoes.SingleOrDefault(x => x.Id == id);
+        }
+
         public override List<Locacao> SelecionarTodos()
         {
             return locacoes
@@ -32,5 +37,7 @@ namespace Locadora_De_Veiculos.Infra.Orm.ModuloLocacao
                 .Include(x => x.Taxas)
                 .ToList();
         }
+
+
     }
 }
