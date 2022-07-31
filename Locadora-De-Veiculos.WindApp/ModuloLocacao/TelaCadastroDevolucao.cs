@@ -19,7 +19,6 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
     public partial class TelaCadastroDevolucao : Form
     {
         private Locacao locacao;
-        private Devolucao devolucao;
 
 
         public TelaCadastroDevolucao()
@@ -28,23 +27,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
             this.ConfigurarTela();
         }
 
-        public Func<Devolucao, Result<Devolucao>> GravarRegistro { get; set; }
+        public Func<Locacao, Result<Locacao>> GravarRegistro { get; set; }
 
-
-        public Devolucao Devolucao
-        {
-              get => devolucao;
-
-              set 
-              {
-                txt_QuilometragemVeiculo.Text = devolucao.QuilometragemDoVeiculo.ToString();
-                cbx_NivelTanque.Text = devolucao.NivelDoTanque.ToString();
-                txt_ValorGasolina.Text = devolucao.ValorGasolina.ToString();   
-                dateTimePicker_DataDevolucao.Text = devolucao.Data_Da_Entrega.ToString();
-                lb_ValorTotal.Text = devolucao.ValorTotal.ToString();
-              }
-        
-        }
 
         public Locacao Locacao
         {
@@ -62,9 +46,17 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
                
                 //-----
                 lb_PlanoCobranca.Text = locacao.PlanoDeCobranca.ToString();//-----
-                //-----
+                                                                           //-----
 
                 //List_taxasSelecionadas = locacao.
+
+
+
+                //txt_QuilometragemVeiculo.Text = devolucao.QuilometragemDoVeiculo.ToString();
+                //cbx_NivelTanque.Text = devolucao.NivelDoTanque.ToString();
+                //txt_ValorGasolina.Text = devolucao.ValorGasolina.ToString();
+                //dateTimePicker_DataDevolucao.Text = devolucao.Data_Da_Entrega.ToString();
+                //lb_ValorTotal.Text = devolucao.ValorTotal.ToString();
             }
         }
 
@@ -82,13 +74,14 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
             //locacao.PlanoDeCobranca = Convert.ToDouble(lb_PlanoCobranca.Text);//----
             //----
 
-            devolucao.Data_Da_Entrega = DateTime.Parse(dateTimePicker_DataDevolucao.Text);
-            devolucao.QuilometragemDoVeiculo = Convert.ToInt32(txt_QuilometragemVeiculo.Text);
-            devolucao.NivelDoTanque = Convert.ToDecimal(cbx_NivelTanque.Text);
-            devolucao.ValorGasolina = Convert.ToDouble(txt_ValorGasolina.Text);
-            //devolucao.TaxaAdicional = Convert.ToString(List_TaxaAdicionais.Text);
+            locacao.DataFinalReal = DateTime.Parse(dateTimePicker_DataDevolucao.Text);
+            locacao.QuilometragemDoVeiculo = Convert.ToInt32(txt_QuilometragemVeiculo.Text);
+            locacao.NivelDoTanque = Convert.ToDecimal(cbx_NivelTanque.Text);
+            locacao.ValorGasolina = Convert.ToDouble(txt_ValorGasolina.Text);
+            //locacao.TaxaAdicional = Convert.ToString(List_TaxaAdicionais.Text);
+            locacao.Status = "Devolvido";
 
-            devolucao.ValorTotal = Convert.ToDouble(lb_ValorTotal.Text);
+            locacao.ValorTotal = Convert.ToDouble(lb_ValorTotal.Text);
         }
     }
 }
