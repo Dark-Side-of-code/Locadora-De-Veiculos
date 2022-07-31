@@ -69,7 +69,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(490, 327);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Locação";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
@@ -80,7 +80,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(490, 327);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Devolução";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // gridDevolucao
@@ -90,6 +90,7 @@
             this.gridDevolucao.Location = new System.Drawing.Point(3, 3);
             this.gridDevolucao.Name = "gridDevolucao";
             this.gridDevolucao.RowTemplate.Height = 25;
+            this.gridDevolucao.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.gridDevolucao.Size = new System.Drawing.Size(484, 321);
             this.gridDevolucao.TabIndex = 0;
             // 
