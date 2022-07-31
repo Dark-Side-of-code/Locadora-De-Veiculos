@@ -42,6 +42,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
                 new DataGridViewTextBoxColumn { DataPropertyName = "DataInicio", HeaderText = "Locacao", FillWeight=85F },
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "DataFinalPrevista", HeaderText = "Devolucao", FillWeight=85F },
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "Status", HeaderText = "Status", FillWeight=85F },
             };
 
             return colunas;
@@ -58,7 +60,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
             foreach (Locacao locacao in locacoes)
             {
-                grid.Rows.Add(locacao.Id, locacao.Funcionario, locacao.Cliente, locacao.Condutor, locacao.Categoria, locacao.Veiculo, locacao.PlanoDeCobranca, locacao.DataInicio, locacao.DataFinalPrevista);
+                grid.Rows.Add(locacao.Id, locacao.Funcionario, locacao.Cliente, locacao.Condutor, locacao.Categoria, locacao.Veiculo, locacao.PlanoDeCobranca, locacao.DataInicio, locacao.DataFinalPrevista, locacao.Status);
             }
         }
 
@@ -101,6 +103,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "ValorTotal", HeaderText = "Valor Total", FillWeight=85F },
 
+                new DataGridViewTextBoxColumn { DataPropertyName = "Status", HeaderText = "Status", FillWeight=85F },
+
             };
 
             return colunas;
@@ -117,7 +121,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
             foreach (Locacao devolucao in devolucoes)
             {
-                gridDevolucao.Rows.Add(devolucao.Id, devolucao.Funcionario, devolucao.Cliente, devolucao.Condutor, devolucao.Categoria, devolucao.Veiculo, devolucao.PlanoDeCobranca, devolucao.QuilometragemDoVeiculo, devolucao.NivelDoTanque, devolucao.ValorGasolina,/**/ devolucao.TaxaAdicional, devolucao.Taxas,/**/ devolucao.DataInicio, devolucao.DataFinalPrevista, devolucao.DataFinalReal, devolucao.ValorTotal);
+                gridDevolucao.Rows.Add(devolucao.Id, devolucao.Funcionario, devolucao.Cliente, devolucao.Condutor, devolucao.Categoria, devolucao.Veiculo, devolucao.PlanoDeCobranca, devolucao.QuilometragemDoVeiculo, devolucao.NivelDoTanque, devolucao.ValorGasolina,/**/ devolucao.TaxaAdicional, devolucao.Taxas,/**/ devolucao.DataInicio, devolucao.DataFinalPrevista, devolucao.DataFinalReal, devolucao.ValorTotal, devolucao.Status);
             }
         }
         #endregion
