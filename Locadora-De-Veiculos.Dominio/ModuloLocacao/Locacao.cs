@@ -31,6 +31,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
         public string Status { get; set; }
         public DateTime DataInicio { get; set; }
         public DateTime DataFinalPrevista { get; set; }
+        public string TipoDoPlano { get; set; }
 
         //Atributos Relacionados A Devolucao
 
