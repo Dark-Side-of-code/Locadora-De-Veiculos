@@ -16,5 +16,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos
         public override string TooltipEditar => "Editar uma Categoria de Veículo existente";
 
         public override string TooltipExcluir => "Excluir uma Categoria de Veículo existente";
+
+        public override bool DevolverHabilitado => false;
     }
 }
