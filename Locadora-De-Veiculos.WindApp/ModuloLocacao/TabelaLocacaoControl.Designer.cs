@@ -32,9 +32,12 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.gridDevolucao = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDevolucao)).BeginInit();
             this.SuspendLayout();
             // 
             // grid
@@ -71,6 +74,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.gridDevolucao);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -78,6 +82,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // gridDevolucao
+            // 
+            this.gridDevolucao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridDevolucao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridDevolucao.Location = new System.Drawing.Point(3, 3);
+            this.gridDevolucao.Name = "gridDevolucao";
+            this.gridDevolucao.RowTemplate.Height = 25;
+            this.gridDevolucao.Size = new System.Drawing.Size(484, 321);
+            this.gridDevolucao.TabIndex = 0;
             // 
             // TabelaLocacaoControl
             // 
@@ -89,6 +103,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridDevolucao)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -99,5 +115,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridView gridDevolucao;
     }
 }
