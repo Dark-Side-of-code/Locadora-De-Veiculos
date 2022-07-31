@@ -46,6 +46,7 @@
             this.cbx_NivelTanque = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.List_taxasSelecionadas = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.List_TaxaAdicionais = new System.Windows.Forms.CheckedListBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -64,7 +65,6 @@
             this.lb_ValorTotal = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txt_ValorGasolina = new System.Windows.Forms.TextBox();
-            this.List_taxasSelecionadas = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -206,6 +206,7 @@
             // 
             // cbx_NivelTanque
             // 
+            this.cbx_NivelTanque.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_NivelTanque.FormattingEnabled = true;
             this.cbx_NivelTanque.Location = new System.Drawing.Point(412, 296);
             this.cbx_NivelTanque.Name = "cbx_NivelTanque";
@@ -232,6 +233,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Taxa já Selecionada";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // List_taxasSelecionadas
+            // 
+            this.List_taxasSelecionadas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.List_taxasSelecionadas.FormattingEnabled = true;
+            this.List_taxasSelecionadas.ItemHeight = 15;
+            this.List_taxasSelecionadas.Location = new System.Drawing.Point(3, 3);
+            this.List_taxasSelecionadas.Name = "List_taxasSelecionadas";
+            this.List_taxasSelecionadas.Size = new System.Drawing.Size(519, 150);
+            this.List_taxasSelecionadas.TabIndex = 1;
             // 
             // tabPage2
             // 
@@ -405,16 +416,6 @@
             this.txt_ValorGasolina.Name = "txt_ValorGasolina";
             this.txt_ValorGasolina.Size = new System.Drawing.Size(148, 23);
             this.txt_ValorGasolina.TabIndex = 134;
-            // 
-            // List_taxasSelecionadas
-            // 
-            this.List_taxasSelecionadas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.List_taxasSelecionadas.FormattingEnabled = true;
-            this.List_taxasSelecionadas.ItemHeight = 15;
-            this.List_taxasSelecionadas.Location = new System.Drawing.Point(3, 3);
-            this.List_taxasSelecionadas.Name = "List_taxasSelecionadas";
-            this.List_taxasSelecionadas.Size = new System.Drawing.Size(519, 150);
-            this.List_taxasSelecionadas.TabIndex = 1;
             // 
             // TelaCadastroDevolucao
             // 
