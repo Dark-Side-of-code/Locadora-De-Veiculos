@@ -54,11 +54,17 @@ namespace Locadora_De_Veiculos.WindApp
             controlador.Excluir();
         }
 
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            controlador.Devolver();
+        }
+
         private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao)
         {
-            btnInserir.Enabled = configuracao.InserirHabilitado;
-            btnEditar.Enabled = configuracao.EditarHabilitado;
-            btnExcluir.Enabled = configuracao.ExcluirHabilitado;
+            btnInserir.Visible = configuracao.InserirHabilitado;
+            btnEditar.Visible = configuracao.EditarHabilitado;
+            btnExcluir.Visible = configuracao.ExcluirHabilitado;
+            btnDevolver.Visible = configuracao.DevolverHabilitado;
         }
 
         private void ConfigurarTooltips(ConfiguracaoToolboxBase configuracao)
