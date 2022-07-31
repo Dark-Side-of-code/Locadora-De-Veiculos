@@ -3,6 +3,7 @@ using Locadora_De_Veiculos.Dominio.ModuloDevolucao;
 using Locadora_De_Veiculos.Dominio.ModuloFuncionario;
 using Locadora_De_Veiculos.Dominio.ModuloLocacao;
 using Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca;
+using Locadora_De_Veiculos.Dominio.ModuloTaxas;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
 using System;
 using System.Collections.Generic;
@@ -19,12 +20,14 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
     public partial class TelaCadastroDevolucao : Form
     {
         private Locacao locacao;
+        public List<Taxa> taxas;
 
-
-        public TelaCadastroDevolucao()
+        public TelaCadastroDevolucao( List<Taxa> taxas)
         {
             InitializeComponent();
             this.ConfigurarTela();
+            this.taxas = taxas;
+            CarregarTaxas();
         }
 
         public Func<Locacao, Result<Locacao>> GravarRegistro { get; set; }
@@ -36,6 +39,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
 
             set
             {
+                locacao = value;
+
                 lb_Funcionario.Text = locacao.Funcionario.Nome;
                 lb_Cliente.Text = locacao.Cliente.Nome;
                 lb_Condutor.Text = locacao.Condutor.Nome;
@@ -43,15 +48,9 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
                 lb_Veiculo.Text = locacao.Veiculo.Modelo;
                 lb_DataLocacao.Text = locacao.DataInicio.ToString();
                 lb_DevoluçãoPrevista.Text = locacao.DataFinalPrevista.ToString();
-               
-                //-----
-                lb_PlanoCobranca.Text = locacao.PlanoDeCobranca.ToString();//-----
-                                                                           //-----
+              //---  lb_PlanoCobranca.Text = locacao.PlanoDeCobranca.ToString();//---------
 
-                //List_taxasSelecionadas = locacao.
-
-
-
+                
                 //txt_QuilometragemVeiculo.Text = devolucao.QuilometragemDoVeiculo.ToString();
                 //cbx_NivelTanque.Text = devolucao.NivelDoTanque.ToString();
                 //txt_ValorGasolina.Text = devolucao.ValorGasolina.ToString();
@@ -81,7 +80,18 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
             //locacao.TaxaAdicional = Convert.ToString(List_TaxaAdicionais.Text);
             locacao.Status = "Devolvido";
 
-            locacao.ValorTotal = Convert.ToDouble(lb_ValorTotal.Text);
+           // locacao.ValorTotal = Convert.ToDouble(lb_ValorTotal.Text);
+        }
+
+        private void CarregarTaxas()
+        {
+            List_taxasSelecionadas.Items.Clear();
+            
+            foreach (Taxa t in taxas)
+            {
+                List_taxasSelecionadas.Items.Add(t);
+                locacao.Taxas.Add(t);
+            }
         }
     }
 }
