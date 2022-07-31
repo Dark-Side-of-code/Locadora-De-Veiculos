@@ -147,6 +147,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             locacao.DataFinalPrevista = DateTime.Parse(dateDevolucao.Text);
             locacao.Status = "Em Aberto";
 
+            locacao.DataFinalReal = DateTime.MaxValue;
             var resultadoValidacao = GravarRegistro(Locacao);
 
             if (resultadoValidacao.IsFailed)
