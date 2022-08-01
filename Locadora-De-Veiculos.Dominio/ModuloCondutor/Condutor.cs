@@ -78,5 +78,10 @@ namespace Locadora_De_Veiculos.Dominio.ModuloCondutor
             Cliente = cliente;
             ClienteId = cliente.Id;
         }
+
+        public override string ToString()
+        {
+            return this.Nome;
+        }
     }
 }

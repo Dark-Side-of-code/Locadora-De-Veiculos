@@ -61,6 +61,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
                 {
                     cbx_NivelTanque.SelectedIndex = 0;
                 }
+                
             }
         }
 
@@ -87,14 +88,17 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
            // locacao.ValorTotal = Convert.ToDouble(lb_ValorTotal.Text);
         }
 
+        #region Métodos Privados
+
         private void CarregarTaxas()
         {
             List_taxasSelecionadas.Items.Clear();
             
+
             foreach (Taxa t in taxas)
             {
                 List_taxasSelecionadas.Items.Add(t);
-               // locacao.Taxas.Add(t);
+                
             }
         }
 
@@ -106,5 +110,6 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
             cbx_NivelTanque.Items.Add("75%");
             cbx_NivelTanque.Items.Add("100%");
         }
+        #endregion
     }
 }

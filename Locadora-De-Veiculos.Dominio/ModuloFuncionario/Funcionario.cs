@@ -46,5 +46,10 @@ namespace Locadora_De_Veiculos.Dominio.ModuloFuncionario
         {
             return MemberwiseClone() as Funcionario;
         }
+
+        public override string ToString()
+        {
+            return this.Nome;
+        }
     }
 }
