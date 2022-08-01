@@ -50,6 +50,17 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
                 lb_Veiculo.Text = locacao.Veiculo.Modelo;
                 lb_DataLocacao.Text = locacao.DataInicio.ToString();
                 lb_DevoluçãoPrevista.Text = locacao.DataFinalPrevista.ToString();
+                lb_PlanoCobranca.Text = locacao.NomeDoPlano;
+
+                if (locacao.NivelDoTanque != null)
+                {
+                    cbx_NivelTanque.SelectedItem = locacao.NivelDoTanque;
+                    cbx_NivelTanque.SelectedIndex = 0;
+                }
+                else
+                {
+                    cbx_NivelTanque.SelectedIndex = 0;
+                }
             }
         }
 
@@ -63,18 +74,16 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
             locacao.Veiculo.StatusVeiculo = true;
             locacao.DataInicio = DateTime.Parse(lb_DataLocacao.Text);
             locacao.DataFinalPrevista = DateTime.Parse(lb_DevoluçãoPrevista.Text);
-
-            //----
-            //locacao.PlanoDeCobranca = Convert.ToDouble(lb_PlanoCobranca.Text);
-            //----
-
+            locacao.NomeDoPlano = lb_PlanoCobranca.Text;
             locacao.DataFinalReal = DateTime.Parse(dateTimePicker_DataDevolucao.Text);
             locacao.QuilometragemDoVeiculo = Convert.ToInt32(txt_QuilometragemVeiculo.Text);
             locacao.NivelDoTanque = Convert.ToDecimal(cbx_NivelTanque.Text);
             locacao.ValorGasolina = Convert.ToDouble(txt_ValorGasolina.Text);
+
+            //locacao.Taxas = Convert.ToString(List_taxasSelecionadas.);
+
             //locacao.TaxaAdicional = Convert.ToString(List_TaxaAdicionais.Text);
             locacao.Status = "Devolvido";
-
            // locacao.ValorTotal = Convert.ToDouble(lb_ValorTotal.Text);
         }
 
