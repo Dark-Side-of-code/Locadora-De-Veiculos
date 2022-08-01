@@ -342,7 +342,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
         private void taxasChenged(object sender, EventArgs e)
         {
-            CalcularValorDasTaxas();
+            CalcularValorFinal();
         }
     }
 }
