@@ -60,7 +60,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
             foreach (Locacao locacao in locacoes)
             {
-                grid.Rows.Add(locacao.Id, locacao.Funcionario, locacao.Cliente, locacao.Condutor, locacao.Categoria, locacao.Veiculo, locacao.PlanoDeCobranca, locacao.DataInicio, locacao.DataFinalPrevista, locacao.Status);
+                if(locacao.Status == "Em Aberto" || locacao.Status == "Excluido")
+                    grid.Rows.Add(locacao.Id, locacao.Funcionario, locacao.Cliente, locacao.Condutor, locacao.Categoria, locacao.Veiculo, locacao.PlanoDeCobranca, locacao.DataInicio, locacao.DataFinalPrevista, locacao.Status);
             }
         }
 

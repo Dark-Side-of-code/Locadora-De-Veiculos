@@ -15,7 +15,6 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
 
         }
 
-
         public Veiculo(string modelo, string placa, string marca, string cor, string tipo_combustivel, double capacidade_tanque, DateTime ano, double km_total, byte[] foto, CategoriaDeVeiculos categoriaDeVeiculos)
         {
             Modelo = modelo;
