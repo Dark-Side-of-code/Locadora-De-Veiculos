@@ -245,7 +245,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(621, 149);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Lista De Taxas";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // listTaxas
@@ -259,6 +259,7 @@
             // 
             // cbxFuncionario
             // 
+            this.cbxFuncionario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxFuncionario.FormattingEnabled = true;
             this.cbxFuncionario.Location = new System.Drawing.Point(149, 126);
             this.cbxFuncionario.Name = "cbxFuncionario";
@@ -267,6 +268,7 @@
             // 
             // cbxCliente
             // 
+            this.cbxCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCliente.FormattingEnabled = true;
             this.cbxCliente.Location = new System.Drawing.Point(149, 167);
             this.cbxCliente.Name = "cbxCliente";
@@ -276,6 +278,7 @@
             // 
             // cbxCategoria
             // 
+            this.cbxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCategoria.FormattingEnabled = true;
             this.cbxCategoria.Location = new System.Drawing.Point(149, 203);
             this.cbxCategoria.Name = "cbxCategoria";
@@ -285,6 +288,7 @@
             // 
             // cbxPlano
             // 
+            this.cbxPlano.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPlano.FormattingEnabled = true;
             this.cbxPlano.Location = new System.Drawing.Point(149, 239);
             this.cbxPlano.Name = "cbxPlano";
@@ -294,6 +298,7 @@
             // 
             // cbxCondutor
             // 
+            this.cbxCondutor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCondutor.FormattingEnabled = true;
             this.cbxCondutor.Location = new System.Drawing.Point(484, 167);
             this.cbxCondutor.Name = "cbxCondutor";
@@ -302,6 +307,7 @@
             // 
             // cbxVeiculo
             // 
+            this.cbxVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxVeiculo.FormattingEnabled = true;
             this.cbxVeiculo.Location = new System.Drawing.Point(484, 203);
             this.cbxVeiculo.Name = "cbxVeiculo";

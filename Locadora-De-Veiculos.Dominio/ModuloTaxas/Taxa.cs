@@ -45,5 +45,9 @@ namespace Locadora_De_Veiculos.Dominio.ModuloTaxas
         {
             return MemberwiseClone() as Taxa;
         }
+        public override string ToString()
+        {
+            return this.Nome;
+        }
     }
 }
