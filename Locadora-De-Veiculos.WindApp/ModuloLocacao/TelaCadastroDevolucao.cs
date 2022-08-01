@@ -20,15 +20,21 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
 {
     public partial class TelaCadastroDevolucao : Form
     {
+        private Locacao locacao2;
         private Locacao locacao;
         public List<Taxa> taxas;
 
-        public TelaCadastroDevolucao( List<Taxa> taxas)
+        public TelaCadastroDevolucao( List<Taxa> taxas, Locacao locacao)
         {
             InitializeComponent();
             this.ConfigurarTela();
             this.taxas = taxas;
-            CarregarTaxas();
+            locacao2 = locacao;
+            if (locacao2 != null)
+            {
+                CarregarTaxasJaInseridas();
+                CarregarTaxasExtras();
+            }
             CarregarNivelTanque();
         }
 
@@ -89,15 +95,25 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
 
         #region Métodos Privados
 
-        private void CarregarTaxas()
+        private void CarregarTaxasJaInseridas()
         {
             List_taxasSelecionadas.Items.Clear();
-            
 
-            foreach (Taxa t in taxas)
+            foreach (Taxa t in locacao2.Taxas)
             {
                 List_taxasSelecionadas.Items.Add(t);
-                
+            }
+        }
+
+        private void CarregarTaxasExtras()
+        {
+            foreach (var taxa in taxas)
+            {
+                if (!locacao.Taxas.Contains(taxa))
+                {
+                    if (taxa.TipoDeCobraca == "Fixa")
+                        List_TaxaAdicionais.Items.Add(taxa);
+                }
             }
         }
 

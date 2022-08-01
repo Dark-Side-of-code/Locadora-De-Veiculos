@@ -213,7 +213,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
             var devolucaoSelecionada = resultado.Value;
 
-            var tela = new TelaCadastroDevolucao(taxas);
+            var tela = new TelaCadastroDevolucao(taxas, devolucaoSelecionada);
 
             tela.Locacao = devolucaoSelecionada;
 
