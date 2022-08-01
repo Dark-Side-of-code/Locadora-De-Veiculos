@@ -147,6 +147,12 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             locacao.DataFinalPrevista = DateTime.Parse(dateDevolucao.Text);
             locacao.Status = "Em Aberto";
             locacao.TipoDoPlano = cbxPlano.Text;
+            List<Taxa> taxasSelecionadas = new List<Taxa>();
+            foreach (Taxa t in listTaxas.CheckedItems)
+            {
+                taxasSelecionadas.Add(t);
+            }
+            locacao.Taxas = taxasSelecionadas;
 
             locacao.DataFinalReal = DateTime.MaxValue;
             var resultadoValidacao = GravarRegistro(Locacao);
