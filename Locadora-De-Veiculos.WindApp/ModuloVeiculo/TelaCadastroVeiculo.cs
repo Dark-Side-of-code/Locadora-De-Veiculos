@@ -101,7 +101,6 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
             veiculo.Tipo_combustivel = comboBox_Tipo.SelectedItem.ToString();
             veiculo.Ano = datePicker_Ano.Value;
             veiculo.Foto = ConversorDeImagemParaByteParaImagem.ConverteImagemParaByteArray(pictureBoxFoto.Image);
-            veiculo.StatusVeiculo = true;
 
             var resultadoValidacao = GravarRegistro(Veiculo);
 

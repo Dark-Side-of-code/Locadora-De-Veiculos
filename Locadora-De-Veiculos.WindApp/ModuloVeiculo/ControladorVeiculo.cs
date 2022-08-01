@@ -41,6 +41,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
             var tela = new TelaCadastroVeiculo(categorias);
 
             tela.Veiculo = new Veiculo();
+            tela.Veiculo.StatusVeiculo = true;
 
             tela.GravarRegistro = servicoVeiculo.Inserir;
 

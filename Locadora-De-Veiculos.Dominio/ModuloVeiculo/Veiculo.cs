@@ -16,7 +16,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
         }
 
 
-        public Veiculo(string modelo, string placa, string marca, string cor, string tipo_combustivel, double capacidade_tanque, DateTime ano, double km_total, byte[] foto, CategoriaDeVeiculos categoriaDeVeiculos, bool statusLocacao)
+        public Veiculo(string modelo, string placa, string marca, string cor, string tipo_combustivel, double capacidade_tanque, DateTime ano, double km_total, byte[] foto, CategoriaDeVeiculos categoriaDeVeiculos)
         {
             Modelo = modelo;
             Placa = placa;
@@ -28,7 +28,6 @@ namespace Locadora_De_Veiculos.Dominio.ModuloVeiculo
             Km_total = km_total;
             Foto = foto;
             CategoriaDeVeiculos = categoriaDeVeiculos;
-            StatusVeiculo = true; //para o status de um veiculo novo inicie como disponivel para locação
         }
 
         public string Modelo { get; set; }
