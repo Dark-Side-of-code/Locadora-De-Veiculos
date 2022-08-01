@@ -9,5 +9,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
 {
     public interface IRepositorioLocacao : IRepositorio<Locacao>
     {
+
+        Locacao SelecionarLocacaoPorGuid(Guid id);
     }
 }

@@ -16,5 +16,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
         public override string TooltipEditar => "Editar um Veiculo existente";
 
         public override string TooltipExcluir => "Excluir um Veiculo existente";
+
+        public override bool DevolverHabilitado => false;
     }
 }

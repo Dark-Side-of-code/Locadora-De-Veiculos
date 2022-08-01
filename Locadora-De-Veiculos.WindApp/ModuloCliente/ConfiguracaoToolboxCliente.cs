@@ -16,5 +16,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloCliente
         public override string TooltipEditar => "Editar um Cliente existente";
 
         public override string TooltipExcluir => "Excluir um Cliente existente";
+
+        public override bool DevolverHabilitado => false;
     }
 }

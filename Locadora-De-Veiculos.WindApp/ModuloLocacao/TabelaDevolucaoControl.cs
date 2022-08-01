@@ -11,12 +11,12 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
         public TabelaDevolucaoControl()
         {
             InitializeComponent();
-            grid.ConfigurarGridZebrado();
-            grid.ConfigurarGridSomenteLeitura();
-            grid.Columns.AddRange(ObterColunas());
+            gridDevolucao.ConfigurarGridZebrado();
+            gridDevolucao.ConfigurarGridSomenteLeitura();
+            gridDevolucao.Columns.AddRange(ObterColunasDevolucao());
         }
 
-        public DataGridViewColumn[] ObterColunas()
+        public DataGridViewColumn[] ObterColunasDevolucao()
         {
             var colunas = new DataGridViewColumn[]
             {
@@ -60,16 +60,16 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
         public Guid ObtemIdDevolucaoSelecionada()
         {
-            return grid.SelecionarNumero<Guid>();
+            return gridDevolucao.SelecionarNumero<Guid>();
         }
 
         public void AtualizarRegistros(List<Devolucao> devolucoes)
         {
-            grid.Rows.Clear();
+            gridDevolucao.Rows.Clear();
 
             foreach (Devolucao devolucao in devolucoes)
             {
-                grid.Rows.Add(devolucao.Id, devolucao.Funcionario, devolucao.Cliente, devolucao.Condutor, devolucao.Categoria, devolucao.Veiculo, devolucao.PlanoDeCobranca, devolucao.QuilometragemDoVeiculo, devolucao.NivelDoTanque, devolucao.ValorGasolina,/**/ devolucao.TaxaAdicional, devolucao.TaxaSelecionada,/**/ devolucao.Data_Inicio_Locacao, devolucao.Data_Final_Prevista, devolucao.Data_Da_Entrega, devolucao.ValorTotal);
+                gridDevolucao.Rows.Add(devolucao.Id, devolucao.Funcionario, devolucao.Cliente, devolucao.Condutor, devolucao.Categoria, devolucao.Veiculo, devolucao.PlanoDeCobranca, devolucao.QuilometragemDoVeiculo, devolucao.NivelDoTanque, devolucao.ValorGasolina,/**/ devolucao.TaxaAdicional, devolucao.TaxaSelecionada,/**/ devolucao.Data_Inicio_Locacao, devolucao.Data_Final_Prevista, devolucao.Data_Da_Entrega, devolucao.ValorTotal);
             }
         }
     }

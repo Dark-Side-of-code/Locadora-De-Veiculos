@@ -15,6 +15,7 @@ using Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca;
 using Locadora_De_Veiculos.Dominio.ModuloTaxas;
 using Locadora_De_Veiculos.Dominio.ModuloVeiculo;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
+using Locadora_De_Veiculos.WindApp.ModuloDevolucao;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -174,6 +175,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             }
 
             var veiculoSelecionado = resultadoSelecao.Value;
+            var locacao = servicoLocacao.SelecionarLocacaoPorID(id);
+            locacao.Status = "Excluido";
 
             if (MessageBox.Show("Deseja realmente excluir a Locacao?", "Exclusão de Locacao",
                  MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
@@ -190,7 +193,36 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
         public override void Devolver()
         {
-            base.Devolver();
+            var id = listagemLocacao.ObtemIdLocacaoSelecionado();
+
+            if (id == Guid.Empty)
+            {
+                MessageBox.Show("Selecione uma devolução primeiro",
+                "Devoluções", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            var resultado = servicoLocacao.SelecionarPorId(id);
+
+            if (resultado.IsFailed)
+            {
+                MessageBox.Show(resultado.Errors[0].Message,
+                "Edição de Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var devolucaoSelecionada = resultado.Value;
+
+            var tela = new TelaCadastroDevolucao(taxas, devolucaoSelecionada);
+
+            tela.Locacao = devolucaoSelecionada;
+
+            tela.Locacao.Status = "Devolvido";
+
+            tela.GravarRegistro = servicoLocacao.Devolucao;
+
+            if (tela.ShowDialog() == DialogResult.OK)
+                CarregarLocacao();
         }
 
         public override ConfiguracaoToolboxBase ObtemConfiguracaoToolbox()

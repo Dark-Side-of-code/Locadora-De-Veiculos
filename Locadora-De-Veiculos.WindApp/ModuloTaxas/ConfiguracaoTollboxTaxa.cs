@@ -16,5 +16,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloTaxas
         public override string TooltipEditar => "Editar uma Taxa existente";
 
         public override string TooltipExcluir => "Excluir uma Taxa existente";
+
+        public override bool DevolverHabilitado => false;
     }
 }

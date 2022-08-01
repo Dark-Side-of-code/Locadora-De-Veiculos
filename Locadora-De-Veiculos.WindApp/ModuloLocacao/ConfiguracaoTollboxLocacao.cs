@@ -4,13 +4,13 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 {
     internal class ConfiguracaoTollboxLocacao : ConfiguracaoToolboxBase
     {
-        public override string TipoCadastro => "Cadastro de Funcionario";
+        public override string TipoCadastro => "Cadastro de Locacao";
 
-        public override string TooltipInserir => "Inserir novo Funcionario";
+        public override string TooltipInserir => "Inserir novo Locacao";
 
-        public override string TooltipEditar => "Editar um Funcionario existente";
+        public override string TooltipEditar => "";
 
-        public override string TooltipExcluir => "Excluir um Funcionario existente";
+        public override string TooltipExcluir => "Excluir uma Locacao existente";
 
         public override bool EditarHabilitado => false;
     }

@@ -116,12 +116,12 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
                 if (locacao.DataInicio > DateTimePicker.MinimumDateTime)
                     dateInicio.Value = locacao.DataInicio;
                 else
-                    dateInicio.Value = DateTime.Now;
+                    dateInicio.Value = DateTime.Today;
 
                 if (locacao.DataFinalPrevista >DateTimePicker.MinimumDateTime)
                     dateDevolucao.Value = locacao.DataFinalPrevista;
                 else
-                    dateDevolucao.Value = DateTime.Now;
+                    dateDevolucao.Value = DateTime.Today;
             }
         }
 
@@ -146,6 +146,13 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             locacao.DataInicio = DateTime.Parse(dateInicio.Text);
             locacao.DataFinalPrevista = DateTime.Parse(dateDevolucao.Text);
             locacao.Status = "Em Aberto";
+            locacao.TipoDoPlano = cbxPlano.Text;
+            List<Taxa> taxasSelecionadas = new List<Taxa>();
+            foreach (Taxa t in listTaxas.CheckedItems)
+            {
+                taxasSelecionadas.Add(t);
+            }
+            locacao.Taxas = taxasSelecionadas;
 
             locacao.DataFinalReal = DateTime.MaxValue;
             var resultadoValidacao = GravarRegistro(Locacao);
@@ -179,6 +186,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
         private void CategoriaChanged(object sender, EventArgs e)
         {
             CarregarVeiculos();
+            CalcularValorFinal();
         }
 
         private void VeiculoChanged(object sender, EventArgs e)
@@ -187,37 +195,25 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             txtKm.Text = veiculo.Km_total.ToString() + " Km";
         }
 
-        //private void PlanoChanged(object sender, EventArgs e)
-        //{
-        //    if(cbxPlano.SelectedItem != null)
-        //    ValorFinal.Text = CalcularValorFinal().ToString();
-        //}
-
-        public double CalcularValorFinal()
+        private void PlanoChanged(object sender, EventArgs e)
         {
-            PlanoDeCobranca pCalculo = null;
-            double resultado = 0;
+            if (cbxPlano.SelectedItem != null)
+                ValorFinal.Text = CalcularValorFinal().ToString();
+        }
 
-            int dias = (DateTime.Parse(dateInicio.Text) - DateTime.Parse(dateDevolucao.Text)).Days;
+        private void DataFinalChanged(object sender, EventArgs e)
+        {
+            CalcularValorFinal();
+        }
 
-            foreach (PlanoDeCobranca p in planos){
-                if (p.CategoriaDeVeiculos == (CategoriaDeVeiculos)cbxCategoria.SelectedItem)
-                    pCalculo = p;
-            }
+        private void DataInicialChanged(object sender, EventArgs e)
+        {
+            CalcularValorFinal();
+        }
 
-            if(cbxPlano.Text == "Diario")
-            {
-                resultado = dias * pCalculo.PlanoDiario_ValorDiario;
-            }
-            if (cbxPlano.Text == "Km Controlado")
-            {
-                resultado = dias * pCalculo.PlanoKM_controlado_ValorDiario;
-            }
-            if (cbxPlano.Text == "Km Livre")
-            {
-                resultado = dias * pCalculo.PlanoKM_Livre_ValorDiario;
-            }
-            return resultado;
+        private void taxasChenged(object sender, EventArgs e)
+        {
+            CalcularValorFinal();
         }
 
         #region Metodos Privados
@@ -298,6 +294,66 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             }
         }
 
+        private double CalcularValorFinal()
+        {
+            PlanoDeCobranca pCalculo = null;
+            double resultado = 0;
+
+            int dias = (dateDevolucao.Value - dateInicio.Value).Days + 1;
+
+            foreach (PlanoDeCobranca p in planos)
+            {
+                if (p.CategoriaDeVeiculos == (CategoriaDeVeiculos)cbxCategoria.SelectedItem)
+                    pCalculo = p;
+            }
+
+            resultado = CalcularValorDasTaxas();
+
+            if (cbxPlano.Text == "Diario")
+            {
+                resultado = resultado + (dias * pCalculo.PlanoDiario_ValorDiario);
+            }
+            if (cbxPlano.Text == "Km Controlado")
+            {
+                resultado = resultado + (dias * pCalculo.PlanoKM_controlado_ValorDiario);
+            }
+            if (cbxPlano.Text == "Km Livre")
+            {
+                resultado = resultado + (dias * pCalculo.PlanoKM_Livre_ValorDiario);
+            }
+            ValorFinal.Text = resultado.ToString();
+            return resultado;
+        }
+
+        private double CalcularValorDasTaxas()
+        {
+            double valortaxastot = 0;
+
+            int dias = (dateDevolucao.Value - dateInicio.Value).Days + 1;
+
+            foreach (Taxa t in listTaxas.CheckedItems)
+            {
+                if(t.TipoDeCobraca == "Fixa")
+                {
+                    valortaxastot = valortaxastot + t.Valor;
+                }
+                else
+                {
+                    valortaxastot = valortaxastot + (t.Valor * dias);
+                }
+            }
+            return valortaxastot;
+        }
+
         #endregion
+
+        private void listTaxas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //foreach(var t in listTaxas.CheckedItems)
+            //{
+            //    if()
+            //}
+            CalcularValorFinal();
+        }
     }
 }

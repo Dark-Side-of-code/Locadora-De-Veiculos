@@ -16,5 +16,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloMotorista
         public override string TooltipEditar => "Editar um Condutor existente";
 
         public override string TooltipExcluir => "Excluir um Condutor existente";
+
+        public override bool DevolverHabilitado => false;
     }
 }

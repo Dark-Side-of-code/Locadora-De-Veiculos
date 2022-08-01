@@ -16,5 +16,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloPlanosDeCobranca
         public override string TooltipEditar => "Editar um Plano de Cobrança";
 
         public override string TooltipExcluir => "Excluir um Plano de Cobrança";
+
+        public override bool DevolverHabilitado => false;
     }
 }

@@ -46,7 +46,7 @@
             this.cbx_NivelTanque = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.List_taxasSelecionadas = new System.Windows.Forms.CheckedListBox();
+            this.List_taxasSelecionadas = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.List_TaxaAdicionais = new System.Windows.Forms.CheckedListBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -206,6 +206,7 @@
             // 
             // cbx_NivelTanque
             // 
+            this.cbx_NivelTanque.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_NivelTanque.FormattingEnabled = true;
             this.cbx_NivelTanque.Location = new System.Drawing.Point(412, 296);
             this.cbx_NivelTanque.Name = "cbx_NivelTanque";
@@ -237,10 +238,11 @@
             // 
             this.List_taxasSelecionadas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.List_taxasSelecionadas.FormattingEnabled = true;
+            this.List_taxasSelecionadas.ItemHeight = 15;
             this.List_taxasSelecionadas.Location = new System.Drawing.Point(3, 3);
             this.List_taxasSelecionadas.Name = "List_taxasSelecionadas";
             this.List_taxasSelecionadas.Size = new System.Drawing.Size(519, 150);
-            this.List_taxasSelecionadas.TabIndex = 0;
+            this.List_taxasSelecionadas.TabIndex = 1;
             // 
             // tabPage2
             // 
@@ -265,7 +267,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(28, 607);
+            this.label14.Location = new System.Drawing.Point(31, 585);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(64, 15);
             this.label14.TabIndex = 119;
@@ -279,7 +281,7 @@
             this.btn_Voltar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Voltar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Voltar.ForeColor = System.Drawing.Color.White;
-            this.btn_Voltar.Location = new System.Drawing.Point(156, 691);
+            this.btn_Voltar.Location = new System.Drawing.Point(156, 658);
             this.btn_Voltar.Name = "btn_Voltar";
             this.btn_Voltar.Size = new System.Drawing.Size(136, 36);
             this.btn_Voltar.TabIndex = 120;
@@ -294,7 +296,7 @@
             this.btn_Cadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Cadastrar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_Cadastrar.ForeColor = System.Drawing.Color.White;
-            this.btn_Cadastrar.Location = new System.Drawing.Point(289, 691);
+            this.btn_Cadastrar.Location = new System.Drawing.Point(289, 658);
             this.btn_Cadastrar.Name = "btn_Cadastrar";
             this.btn_Cadastrar.Size = new System.Drawing.Size(154, 36);
             this.btn_Cadastrar.TabIndex = 121;
@@ -305,7 +307,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Teal;
-            this.panel2.Location = new System.Drawing.Point(1, 663);
+            this.panel2.Location = new System.Drawing.Point(1, 630);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(603, 10);
             this.panel2.TabIndex = 122;
@@ -393,7 +395,7 @@
             // lb_ValorTotal
             // 
             this.lb_ValorTotal.AutoSize = true;
-            this.lb_ValorTotal.Location = new System.Drawing.Point(98, 607);
+            this.lb_ValorTotal.Location = new System.Drawing.Point(101, 585);
             this.lb_ValorTotal.Name = "lb_ValorTotal";
             this.lb_ValorTotal.Size = new System.Drawing.Size(96, 15);
             this.lb_ValorTotal.TabIndex = 132;
@@ -419,7 +421,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 749);
+            this.ClientSize = new System.Drawing.Size(605, 707);
             this.Controls.Add(this.txt_ValorGasolina);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.lb_ValorTotal);
@@ -497,9 +499,9 @@
         private System.Windows.Forms.Label lb_Funcionario;
         private System.Windows.Forms.DateTimePicker dateTimePicker_DataDevolucao;
         private System.Windows.Forms.Label lb_ValorTotal;
-        private System.Windows.Forms.CheckedListBox List_taxasSelecionadas;
         private System.Windows.Forms.CheckedListBox List_TaxaAdicionais;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txt_ValorGasolina;
+        private System.Windows.Forms.ListBox List_taxasSelecionadas;
     }
 }

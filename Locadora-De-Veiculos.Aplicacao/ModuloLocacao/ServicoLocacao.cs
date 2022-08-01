@@ -64,7 +64,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloLocacao
 
             try
             {
-                repositorioLocacao.Excluir(arg);
+                repositorioLocacao.Editar(arg);
 
                 contexto.GravarDados();
 
@@ -75,6 +75,42 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloLocacao
             catch (Exception ex)
             {
                 string msgErro = "Falha no sistema ao tentar excluir o Locacao";
+
+                Log.Logger.Error(ex, msgErro + "{LocacaoId}", arg.Id);
+
+                return Result.Fail(msgErro);
+            }
+        }
+
+        public Result<Locacao> Devolucao(Locacao arg)
+        {
+            Log.Logger.Debug("Tentando devolver locação... {@Locacao}", arg);
+
+            Result resultadoValidacao = ValidarLocacao(arg);
+
+            if (resultadoValidacao.IsFailed)
+            {
+                foreach (var erro in resultadoValidacao.Errors)
+                {
+                    Log.Logger.Warning("Falha ao tentar devolver Locação {@Locacao} -> Motivo: {erro}",
+                        arg.Id, erro.Message);
+                }
+
+                return Result.Fail(resultadoValidacao.Errors);
+            }
+            try
+            {
+                repositorioLocacao.Editar(arg);
+
+                contexto.GravarDados();
+
+                Log.Logger.Information("Devolucao {@Locacao} concluida com sucesso.", arg.Id);
+
+                return Result.Ok();
+            }
+            catch (Exception ex)
+            {
+                string msgErro = "Falha no sistema ao tentar devolver a locação";
 
                 Log.Logger.Error(ex, msgErro + "{LocacaoId}", arg.Id);
 
@@ -117,6 +153,11 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloLocacao
         private Result ValidarLocacao(Locacao arg)
         {
             return Result.Ok();
+        }
+
+        public Locacao SelecionarLocacaoPorID(Guid id)
+        {
+            return repositorioLocacao.SelecionarLocacaoPorGuid(id);
         }
     }
 }
