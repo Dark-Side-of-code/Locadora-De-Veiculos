@@ -84,7 +84,6 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
             //locacao.Taxas = Convert.ToString(List_taxasSelecionadas.);
 
             //locacao.TaxaAdicional = Convert.ToString(List_TaxaAdicionais.Text);
-            locacao.Status = "Devolvido";
            // locacao.ValorTotal = Convert.ToDouble(lb_ValorTotal.Text);
         }
 

@@ -250,12 +250,13 @@
             // 
             // listTaxas
             // 
+            this.listTaxas.CheckOnClick = true;
             this.listTaxas.FormattingEnabled = true;
             this.listTaxas.Location = new System.Drawing.Point(0, 1);
             this.listTaxas.Name = "listTaxas";
             this.listTaxas.Size = new System.Drawing.Size(621, 148);
             this.listTaxas.TabIndex = 0;
-            this.listTaxas.SelectedValueChanged += new System.EventHandler(this.taxasChenged);
+            this.listTaxas.SelectedIndexChanged += new System.EventHandler(this.listTaxas_SelectedIndexChanged);
             // 
             // cbxFuncionario
             // 

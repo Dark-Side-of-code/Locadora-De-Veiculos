@@ -217,6 +217,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
             tela.Locacao = devolucaoSelecionada;
 
+            tela.Locacao.Status = "Devolvido";
+
             tela.GravarRegistro = servicoLocacao.Devolucao;
 
             if (tela.ShowDialog() == DialogResult.OK)

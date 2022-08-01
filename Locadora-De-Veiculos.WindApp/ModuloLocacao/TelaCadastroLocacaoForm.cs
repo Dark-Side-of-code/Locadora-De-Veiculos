@@ -205,6 +205,10 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             CalcularValorFinal();
         }
 
+        private void taxasChenged(object sender, EventArgs e)
+        {
+            CalcularValorFinal();
+        }
 
         #region Metodos Privados
 
@@ -289,9 +293,6 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             PlanoDeCobranca pCalculo = null;
             double resultado = 0;
 
-            //DateTime data1 = dateInicio.Value;
-            //DateTime data2 = dateDevolucao.Value;
-
             int dias = (dateDevolucao.Value - dateInicio.Value).Days + 1;
 
             foreach (PlanoDeCobranca p in planos)
@@ -324,7 +325,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
             int dias = (dateDevolucao.Value - dateInicio.Value).Days + 1;
 
-            foreach (Taxa t in listTaxas.SelectedItems)
+            foreach (Taxa t in listTaxas.CheckedItems)
             {
                 if(t.TipoDeCobraca == "Fixa")
                 {
@@ -340,8 +341,12 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
         #endregion
 
-        private void taxasChenged(object sender, EventArgs e)
+        private void listTaxas_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //foreach(var t in listTaxas.CheckedItems)
+            //{
+            //    if()
+            //}
             CalcularValorFinal();
         }
     }
