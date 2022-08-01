@@ -154,7 +154,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloVeiculo
             }
             else
             {
-                MessageBox.Show(resultado.Errors[0].Message, "Exclusão de Veículo",
+                MessageBox.Show(resultado.Errors[0].Message, "Seleção de Veículo",
                  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
