@@ -17,6 +17,7 @@ using System.Windows.Forms;
 using System.Data;
 using Locadora_De_Veiculos.Dominio.ModuloLocacao;
 using Locadora_De_Veiculos.WindApp.ModuloLocacao;
+using Locadora_De_Veiculos.Infra.Orm.ModuloLocacao;
 
 namespace Locadora_De_Veiculos.WindApp.Compartilhado.Funções
 {
@@ -42,6 +43,7 @@ namespace Locadora_De_Veiculos.WindApp.Compartilhado.Funções
         {
             try
             {
+                Locacao locacao = new Locacao();
                 // pathArquivo() é o método criado para pegar o local onde o pdf será salvo
                 PdfWriter pdfWriter = new PdfWriter(pathArquivo);
                 PdfDocument pdfDocument = new PdfDocument(pdfWriter);
@@ -55,10 +57,7 @@ namespace Locadora_De_Veiculos.WindApp.Compartilhado.Funções
                     Table table = new Table(10, false);
                     table.SetWidth(UnitValue.CreatePercentValue(100));
                     table.SetTextAlignment(TextAlignment.LEFT);
-
-                    Locacao locacao = new Locacao();
-
-                    table.AddCell(new Cell().Add(new Paragraph("ID: " + locacao.Id)).SetBorder(Border.NO_BORDER));
+                    table.AddCell(new Cell().Add(new Paragraph("ID: " + id)).SetBorder(Border.NO_BORDER));
                     table.AddCell(new Cell().Add(new Paragraph("Funcionario: " + locacao.Funcionario.Nome)).SetBorder(Border.NO_BORDER));
                     table.AddCell(new Cell().Add(new Paragraph("Cliente: " + locacao.Cliente.Nome)).SetBorder(Border.NO_BORDER));
                     table.AddCell(new Cell().Add(new Paragraph("Condutor: " + locacao.Condutor.Nome)).SetBorder(Border.NO_BORDER));

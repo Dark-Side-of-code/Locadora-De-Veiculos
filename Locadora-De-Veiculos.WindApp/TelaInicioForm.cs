@@ -1,4 +1,5 @@
 ﻿using Locadora_De_Veiculos.WindApp.Compartilhado;
+using Locadora_De_Veiculos.WindApp.Compartilhado.Funções;
 using Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos;
 using Locadora_De_Veiculos.WindApp.ModuloCliente;
 using Locadora_De_Veiculos.WindApp.ModuloFuncionario;
@@ -150,6 +151,12 @@ namespace Locadora_De_Veiculos.WindApp
         private void locacaoDevolucaoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(serviceLocator.Get<ControladorDeLocacao>());
+        }
+
+        private void toolStripButtonPdf_Click(object sender, EventArgs e)
+        {
+            string pathArquivo = GeraPDF.pathArquivo("Locacao");
+            //GeraPDF.PdfLocacao(pathArquivo);
         }
     }
 }
