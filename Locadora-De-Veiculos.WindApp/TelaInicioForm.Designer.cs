@@ -52,6 +52,8 @@
             this.btnExcluir = new System.Windows.Forms.ToolStripButton();
             this.btnDevolver = new System.Windows.Forms.ToolStripButton();
             this.labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonPdf = new System.Windows.Forms.ToolStripButton();
             this.menu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolbox.SuspendLayout();
@@ -195,6 +197,8 @@
             this.btnExcluir,
             this.toolStripSeparator2,
             this.btnDevolver,
+            this.toolStripSeparator1,
+            this.toolStripButtonPdf,
             this.labelTipoCadastro});
             this.toolbox.Location = new System.Drawing.Point(0, 24);
             this.toolbox.Name = "toolbox";
@@ -277,6 +281,24 @@
             this.labelTipoCadastro.Size = new System.Drawing.Size(122, 31);
             this.labelTipoCadastro.Text = "[tipoCadastro]";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 34);
+            // 
+            // toolStripButtonPdf
+            // 
+            this.toolStripButtonPdf.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonPdf.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.toolStripButtonPdf.ForeColor = System.Drawing.Color.White;
+            this.toolStripButtonPdf.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonPdf.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPdf.Name = "toolStripButtonPdf";
+            this.toolStripButtonPdf.Padding = new System.Windows.Forms.Padding(5);
+            this.toolStripButtonPdf.Size = new System.Drawing.Size(47, 31);
+            this.toolStripButtonPdf.Text = "PDF";
+            this.toolStripButtonPdf.Click += new System.EventHandler(this.toolStripButtonPdf_Click);
+            // 
             // TelaInicioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -326,5 +348,7 @@
         private System.Windows.Forms.ToolStripMenuItem planosDeCobrançaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem locacaoDevolucaoToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnDevolver;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonPdf;
     }
 }
