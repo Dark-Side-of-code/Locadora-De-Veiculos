@@ -36,7 +36,7 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
         //Atributos Relacionados A Devolucao
 
         public DateTime DataFinalReal { get; set; }
-        public int QuilometragemDoVeiculo { get; set; }
+        public double QuilometragemDoVeiculo { get; set; }
         public double ValorGasolina { get; set; }
         public decimal NivelDoTanque { get; set; }
         public double ValorTotal { get; set; }
