@@ -44,6 +44,32 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
                 .NotNull()
                 .NotEmpty();
 
+            /* DEVOLUÇÃO */
+            RuleFor(x => x.DataFinalReal)
+                .NotNull()
+                .NotEmpty();
+
+            RuleFor(x => x.NivelDoTanque)
+                .GreaterThanOrEqualTo(0)
+                .NotEmpty()
+                .NotNull();
+
+            RuleFor(x => x.QuilometragemDoVeiculo)
+                .GreaterThan(0)
+                .NotEmpty()
+                .NotNull();
+
+            RuleFor(x => x.Taxas)
+             .NotNull()
+             .NotEmpty();
+
+
+            RuleFor(x => x.ValorTotal)
+                .NotNull()
+                .NotEmpty()
+                .GreaterThan(0);
         }
+
+
     }
 }

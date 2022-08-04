@@ -61,7 +61,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             foreach (Locacao locacao in locacoes)
             {
                 if(locacao.Status == "Em Aberto" || locacao.Status == "Excluido")
-                    grid.Rows.Add(locacao.Id, locacao.Funcionario, locacao.Cliente, locacao.Condutor, locacao.Categoria, locacao.Veiculo, locacao.PlanoDeCobranca, locacao.DataInicio, locacao.DataFinalPrevista, locacao.Status);
+                    grid.Rows.Add(locacao.Id, locacao.Funcionario, locacao.Cliente, locacao.Condutor, locacao.Categoria, locacao.Veiculo, locacao.PlanoDeCobranca, locacao.DataInicio.ToString("dd/MM/yyyy"), locacao.DataFinalPrevista.ToString("dd/MM/yyyy"), locacao.Status);
             }
         }
 
@@ -122,7 +122,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
             foreach (Locacao devolucao in devolucoes)
             {
-                gridDevolucao.Rows.Add(devolucao.Id, devolucao.Funcionario, devolucao.Cliente, devolucao.Condutor, devolucao.Categoria, devolucao.Veiculo, devolucao.PlanoDeCobranca, devolucao.QuilometragemDoVeiculo, devolucao.NivelDoTanque, devolucao.ValorGasolina,/**/ devolucao.TaxaAdicional, devolucao.Taxas,/**/ devolucao.DataInicio, devolucao.DataFinalPrevista, devolucao.DataFinalReal, devolucao.ValorTotal, devolucao.Status);
+                gridDevolucao.Rows.Add(devolucao.Id, devolucao.Funcionario, devolucao.Cliente, devolucao.Condutor, devolucao.Categoria, devolucao.Veiculo, devolucao.PlanoDeCobranca, devolucao.QuilometragemDoVeiculo, devolucao.NivelDoTanque, devolucao.ValorGasolina,/**/ devolucao.TaxaAdicional, devolucao.Taxas,/**/ devolucao.DataInicio.ToString("dd/MM/yyyy"), devolucao.DataFinalPrevista.ToString("dd/MM/yyyy"), devolucao.DataFinalReal.ToString("dd/MM/yyyy"), devolucao.ValorTotal, devolucao.Status);
             }
         }
         #endregion

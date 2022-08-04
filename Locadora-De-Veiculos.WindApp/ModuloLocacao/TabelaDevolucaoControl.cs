@@ -69,7 +69,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
             foreach (Devolucao devolucao in devolucoes)
             {
-                gridDevolucao.Rows.Add(devolucao.Id, devolucao.Funcionario, devolucao.Cliente, devolucao.Condutor, devolucao.Categoria, devolucao.Veiculo, devolucao.PlanoDeCobranca, devolucao.QuilometragemDoVeiculo, devolucao.NivelDoTanque, devolucao.ValorGasolina,/**/ devolucao.TaxaAdicional, devolucao.TaxaSelecionada,/**/ devolucao.Data_Inicio_Locacao, devolucao.Data_Final_Prevista, devolucao.Data_Da_Entrega, devolucao.ValorTotal);
+                gridDevolucao.Rows.Add(devolucao.Id, devolucao.Funcionario, devolucao.Cliente, devolucao.Condutor, devolucao.Categoria, devolucao.Veiculo, devolucao.PlanoDeCobranca, devolucao.QuilometragemDoVeiculo, devolucao.NivelDoTanque, devolucao.ValorGasolina,/**/ devolucao.TaxaAdicional, devolucao.TaxaSelecionada,/**/ devolucao.Data_Inicio_Locacao.ToString("dd/MM/yyyy"), devolucao.Data_Final_Prevista.ToString("dd/MM/yyyy"), devolucao.Data_Da_Entrega.ToString("dd/MM/yyyy"), devolucao.ValorTotal);
             }
         }
     }

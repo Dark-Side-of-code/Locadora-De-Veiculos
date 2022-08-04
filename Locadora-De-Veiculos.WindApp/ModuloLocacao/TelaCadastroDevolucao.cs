@@ -6,11 +6,13 @@ using Locadora_De_Veiculos.Dominio.ModuloPlanosDeCobranca;
 using Locadora_De_Veiculos.Dominio.ModuloTaxas;
 using Locadora_De_Veiculos.Dominio.ModuloVeiculo;
 using Locadora_De_Veiculos.WindApp.Compartilhado;
+using Locadora_De_Veiculos.WindApp.Compartilhado.Funções;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,11 +25,13 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
         private Locacao locacao2;
         private Locacao locacao;
         public List<Taxa> taxas;
+   
 
         public TelaCadastroDevolucao( List<Taxa> taxas, Locacao locacao)
         {
             InitializeComponent();
             this.ConfigurarTela();
+            ClassMaskValorNumerico.AplicaMascaraMoeda(txt_ValorGasolina);
             this.taxas = taxas;
             locacao2 = locacao;
             if (locacao2 != null)
@@ -36,6 +40,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
                 CarregarTaxasExtras();
             }
             CarregarNivelTanque();
+
         }
 
         public Func<Locacao, Result<Locacao>> GravarRegistro { get; set; }
@@ -54,9 +59,10 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
                 lb_Condutor.Text = locacao.Condutor.Nome;
                 lb_Categoria.Text = locacao.Categoria.Nome;
                 lb_Veiculo.Text = locacao.Veiculo.Modelo;
-                lb_DataLocacao.Text = locacao.DataInicio.ToString();
-                lb_DevoluçãoPrevista.Text = locacao.DataFinalPrevista.ToString();
+                lb_DataLocacao.Text = locacao.DataInicio.ToString("dd/MM/yyyy");
+                lb_DevoluçãoPrevista.Text = locacao.DataFinalPrevista.ToString("dd/MM/yyyy");
                 lb_PlanoCobranca.Text = locacao.NomeDoPlano;
+                txt_QuilometragemVeiculo.Text = locacao.QuilometragemDoVeiculo.ToString();
 
                 if (locacao.NivelDoTanque != null)
                 {
@@ -73,6 +79,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
 
         private void btn_Cadastrar_Click(object sender, EventArgs e)
         {
+            AtribuirValoresNivelTanque();
             locacao.Funcionario.Nome = lb_Funcionario.Text;
             locacao.Cliente.Nome = lb_Cliente.Text;
             locacao.Condutor.Nome = lb_Condutor.Text;
@@ -83,14 +90,27 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
             locacao.DataFinalPrevista = DateTime.Parse(lb_DevoluçãoPrevista.Text);
             locacao.NomeDoPlano = lb_PlanoCobranca.Text;
             locacao.DataFinalReal = DateTime.Parse(dateTimePicker_DataDevolucao.Text);
-            locacao.QuilometragemDoVeiculo = Convert.ToInt32(txt_QuilometragemVeiculo.Text);
-            locacao.NivelDoTanque = Convert.ToDecimal(cbx_NivelTanque.Text);
-            locacao.ValorGasolina = Convert.ToDouble(txt_ValorGasolina.Text);
+
+            locacao.QuilometragemDoVeiculo = Convert.ToDouble(txt_QuilometragemVeiculo.Text);
+            
+            //locacao.NivelDoTanque = Convert.ToDecimal(cbx_NivelTanque.Text);
+            locacao.ValorGasolina = Convert.ToDouble(txt_ValorGasolina.Text.Replace("R$", string.Empty).Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)); 
 
             //locacao.Taxas = Convert.ToString(List_taxasSelecionadas.);
 
             //locacao.TaxaAdicional = Convert.ToString(List_TaxaAdicionais.Text);
-           // locacao.ValorTotal = Convert.ToDouble(lb_ValorTotal.Text);
+            // locacao.ValorTotal = Convert.ToDouble(lb_ValorTotal.Text);
+
+            var resultadoValidacao = GravarRegistro(Locacao);
+
+            if (resultadoValidacao.IsFailed)
+            {
+                string erro = resultadoValidacao.Errors[0].Message;
+
+                TelaInicioForm.Instancia.AtualizarRodape(erro);
+
+                DialogResult = DialogResult.None;
+            }
         }
 
         #region Métodos Privados
@@ -115,6 +135,32 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
                         List_TaxaAdicionais.Items.Add(taxa);
                 }
             }
+        }
+
+        private double AtribuirValoresNivelTanque()
+        {
+            double resultado = 0;
+
+            if (cbx_NivelTanque.SelectedItem == "0%")
+            {
+                resultado = 0;
+            }
+            else if (cbx_NivelTanque.SelectedItem == "25%")
+            {
+                resultado = 0.25;
+            }
+            else if (cbx_NivelTanque.SelectedItem == "50%")
+            {
+                resultado = 0.50;
+            }
+            else if (cbx_NivelTanque.SelectedItem == "75")
+            {
+                resultado = 0.75;
+            }
+            else
+                resultado = 1;
+
+            return resultado;
         }
 
         private void CarregarNivelTanque()

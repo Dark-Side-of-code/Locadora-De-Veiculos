@@ -40,7 +40,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -57,6 +56,7 @@
             this.dateInicio = new System.Windows.Forms.DateTimePicker();
             this.dateDevolucao = new System.Windows.Forms.DateTimePicker();
             this.txtKm = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -181,15 +181,6 @@
             this.label7.Size = new System.Drawing.Size(48, 15);
             this.label7.TabIndex = 53;
             this.label7.Text = "Veiculo:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(397, 242);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 15);
-            this.label9.TabIndex = 54;
-            this.label9.Text = "Kilimetragem:";
             // 
             // label10
             // 
@@ -339,9 +330,18 @@
             this.txtKm.AutoSize = true;
             this.txtKm.Location = new System.Drawing.Point(484, 242);
             this.txtKm.Name = "txtKm";
-            this.txtKm.Size = new System.Drawing.Size(157, 15);
+            this.txtKm.Size = new System.Drawing.Size(166, 15);
             this.txtKm.TabIndex = 68;
-            this.txtKm.Text = "<Kilometragem Do Veiculo>";
+            this.txtKm.Text = "<Quilometragem Do Veiculo>";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(384, 242);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(94, 15);
+            this.label9.TabIndex = 54;
+            this.label9.Text = "Quilometragem:";
             // 
             // TelaCadastroLocacaoForm
             // 
@@ -376,7 +376,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Name = "TelaCadastroLocacaoForm";
-            this.Text = "TelaCadastroLocacao";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -398,7 +397,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
@@ -415,5 +413,6 @@
         private System.Windows.Forms.DateTimePicker dateInicio;
         private System.Windows.Forms.DateTimePicker dateDevolucao;
         private System.Windows.Forms.Label txtKm;
+        private System.Windows.Forms.Label label9;
     }
 }
