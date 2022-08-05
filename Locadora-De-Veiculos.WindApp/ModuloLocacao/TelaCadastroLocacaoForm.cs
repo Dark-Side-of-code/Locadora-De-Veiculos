@@ -156,6 +156,12 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             locacao.DataFinalReal = DateTime.MaxValue;
             var resultadoValidacao = GravarRegistro(Locacao);
 
+
+            if (!resultadoValidacao.IsFailed)
+            {
+                locacao.AlterarStatusDoVeiculo();
+            }
+
             if (resultadoValidacao.IsFailed)
             {
                 string erro = resultadoValidacao.Errors[0].Message;
