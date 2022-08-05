@@ -42,7 +42,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloLocacao
             {
                 repositorioLocacao.Inserir(arg);
 
-                arg.Veiculo.StatusVeiculo = false;
+                //arg.Veiculo.StatusVeiculo = false;
 
                 contexto.GravarDados();
 
