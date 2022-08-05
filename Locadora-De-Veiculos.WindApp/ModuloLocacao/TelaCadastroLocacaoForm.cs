@@ -133,7 +133,6 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             locacao.Categoria = (CategoriaDeVeiculos)cbxCategoria.SelectedItem;
             locacao.Veiculo = (Veiculo)cbxVeiculo.SelectedItem;
             Veiculo veiculo = (Veiculo)cbxVeiculo.SelectedItem;
-            veiculo.StatusVeiculo = false;
             PlanoDeCobranca plano = null;
             foreach(PlanoDeCobranca p in planos)
             {

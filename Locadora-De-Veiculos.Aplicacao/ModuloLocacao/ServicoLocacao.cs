@@ -42,6 +42,8 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloLocacao
             {
                 repositorioLocacao.Inserir(arg);
 
+                arg.Veiculo.StatusVeiculo = false;
+
                 contexto.GravarDados();
 
                 Log.Logger.Information("Locacao {LocacaoId} inserido com sucesso", arg.Id);

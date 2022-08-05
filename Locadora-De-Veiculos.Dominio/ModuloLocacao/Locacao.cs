@@ -78,6 +78,10 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
             return MemberwiseClone() as Condutor;
         }
 
+        public void AlterarStatusDoVeiculo()
+        {
+            Veiculo.StatusVeiculo = false;
+        }
         public void ConfigurarLocacao(Funcionario funcionario, Cliente cliente, Condutor condutor, CategoriaDeVeiculos categoria,
         Veiculo veiculo, PlanoDeCobranca planoDeCobranca, List<Taxa> taxa)
         {

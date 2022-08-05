@@ -66,7 +66,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             if (funcionarios.Count == 0)
             {
                 MessageBox.Show("Insira um funcionario primeiro",
-               "Inserção de Locacao", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+               "Inserção de Locação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -77,7 +77,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             if (clientes.Count == 0)
             {
                 MessageBox.Show("Insira um cliente primeiro",
-               "Inserção de Locacao", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+               "Inserção de Locacação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -88,7 +88,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             if (clientes.Count == 0)
             {
                 MessageBox.Show("Insira um condutor primeiro",
-               "Inserção de Locacao", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+               "Inserção de Locação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -99,7 +99,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             if (clientes.Count == 0)
             {
                 MessageBox.Show("Insira um categoria primeiro",
-               "Inserção de Locacao", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+               "Inserção de Locação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -110,7 +110,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             if (veiculos.Count == 0)
             {
                 MessageBox.Show("Insira um veiculo primeiro",
-               "Inserção de Locacao", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+               "Inserção de Locação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -160,8 +160,8 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
             if (id == Guid.Empty)
             {
-                MessageBox.Show("Selecione uma Locacao primeiro",
-                    "Exclusão de Locacao", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione uma Locação primeiro",
+                    "Exclusão de Locação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -187,7 +187,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
                     CarregarLocacao();
                 else
                     MessageBox.Show(resultadoExclusao.Errors[0].Message,
-                        "Exclusão de Locacao", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        "Exclusão de Locação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -197,7 +197,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
 
             if (id == Guid.Empty)
             {
-                MessageBox.Show("Selecione uma devolução primeiro",
+                MessageBox.Show("Selecione uma dlocação primeiro",
                 "Devoluções", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
@@ -207,7 +207,7 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
             if (resultado.IsFailed)
             {
                 MessageBox.Show(resultado.Errors[0].Message,
-                "Edição de Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                "Edição de Locação", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -249,12 +249,13 @@ namespace Locadora_De_Veiculos.WindApp.ModuloLocacao
                 List<Locacao> locacoes = resultado.Value;
 
                 listagemLocacao.AtualizarRegistros(locacoes);
+                listagemLocacao.AtualizarRegistrosDevolucao(locacoes);
 
-                TelaInicioForm.Instancia.AtualizarRodape($"Visualizando {locacoes.Count} condutor(es)");
+                TelaInicioForm.Instancia.AtualizarRodape($"Visualizando {locacoes.Count} Locações(es)");
             }
             else
             {
-                MessageBox.Show(resultado.Errors[0].Message, "Exclusão de Condutor",
+                MessageBox.Show(resultado.Errors[0].Message, "Exclusão de Locações",
                  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

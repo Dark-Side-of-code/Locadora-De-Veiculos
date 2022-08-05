@@ -42,7 +42,13 @@ namespace Locadora_De_Veiculos.Dominio.ModuloLocacao
 
             RuleFor(x => x.DataFinalPrevista)
                 .NotNull()
-                .NotEmpty();
+                .NotEmpty()
+                .GreaterThan(DateTime.Today);
+
+            RuleFor(x => x.valorEstimado)
+                .NotNull()
+                .NotEmpty()
+                .GreaterThan(0);
 
             /* DEVOLUÇÃO */
             RuleFor(x => x.DataFinalReal)
