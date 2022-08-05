@@ -103,7 +103,11 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
 
             var resultadoValidacao = GravarRegistro(Locacao);
 
-            if (resultadoValidacao.IsFailed)
+            if (!resultadoValidacao.IsFailed)
+            {
+                locacao.Veiculo.StatusVeiculo = false;
+            }
+                if (resultadoValidacao.IsFailed)
             {
                 string erro = resultadoValidacao.Errors[0].Message;
 
@@ -127,12 +131,15 @@ namespace Locadora_De_Veiculos.WindApp.ModuloDevolucao
 
         private void CarregarTaxasExtras()
         {
-            foreach (var taxa in taxas)
+            if(locacao != null)
             {
-                if (!locacao.Taxas.Contains(taxa))
+                foreach (var taxa in taxas)
                 {
-                    if (taxa.TipoDeCobraca == "Fixa")
-                        List_TaxaAdicionais.Items.Add(taxa);
+                    if (!locacao.Taxas.Contains(taxa))
+                    {
+                        if (taxa.TipoDeCobraca == "Fixa")
+                            List_TaxaAdicionais.Items.Add(taxa);
+                    }
                 }
             }
         }
