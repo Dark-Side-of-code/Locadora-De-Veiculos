@@ -25,7 +25,9 @@
     <ProjectReference Include="..\Locadora-De-Veiculos.Dominio\Locadora-De-Veiculos.Dominio.csproj" />
     <ProjectReference Include="..\Locadora-De-Veiculos.Infra.Banco\Locadora-De-Veiculos.Infra.Banco.csproj" />
     <ProjectReference Include="..\Locadora-De-Veiculos.Infra.Orm\Locadora-De-Veiculos.Infra.Orm.csproj" />
+    <ProjectReference Include="..\Locadora_De_Veiculos.Infra.IText7\Locadora_De_Veiculos.Infra.PDF.IText7.csproj" />
     <ProjectReference Include="..\Locadora_De_Veiculos.Infra.Logging\Locadora_De_Veiculos.Infra.Logging.csproj" />
+    <ProjectReference Include="..\Locadora_De_Veiculos.Infra.PDF\Locadora_De_Veiculos.Infra.PDF.csproj" />
   </ItemGroup>
 
   <ItemGroup>

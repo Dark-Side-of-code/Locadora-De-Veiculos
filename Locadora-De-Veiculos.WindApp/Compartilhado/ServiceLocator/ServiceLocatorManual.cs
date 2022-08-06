@@ -15,6 +15,7 @@ using Locadora_De_Veiculos.Infra.Orm.ModuloLocacao;
 using Locadora_De_Veiculos.Infra.Orm.ModuloPlanosDeCobrança;
 using Locadora_De_Veiculos.Infra.Orm.ModuloTaxas;
 using Locadora_De_Veiculos.Infra.Orm.ModuloVeiculo;
+using Locadora_De_Veiculos.Infra.PDF.IText7;
 using Locadora_De_Veiculos.WindApp.ModuloCategoriaDeVeiculos;
 using Locadora_De_Veiculos.WindApp.ModuloCliente;
 using Locadora_De_Veiculos.WindApp.ModuloFuncionario;
@@ -81,8 +82,9 @@ namespace Locadora_De_Veiculos.WindApp.Compartilhado
             var servicoPlanoDeCobranca = new ServicoPlanoDeCobranca(repositorioPlanoDeCobranca, contextoDadosOrm);
             controladores.Add("ControladorPlanoDeCobranca", new ControladorPlanoDeCobranca(servicoCategoriaDeVeiculos, servicoPlanoDeCobranca));
 
+            var geradorRelatorioLocacao = new GeradorRelatorioLocacaoItext7();
             var repositorioLocacao = new RepositorioLocacaoOrm(contextoDadosOrm);
-            var servicoLocacao = new ServicoLocacao(repositorioLocacao, contextoDadosOrm);
+            var servicoLocacao = new ServicoLocacao(repositorioLocacao, contextoDadosOrm, geradorRelatorioLocacao);
             controladores.Add("ControladorDeLocacao", new ControladorDeLocacao(servicoLocacao, servicoFuncionario, servicoCliente, servicoCondutor, servicoCategoriaDeVeiculos, servicoVeiculo, servicoPlanoDeCobranca, servicoTaxa));
         }
 

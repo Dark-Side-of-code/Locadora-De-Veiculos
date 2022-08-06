@@ -152,11 +152,5 @@ namespace Locadora_De_Veiculos.WindApp
         {
             ConfigurarTelaPrincipal(serviceLocator.Get<ControladorDeLocacao>());
         }
-
-        private void toolStripButtonPdf_Click(object sender, EventArgs e)
-        {
-            string pathArquivo = GeraPDF.pathArquivo("Locacao");
-            //GeraPDF.PdfLocacao(pathArquivo);
-        }
     }
 }

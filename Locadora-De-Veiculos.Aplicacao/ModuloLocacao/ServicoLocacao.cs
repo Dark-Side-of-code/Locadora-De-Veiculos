@@ -14,11 +14,13 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloLocacao
     {
         private IRepositorioLocacao repositorioLocacao;
         private IContextoPersistencia contexto;
+        private IGeradorRelatorioLocacao geradorRelatorio;
 
-        public ServicoLocacao(IRepositorioLocacao repositorioLocacao, IContextoPersistencia contexto)
+        public ServicoLocacao(IRepositorioLocacao repositorioLocacao, IContextoPersistencia contexto, IGeradorRelatorioLocacao geradorRalatorio)
         {
             this.repositorioLocacao = repositorioLocacao;
             this.contexto = contexto;
+            this.geradorRelatorio = geradorRalatorio;
         }
 
         public Result<Locacao> Inserir(Locacao arg)
@@ -43,6 +45,7 @@ namespace Locadora_De_Veiculos.Aplicacao.ModuloLocacao
                 repositorioLocacao.Inserir(arg);
 
                 contexto.GravarDados();
+                geradorRelatorio.GeradorRalatorioPdf(arg);
 
                 Log.Logger.Information("Locacao {LocacaoId} inserido com sucesso", arg.Id);
 
